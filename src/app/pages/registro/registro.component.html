@@ -1,48 +1,49 @@
-
-<div class="container" >
-    <h1>Registrate</h1>
-    <form action="" (ngSubmit)="onSubmit()" [formGroup]="registroForm">
-        <div>
-            <input type="text" placeholder="Nickname" #nick formControlName="nickname" required><br>
-            <small *ngIf="registroForm.controls['nickname'].hasError('minlength')">
-                Por favor intoduce un nickname de al menos 4 caracteres
-            </small>
-            <small *ngIf="registroForm.controls['nickname'].hasError('maxlength')">
-                No puedes exceder los 12 caracteres
-            </small>
-        </div>
-        <div>
-            <input type="text" placeholder="Nombre" #nombre formControlName="name" required><br>
-            <small *ngIf="registroForm.controls['name'].hasError('minlength')">
-                Por favor intoduce un nombre de al menos 4 caracteres
-            </small>
-            <small *ngIf="registroForm.controls['name'].hasError('maxlength')">
-                No puedes exceder los 20 caracteres
-            </small>
-        </div>
-        <div>
-            <select  name="Sexo" #sexo formControlName="sexo"> 
-                <option>Mujer</option>
-                <option>Varon</option>
-            </select><br>
-        </div>
-        <div>
-            <input type="email" placeholder="Email" #email formControlName="email" required><br>
-        </div>
-        <div>
-            <input type="password" placeholder="Contraseña" #pass formControlName="pass" [formGroup]="registroForm"><br>
-            <small *ngIf="registroForm.controls['pass'].hasError('pattern')">
-                La contraseña debe tener una longitud minima de 8 caracteres y contener letras en mayusculas,minusculas y numeros
-            </small>
-        </div>
-        <div>
-            <input type="password" placeholder="Repetir contraseña" #pass2 formControlName="pass2"[formGroup]="registroForm"><br>
-            <small *ngIf="registroForm.controls.pass2.errors?.matchPass">
-                Las contraseñas no coinciden
-            </small>
-        </div>
-        <div>
-            <button type="submit" [disabled]="!registroForm.valid" (click)="1">Registrar</button>
-        </div>
-    </form>
+<div class="wrapper">
+    <div class="container" >
+        <h1>SIGN UP</h1>
+        <form action="" (ngSubmit)="onSubmit()" [formGroup]="registroForm">
+            <div>
+                <input type="text" placeholder="Nickname" #nick formControlName="nickname" required><br>
+                <small *ngIf="registroForm.controls['nickname'].hasError('minlength')">
+                    Por favor intoduce un nickname de al menos 4 caracteres
+                </small>
+                <small *ngIf="registroForm.controls['nickname'].hasError('maxlength')">
+                    No puedes exceder los 12 caracteres
+                </small>
+            </div>
+            <div>
+                <input type="text" placeholder="Nombre" #nombre formControlName="name" required><br>
+                <small *ngIf="registroForm.controls['name'].hasError('minlength')">
+                    Por favor intoduce un nombre de al menos 4 caracteres
+                </small>
+                <small *ngIf="registroForm.controls['name'].hasError('maxlength')">
+                    No puedes exceder los 20 caracteres
+                </small>
+            </div>
+            <div>
+                <select  name="Sexo" #sexo formControlName="sexo" required>
+                    <option>Mujer</option>
+                    <option>Varon</option>
+                </select><br>
+            </div>
+            <div>
+                <input type="text" placeholder="Email" #email formControlName="email" required><br>
+            </div>
+            <div>
+                <input type="password" placeholder="Contraseña" #pass formControlName="pass" [formGroup]="registroForm"><br>
+                <small *ngIf="registroForm.controls['pass'].hasError('pattern')">
+                    La contraseña debe tener una longitud minima de 8 caracteres y contener letras en mayusculas,minusculas y numeros
+                </small>
+            </div>
+            <div>
+                <input type="password" placeholder="Repetir contraseña" #pass2 formControlName="pass2"[formGroup]="registroForm"><br>
+                <small *ngIf="registroForm.controls.pass2.errors?.matchPass">
+                    Las contraseñas no coinciden
+                </small>
+            </div>
+            <div>
+                <button type="submit" [disabled]="!registroForm.valid" (click)="1">SIGN UP</button>
+            </div>
+        </form>
+    </div>
 </div>
