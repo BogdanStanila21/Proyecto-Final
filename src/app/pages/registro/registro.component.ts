@@ -6,7 +6,7 @@ import { passValidation } from './custom-validator';
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.scss'],
-  styles:['input.ng-invalid{border: 1px solid red;} input.ng-valid{border:2px solid white;}']
+  styles:['input.ng-invalid{border: 1px solid red;} input.ng-valid{border:2px solid #38a9b8;}']
 })
 export class RegistroComponent implements OnInit {
  

@@ -1,0 +1,35 @@
+<button type="button" class="btn btn-primary" (click)="openModal(name)">Modal</button>
+
+<ng-template #name>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h1>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <br>
+            
+
+            <div class="flex">
+                <div class="izq">
+                    <input class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="text" placeholder="título">
+                    <input class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="text" placeholder="autor">
+                    <input class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="text"
+                        placeholder="año de publicación">
+                    <input class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="text" placeholder="editorial">
+                    <input class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="text" placeholder="género">
+                    <textarea class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" cols="30" rows="8"
+                        placeholder="Descripción del libro... ¡sin spoilers!"></textarea>
+                </div>
+                <div class="dcha">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 imagen" id="div-img"></div>
+                    <button class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 cambiar">Cambiar foto</button>
+                    <button class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 publicar">Publicar libro</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,102 @@
+body{
+    text-align: center;
+}
+
+h1{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    color: black;
+    text-shadow: 3px 3px rgb(197, 197, 197);
+}
+.modal-body{
+    padding: 5px;
+}
+
+h1::before{
+    left: -140px;
+}
+h1::after{
+    right: -140px;
+}
+
+.flex{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+
+input, textarea{
+    margin: 2%;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 5px;
+}
+
+input:hover{
+    background-color: #38a9b83f;
+}
+textarea:hover{
+    background-color: #38a9b83f;
+}
+
+
+
+.imagen{
+    width: 18vw;
+    height: 40vh;
+    background-color: rgba(219, 219, 219, 0.842);
+}
+
+.imagen:hover{
+    transition: ease-out;
+}
+
+.cambiar{
+    margin: 0 auto;
+    width:140px;
+    height: 6vh;
+    background-color: #38a9b8;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.cambiar:hover{
+    background-color: #38a9b8b4;
+    transform: scale(1.04);
+    transition: 0.1s ease-out;
+}
+
+.publicar{
+    margin: 0 auto;
+    width:180px;
+    height: 10vh;
+    margin-top: 12vh;
+    background-color: #38a9b8;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.publicar:hover{
+    background-color: #38a9b8b4;
+    transform: scale(1.04);
+    transition: 0.1s ease-out;
+}
+
+.imagen, .cambiar, .publicar{
+    font-family: 'Oswald', sans-serif;
+    display: block;
+}
+
+.cambiar{
+    margin-top: 2vh;
+}
+
+#div-img{
+    margin:0 40px;
+}
