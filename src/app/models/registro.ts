@@ -7,3 +7,12 @@ export class Registro {
     public pass2:string;
     constructor(){}
 }
+export class Libro{
+    public titulo:string;
+    public autor:string;
+    public anyo:number;
+    public editorial:string;
+    public genero:string;
+    public descripcion:string;
+
+}
