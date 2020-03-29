@@ -1,0 +1,108 @@
+// --------------------------------------------------------------------------------
+
+#wrapper {
+  display: flex;
+}
+.menu {
+  height: 100vh;
+  width: 20vw;
+  background-color: #38a9b8;
+  top: 0px;
+  padding-top: 30px;
+}
+
+.cuadrado {
+  background-color: #0e99ac;
+  height: 300px;
+}
+.circulo {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-color: #31b2c4;
+  margin: 0 auto;
+  padding-top: 7px;
+}
+
+.avatar {
+  height: 185px;
+  width: 185px;
+
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  margin-top: 30px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 30px;
+}
+ul {
+  margin-top: 30px;
+  padding: 0px;
+}
+li {
+  display: block;
+  height: 80px;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 23px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 22px;
+  transition: 1s;
+}
+
+li:hover {
+  background-color: #0e99ac;
+  transition: 0.5s;
+}
+.lib {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  transition: 2s;
+  cursor: pointer;
+  margin-top: 60px;
+}
+.lib:hover {
+  transform: rotate(360deg);
+  transition: 1s;
+}
+#libro {
+  background: #b84982;
+  height: 100px;
+  position: relative;
+  width: 20px;
+  margin: 0 auto;
+}
+#libro:after {
+  background: #b84982;
+  text-align: center;
+  content: "";
+  height: 20px;
+  left: -40px;
+  position: absolute;
+  top: 40px;
+  width: 100px;
+}
+// --------------------------------------------------------------------------------
+
+.favoritos {
+  height: 100vh;
+  width: 80vw;
+  background-color: rgba(137, 214, 214, 0.658);
+}
+
+.fav {
+  height: 70vh;
+  width: 70vw;
+  background-color: #38a9b880;
+  margin: 0 auto;
+  margin-top: 14vh;
+  border-radius: 5px;
+}
