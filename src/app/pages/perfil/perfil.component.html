@@ -1,0 +1,57 @@
+<header>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+</header>
+<div id="fondo"></div>
+<div id="wrapper">
+  <!-- ------------------------------------------- -->
+  <nav class="menu">
+    <div class="cuadrado">
+      <div class="circulo">
+        <header class="avatar">
+          <img src="" />
+        </header>
+      </div>
+      <h2>Señor Negro</h2>
+    </div>
+    <ul>
+      <li [routerLink]="['/perfil']">
+        <span>Editar perfil</span>
+      </li>
+      <li [routerLink]="['/solicitudes']"><span>Solicitudes </span></li>
+      <li [routerLink]="['/misLibros']"><span>Mis libros</span></li>
+      <li [routerLink]="['/favoritos']">
+        <span>Favoritos</span>
+      </li>
+    </ul>
+    <div class="lib">
+      <div id="libro"><span class="subirlibro"></span></div>
+    </div>
+    <!-- ------------------------------------------- -->
+  </nav>
+  <div class="subirelementos">
+    <div id="cajafoto">
+      <div class="cambiarfoto"></div>
+      <div class="subirfoto">Subir foto</div>
+    </div>
+    <div class="cambiarperfil">
+      <input type="text" placeholder="Nombre" />
+      <input type="text" placeholder="Apellido" />
+      <input type="text" placeholder="Correo" />
+      <input type="select" placeholder="Genero" />
+      <input type="password" placeholder="Anterior contraseña" />
+      <input type="password" placeholder="Nueva contraseña" />
+      <p></p>
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10 "
+        placeholder="Sobre ti"
+      ></textarea>
+    </div>
+    <div id="guardar">Guardar</div>
+  </div>
+</div>

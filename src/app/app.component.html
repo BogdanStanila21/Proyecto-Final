@@ -1,7 +1,7 @@
 <section class="navigation">
   <div class="nav-container">
     <div class="brand">
-      <a href="#!">Vitu</a>
+      <a routerLink="#!">Vitu</a>
     </div>
     <nav>
       <div class="nav-mobile">
@@ -9,20 +9,20 @@
       </div>
       <ul class="nav-list">
         <li>
-          <a routerLink="#!">Buscar libros</a>
+          <a routerLink="mostrarLibro">Buscar libros</a>
         </li>
         <li>
-          <a routerLink="#!">Mis favoritos</a>
+          <a routerLink="favoritos">Mis favoritos</a>
         </li>
         <li>
-          <a routerLink="#!">Solicitudes</a>
+          <a routerLink="solicitudes">Solicitudes</a>
         </li>
 
         <li>
-          <a href="#!">Usuario</a>
+          <a>Usuario</a>
           <ul class="nav-dropdown">
             <li>
-              <a routerLink="#!">Mi perfil</a>
+              <a routerLink="perfil">Mi perfil</a>
             </li>
             <div class="nav-divider"></div>
             <li>
@@ -34,9 +34,5 @@
     </nav>
   </div>
 </section>
-
-<article style="height: 100vh; background-color:#c4c4c4;">
-  
-</article>
 
 <router-outlet></router-outlet>
