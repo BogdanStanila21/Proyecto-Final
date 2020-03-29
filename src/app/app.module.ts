@@ -6,9 +6,6 @@ import {ModalModule} from 'ngx-bootstrap'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { RegistroComponent } from './pages/registro/registro.component';
-// import { LoginComponent } from './pages/login/login.component';
-// import { ModalComponent } from './pages/modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MostrarLibrosComponent } from './pages/mostrar-libros/mostrar-libros.component';
@@ -17,6 +14,8 @@ import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 import { MisLibrosComponent } from './pages/mis-libros/mis-libros.component';
 import { SolicitudesComponent } from './pages/solicitudes/solicitudes.component';
 import { ModalIntercambioComponent } from './pages/modal-intercambio/modal-intercambio.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistroComponent } from './pages/registro/registro.component';
 
 
 @NgModule({
@@ -27,7 +26,9 @@ import { ModalIntercambioComponent } from './pages/modal-intercambio/modal-inter
     FavoritosComponent,
     MisLibrosComponent,
     SolicitudesComponent,
-    ModalIntercambioComponent
+    ModalIntercambioComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
   

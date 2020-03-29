@@ -1,17 +1,34 @@
-<body>
-  <div class="flex">
-    <div class="divisor">
-      <div class="contenido"></div>
-      <div class="contenido"></div>
-      <div class="contenido"></div>
-      <div class="contenido"></div>
-      <div class="contenido"></div>
-      <div class="contenido"></div>
+<button type="button" class="btn btn-primary" (click)="openModal(name)">Modal</button>
+
+<ng-template #name >
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h1>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <br>
+            <div class="flex">
+                <div class="izq">
+                    <input class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="text" placeholder="título" #titulo>
+                    <input class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="text" placeholder="autor" #autor>
+                    <input class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="text"
+                        placeholder="año de publicación" #anyo>
+                    <input class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="text" placeholder="editorial" #editorial>
+                    <input class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="text" placeholder="género" #genero>
+                    <textarea class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" cols="30" rows="8"
+                        placeholder="Descripción del libro... ¡sin spoilers!" #descripcion></textarea>
+                </div>
+                <div class="dcha">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 imagen" id="div-img"></div>
+                    <button class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 cambiar" (click)="1">Cambiar foto</button>
+                    <button class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 publicar" type="submit" data-dismiss="modal"
+                    (click)="1"
+                    (click)="modalRef.hide()">Publicar libro</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="divisor">
-      <div id="imagen"></div>
-      <div class="usuario"></div>
-      <div class="puntuacion"></div>
-    </div>
-  </div>
-</body>
+</ng-template>
