@@ -35,7 +35,7 @@ body {
 .wrap {
   width: 30%;
   position: absolute;
-  top: 8%;
+  top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin-top: 20px;
@@ -56,7 +56,7 @@ p {
 
 #listado {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 15%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -255,7 +255,7 @@ p {
   font-size: 18px;
   font-weight: 400;
   color: white;
-  transition: 1s;
+  transition: 0.5s;
 }
 .nombrehover {
   bottom: -50%;
@@ -266,7 +266,7 @@ p {
 .hover:hover .nombrehover {
   bottom: 30%;
   color: white;
-  transition: 1.5s;
+  transition: 1s;
 }
 span {
   text-align: center;
@@ -307,5 +307,3 @@ img {
     background-color: yellowgreen;
   }
 }
-
-

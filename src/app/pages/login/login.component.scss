@@ -1,86 +1,95 @@
-*{
-    font-family:'Oswald', sans-serif ;
+* {
+  font-family: "Oswald", sans-serif;
 }
-.wrapper{
-    margin: 0 auto;
-    padding: 0;
-    width: 100%;
-    background-image: url(https://crsabogados.com/wp-content/uploads/2019/07/La-Obligatoriedad-de-la-Jurisprudencia-1024x632.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 632px;
+.wrapper {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  // background-image: url(https://crsabogados.com/wp-content/uploads/2019/07/La-Obligatoriedad-de-la-Jurisprudencia-1024x632.jpg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-attachment: fixed;
+  // height: 632px;
 }
-div{
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    
+div {
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
-h1{
-    margin-top: 40px;
-    text-align: center;
-    color: white ;
-    text-shadow: 4px 3px #1f737c;
-    height: 49px;
+h1 {
+  margin-top: 15%;
+  text-align: center;
+  color: #31a6b3;
+  //   text-shadow: 4px 3px #030303;
+  height: 49px;
+  transition: 0.5s;
+
+  //   &:hover {
+  //     font-size: 41px;
+  //     text-shadow: 7px 6px #26818b;
+  //   }
+}
+hr {
+  width: 20%;
+}
+form {
+  text-align: center;
+}
+input {
+  margin: 5px 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(94, 163, 190);
+  height: 36px;
+  //   -webkit-box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.75);
+  //   -moz-box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.75);
+  //   box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px -12px 39px -79px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px -12px 39px -79px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px -12px 39px -79px rgba(0, 0, 0, 0.75);
+  background-color: rgba(255, 255, 255, 0.856);
+  width: 290px;
+  font-weight: 300;
+  transition: 1s;
+  text-align: center;
+
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.767);
+    width: 330px;
     transition: 0.5s;
-    &:hover{
-        font-size: 41px;
-        text-shadow: 7px 6px #26818b;
-    }
+
+    // -webkit-box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.75);
+    // -moz-box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.75);
+    // box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.75);
+  }
 }
-form{
-    text-align: center;
-}
-input{
-    margin: 5px 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid white;
-    height: 36px;
-    -webkit-box-shadow: 2px 4px 7px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 4px 7px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 4px 7px 0px rgba(0,0,0,0.75);
-    background-color: rgba(255, 255, 255, 0.288);  
-    width: 190px;
-    font-weight: 300;
-    transition: 0.5s;
-    &:focus{
-        background-color: rgba(255, 255, 255, 0.767);
-        width: 230px;
-        -webkit-box-shadow: 4px 5px 6px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 4px 5px 6px 0px rgba(0,0,0,0.75);
-        box-shadow: 4px 5px 6px 0px rgba(0,0,0,0.75);
-    }
-}
-button{
-    border-radius: 5px;
-    border: 1px solid whitesmoke;
-    width: 190px;
-    height: 36px;
-    -webkit-box-shadow: 2px 8px 12px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 8px 12px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 8px 12px 0px rgba(0,0,0,0.75);
-    background-color: rgba(255, 255, 255, 0.438);
-    transition: 0.5s;
-    &:hover{
-        background-color: rgba(255, 255, 255, 0.767);
-        width: 230px;
-        -webkit-box-shadow: 6px 8px 12px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 6px 8px 12px 0px rgba(0,0,0,0.75);
-        box-shadow: 6px 8px 12px 0px rgba(0,0,0,0.75);
-    }
-    &:enabled{
-        background-color:#38a9b8 ;
-        color: white;
-        border: 2px solid whitesmoke;
-    }
-}
-span{
-    font-size: 12px;
-    width: 90%;
-    margin: 0;
-    padding: 0;
+button {
+  border-radius: 5px;
+  border: 1px solid rgb(78, 179, 219);
+  width: 190px;
+  height: 36px;
+  //   -webkit-box-shadow: 2px 8px 12px 0px rgba(0, 0, 0, 0.75);
+  //   -moz-box-shadow: 2px 8px 12px 0px rgba(0, 0, 0, 0.75);
+  //   box-shadow: 2px 8px 12px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(255, 255, 255, 0.438);
+  transition: 0.5s;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.767);
+    width: 230px;
+    // -webkit-box-shadow: 6px 8px 12px 0px rgba(0, 0, 0, 0.75);
+    // -moz-box-shadow: 6px 8px 12px 0px rgba(0, 0, 0, 0.75);
+    // box-shadow: 6px 8px 12px 0px rgba(0, 0, 0, 0.75);
+  }
+  &:enabled {
+    background-color: #38a9b8;
     color: white;
-    
+    border: 2px solid whitesmoke;
+  }
+}
+span {
+  font-size: 12px;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  color: white;
 }

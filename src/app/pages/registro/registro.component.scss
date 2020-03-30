@@ -1,108 +1,239 @@
-*{
-    font-family:'Oswald', sans-serif ;
+* {
+  font-family: "Oswald", sans-serif;
 }
-.wrapper{
-    margin: 0 auto;
-    padding: 0;
-    width: 99%;
-    background-image: url(https://crsabogados.com/wp-content/uploads/2019/07/La-Obligatoriedad-de-la-Jurisprudencia-1024x632.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 660px;
+.wrapper {
+  margin: 0 auto;
+  padding: 0;
+  width: 99%;
+  // background-image: url(https://crsabogados.com/wp-content/uploads/2019/07/La-Obligatoriedad-de-la-Jurisprudencia-1024x632.jpg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-attachment: fixed;
+  // height: 660px;
 }
 
-div{
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
+div {
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
-h1{
-    margin-top: 20px;
-    text-align: center;
-    color: white ;
-    text-shadow: 4px 3px #1f737c;
-    height: 49px;
-    transition: 0.5s;
-    &:hover{
-        font-size: 40px;
-        text-shadow: 7px 6px #26818b;
+div:first-child {
+  margin-top: 8 0px;
+}
+#raya {
+  height: 1px;
+  width: 20%;
+  background-color: rgba(94, 94, 94, 0.315);
+  padding: 0px;
+  margin: 0 auto;
+}
+h1 {
+  margin-top: 20px;
+  text-align: center;
+  color: #31a6b3;
+  //   text-shadow: 4px 3px #1f737c;
+  height: 49px;
+  transition: 0.5s;
+  //   &:hover {
+  //     font-size: 40px;
+  //     text-shadow: 7px 6px #26818b;
+  //   }
+  hr {
+    width: 20%;
+  }
+}
+form {
+  text-align: center;
+}
+input {
+  margin: 5px 10px;
+  border-radius: 5px;
+  border: 1px;
+  height: 36px;
+  //   -webkit-box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.75);
+  //   -moz-box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.75);
+  //   box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(255, 255, 255, 0.767);
+  text-align: center;
+  width: 190px;
+  font-weight: 300;
+  color: rgb(141, 137, 137);
+  transition: 0.5s;
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.767);
+    width: 230px;
+    // -webkit-box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.75);
+    // -moz-box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.75);
+    // box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.75);
+    color: black;
+  }
+}
+button {
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+  width: 190px;
+  height: 36px;
+  //   -webkit-box-shadow: 2px 8px 12px 0px rgba(0, 0, 0, 0.75);
+  //   -moz-box-shadow: 2px 8px 12px 0px rgba(0, 0, 0, 0.75);
+  //   box-shadow: 2px 8px 12px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(255, 255, 255, 0.664);
+  transition: 0.5s;
+  &:hover {
+    background-color: rgba(83, 182, 196, 0.767);
+    width: 230px;
+    // -webkit-box-shadow: 6px 8px 12px 0px rgba(0, 0, 0, 0.75);
+    // -moz-box-shadow: 6px 8px 12px 0px rgba(0, 0, 0, 0.75);
+    // box-shadow: 6px 8px 12px 0px rgba(0, 0, 0, 0.75);
+  }
+  &:enabled {
+    background-color: #38a9b8;
+    color: rgb(255, 255, 255);
+    border: 2px solid whitesmoke;
+  }
+}
+select {
+  width: 190px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #38a9b8;
+  -webkit-box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(255, 255, 255, 0.288);
+  transition: 0.5s;
+  color: white;
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.767);
+    width: 230px;
+    -webkit-box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.75);
+    color: black;
+  }
+}
+span {
+  font-size: 12px;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+/* ================ */
+/*       Slider     */
+/* ================ */
+
+body {
+  background: #ddd; ///////////////////
+  padding: 0; //
+  margin: 0; //
+  display: flex; //  not important
+  height: 100vh; //
+  align-items: center; //
+  font-family: Arial; //
+  justify-content: center; ///////////////////
+
+  overflow-x: hidden; //  important
+}
+
+/* mixins */
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin transform($transform...) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+/* SLIDER */
+$slider-color: #263238;
+$slide-count: 5; /* <-- Here you may change only slide-count, and all will be work */
+
+#slider {
+  position: relative;
+  max-width: 1920px * 0.4; /////////////////
+  max-height: 1080px * 0.4; //  not important
+  padding: 0.5%; //
+  background: rgba($slider-color, 0.5); /////////////////
+
+  input {
+    display: none;
+  }
+}
+
+/* Slider Setup */
+
+#slider {
+  @for $i from 1 through $slide-count {
+    #slide#{$i}:checked ~ .slides .inner {
+      margin-left: -(($i - 1) * 100%);
     }
-}
-form{
-    text-align: center;
-}
-input{
-    margin: 5px 10px;
-    border-radius: 5px;
-    border: 1px solid;
-    height: 36px;
-    -webkit-box-shadow: 2px 4px 7px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 4px 7px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 4px 7px 0px rgba(0,0,0,0.75);
-    background-color: rgba(255, 255, 255, 0.288);  
-    width: 190px;
-    font-weight: 300;
-    color: white;
-    transition: 0.5s;
-    &:focus{
-        background-color: rgba(255, 255, 255, 0.767);
-        width: 230px;
-        -webkit-box-shadow: 4px 5px 6px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 4px 5px 6px 0px rgba(0,0,0,0.75);
-        box-shadow: 4px 5px 6px 0px rgba(0,0,0,0.75);
-        color:black;
+  }
+
+  .overflow {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .inner {
+    width: $slide-count * 100%;
+    line-height: 0;
+  }
+
+  .slide {
+    position: relative;
+    width: 100% / $slide-count;
+    float: left;
+
+    img {
+      width: 100%;
     }
+  }
 }
-button{
-    border-radius: 5px;
-    border: 1px solid whitesmoke;
-    width: 190px;
-    height: 36px;
-    -webkit-box-shadow: 2px 8px 12px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 8px 12px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 8px 12px 0px rgba(0,0,0,0.75);
-    background-color: rgba(255, 255, 255, 0.438);
-    transition: 0.5s;
-    &:hover{
-        background-color: rgba(255, 255, 255, 0.767);
-        width: 230px;
-        -webkit-box-shadow: 6px 8px 12px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 6px 8px 12px 0px rgba(0,0,0,0.75);
-        box-shadow: 6px 8px 12px 0px rgba(0,0,0,0.75);
-    }
-    &:enabled{
-        background-color:#38a9b8 ;
-        color: white;
-        border: 2px solid whitesmoke;
-    }
-}
-select{
-    width: 190px;
-    height: 36px;
-    border-radius: 8px;
-    border: 1px solid #38a9b8;
-    -webkit-box-shadow: 2px 4px 7px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 4px 7px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 4px 7px 0px rgba(0,0,0,0.75);
-    background-color: rgba(255, 255, 255, 0.288);
-    transition: 0.5s;
-    color:white;
-    &:focus{
-        
-        background-color: rgba(255, 255, 255, 0.767);
-        width: 230px;
-        -webkit-box-shadow: 4px 5px 6px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 4px 5px 6px 0px rgba(0,0,0,0.75);
-        box-shadow: 4px 5px 6px 0px rgba(0,0,0,0.75);
-        color: black;
-    }
-}
-span{
-    font-size: 12px;
+
+/* Control Setup */
+
+#slider {
+  /* ARROWS */
+  #controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
     width: 90%;
-    margin: 0;
-    padding: 0;
-    color: white;
-    
+    box-sizing: border-box;
+
+    label {
+      position: relative;
+      display: none;
+      width: 9%;
+      padding-top: 9%; /* height same as width */
+      border-top: 0.9vw solid $slider-color;
+      border-left: 0.9vw solid $slider-color;
+      opacity: 0.3;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        display: inline-block;
+        width: 400%;
+        height: 400%;
+      }
+    }
+  }
 }

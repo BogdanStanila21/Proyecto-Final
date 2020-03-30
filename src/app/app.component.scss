@@ -1,11 +1,11 @@
 /* Control de estilos */
 * {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-    vertical-align: baseline;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  vertical-align: baseline;
 }
 
 /* Variables para colores*/
@@ -24,8 +24,8 @@ $nav-height: 58px;
 $breakpoint: 768px;
 
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: $color-grey;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: $color-grey;
 }
 
 // Navigation Variables
@@ -54,7 +54,13 @@ $nav-background: white;
     text-decoration: none;
   }
 }
-
+img {
+  height: 110px;
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  cursor: pointer;
+}
 /* Contenedor sin padding */
 .nav-container {
   max-width: $content-width;
@@ -82,14 +88,14 @@ nav {
         &:hover {
           background: $color-hover;
           color: white;
-          transition: .4s;
+          transition: 0.4s;
         }
         &:not(:only-child):after {
           padding-left: 4px;
-          content: ' ▾';
+          content: " ▾";
         }
       }
-       /* Lista del dropdown */
+      /* Lista del dropdown */
       ul li {
         min-width: 190px;
         a {
@@ -128,7 +134,7 @@ nav {
     display: block;
   }
   nav {
-   width: 100%;
+    width: 100%;
     padding: $nav-height 0 15px;
     ul {
       display: none;
@@ -155,7 +161,7 @@ nav {
 }
 #nav-toggle {
   position: absolute;
-//   left: 18px;
+  //   left: 18px;
   top: 18px;
   cursor: pointer;
   padding: 10px 35px 16px 0px;
@@ -170,7 +176,7 @@ nav {
     background: $color-primary;
     position: absolute;
     display: block;
-    content: '';
+    content: "";
     transition: all 300ms ease-in-out;
   }
 
@@ -189,19 +195,18 @@ nav {
       top: 0;
     }
     &:before {
-    //   transform: rotate(45deg);
-      transform: translate3d(0,0,0);
+      //   transform: rotate(45deg);
+      transform: translate3d(0, 0, 0);
     }
     &:after {
-    //   transform: rotate(-45deg);
-      transform: translate3d(0,0,0);
+      //   transform: rotate(-45deg);
+      transform: translate3d(0, 0, 0);
     }
   }
 }
 
 .nav-divider {
-    height: 1px;
-    width: 100%;
-    background-color: $color-grey;
+  height: 1px;
+  width: 100%;
+  background-color: $color-grey;
 }
-

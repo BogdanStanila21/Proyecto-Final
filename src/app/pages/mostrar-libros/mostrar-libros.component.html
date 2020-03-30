@@ -56,7 +56,9 @@
               <div class="nombrehover">
                 <span>El despertar de los dragones</span>
               </div>
-              <div class="botonhover">Solicitar cambio</div>
+              <div class="botonhover" (click)="openModal(name)">
+                Solicitar cambio
+              </div>
             </div>
             <img
               src="https://images-eu.ssl-images-amazon.com/images/I/51iySQy3d1L.jpg"
@@ -67,7 +69,9 @@
               <div class="nombrehover">
                 <span>One piece</span>
               </div>
-              <div class="botonhover">Solicitar cambio</div>
+              <div class="botonhover" (click)="openModal(name)">
+                Solicitar cambio
+              </div>
             </div>
             <img
               src="https://vignette.wikia.nocookie.net/onepiece/images/c/cc/Volumen_95.png/revision/latest?cb=20191219142941&path-prefix=es"
@@ -78,7 +82,9 @@
               <div class="nombrehover">
                 <span>Thanos</span>
               </div>
-              <div class="botonhover">Solicitar cambio</div>
+              <div class="botonhover" (click)="openModal(name)">
+                Solicitar cambio
+              </div>
             </div>
             <img
               src="https://www.zonanegativa.com/imagenes/2017/11/Thanos_13_Portada.jpg"
@@ -97,7 +103,9 @@
               <div class="nombrehover">
                 <span>Persepolis</span>
               </div>
-              <div class="botonhover">Solicitar cambio</div>
+              <div class="botonhover" (click)="openModal(name)">
+                Solicitar cambio
+              </div>
             </div>
 
             <img
@@ -109,7 +117,9 @@
               <div class="nombrehover">
                 <span>Coding for dummies</span>
               </div>
-              <div class="botonhover">Solicitar cambio</div>
+              <div class="botonhover" (click)="openModal(name)">
+                Solicitar cambio
+              </div>
             </div>
             <img
               src="https://mms.businesswire.com/media/20150225005807/en/454634/5/Coding_For_Dummies_cover_image.jpg"
@@ -120,7 +130,9 @@
               <div class="nombrehover">
                 <span>Dracula</span>
               </div>
-              <div class="botonhover">Solicitar cambio</div>
+              <div class="botonhover" (click)="openModal(name)">
+                Solicitar cambio
+              </div>
             </div>
             <img
               src="https://www.canva.com/learn/wp-content/uploads/2015/03/draculabramstoker-tb-800x0.jpg"
@@ -139,7 +151,9 @@
               <div class="nombrehover">
                 <span>Juego de tronos</span>
               </div>
-              <div class="botonhover">Solicitar cambio</div>
+              <div class="botonhover" (click)="openModal(name)">
+                Solicitar cambio
+              </div>
             </div>
             <img
               src="https://statics.convergencia.trevenque.es/portadas/Originales/LIBRANDA/9788416767106.jpg"
@@ -150,7 +164,9 @@
               <div class="nombrehover">
                 <span>El señor de los anillos</span>
               </div>
-              <div class="botonhover">Solicitar cambio</div>
+              <div class="botonhover" (click)="openModal(name)">
+                Solicitar cambio
+              </div>
             </div>
             <img src="https://www.librosdemario.com/covers/86/67/cover.jpg" />
           </li>
@@ -159,7 +175,9 @@
               <div class="nombrehover">
                 <span>Harry potter y la camara secreta</span>
               </div>
-              <div class="botonhover">Solicitar cambio</div>
+              <div class="botonhover" (click)="openModal(name)">
+                Solicitar cambio
+              </div>
             </div>
             <img
               src="https://kbimages1-a.akamaihd.net/87de68f8-ba0e-4236-88b0-402700d22168/1200/1200/False/harry-potter-y-la-camara-secreta-1.jpg"
@@ -171,4 +189,33 @@
       <div class="estante"></div>
     </div>
   </main>
+  <ng-template #name>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title pull-left">¡Intercambio!</h3>
+        <button
+          type="button"
+          class="close pull-right"
+          aria-label="Close"
+          (click)="modalRef.hide()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <br />
+        <h4>Selecciona el libro que deseas cambiar</h4>
+        <select name="libro" id="selectModal">
+          <option disabled value="" selected>Seleciona un libro</option>
+          <option>Primero</option>
+          <option>Segundo</option>
+          <option>Tercero</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button (click)="modalRef.hide()">Acceptar</button>
+        <button (click)="modalRef.hide()">Cancelar</button>
+      </div>
+    </div>
+  </ng-template>
 </body>

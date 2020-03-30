@@ -16,6 +16,7 @@ import { SolicitudesComponent } from './pages/solicitudes/solicitudes.component'
 import { ModalIntercambioComponent } from './pages/modal-intercambio/modal-intercambio.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
     SolicitudesComponent,
     ModalIntercambioComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    HomeComponent
   ],
   imports: [
   
