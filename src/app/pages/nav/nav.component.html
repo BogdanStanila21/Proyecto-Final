@@ -1,39 +1,51 @@
-<app-nav></app-nav>
-<header>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
-</header>
-<div id="fondo"></div>
-<div id="wrapper">
-  <!-- ------------------------------------------- -->
+<section class="navigation">
+  <div class="nav-container">
+    <div class="brand" [routerLink]="['/mostrarLibro']">
+      <img src="https://i.ibb.co/DRR136C/Logo.png" alt="Logo" border="0" />
 
-  <div class="subirelementos">
-    <div id="cajafoto">
-      <div class="colum">
-        <div class="cambiarfoto"></div>
-        <div class="subirfoto">Subir foto</div>
-      </div>
-      <div class="cambiarperfil">
-        <input type="text" placeholder="Nombre" />
-        <input type="text" placeholder="Apellido" />
-        <input type="text" placeholder="Correo" />
-        <input type="select" placeholder="Genero" />
-        <input type="password" placeholder="Anterior contraseña" />
-        <input type="password" placeholder="Nueva contraseña" />
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10 "
-          placeholder="Sobre ti"
-        ></textarea>
-        <div id="guardar">Guardar</div>
-      </div>
+      <a routerLink="#!"> Vitu</a>
     </div>
+    <div></div>
+    <nav>
+      <div class="nav-mobile">
+        <a id="nav-toggle" href="#!"><span></span></a>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a
+            type="button"
+            id="publicar"
+            data-toggle="modal"
+            data-target="#staticBackdrop"
+          >
+            Publicar libro
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/mostrarLibro']" routeractiveLink="mostrarLibro"
+            >Buscar libros</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/favoritos']">Mis favoritos</a>
+        </li>
+        <li>
+          <a [routerLink]="['/solicitudes']">Solicitudes</a>
+        </li>
+        <li>
+          <a [routerLink]="['/peticiones']">Peticiones</a>
+        </li>
+        <li>
+          <a [routerLink]="['/misLibros']">Mis libros</a>
+        </li>
+
+        <li>
+          <a [routerLink]="['/perfil']">Mi perfil</a>
+        </li>
+      </ul>
+    </nav>
   </div>
-</div>
+</section>
 
 <div
   class="modal fade"
@@ -47,16 +59,16 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <!-- <div class="modal-header">
-        <h3 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h3>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> -->
+      <h3 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h3>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> -->
       <div class="modal-body">
         <div class="flex">
           <div class="izq">

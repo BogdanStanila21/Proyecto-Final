@@ -4,7 +4,8 @@
 .wrapper {
   margin: 0 auto;
   padding: 0;
-  width: 99%;
+  width: 100%;
+
   // background-image: url(https://crsabogados.com/wp-content/uploads/2019/07/La-Obligatoriedad-de-la-Jurisprudencia-1024x632.jpg);
   // background-repeat: no-repeat;
   // background-size: cover;
@@ -12,12 +13,18 @@
   // height: 660px;
 }
 
-div {
+.nick,
+.nombre,
+.sexo,
+.email,
+.pass,
+.pass2,
+.subir {
   align-items: center;
   justify-content: center;
   padding: 10px;
 }
-div:first-child {
+.nick {
   margin-top: 8 0px;
 }
 #raya {
@@ -26,9 +33,11 @@ div:first-child {
   background-color: rgba(94, 94, 94, 0.315);
   padding: 0px;
   margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 h1 {
-  margin-top: 20px;
+  margin-top: 10%;
   text-align: center;
   color: #31a6b3;
   //   text-shadow: 4px 3px #1f737c;
@@ -55,7 +64,7 @@ input {
   //   box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.75);
   background-color: rgba(255, 255, 255, 0.767);
   text-align: center;
-  width: 190px;
+  width: 290px;
   font-weight: 300;
   color: rgb(141, 137, 137);
   transition: 0.5s;
@@ -68,12 +77,15 @@ input {
     color: black;
   }
 }
+option {
+  width: 230px;
+}
 button {
-  margin-top: 20px;
   border-radius: 5px;
   border: 1px solid whitesmoke;
   width: 190px;
-  height: 36px;
+  height: 46px;
+  cursor: pointer;
   //   -webkit-box-shadow: 2px 8px 12px 0px rgba(0, 0, 0, 0.75);
   //   -moz-box-shadow: 2px 8px 12px 0px rgba(0, 0, 0, 0.75);
   //   box-shadow: 2px 8px 12px 0px rgba(0, 0, 0, 0.75);
@@ -125,7 +137,6 @@ span {
 /* ================ */
 
 body {
-  background: #ddd; ///////////////////
   padding: 0; //
   margin: 0; //
   display: flex; //  not important
@@ -164,7 +175,7 @@ $slide-count: 5; /* <-- Here you may change only slide-count, and all will be wo
   background: rgba($slider-color, 0.5); /////////////////
 
   input {
-    display: none;
+    border: 1px solid rgb(94, 163, 190);
   }
 }
 
@@ -237,3 +248,8 @@ $slide-count: 5; /* <-- Here you may change only slide-count, and all will be wo
     }
   }
 }
+p {
+  margin-top: 30px;
+  color: #31a6b3;
+}
+// --------------------------------------------------------------------------------

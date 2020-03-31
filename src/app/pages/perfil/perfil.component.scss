@@ -40,122 +40,17 @@
     rgba(230, 230, 230, 1) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=1 );
-}
-.menu {
   height: 100vh;
-  width: 20vw;
-  background: #f2f2f200;
-  top: 0px;
 }
-
-.cuadrado {
-  background: #f2f2f210;
-  height: 330px;
-  padding-top: 30px;
-}
-.circulo {
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  background: #f2f2f2;
-  margin: 0 auto;
-  padding-top: 7px;
-}
-
-.avatar {
-  height: 185px;
-  width: 185px;
-  border: 3px solid #0e99ac;
-  border-radius: 50%;
-  background-color: rgb(255, 255, 255);
-  margin-top: 30px;
-  margin: 0 auto;
-}
-
-h2 {
-  text-align: center;
-  margin-top: 30px;
-}
-ul {
-  margin-top: 30px;
-  padding: 0px;
-}
-li {
-  display: block;
-  height: 80px;
-  cursor: pointer;
-  text-align: center;
-  padding-top: 23px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  font-size: 22px;
-  transition: 1s;
-  color: black;
-}
-
-li:hover {
-  background-color: rgba(32, 175, 175, 0.658);
-  transition: 0.5s;
-  color: white;
-}
-.lib {
-  height: 100px;
-  width: 100px;
-  margin: 0 auto;
-  border-radius: 50%;
-  transition: 2s;
-  cursor: pointer;
-  margin-top: 60px;
-}
-.lib:hover {
-  transform: rotate(360deg);
-  transition: 1s;
-}
-#libro {
-  background: #0e99ac;
-  height: 100px;
-  position: relative;
-  width: 20px;
-  margin: 0 auto;
-  transition: 1s;
-}
-#libro:after {
-  background: #0e99ac;
-  text-align: center;
-  content: "";
-  height: 20px;
-  left: -40px;
-  position: absolute;
-  top: 40px;
-  width: 100px;
-  transition: 1s;
-}
-.lib:hover #libro:after {
-  background-color: #a70eac;
-  transition: 1s;
-}
-.lib:hover #libro {
-  background-color: #a70eac;
-  transition: 1s;
-}
-
 // --------------------------------------------------------------------------------
 
-.subirelementos {
-  height: 80vh;
-  width: 70%;
-  margin-left: 70px;
-  margin-top: 100px;
-}
-
 #cajafoto {
-  height: 70vh;
   width: 100%;
-  background-image: url();
-  border-radius: 10px;
   // margin: 50px 0px 10px 100px;
-  padding: 45px 45px 45px 45px;
+  padding: 45px;
   display: flex;
+  margin: 0 auto;
+  margin-top: 5%;
 }
 .cambiarfoto {
   height: 250px;
@@ -172,8 +67,8 @@ li:hover {
   text-align: center;
   border-radius: 5px;
   margin: 0 auto;
-  margin-top: -50%;
-  color: rgb(216, 216, 216);
+  margin-top: -30%;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   cursor: pointer;
   transition: 1s;
@@ -214,7 +109,7 @@ textarea {
   background-color: #0e99ac;
   border-radius: 5px;
   margin: 0 auto;
-  color: rgb(230, 228, 228);
+  color: rgb(255, 255, 255);
   font-weight: bold;
   font-size: 30px;
   padding-top: 24px;

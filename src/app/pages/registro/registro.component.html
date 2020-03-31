@@ -1,9 +1,9 @@
 <div class="wrapper">
   <div class="container">
-    <h1>SIGN UP</h1>
+    <h1>REGISTER</h1>
     <div id="raya"></div>
     <form action="" (ngSubmit)="onSubmit()" [formGroup]="registroForm">
-      <div>
+      <div id="nick">
         <input
           type="text"
           placeholder="Nickname"
@@ -18,7 +18,7 @@
           No puedes exceder los 12 caracteres
         </span>
       </div>
-      <div>
+      <div class="nombre">
         <input
           type="text"
           placeholder="Nombre"
@@ -33,13 +33,13 @@
           No puedes exceder los 20 caracteres
         </span>
       </div>
-      <div>
+      <div class="sexo">
         <select name="Sexo" #sexo formControlName="sexo" required>
           <option>Mujer</option>
           <option>Varon</option> </select
         ><br />
       </div>
-      <div>
+      <div class="email">
         <input
           type="text"
           placeholder="Email"
@@ -51,7 +51,7 @@
           Email no valido
         </span>
       </div>
-      <div>
+      <div class="pass">
         <input
           type="password"
           placeholder="Contraseña"
@@ -64,7 +64,7 @@
           contener letras en mayusculas,minusculas y numeros
         </span>
       </div>
-      <div>
+      <div class="pass2">
         <input
           type="password"
           placeholder="Repetir contraseña"
@@ -78,12 +78,20 @@
       </div>
       <div id="raya"></div>
 
-      <div>
-        <button type="submit" [disabled]="!registroForm.valid" (click)="(1)">
+      <div class="subir">
+        <button
+          [routerLink]="['/login']"
+          type="submit"
+          [disabled]="!registroForm.valid"
+          (click)="(1)"
+        >
           SIGN UP
         </button>
+        <p>
+          Ya estas registrado?
+          <a [routerLink]="['/home']">Entra</a>
+        </p>
       </div>
     </form>
   </div>
 </div>
-<!-- ---------------------------------------------------------------------------------------------------------- -->

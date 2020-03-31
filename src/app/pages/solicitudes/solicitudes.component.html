@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <header>
   <link
     rel="stylesheet"
@@ -7,56 +8,96 @@
 <div id="fondo"></div>
 <div id="wrapper">
   <!-- ------------------------------------------- -->
-  <nav class="menu">
-    <div class="cuadrado">
-      <div class="circulo">
-        <header class="avatar">
-          <img src="" />
-        </header>
-      </div>
-      <h2>Señor Negro</h2>
-    </div>
-    <ul>
-      <li [routerLink]="['/perfil']">
-        <span>Editar perfil</span>
-      </li>
-      <li
-        [routerLink]="['/solicitudes']"
-        style="  background-color: rgba(32, 175, 175, 0.658);"
-      >
-        <span>Solicitudes </span>
-      </li>
-      <li [routerLink]="['/misLibros']"><span>Mis libros</span></li>
-      <li [routerLink]="['/favoritos']">
-        <span>Favoritos</span>
-      </li>
-    </ul>
-    <div class="lib">
-      <div
-        id="libro"
-        type="button"
-        data-toggle="modal"
-        data-target="#staticBackdrop"
-      >
-        <span class="subirlibro"></span>
-      </div>
-    </div>
-    <!-- ------------------------------------------- -->
-  </nav>
-</div>
 
-<div
-  class="modal fade"
-  id="staticBackdrop"
-  data-backdrop="static"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <!-- <div class="modal-header">
+  <div class="solicitudes">
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+    <div class="solicitud">
+      <div class="foto"></div>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="solboton">Aceptar</div>
+      <div class="solboton rojo">Rechazar</div>
+    </div>
+  </div>
+  <!-- ------------------------------------------------------------------------------------------------------------- -->
+
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-backdrop="static"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
         <h3 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h3>
         <button
           type="button"
@@ -67,49 +108,60 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div> -->
-      <div class="modal-body">
-        <div class="flex">
-          <div class="izq">
-            <input class="inpmodal" type="text" placeholder="título" #titulo />
-            <input class="inpmodal" type="text" placeholder="autor" #autor />
-            <input
-              class="inpmodal"
-              type="text"
-              placeholder="año de publicación"
-              #anyo
-            />
-            <input
-              class="inpmodal"
-              type="text"
-              placeholder="editorial"
-              #editorial
-            />
-            <input class="inpmodal" type="text" placeholder="género" #genero />
-            <textarea
-              class="inpmodal"
-              cols="20"
-              rows="5"
-              placeholder="Descripción del libro... ¡sin spoilers!"
-              #descripcion
-            ></textarea>
-          </div>
-          <div class="dcha">
-            <div class=" imagen" id="div-img"></div>
-            <button class=" cambiar" (click)="(1)">
-              Cambiar foto
-            </button>
+        <div class="modal-body">
+          <div class="flex">
+            <div class="izq">
+              <input
+                class="inpmodal"
+                type="text"
+                placeholder="título"
+                #titulo
+              />
+              <input class="inpmodal" type="text" placeholder="autor" #autor />
+              <input
+                class="inpmodal"
+                type="text"
+                placeholder="año de publicación"
+                #anyo
+              />
+              <input
+                class="inpmodal"
+                type="text"
+                placeholder="editorial"
+                #editorial
+              />
+              <input
+                class="inpmodal"
+                type="text"
+                placeholder="género"
+                #genero
+              />
+              <textarea
+                class="inpmodal"
+                cols="20"
+                rows="5"
+                placeholder="Descripción del libro... ¡sin spoilers!"
+                #descripcion
+              ></textarea>
+            </div>
+            <div class="dcha">
+              <div class=" imagen" id="div-img"></div>
+              <button class=" cambiar" (click)="(1)">
+                Cambiar foto
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button
-          class="publicar"
-          type="submit"
-          data-dismiss="modal"
-          (click)="(1)"
-        >
-          Publicar libro
-        </button>
+        <div class="modal-footer">
+          <button
+            class="publicar"
+            type="submit"
+            data-dismiss="modal"
+            (click)="(1)"
+          >
+            Publicar libro
+          </button>
+        </div>
       </div>
     </div>
   </div>

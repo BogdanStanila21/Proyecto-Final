@@ -17,6 +17,8 @@ import { ModalIntercambioComponent } from './pages/modal-intercambio/modal-inter
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { HomeComponent } from './pages/home/home.component';
+import { NavComponent } from './pages/nav/nav.component';
+import { PeticionesComponent } from './pages/peticiones/peticiones.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { HomeComponent } from './pages/home/home.component';
     ModalIntercambioComponent,
     LoginComponent,
     RegistroComponent,
-    HomeComponent
+    HomeComponent,
+    NavComponent,
+    PeticionesComponent
   ],
   imports: [
   

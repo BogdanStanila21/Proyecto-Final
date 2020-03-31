@@ -248,3 +248,21 @@ input {
 #div-img {
   margin: 040px;
 }
+
+.celementos {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 60px;
+  margin: 0 auto;
+}
+
+.elemento {
+  height: 400px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 30px;
+
+  background-image: url(https://images-na.ssl-images-amazon.com/images/I/51q-YHB62GL._AC_SY400_.jpg);
+  background-size: cover;
+}

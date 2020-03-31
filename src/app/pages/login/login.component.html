@@ -20,9 +20,19 @@
         /><br />
       </div>
       <div>
-        <button type="submit" [disabled]="!loginForm.valid" (click)="(1)">
+        <button
+          [routerLink]="['/mostrarLibro']"
+          type="submit"
+          [disabled]="!loginForm.valid"
+          (click)="(1)"
+        >
           SIGN IN
         </button>
+
+        <p>
+          Aun no te has registrado?
+          <a [routerLink]="['/registro']">Registrate</a>
+        </p>
       </div>
     </form>
   </div>

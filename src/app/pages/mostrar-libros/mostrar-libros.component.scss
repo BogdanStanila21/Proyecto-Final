@@ -55,13 +55,22 @@ p {
 }
 
 #listado {
-  position: absolute;
+  position: fixed;
   top: 55%;
-  left: 15%;
+  left: -10.5%;
   transform: translate(-50%, -50%);
   margin: 0;
   padding: 0;
-  /* display: flex; */
+  display: flex;
+  flex-wrap: wrap;
+  background: #97dbe4;
+  width: 28em;
+  height: 55em;
+  border-radius: 15px;
+  transition: 1s;
+}
+#listado:hover {
+  left: 12%;
 }
 
 #listado .elementofiltro {
@@ -88,6 +97,7 @@ p {
   transform: perspective(100px) rotate(-30deg) skew(25deg) translate(0, 0);
   transition: 0.5s;
   box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
   margin-top: 50px;
 }
 
@@ -299,6 +309,11 @@ img {
   background-color: #f9f9f9;
   border-radius: 2px;
   z-index: 3;
+}
+#ocultar {
+  background-color: black;
+  height: 100px !important;
+  width: 100px !important;
 }
 
 // ------------------------------------------------------------------------------------------------------------------------------------- Media query

@@ -9,6 +9,8 @@ import { ModalIntercambioComponent } from "./pages/modal-intercambio/modal-inter
 import { LoginComponent } from "./pages/login/login.component";
 import { RegistroComponent } from "./pages/registro/registro.component";
 import { HomeComponent } from "./pages/home/home.component";
+import { NavComponent } from "./pages/nav/nav.component";
+import { PeticionesComponent } from "./pages/peticiones/peticiones.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: "intercambio", component: ModalIntercambioComponent },
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent },
-  { path: "home", component: HomeComponent }
+  { path: "home", component: HomeComponent },
+  { path: "nav", component: NavComponent },
+  { path: "peticiones", component: PeticionesComponent }
 ];
 
 @NgModule({
