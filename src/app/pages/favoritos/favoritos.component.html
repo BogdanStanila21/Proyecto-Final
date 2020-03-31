@@ -13,7 +13,8 @@
     <div class="cuadrado">
       <div class="circulo">
         <header class="avatar">
-          <img src="" />
+          <img id="imgPerfil" src="https://previews.123rf.com/images/dualororua/dualororua1801/dualororua180100142/92769891-ni%C3%B1a-sentada-en-una-silla-leyendo-un-libro.jpg" alt="">
+      
         </header>
       </div>
       <h2>Señor Negro</h2>
@@ -41,18 +42,14 @@
         <span class="subirlibro"></span>
       </div>
     </div>
-    <div class="celementos">
-      <div class="elemento"></div>
-      <div class="elemento"></div>
-      <div class="elemento"></div>
-      <div class="elemento"></div>
-      <div class="elemento"></div>
-      <div class="elemento"></div>
-      <div class="elemento"></div>
-      <div class="elemento"></div>
-    </div>
     <!-- ------------------------------------------- -->
   </nav>
+
+  <div class="row" id="misFavoritos">
+    <div id="favorito"><img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9_screen.jpg?ts=1561547637" alt=""><button id="eBoton"type="button" (click)="1">Eliminar artículo</button> </div>
+    <div id="favorito"><img src="https://www.planetadelibros.com/usuaris/libros/fotos/282/m_libros/281012_portada_el-libro-de-los-errores_skip-prichard_201809252045.jpg" alt=""><button id="eBoton"type="button" (click)="1">Eliminar artículo</button> </div>
+    <div id="favorito"><img src="https://www.informavalencia.com/wp-content/uploads/2019/12/el_manuscrito_de_antioquia.jpg" alt=""><button id="eBoton"type="button" (click)="1">Eliminar artículo</button> </div>
+  </div>
 </div>
 
 <div
@@ -64,6 +61,7 @@
   aria-labelledby="staticBackdropLabel"
   aria-hidden="true"
 >
+
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <!-- <div class="modal-header">
@@ -118,7 +116,7 @@
           data-dismiss="modal"
           (click)="(1)"
         >
-          Publicar libro
+          <!--Publicar libro-->
         </button>
       </div>
     </div>
