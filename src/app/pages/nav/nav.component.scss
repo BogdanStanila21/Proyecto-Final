@@ -1,42 +1,28 @@
-/* Control de estilos */
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
-  vertical-align: baseline;
-}
-
-/* Variables para colores*/
-$color-primary: #38a9b8;
-$color-hover: #297d88;
-$color-grey: #c4c4c4;
-$color-grey-dark: #9b9b9b;
-$color-success: #569e29;
-$color-warning: #dcd20c;
-$color-danger: #e20029;
-
-/* Variable para tamaño de la barra de navegación */
-$nav-height: 58px;
-
-/* Variables para breakpoints */
-$breakpoint: 768px;
+@import '../../app.component.scss';
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   background-color: $color-grey;
 }
 
-// Navigation Variables
-$content-width: 1300px;
-$nav-background: white;
-
 // Outer navigation wrapper
 .navigation {
   height: $nav-height;
   background: $nav-background;
   box-shadow: 0 3px 12px #00000026;
+
+  /* Reset para el botón */
+  button {
+    font-size: 100%;
+    font-family: inherit;
+    border: 0;
+    padding: 0;
+
+    &:active{
+      border: 0;
+      padding: 0;
+    }
+  }
 }
 
 /* Logo */
@@ -48,6 +34,7 @@ $nav-background: white;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.4em;
+
   a,
   a:visited {
     color: $color-primary;
@@ -78,7 +65,8 @@ nav {
       float: left;
       position: relative;
       a,
-      a:visited {
+      a:visited,
+      button {
         display: block;
         padding: 0 20px;
         line-height: $nav-height;
@@ -118,7 +106,6 @@ nav {
 }
 
 /* Mobile navigation */
-
 /* Union con el "toggle" de móvil */
 .nav-mobile {
   display: none;
@@ -133,6 +120,10 @@ nav {
   /* Hamburguesa de la navegación para ver sólo en móvil */
   .nav-mobile {
     display: block;
+
+    button {
+      background-color: white;
+    }
   }
   nav {
     width: 100%;
@@ -155,11 +146,14 @@ nav {
     position: static;
   }
 }
+
 @media screen and (min-width: $breakpoint) {
   .nav-list {
     display: block !important;
   }
 }
+
+
 #nav-toggle {
   position: absolute;
   //   left: 18px;
@@ -211,6 +205,7 @@ nav {
   width: 100%;
   background-color: $color-grey;
 }
+
 h1 {
   font-family: "Oswald", sans-serif;
   text-align: center;

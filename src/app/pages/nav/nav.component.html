@@ -1,52 +1,82 @@
+<script>
+/* jQuery para la barra de navegación */
+  (function($) {
+    // Begin jQuery
+    $(function() {
+      // DOM ready
+      // If a link has a dropdown, add sub menu toggle.
+      $("nav ul li button").click(function(e) {
+        $(this)
+          .siblings(".nav-dropdown")
+          .toggle();
+        // Close one dropdown when selecting another
+        $(".nav-dropdown")
+          .not($(this).siblings())
+          .hide();
+        e.stopPropagation();
+      });
+      // Clicking away from dropdown will remove the dropdown class
+      $("html").click(function() {
+        $(".nav-dropdown").hide();
+      });
+      // Toggle open and close nav styles on click
+      $("#nav-toggle").click(function() {
+        $("nav ul").slideToggle();
+      });
+      // Hamburger to X toggle
+      $("#nav-toggle").on("click", function() {
+        this.classList.toggle("active");
+      });
+    }); // end DOM ready
+  })(jQuery); // end jQuery
+  </script>
+
 <section class="navigation">
   <div class="nav-container">
-    <div class="brand" [routerLink]="['/mostrarLibro']">
+    <div class="brand" [routerLink]="['/home']">
       <img src="https://i.ibb.co/DRR136C/Logo.png" alt="Logo" border="0" />
 
       <a routerLink="#!"> Vitu</a>
     </div>
-    <div></div>
     <nav>
       <div class="nav-mobile">
-        <a id="nav-toggle" href="#!"><span></span></a>
+        <button id="nav-toggle"><span></span></button>
       </div>
       <ul class="nav-list">
         <li>
-          <a
-            type="button"
-            id="publicar"
-            data-toggle="modal"
-            data-target="#staticBackdrop"
-          >
-            Publicar libro
-          </a>
+          <a routerLink="mostrarLibro">Buscar libros</a>
         </li>
         <li>
-          <a [routerLink]="['/mostrarLibro']" routeractiveLink="mostrarLibro"
-            >Buscar libros</a
-          >
+          <a routerLink="favoritos">Favoritos</a>
         </li>
         <li>
-          <a [routerLink]="['/favoritos']">Mis favoritos</a>
+          <a routerLink="solicitudes">Solicitudes</a>
         </li>
         <li>
-          <a [routerLink]="['/solicitudes']">Solicitudes</a>
+          <a routerLink="peticiones">Peticiones</a>
         </li>
         <li>
-          <a [routerLink]="['/peticiones']">Peticiones</a>
-        </li>
-        <li>
-          <a [routerLink]="['/misLibros']">Mis libros</a>
+          <a routerLink="misLibros">Mis libros</a>
         </li>
 
         <li>
-          <a [routerLink]="['/perfil']">Mi perfil</a>
+          <button>Usuario</button>
+          <ul class="nav-dropdown">
+            <li>
+              <a routerLink="perfil">Editar perfil</a>
+            </li>
+            <div class="nav-divider"></div>
+            <li>
+              <a routerLink="#!">Cerrar sesión</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
   </div>
 </section>
 
+<!---------------- Modal ---------------->
 <div
   class="modal fade"
   id="staticBackdrop"
