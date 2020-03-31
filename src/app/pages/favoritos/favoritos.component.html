@@ -1,15 +1,10 @@
-<app-nav></app-nav>
-
 <header>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </header>
 <div id="fondo"></div>
-<div id="wrapper">
-  <!-- ------------------------------------------- -->
-  <nav class="menu">
+<div id="wrapper" class="container">
+
+  <!-- <nav class="menu">
     <div class="cuadrado">
       <div class="circulo">
         <header class="avatar">
@@ -42,83 +37,49 @@
         <span class="subirlibro"></span>
       </div>
     </div>
-    <!-- ------------------------------------------- -->
-  </nav>
+  </nav> -->
 
-  <div class="row" id="misFavoritos">
-    <div id="favorito"><img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9_screen.jpg?ts=1561547637" alt=""><button id="eBoton"type="button" (click)="1">Eliminar artículo</button> </div>
-    <div id="favorito"><img src="https://www.planetadelibros.com/usuaris/libros/fotos/282/m_libros/281012_portada_el-libro-de-los-errores_skip-prichard_201809252045.jpg" alt=""><button id="eBoton"type="button" (click)="1">Eliminar artículo</button> </div>
-    <div id="favorito"><img src="https://www.informavalencia.com/wp-content/uploads/2019/12/el_manuscrito_de_antioquia.jpg" alt=""><button id="eBoton"type="button" (click)="1">Eliminar artículo</button> </div>
-  </div>
-</div>
-
-<div
-  class="modal fade"
-  id="staticBackdrop"
-  data-backdrop="static"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <!-- <div class="modal-header">
-        <h3 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h3>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> -->
-      <div class="modal-body">
-        <div class="flex">
-          <div class="izq">
-            <input class="inpmodal" type="text" placeholder="título" #titulo />
-            <input class="inpmodal" type="text" placeholder="autor" #autor />
-            <input
-              class="inpmodal"
-              type="text"
-              placeholder="año de publicación"
-              #anyo
-            />
-            <input
-              class="inpmodal"
-              type="text"
-              placeholder="editorial"
-              #editorial
-            />
-            <input class="inpmodal" type="text" placeholder="género" #genero />
-            <textarea
-              class="inpmodal"
-              cols="20"
-              rows="5"
-              placeholder="Descripción del libro... ¡sin spoilers!"
-              #descripcion
-            ></textarea>
-          </div>
-          <div class="dcha">
-            <div class=" imagen" id="div-img"></div>
-            <button class=" cambiar" (click)="(1)">
-              Cambiar foto
-            </button>
-          </div>
+  <div class="row misFavoritos">
+    <div class="col-lg-4 col-md-6 col-sm-12 favorito">
+      <div class="contenedor">
+        <div class="foto">
+        <img
+          src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9_screen.jpg?ts=1561547637"
+          alt="">
         </div>
-      </div>
-      <div class="modal-footer">
-        <button
-          class="publicar"
-          type="submit"
-          data-dismiss="modal"
-          (click)="(1)"
-        >
-          <!--Publicar libro-->
-        </button>
+        <button class="boton" type="button" (click)="1">Eliminar artículo</button>
       </div>
     </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 favorito">
+      <div class="contenedor">
+        <div class="foto">
+        <img
+          src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9_screen.jpg?ts=1561547637"
+          alt="">
+        </div>
+        <button class="boton" type="button" (click)="1">Eliminar artículo</button>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 favorito">
+      <div class="contenedor">
+        <div class="foto">
+        <img
+          src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9_screen.jpg?ts=1561547637"
+          alt="">
+        </div>
+        <button class="boton" type="button" (click)="1">Eliminar artículo</button>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 favorito">
+      <div class="contenedor">
+        <div class="foto">
+        <img
+          src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9_screen.jpg?ts=1561547637"
+          alt="">
+        </div>
+        <button class="boton" type="button" (click)="1">Eliminar artículo</button>
+      </div>
+    </div>
+    
   </div>
 </div>

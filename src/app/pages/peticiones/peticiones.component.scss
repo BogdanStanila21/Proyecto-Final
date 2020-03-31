@@ -1,6 +1,10 @@
+
+*{
+  font-family: "Oswald", sans-serif;
+}
 // --------------------------------------------------------------------------------       Menu
 #wrapper {
-  display: flex;
+  // display: flex;
   background: rgba(255, 255, 255, 1);
   background: -moz-linear-gradient(
     left,
@@ -41,7 +45,7 @@
   );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=1 );
 }
-.menu {
+/*.menu {
   height: 100vh;
   width: 20vw;
   background: #f2f2f200;
@@ -137,12 +141,12 @@ li:hover {
 .lib:hover #libro {
   background-color: #a70eac;
   transition: 1s;
-}
+}*/
 
 // --------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------------
-
+/*
 h1 {
   font-family: "Oswald", sans-serif;
   text-align: center;
@@ -243,33 +247,52 @@ input {
 .cambiar:hover {
   background-color: #a70eac;
   transition: 1s;
+}*/
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 }
-
-#div-img {
-  margin: 040px;
+.contenedor{
+  width: 266px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: rgba(36, 218, 163, 0.144);
 }
 .solicitudes {
-  width: 70%;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 60px;
-  margin: 0 auto;
+  background-color: #f2f2f2;
 }
+
 .solicitud {
   height: 500px;
-  width: 300px;
-  background-color: rgb(176, 235, 232);
+  background-color: #f2f2f2;;
   padding: 20px;
-  color: white;
+  color: rgb(8, 8, 8);
   text-align: center;
-  border-radius: 10px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-bottom: 20px;
 }
 .foto {
   margin: 0 auto;
   width: 260px;
   height: 360px;
-  background-color: white;
+  background-color: rgb(179, 172, 172);
   margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.boton{
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #31a6b3;
+  background-color: rgba(255, 255, 255, 0);
+  width: 110px;
+  transition: 0.5s;
+  &:hover{
+    background-color: #31a6b3;
+    color: white;
+    border: 1px solid rgba(255, 0, 0, 0.404);
+    width: 140px;
+  }
 }

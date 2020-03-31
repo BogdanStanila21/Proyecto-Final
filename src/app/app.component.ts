@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
 //import { jQuery } from 'jquery'
+import { NavbarService } from './service/navbar.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,13 @@ import * as $ from 'jquery';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Proyecto-Final';
+  
+  constructor(private valor:NavbarService){}
+
+  getValor(){
+    return this.valor.ver()
+  }
+
 }
 
 /* jQuery para la barra de navegación */
