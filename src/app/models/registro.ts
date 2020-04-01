@@ -1,18 +1,22 @@
 export class Registro {
     public nickname:string;
-    public nombre:string;
-    public sexo:string;
+    public name:string;
+    public sex:string;
     public email:string;
-    public pass:string;
-    public pass2:string;
+    public password:string;
+    public place:string;
+    public photo:string;
+    public aboutYou:string;
     constructor(){}
 }
 export class Libro{
-    public titulo:string;
-    public autor:string;
-    public anyo:number;
+    public title:string;
+    public author:string;
+    public year:number;
     public editorial:string;
-    public genero:string;
-    public descripcion:string;
+    public type:string;
+    public description:string;
+    public photo:string;
+    public available:string;
 
 }
