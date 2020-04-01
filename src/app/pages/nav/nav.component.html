@@ -1,48 +1,114 @@
 <section class="navigation">
   <div class="nav-container">
-    <div class="brand" [routerLink]="['/mostrarLibro']">
+    <div class="brand" [routerLink]="['/home']">
       <img src="https://i.ibb.co/DRR136C/Logo.png" alt="Logo" border="0" />
-
       <a routerLink="#!"> Vitu</a>
     </div>
-    <div></div>
     <nav>
       <div class="nav-mobile">
-        <a id="nav-toggle" href="#!"><span></span></a>
+        <a id="nav-toggle" [class]="hamburguer" (click)="dropdownMobile()"><span></span></a>
       </div>
-      <ul class="nav-list">
+      <ul [class]="navList">
         <li>
-          <a
-            type="button"
-            id="publicar"
-            data-toggle="modal"
-            data-target="#staticBackdrop"
-          >
-            Publicar libro
-          </a>
+          <a routerLink="mostrarLibro">Buscar libros</a>
         </li>
         <li>
-          <a [routerLink]="['/mostrarLibro']" routeractiveLink="mostrarLibro"
-            >Buscar libros</a
-          >
+          <a routerLink="favoritos">Favoritos</a>
         </li>
         <li>
-          <a [routerLink]="['/favoritos']">Mis favoritos</a>
+          <a routerLink="solicitudes">Solicitudes</a>
         </li>
         <li>
-          <a [routerLink]="['/solicitudes']">Solicitudes</a>
+          <a routerLink="peticiones">Peticiones</a>
         </li>
         <li>
-          <a [routerLink]="['/peticiones']">Peticiones</a>
-        </li>
-        <li>
-          <a [routerLink]="['/misLibros']">Mis libros</a>
+          <a routerLink="misLibros">Mis libros</a>
         </li>
 
         <li>
-          <a [routerLink]="['/perfil']">Mi perfil</a>
+          <a (click)="dropdownToggle()" class="drop-pointer">Usuario</a>
+          <ul [class]="dropdown">
+            <li>
+              <a routerLink="perfil">Editar perfil</a>
+            </li>
+            <div class="nav-divider"></div>
+            <li>
+              <a routerLink="#!">Cerrar sesión</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
   </div>
 </section>
+
+<!---------------- Modal ---------------->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+      <h3 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h3>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> -->
+      <div class="modal-body">
+        <div class="flex">
+          <div class="izq">
+            <input class="inpmodal" type="text" placeholder="título" #titulo />
+            <input class="inpmodal" type="text" placeholder="autor" #autor />
+            <input
+              class="inpmodal"
+              type="text"
+              placeholder="año de publicación"
+              #anyo
+            />
+            <input
+              class="inpmodal"
+              type="text"
+              placeholder="editorial"
+              #editorial
+            />
+            <input class="inpmodal" type="text" placeholder="género" #genero />
+            <textarea
+              class="inpmodal"
+              cols="20"
+              rows="5"
+              placeholder="Descripción del libro... ¡sin spoilers!"
+              #descripcion
+            ></textarea>
+          </div>
+          <div class="dcha">
+            <div class=" imagen" id="div-img"></div>
+            <button class=" cambiar" (click)="(1)">
+              Cambiar foto
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="publicar"
+          type="submit"
+          data-dismiss="modal"
+          (click)="(1)"
+        >
+          Publicar libro
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

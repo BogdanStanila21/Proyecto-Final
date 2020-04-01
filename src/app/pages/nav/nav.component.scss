@@ -1,36 +1,9 @@
-/* Control de estilos */
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
-  vertical-align: baseline;
-}
-
-/* Variables para colores*/
-$color-primary: #38a9b8;
-$color-hover: #297d88;
-$color-grey: #c4c4c4;
-$color-grey-dark: #9b9b9b;
-$color-success: #569e29;
-$color-warning: #dcd20c;
-$color-danger: #e20029;
-
-/* Variable para tamaño de la barra de navegación */
-$nav-height: 58px;
-
-/* Variables para breakpoints */
-$breakpoint: 768px;
+@import '../../app.component.scss';
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   background-color: $color-grey;
 }
-
-// Navigation Variables
-$content-width: 1300px;
-$nav-background: white;
 
 // Outer navigation wrapper
 .navigation {
@@ -48,6 +21,7 @@ $nav-background: white;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.4em;
+
   a,
   a:visited {
     color: $color-primary;
@@ -77,6 +51,9 @@ nav {
     li {
       float: left;
       position: relative;
+      @include breakpoint(mobile){
+        float: initial;
+      }
       a,
       a:visited {
         display: block;
@@ -108,17 +85,31 @@ nav {
   }
 }
 
-/* Lista del dropdown para unir con el evento "toggle" del JS */
+/* Clases y control para el dropdown */
+.drop-pointer{
+  cursor: pointer;
+}
+
 .nav-dropdown {
-  position: absolute;
-  right: 0px;
-  display: none;
-  z-index: 1;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  &-hidden {
+    display: none;
+  }
+
+  &-toggle {
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    right: 0px;
+    display: block;
+    
+    @include breakpoint(mobile){
+      left: 0px;
+      width: 100%;
+    }
+  }
 }
 
 /* Mobile navigation */
-
 /* Union con el "toggle" de móvil */
 .nav-mobile {
   display: none;
@@ -129,15 +120,18 @@ nav {
   height: $nav-height;
   width: $nav-height;
 }
+
 @media only screen and (max-width: 767px) {
   /* Hamburguesa de la navegación para ver sólo en móvil */
   .nav-mobile {
     display: block;
   }
+
   nav {
     width: 100%;
     padding: $nav-height 0 15px;
-    ul {
+
+    .nav-list-hidden {
       display: none;
       li {
         float: none;
@@ -151,15 +145,21 @@ nav {
       }
     }
   }
+
   .nav-dropdown {
     position: static;
   }
 }
+
 @media screen and (min-width: $breakpoint) {
-  .nav-list {
-    display: block !important;
+  .nav-list-toggle{
+    display: block;
   }
 }
+
+
+
+/* Clases para el botón de la vista móvil */
 #nav-toggle {
   position: absolute;
   //   left: 18px;
@@ -206,8 +206,126 @@ nav {
   }
 }
 
-.nav-divider {
-  height: 1px;
+// .nav-divider {
+//   height: 1px;
+//   width: 100%;
+//   background-color: $color-grey;
+// }
+
+/* -------------------------------------------------------------------------------------------------- */
+h1 {
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  color: black;
+}
+.modal-body {
+  padding: 5px;
+  background-color: rgb(214, 208, 208);
+  width: 80vw;
+  // height: 70vh;
+  position: absolute;
+  top: 200px;
+  left: 10vw;
+  border-radius: 5px;
+}
+.modal-footer {
+  position: absolute;
+  top: 39em;
+  left: 30px;
+  border: none;
+}
+
+.flex {
+  display: flex;
   width: 100%;
-  background-color: $color-grey;
+  margin: 0 auto;
+  font-family: "Oswald", sans-serif;
+}
+input {
+  height: 36px;
+  text-align: center;
+}
+
+.inpmodal {
+  margin: 5px 10px;
+  width: 100%;
+  font-family: "Oswald", sans-serif;
+  border-radius: 5px;
+  border: 1px solid #8bc6ce3f;
+  transition: 1s;
+  text-align: center;
+}
+
+.inpmodal:hover {
+  background-color: #84e3f03f;
+  transition: 1s;
+}
+
+.imagen {
+  width: 12vw;
+  height: 35vh;
+  background-color: rgba(255, 251, 251, 0.842);
+}
+
+.cambiar {
+  margin-left: 28%;
+  margin-bottom: 30px;
+  width: 140px;
+  height: 36px;
+  background-color: #38a9b8;
+  border: none;
+  border-radius: 5px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+}
+
+.publicar {
+  margin-left: 36vw;
+  width: 190px;
+  height: 36px;
+  background-color: #38a9b8;
+  border: none;
+  border-radius: 5px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  transition: 1s;
+}
+
+.publicar:hover {
+  background-color: #a70eac;
+  transition: 1s;
+}
+
+.imagen,
+.cambiar {
+  font-family: "Oswald", sans-serif;
+  display: block;
+}
+
+.cambiar {
+  margin-top: 2vh;
+  transition: 1s;
+}
+
+.cambiar:hover {
+  background-color: #a70eac;
+  transition: 1s;
+}
+
+#div-img {
+  margin: 040px;
+}
+
+#publicar {
+  background-color: #38a9b8;
+  color: white;
+  transition: 1s;
+}
+
+#publicar:hover {
+  background-color: #a938b8;
+  color: white;
+  transition: 1s;
 }

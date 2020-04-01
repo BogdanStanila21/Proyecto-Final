@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent },
   { path: "home", component: HomeComponent },
-  { path: "nav", component: NavComponent },
+  // { path: "nav", component: NavComponent },
   { path: "peticiones", component: PeticionesComponent }
 ];
 
