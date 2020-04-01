@@ -6,9 +6,9 @@
     </div>
     <nav>
       <div class="nav-mobile">
-        <a id="nav-toggle"><span></span></a>
+        <a id="nav-toggle" [class]="hamburguer" (click)="dropdownMobile()"><span></span></a>
       </div>
-      <ul class="nav-list">
+      <ul [class]="navList">
         <li>
           <a routerLink="mostrarLibro">Buscar libros</a>
         </li>

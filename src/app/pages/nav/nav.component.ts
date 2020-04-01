@@ -9,6 +9,8 @@ import { Component, OnInit } from "@angular/core";
 export class NavComponent implements OnInit {
 
   public dropdown: string = "nav-dropdown-hidden";
+  public navList: string = "nav-list-hidden"
+  public hamburguer: string;
 
   constructor() {}
 
@@ -19,6 +21,18 @@ export class NavComponent implements OnInit {
 
       else {
         this.dropdown = "nav-dropdown-hidden"
+      }
+    }
+
+    dropdownMobile(){
+      if (this.navList === "nav-list-hidden"){
+        this.navList = "nav-list-toggle";
+        this.hamburguer = "active"
+      }
+
+      else {
+        this.navList = "nav-list-hidden";
+        this.hamburguer = ""
       }
     }
 

@@ -51,6 +51,9 @@ nav {
     li {
       float: left;
       position: relative;
+      @include breakpoint(mobile){
+        float: initial;
+      }
       a,
       a:visited {
         display: block;
@@ -83,30 +86,20 @@ nav {
 }
 
 /* Clases y control para el dropdown */
-@mixin dropdown {
-    position: absolute;
-    z-index: 1;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-    right: 0px;
-}
-
 .drop-pointer{
   cursor: pointer;
 }
 
 .nav-dropdown {
   &-hidden {
-    @include dropdown();
     display: none;
-    
-    @include breakpoint(mobile){
-      left: 0px;
-      width: 100%;
-    }
   }
 
   &-toggle {
-    @include dropdown();
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    right: 0px;
     display: block;
     
     @include breakpoint(mobile){
@@ -138,7 +131,7 @@ nav {
     width: 100%;
     padding: $nav-height 0 15px;
 
-    ul {
+    .nav-list-hidden {
       display: none;
       li {
         float: none;
@@ -159,10 +152,12 @@ nav {
 }
 
 @media screen and (min-width: $breakpoint) {
-  .nav-list {
+  .nav-list-toggle{
     display: block;
   }
 }
+
+
 
 /* Clases para el botón de la vista móvil */
 #nav-toggle {
