@@ -10,19 +10,6 @@ body {
   height: $nav-height;
   background: $nav-background;
   box-shadow: 0 3px 12px #00000026;
-
-  /* Reset para el botón */
-  button {
-    font-size: 100%;
-    font-family: inherit;
-    border: 0;
-    padding: 0;
-
-    &:active{
-      border: 0;
-      padding: 0;
-    }
-  }
 }
 
 /* Logo */
@@ -65,8 +52,7 @@ nav {
       float: left;
       position: relative;
       a,
-      a:visited,
-      button {
+      a:visited {
         display: block;
         padding: 0 20px;
         line-height: $nav-height;
@@ -96,13 +82,38 @@ nav {
   }
 }
 
-/* Lista del dropdown para unir con el evento "toggle" del JS */
+/* Clases y control para el dropdown */
+@mixin dropdown {
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    right: 0px;
+}
+
+.drop-pointer{
+  cursor: pointer;
+}
+
 .nav-dropdown {
-  position: absolute;
-  right: 0px;
-  display: none;
-  z-index: 1;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  &-hidden {
+    @include dropdown();
+    display: none;
+    
+    @include breakpoint(mobile){
+      left: 0px;
+      width: 100%;
+    }
+  }
+
+  &-toggle {
+    @include dropdown();
+    display: block;
+    
+    @include breakpoint(mobile){
+      left: 0px;
+      width: 100%;
+    }
+  }
 }
 
 /* Mobile navigation */
@@ -116,18 +127,17 @@ nav {
   height: $nav-height;
   width: $nav-height;
 }
+
 @media only screen and (max-width: 767px) {
   /* Hamburguesa de la navegación para ver sólo en móvil */
   .nav-mobile {
     display: block;
-
-    button {
-      background-color: white;
-    }
   }
+
   nav {
     width: 100%;
     padding: $nav-height 0 15px;
+
     ul {
       display: none;
       li {
@@ -142,6 +152,7 @@ nav {
       }
     }
   }
+
   .nav-dropdown {
     position: static;
   }
@@ -149,11 +160,11 @@ nav {
 
 @media screen and (min-width: $breakpoint) {
   .nav-list {
-    display: block !important;
+    display: block;
   }
 }
 
-
+/* Clases para el botón de la vista móvil */
 #nav-toggle {
   position: absolute;
   //   left: 18px;
@@ -200,12 +211,13 @@ nav {
   }
 }
 
-.nav-divider {
-  height: 1px;
-  width: 100%;
-  background-color: $color-grey;
-}
+// .nav-divider {
+//   height: 1px;
+//   width: 100%;
+//   background-color: $color-grey;
+// }
 
+/* -------------------------------------------------------------------------------------------------- */
 h1 {
   font-family: "Oswald", sans-serif;
   text-align: center;
