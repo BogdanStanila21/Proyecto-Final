@@ -27,7 +27,7 @@ export class RegistroComponent implements OnInit {
           Validators.maxLength(12)
         ]),
         name: new FormControl(null, [
-          Validators.minLength(4),
+          Validators.minLength(2),
           Validators.maxLength(20)
         ]),
         sexo: new FormControl(),
@@ -49,5 +49,5 @@ export class RegistroComponent implements OnInit {
     console.log();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
