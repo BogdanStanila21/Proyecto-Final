@@ -66,7 +66,30 @@
       </button>
     </div> -->
       <div class="modal-body">
+
+
+
+        <h1 class="lines-effect">¡PUBLICA UN NUEVO LIBRO!</h1>
+
         <div class="flex">
+            <div class="izq">
+                <input class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" type="text" placeholder="título">
+                <input class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" type="text" placeholder="autor">
+                <input class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" type="text" placeholder="año de publicación">
+                <input class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" type="text" placeholder="editorial">
+                <input class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" type="text" placeholder="género">
+                <textarea class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" cols="30" rows="7" placeholder="Descripción del libro... ¡sin spoilers!"></textarea>
+            </div>
+            <div class="dcha">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 imagen" id="div-img"></div>
+                <button class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 cambiar" type="submit" data-dismiss="modal" (click)="(1)">Cambiar foto</button>
+                <button class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 publicar" type="submit" data-dismiss="modal" (click)="(1)">Publicar libro</button>
+            </div>
+        </div>
+
+
+
+        <!-- <div class="flex">
           <div class="izq">
             <input class="inpmodal" type="text" placeholder="título" #titulo />
             <input class="inpmodal" type="text" placeholder="autor" #autor />
@@ -107,7 +130,10 @@
           (click)="(1)"
         >
           Publicar libro
-        </button>
+        </button> -->
+        
+
+
       </div>
     </div>
   </div>
