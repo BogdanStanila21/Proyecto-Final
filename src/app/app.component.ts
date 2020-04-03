@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import * as $ from 'jquery';
-//import { jQuery } from 'jquery'
-import { NavbarService } from './service/navbar.service';
+import { LoginService } from './service/login.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +8,10 @@ import { NavbarService } from './service/navbar.service';
 })
 export class AppComponent {
   
-  constructor(private valor:NavbarService){}
+  constructor(private valor:LoginService){}
 
   getValor(){
-    return this.valor.ver()
+    return this.valor.getUser();
   }
 
 }

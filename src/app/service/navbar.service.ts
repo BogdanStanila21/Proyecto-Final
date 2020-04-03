@@ -9,10 +9,10 @@ export class NavbarService {
 
   constructor() { }
 
-  ver(){
-    return this.status
-  }
-  setVer(value){
-    this.status=value
-  }
+  // ver(){
+  //   return this.status
+  // }
+  // setVer(value){
+  //   this.status=value
+  // }
 }

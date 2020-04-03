@@ -21,10 +21,9 @@
       </div>
       <div>
         <button
-          [routerLink]="['/mostrarLibro']"
           type="submit"
           [disabled]="!loginForm.valid"
-          (click)="onValor()"
+          (click)="authLogin2(nick.value,pass.value)"
         >
           SIGN IN
         </button>

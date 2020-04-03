@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { LoginService } from './../../service/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-nav",
@@ -12,7 +14,7 @@ export class NavComponent implements OnInit {
   public navList: string = "nav-list-hidden"
   public hamburguer: string;
 
-  constructor() {}
+  constructor( private out:LoginService, private router:Router) {}
 
     dropdownToggle(){
       if (this.dropdown === "nav-dropdown-hidden"){
@@ -34,6 +36,12 @@ export class NavComponent implements OnInit {
         this.navList = "nav-list-hidden";
         this.hamburguer = ""
       }
+    }
+
+
+    cerrarSesion(){
+      this.router.navigate(['/login'])
+      return this.out.logOut()
     }
 
   ngOnInit(): void {}

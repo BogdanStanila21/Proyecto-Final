@@ -69,11 +69,11 @@ app.post("/user",(request,response)=>{
         request.body.sex,
         request.body.email,
         request.body.password,
-        request.body.aboutYou,
-        request.body.photo,
+        // request.body.aboutYou,
+        // request.body.photo,
         request.body.place);
     console.log(myUser)
-    sql="INSERT INTO user (name, nickname, sex, email, password, aboutYou, photo, place) VALUES(?,?,?,?,?,?,?,?)";
+    sql="INSERT INTO user (name, nickname, sex, email, password, place) VALUES(?,?,?,?,?,?)";
     connection.query(sql,myUser,(err,result)=>{
         if(err){
             console.log(err);
@@ -119,5 +119,18 @@ app.delete("/user",(request,response)=>{
         }
     })
 });
+//Api para el login
+app.post("/user/login",(request,respose)=>{
+    let sql;
+    let login=new Array(request.body.nickname, request.body.password);
+    sql="SELECT user_id FROM user WHERE nickname=? && password=?";
+    connection.query(sql,login,(err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            respose.send(result)
+        }
+    })
+})
 
 app.listen(3000);
