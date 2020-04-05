@@ -1,4 +1,4 @@
-@import '../../app.component.scss';
+@import "../../app.component.scss";
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -51,7 +51,7 @@ nav {
     li {
       float: left;
       position: relative;
-      @include breakpoint(mobile){
+      @include breakpoint(mobile) {
         float: initial;
       }
       a,
@@ -86,7 +86,7 @@ nav {
 }
 
 /* Clases y control para el dropdown */
-.drop-pointer{
+.drop-pointer {
   cursor: pointer;
 }
 
@@ -101,8 +101,8 @@ nav {
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
     right: 0px;
     display: block;
-    
-    @include breakpoint(mobile){
+
+    @include breakpoint(mobile) {
       left: 0px;
       width: 100%;
     }
@@ -152,12 +152,10 @@ nav {
 }
 
 @media screen and (min-width: $breakpoint) {
-  .nav-list-toggle{
+  .nav-list-toggle {
     display: block;
   }
 }
-
-
 
 /* Clases para el botón de la vista móvil */
 #nav-toggle {
@@ -206,140 +204,9 @@ nav {
   }
 }
 
-// .nav-divider {
-//   height: 1px;
-//   width: 100%;
-//   background-color: $color-grey;
-// }
-// h1 {
-//   font-family: "Oswald", sans-serif;
-//   text-align: center;
-//   display: inline-block;
-//   position: relative;
-//   color: black;
-// }
-// .modal-body {
-//   padding: 5px;
-//   background-color: rgb(214, 208, 208);
-//   width: 80vw;
-//   // height: 70vh;
-//   position: absolute;
-//   top: 200px;
-//   left: 10vw;
-//   border-radius: 5px;
-// }
-// .modal-footer {
-//   position: absolute;
-//   top: 39em;
-//   left: 30px;
-//   border: none;
-// }
-
-// .flex {
-//   display: flex;
-//   width: 100%;
-//   margin: 0 auto;
-//   font-family: "Oswald", sans-serif;
-// }
-// input {
-//   height: 36px;
-//   text-align: center;
-// }
-
-// .inpmodal {
-//   margin: 5px 10px;
-//   width: 100%;
-//   font-family: "Oswald", sans-serif;
-//   border-radius: 5px;
-//   border: 1px solid #8bc6ce3f;
-//   transition: 1s;
-//   text-align: center;
-// }
-
-// .inpmodal:hover {
-//   background-color: #84e3f03f;
-//   transition: 1s;
-// }
-
-// .imagen {
-//   width: 12vw;
-//   height: 35vh;
-//   background-color: rgba(255, 251, 251, 0.842);
-// }
-
-// .cambiar {
-//   margin-left: 28%;
-//   margin-bottom: 30px;
-//   width: 140px;
-//   height: 36px;
-//   background-color: #38a9b8;
-//   border: none;
-//   border-radius: 5px;
-//   font-family: "Oswald", sans-serif;
-//   color: white;
-// }
-
-// .publicar {
-//   margin-left: 36vw;
-//   width: 190px;
-//   height: 36px;
-//   background-color: #38a9b8;
-//   border: none;
-//   border-radius: 5px;
-//   font-family: "Oswald", sans-serif;
-//   color: white;
-//   transition: 1s;
-// }
-
-// .publicar:hover {
-//   background-color: #a70eac;
-//   transition: 1s;
-// }
-
-// .imagen,
-// .cambiar {
-//   font-family: "Oswald", sans-serif;
-//   display: block;
-// }
-
-// .cambiar {
-//   margin-top: 2vh;
-//   transition: 1s;
-// }
-
-// .cambiar:hover {
-//   background-color: #a70eac;
-//   transition: 1s;
-// }
-
-// #div-img {
-//   margin: 040px;
-// }
-
-// #publicar {
-//   background-color: #38a9b8;
-//   color: white;
-//   transition: 1s;
-// }
-
-// #publicar:hover {
-//   background-color: #a938b8;
-//   color: white;
-//   transition: 1s;
-// }
-
-
-
-
-
-
-
-
-
-
-.modal-body{
+.modal-body {
   text-align: center;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   margin: 0 auto;
   padding: 5px;
   background-color: #f9feff;
@@ -351,7 +218,7 @@ nav {
   border-radius: 5px;
 }
 
-h1{
+h1 {
   text-align: center;
   display: inline-block;
   position: relative;
@@ -359,8 +226,9 @@ h1{
   text-shadow: 3px 3px rgb(197, 197, 197);
 }
 
-h1::after,h1::before{
-  content: '';
+h1::after,
+h1::before {
+  content: "";
   position: absolute;
   width: 120px;
   height: 3px;
@@ -368,16 +236,14 @@ h1::after,h1::before{
   top: 0.6em;
 }
 
-h1::before{
+h1::before {
   left: -140px;
 }
-h1::after{
+h1::after {
   right: -140px;
 }
 
-
-
-.flex{
+.flex {
   display: flex;
   width: 100%;
   margin: 0 auto;
@@ -385,40 +251,37 @@ h1::after{
   margin-left: 3vw;
 }
 
-.izq{
+.izq {
   margin-right: -1%;
 }
-.dcha{
+.dcha {
   margin-left: -1%;
 }
 
-
-
-input, textarea{
+input,
+textarea {
   margin: 2%;
   border-radius: 5px;
 }
 
-input:hover{
+input:hover {
   background-color: #38a9b83f;
 }
-textarea:hover{
+textarea:hover {
   background-color: #38a9b83f;
 }
 
-
-
-.imagen{
+.imagen {
   width: 32vw;
   height: 39vh;
   background-color: rgba(219, 219, 219, 0.842);
 }
 
-.imagen:hover{
+.imagen:hover {
   transition: ease-out;
 }
 
-.cambiar{
+.cambiar {
   width: 30vw;
   height: 6vh;
   background-color: #38a9b8;
@@ -426,13 +289,13 @@ textarea:hover{
   border-radius: 5px;
 }
 
-.cambiar:hover{
+.cambiar:hover {
   background-color: #38a9b8b4;
   transform: scale(1.04);
   transition: 0.1s ease-out;
 }
 
-.publicar{
+.publicar {
   width: 30vw;
   height: 10vh;
   background-color: #38a9b8;
@@ -440,20 +303,22 @@ textarea:hover{
   border-radius: 5px;
 }
 
-.publicar:hover{
+.publicar:hover {
   background-color: #38a9b8b4;
   transform: scale(1.04);
   transition: 0.1s ease-out;
 }
 
-.imagen, .cambiar, .publicar{
+.imagen,
+.cambiar,
+.publicar {
   margin: 2%;
   display: block;
 }
 
-.cambiar{
+.cambiar {
   margin-top: 2vh;
 }
-.publicar{
+.publicar {
   margin-top: 2vh;
 }
