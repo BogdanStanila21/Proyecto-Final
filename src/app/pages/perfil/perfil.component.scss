@@ -52,6 +52,7 @@
   margin: 0 auto;
   margin-top: 5%;
 }
+
 .cambiarfoto {
   height: 250px;
   width: 250px;
@@ -59,6 +60,17 @@
   background-color: white;
   margin: 0 auto;
 }
+
+#imgPerfil {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  margin: 0 auto;
+  
+}
+
+
 .subirfoto {
   height: 50px;
   width: 200px;
@@ -73,6 +85,8 @@
   cursor: pointer;
   transition: 1s;
 }
+
+
 .subirfoto:hover {
   background-color: #a70eac;
   transition: 1s;
@@ -84,6 +98,10 @@
 .cambiarperfil {
   display: flex;
   flex-wrap: wrap;
+}
+#email
+{
+  width: 100%;
 }
 input {
   height: 36px;

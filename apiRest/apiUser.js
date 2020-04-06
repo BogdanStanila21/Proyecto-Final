@@ -69,11 +69,11 @@ app.post("/user",(request,response)=>{
         request.body.sex,
         request.body.email,
         request.body.password,
-        request.body.aboutYou,
-        request.body.photo,
+        //request.body.aboutYou,
+        //request.body.photo,
         request.body.place);
     console.log(myUser)
-    sql="INSERT INTO user (name, nickname, sex, email, password, aboutYou, photo, place) VALUES(?,?,?,?,?,?,?,?)";
+    sql="INSERT INTO user (name, nickname, sex, email, password, place) VALUES(?,?,?,?,?,?)";
     connection.query(sql,myUser,(err,result)=>{
         if(err){
             console.log(err);

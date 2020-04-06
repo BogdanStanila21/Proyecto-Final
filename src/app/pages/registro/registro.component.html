@@ -22,7 +22,7 @@
         <input
           type="text"
           placeholder="Nombre"
-          #nombre
+          #name
           formControlName="name"
           required
         /><br />
@@ -45,6 +45,18 @@
           placeholder="Email"
           #email
           formControlName="email"
+          required
+        /><br />
+        <span *ngIf="registroForm.controls['email'].hasError('pattern')">
+          Email no valido
+        </span>
+      </div>
+      <div class="email">
+        <input
+          type="text"
+          placeholder="Ciudad"
+          #place
+
           required
         /><br />
         <span *ngIf="registroForm.controls['email'].hasError('pattern')">
@@ -83,7 +95,7 @@
           [routerLink]="['/login']"
           type="submit"
           [disabled]="!registroForm.valid"
-          (click)="(1)"
+          (click)="addUser(nick.value, name.value, sexo.value, email.value, place.value, pass.value)"
         >
           SIGN UP
         </button>
@@ -95,3 +107,5 @@
     </form>
   </div>
 </div>
+
+

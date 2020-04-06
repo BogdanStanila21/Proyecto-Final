@@ -19,6 +19,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavComponent } from './pages/nav/nav.component';
 import { PeticionesComponent } from './pages/peticiones/peticiones.component';
+import {HttpClientModule} from '@angular/common/http'
+
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { PeticionesComponent } from './pages/peticiones/peticiones.component';
     ReactiveFormsModule,
     ModalModule.forRoot(),
     BrowserAnimationsModule,
+    HttpClientModule
 
   ],
   providers: [],
