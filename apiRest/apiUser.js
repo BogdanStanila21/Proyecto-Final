@@ -64,8 +64,8 @@ app.get("/user/:user_id",(request, response)=>{
 app.post("/user",(request,response)=>{
     let sql;
     let myUser=new Array(
-        request.body.name,
         request.body.nickname,
+        request.body.name,
         request.body.sex,
         request.body.email,
         request.body.password,
@@ -73,7 +73,7 @@ app.post("/user",(request,response)=>{
         // request.body.photo,
         request.body.place);
     console.log(myUser)
-    sql="INSERT INTO user (name, nickname, sex, email, password, place) VALUES(?,?,?,?,?,?)";
+    sql="INSERT INTO user (nickname, name, sex, email, password, place) VALUES(?,?,?,?,?,?)";
     connection.query(sql,myUser,(err,result)=>{
         if(err){
             console.log(err);
