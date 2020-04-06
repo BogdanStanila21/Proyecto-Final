@@ -132,5 +132,21 @@ app.post("/user/login",(request,respose)=>{
         }
     })
 })
+//Api para favoritos
+app.get("/favorites/:user_id", function(req, res, next)
+    { let fav=new Array(''+req.params.user_id+'')
+        connection.query("SELECT book.photo, user.nickname, user.place, favorites_id FROM favorites JOIN user ON (favorites.user_id = user.user_id) JOIN book ON (favorites.book_id = book.book_id) WHERE favorites.user_id =?",fav, function(err, result)
+            {
+                if(err){
+                    console.log(err);
+                }else{
+                    res.send(result);
+                    console.log("GET de favoritos");
+                }
+            }
+        );
+    }
+);
+
 
 app.listen(3000);

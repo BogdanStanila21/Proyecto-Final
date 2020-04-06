@@ -7,10 +7,15 @@ import { Registro } from './../models/registro';
 })
 export class ApisService {
 
-  private url="http://localhost:3000/user"
+  private url="http://localhost:3000/user";
+  private url2="http://localhost:3000/favorites"
   constructor(private http:HttpClient) { }
 
   postUser(nuevoUser:Registro){
     return this.http.post(this.url,nuevoUser)
+  }
+
+  getFavorites(user:any){
+    return this.http.get(this.url2+"/"+user)
   }
 }

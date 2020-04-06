@@ -8,10 +8,12 @@ import { LoginService } from './../../service/login.service';
 })
 export class PeticionesComponent implements OnInit {
 
-  public va:boolean;
-  constructor(public asi:LoginService) { 
-    this.va=this.asi.check
-   }
+  constructor(private valor:LoginService) { }
+
+  getValor(){
+    return this.valor.getUser();
+  }
+
 
   ngOnInit():void{
   }
