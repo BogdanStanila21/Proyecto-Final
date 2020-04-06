@@ -12,7 +12,7 @@ let connection = mysql.createConnection(
         host: "localhost",
         user: "root",
         password: null,
-        database: "proyectofinal"   //DDBB LIBROS
+        database: "vitu"   //DDBB LIBROS
     });    
 
 //conectando la ddbb
