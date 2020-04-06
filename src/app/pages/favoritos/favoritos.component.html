@@ -2,7 +2,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </header>
 <div id="fondo"></div>
-<div id="wrapper" class="container">
+<div id="wrapper" class="container" *ngIf="getValor()">
 
   <!-- <nav class="menu">
     <div class="cuadrado">
@@ -40,46 +40,15 @@
   </nav> -->
 
   <div class="row misFavoritos">
-    <div class="col-lg-4 col-md-6 col-sm-12 favorito">
+    <div class="col-lg-4 col-md-6 col-sm-12 favorito" *ngFor="let item of fav">
       <div class="contenedor">
         <div class="foto">
         <img
-          src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9_screen.jpg?ts=1561547637"
+          src="{{item.photo}}"
           alt="">
         </div>
         <button class="boton" type="button" (click)="1">Eliminar artículo</button>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 favorito">
-      <div class="contenedor">
-        <div class="foto">
-        <img
-          src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9_screen.jpg?ts=1561547637"
-          alt="">
-        </div>
-        <button class="boton" type="button" (click)="1">Eliminar artículo</button>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 favorito">
-      <div class="contenedor">
-        <div class="foto">
-        <img
-          src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9_screen.jpg?ts=1561547637"
-          alt="">
-        </div>
-        <button class="boton" type="button" (click)="1">Eliminar artículo</button>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 favorito">
-      <div class="contenedor">
-        <div class="foto">
-        <img
-          src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9_screen.jpg?ts=1561547637"
-          alt="">
-        </div>
-        <button class="boton" type="button" (click)="1">Eliminar artículo</button>
-      </div>
-    </div>
-    
   </div>
 </div>

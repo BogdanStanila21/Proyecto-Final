@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './../../service/login.service';
+import { ApisService } from './../../service/apis.service';
 
 @Component({
   selector: 'app-favoritos',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritosComponent implements OnInit {
 
-  constructor() { }
+  public fav:any;
+  constructor(private valor:LoginService,private api:ApisService) { }
 
-  ngOnInit(): void {
+  getValor(){
+    return this.valor.getUser();
+  }
+
+  getFav(){
+    let user_id=this.valor.getUser()[0].user_id 
+    console.log(JSON.stringify(this.valor.userId) )
+    return this.api.getFavorites(user_id).subscribe((data)=>{
+      this.fav=data;
+      
+    })
+    
+  }
+
+  ngOnInit():any {
+    this.getFav();
   }
 
 }

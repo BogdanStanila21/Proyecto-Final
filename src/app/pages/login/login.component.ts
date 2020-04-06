@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     login.password=pass;
     this.auth.authLogin(login).subscribe((data)=>{ 
       this.auth.userId=data;
-      console.log(this.auth.userId)
+      //console.log(this.auth.userId)
       if(this.auth.userId[0]===undefined){
         this.router.navigate(['/login'])
       }else{
