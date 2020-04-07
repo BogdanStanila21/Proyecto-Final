@@ -25,6 +25,15 @@ export class ApisService {
   getFavorites(user: any) {
     return this.http.get(this.url2 + "/" + user)
   }
+  deleteFavorites(favId:any){
+    const options={headers:new HttpHeaders({
+      'Content-Type':'application/json'
+    }),
+    body:{favorites_id:favId},
+  }
+    return this.http.delete(this.url2,options)
+  }
+  
 //Mis-Libros
   getBook(user_id:number){
     return this.http.get(this.url4+"/"+user_id)
@@ -74,6 +83,7 @@ export class ApisService {
 
     return this.http.delete(this.url5, options);
   };
+
 
 }
 

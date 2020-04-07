@@ -1,5 +1,14 @@
 .container {
-  margin-top: 24px;
+  margin: 24px 0 0 0 auto;
+  padding: 0;
+}
+
+#vacio{
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #f2f2f2;  
 }
 .misFavoritos {
   background-color: #f2f2f2;

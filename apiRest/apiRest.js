@@ -136,24 +136,10 @@ app.post("/user/login",(request,respose)=>{
 
 //----------------------------------- API para favoritos -----------------------------------//
 
-app.get("/favorites", function(req, res, next)
-    {
-        connection.query("SELECT book.photo, user.nickname, user.place, favorites_id FROM favorites JOIN user ON (favorites.user_id = user.user_id) JOIN book ON (favorites.book_id = book.book_id) WHERE favorites.user_id = " + [req.query.id], function(err, result)
-            {
-                if(err){
-                    console.log(err);
-                }else{
-                    res.send(result);
-                    console.log("GET de favoritos");
-                }
-            }
-        );
-    }
-);
 
 app.get("/favorites/:user_id", function(req, res, next)
     { let fav=new Array(''+req.params.user_id+'')
-        connection.query("SELECT book.photo, user.nickname, user.place, favorites_id FROM favorites JOIN user ON (favorites.user_id = user.user_id) JOIN book ON (favorites.book_id = book.book_id) WHERE favorites.user_id =?",fav, function(err, result)
+        connection.query("SELECT book.photo, user.nickname, user.place, favorites_id FROM favorites JOIN user ON (favorites.user_id = user.user_id) JOIN book ON (favorites.book_id = book.book_id) WHERE favorites.user_id=?",fav, function(err, result)
             {
                 if(err){
                     console.log(err);
@@ -186,13 +172,15 @@ app.post("/favorites", function(req, res, next)
 
 app.delete("/favorites", function(req, res, next)
     {
-        let variable = "DELETE FROM favorites WHERE favorites_id = " + [req.body.favorites_id];
+        let fav=new Array(''+req.body.favorites_id+'')
+        let variable = "DELETE FROM favorites WHERE favorites_id = ?"
 
-        connection.query(variable, function(err, result)
+        connection.query(variable,fav, function(err, result)
             {
                 if(err){
                     console.log(err);
                 }else{
+                    console.log(fav)
                     res.send(result);
                     console.log("DELETE de favoritos");
                 }
