@@ -227,23 +227,11 @@ app.get("/book", function(request, response) {
       }
     });
   });
-  
-  
-  app.post("/book", function(request, response) {
-    let sentencia = new Array(
-      request.body.tittle,
-      request.body.author,
-      request.body.year,
-      request.body.editorial,
-      request.body.type,
-      request.body.description,
-      request.body.photo,
-      request.body.available
-    );
-    let sql =
-      "INSERT INTO book (tittle,author,year,editorial,type,description,photo,available) VALUES (?,?,?,?,?,?,?,?)";
-    console.log(sql);
-    connection.query(sql, sentencia, function(err, result) {
+
+ //mostrar el libro del usuario logueado 
+  app.get("/mybook/:id", function(request, response) {
+    let sql = "SELECT * FROM book JOIN user_book ON(book.book_id=user_book.book_id) WHERE user_book.user_id=" + request.params.id;
+    connection.query(sql, function(err, result) {
       if (err) console.log(err);
       else {
         response.send(result);
@@ -251,10 +239,9 @@ app.get("/book", function(request, response) {
     });
   });
   
-  app.put("/book", function(request, response) {
-    console.log(request.body);
-    let cambio = new Array(
-      request.body.tittle,
+  app.post("/book", function(request, response) {
+    let sentencia = new Array(
+      request.body.title,
       request.body.author,
       request.body.year,
       request.body.editorial,
@@ -262,10 +249,40 @@ app.get("/book", function(request, response) {
       request.body.description,
       request.body.photo,
       request.body.available,
+    );
+    let sql =
+      "INSERT INTO book (title,author,year,editorial,type,description,photo,available) VALUES (?,?,?,?,?,?,?,?)";
+    console.log(sql);
+    connection.query(sql, sentencia, function(err, result) {
+      if (err) console.log(err);
+      else {
+        response.send(result);
+        let variable1 = result.insertId;
+        let variable2 = [request.body.user_id, variable1];
+        let sql2="INSERT INTO user_book (user_id, book_id) VALUES (?,?)"
+        connection.query(sql2, variable2, function(err,result){
+            if (err) console.log(err);
+            else{ console.log(result)}
+        })
+      }
+    });
+  });
+  
+  app.put("/book", function(request, response) {
+    console.log(request.body);
+    let cambio = new Array(
+      request.body.title,
+      request.body.author,
+      request.body.year,
+      request.body.editorial,
+      request.body.type,
+      request.body.description,
+      //request.body.photo,
+      //request.body.available,
       request.body.book_id
     );
     let sql =
-      "UPDATE book SET tittle=?,author=?,year=?,editorial=?,type=?,description=?,photo=?,available=? WHERE book_id=?";
+      "UPDATE book SET title=?,author=?,year=?,editorial=?,type=?,description=? WHERE book_id=?";
     console.log(sql);
     connection.query(sql, cambio, function(err, result) {
       if (err) console.log(err);
@@ -277,10 +294,10 @@ app.get("/book", function(request, response) {
   
   // QUERY ES PARA CUANDO USAS EL ?ID= Y PARAMS CUANDO SOLO USAS EL /ID
   app.delete("/book", function(request, response) {
-    console.log(request.query.id);
-    let sql = "DELETE FROM book WHERE book_id = '" + request.query.id + "'";
+    let bookId=[request.body.book_id]
+    let sql = "DELETE FROM book WHERE book_id = ?" ;
     console.log(sql);
-    connection.query(sql, function(err, result) {
+    connection.query(sql, bookId, function(err, result) {
       if (err) console.log(err);
       else {
         response.send(result);

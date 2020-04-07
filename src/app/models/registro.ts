@@ -19,4 +19,6 @@ export class Libro{
     public description:string;
     public photo:string;
     public available:string;
+    public user_id:number;
+    public book_id:number
 }

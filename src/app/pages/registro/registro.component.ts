@@ -54,7 +54,7 @@ export class RegistroComponent implements OnInit {
     user.email=email;
     user.place=place;
     user.password=pass;
-    this.ApiUser.postUser(user).subscribe((data)=>{
+    return this.ApiUser.postUser(user).subscribe((data)=>{
       console.log(data);
     })
   }
