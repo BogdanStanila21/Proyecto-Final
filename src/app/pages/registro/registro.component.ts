@@ -36,7 +36,7 @@ export class RegistroComponent implements OnInit {
           Validators.required
         ]),
         pass: new FormControl("", [
-          Validators.pattern("(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}"),
+          Validators.minLength(8),
           Validators.required
         ]),
         pass2: new FormControl("", [Validators.required]),

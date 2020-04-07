@@ -21,6 +21,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavComponent } from './pages/nav/nav.component';
 import { PeticionesComponent } from './pages/peticiones/peticiones.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { PeticionesComponent } from './pages/peticiones/peticiones.component';
     ModalModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

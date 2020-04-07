@@ -9,6 +9,7 @@ export class Registro {
     public aboutYou:string;
     constructor(){}
 }
+
 export class Libro{
     public title:string;
     public author:string;
@@ -18,5 +19,4 @@ export class Libro{
     public description:string;
     public photo:string;
     public available:string;
-
 }
