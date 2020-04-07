@@ -11,10 +11,10 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: null,
-  database: "proyectofinal"
+  database: "proyectofinal",
 });
 
-connection.connect(function(error) {
+connection.connect(function (error) {
   if (error) {
     console.log(error);
   } else {
@@ -22,21 +22,30 @@ connection.connect(function(error) {
   }
 });
 
-app.get("/book", function(request, response) {
+app.get("/book", function (request, response) {
   let sql;
   if (request.query.id == null) sql = "SELECT * FROM book";
   else sql = "SELECT * FROM book WHERE book_id =" + request.query.id;
-  connection.query(sql, function(err, result) {
+  connection.query(sql, function (err, result) {
     if (err) console.log(err);
     else {
       response.send(result);
     }
   });
 });
-
-app.get("/book/:id", function(request, response) {
+app.get("/book/:type", function (request, response) {
+  let sql = "SELECT * FROM book WHERE type ='" + request.params.type + "'";
+  connection.query(sql, function (err, result) {
+    if (err) console.log(err);
+    else {
+      response.send(result);
+      console.log(result);
+    }
+  });
+});
+app.get("/book/:id", function (request, response) {
   let sql = "SELECT * FROM book WHERE book_id =" + request.params.id;
-  connection.query(sql, function(err, result) {
+  connection.query(sql, function (err, result) {
     if (err) console.log(err);
     else {
       response.send(result);
@@ -44,7 +53,7 @@ app.get("/book/:id", function(request, response) {
   });
 });
 
-app.post("/book", function(request, response) {
+app.post("/book", function (request, response) {
   let sentencia = new Array(
     request.body.tittle,
     request.body.author,
@@ -58,7 +67,7 @@ app.post("/book", function(request, response) {
   let sql =
     "INSERT INTO book (tittle,author,year,editorial,type,description,photo,available) VALUES (?,?,?,?,?,?,?,?)";
   console.log(sql);
-  connection.query(sql, sentencia, function(err, result) {
+  connection.query(sql, sentencia, function (err, result) {
     if (err) console.log(err);
     else {
       response.send(result);
@@ -66,7 +75,7 @@ app.post("/book", function(request, response) {
   });
 });
 
-app.put("/book", function(request, response) {
+app.put("/book", function (request, response) {
   console.log(request.body);
   let cambio = new Array(
     request.body.tittle,
@@ -82,7 +91,7 @@ app.put("/book", function(request, response) {
   let sql =
     "UPDATE book SET tittle=?,author=?,year=?,editorial=?,type=?,description=?,photo=?,available=? WHERE book_id=?";
   console.log(sql);
-  connection.query(sql, cambio, function(err, result) {
+  connection.query(sql, cambio, function (err, result) {
     if (err) console.log(err);
     else {
       response.send(result);
@@ -92,11 +101,11 @@ app.put("/book", function(request, response) {
 
 // QUERY ES PARA CUANDO USAS EL ?ID= Y PARAMS CUANDO SOLO USAS EL /ID
 
-app.delete("/book", function(request, response) {
+app.delete("/book", function (request, response) {
   console.log(request.query.id);
   let sql = "DELETE FROM book WHERE book_id = '" + request.query.id + "'";
   console.log(sql);
-  connection.query(sql, function(err, result) {
+  connection.query(sql, function (err, result) {
     if (err) console.log(err);
     else {
       response.send(result);
