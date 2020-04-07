@@ -203,7 +203,17 @@ app.get("/book", function(request, response) {
       }
     });
   });
-  
+ 
+app.get("/book/:type", function (request, response) {
+    let sql = "SELECT * FROM book WHERE type ='" + request.params.type + "'";
+    connection.query(sql, function (err, result) {
+      if (err) console.log(err);
+      else {
+        response.send(result);
+        console.log(result);
+      }
+    });
+  });
 
   
   app.get("/book/:id", function(request, response) {

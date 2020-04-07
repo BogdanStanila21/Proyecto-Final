@@ -84,7 +84,19 @@ export class ApisService {
     return this.http.delete(this.url5, options);
   };
 
+  //mostrar libro
 
+  getLibro(id: Number) {
+    return this.http.get(this.url6 + "/" + id);
+  }
+  getLibros() {
+    console.log(this.http.get(this.url));
+    return this.http.get(this.url6);
+  }
+  gettype(type) {
+    console.log(this.http.get(this.url6 + "/" + type));
+    return this.http.get(this.url6 + "/" + type);
+  }
 }
 
 

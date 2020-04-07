@@ -4,6 +4,16 @@ body {
   width: 100%;
 }
 // -------------------------------Buscador
+.filtrobusqueda {
+  width: 100%;
+  border: 1px solid #030303;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9dbfaf;
+}
+
 .busqueda {
   width: 100%;
   position: relative;
@@ -34,15 +44,21 @@ body {
 }
 
 #vacio {
-  height: 150px;
+  height: 200px;
   width: 100%;
 }
 
+.cien {
+  width: 100%;
+}
+#categoria {
+  margin-left: 15%;
+}
 // -----------------------------------------------------------------------------------Mostrar libros
 
 #filtro {
   position: absolute;
-  right: 44.3%;
+  right: 15%;
 }
 .valda {
   width: 50%;
@@ -134,20 +150,65 @@ $springer: #eded80;
   color: white;
   font-size: 0.9em;
   font-family: Verdana, sans-serif;
-  margin-bottom: 10px;
   transition: transform 0.4s ease;
   margin: 0 auto;
   padding: 10px 10px 0px 10px;
   margin-top: 20px;
+  margin-bottom: 10px;
+
+  position: relative;
+  transition: 1s;
+  contain: content;
 }
 
 img {
   height: 100%;
   width: 100%;
 }
+.oscuro {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: 1s;
+
+  top: 0px;
+  left: 0px;
+}
+.book:hover .oscuro {
+  background-color: rgba(0, 0, 0, 0.39);
+}
+
+.book:hover #pedir {
+  bottom: 50px;
+  left: 60px;
+  transition: 0.5s;
+}
+
+.book:hover #favorito {
+  bottom: 5px;
+  transition: 0.5s;
+}
+#pedir {
+  position: absolute;
+  left: -100px;
+  bottom: 50px;
+
+  display: block;
+  background-color: rgb(125, 17, 212);
+  transition: 1s;
+  cursor: pointer;
+}
+#favorito {
+  position: absolute;
+  bottom: -150px;
+  left: 32px;
+  display: block;
+  background-color: rgb(42, 207, 152);
+  transition: 1s;
+  cursor: pointer;
+}
 
 // ---------------------------------------------------------------------------------- Filtros laterales
-
 $color1: #f19c24;
 $color2: #e77a1f;
 $color3: #de002b;
@@ -185,7 +246,6 @@ ul.shelf {
   -webkit-perspective: 2500;
   -webkit-transform-origin: center top 0;
   -webkit-transform: translateY(250px);
-  position: absolute;
   top: 20px;
   left: -740px;
   transition: 1s;
