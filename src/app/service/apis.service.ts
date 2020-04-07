@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Registro, Libro } from './../models/registro';
 import { Title } from '@angular/platform-browser';
+import { Peticiones } from '../models/peticiones';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,18 @@ export class ApisService {
   private url="http://localhost:3000/user";
   private url2="http://localhost:3000/favorites";
   private url4="http://localhost:3000/mybook";
-  private url5="http://localhost:3000/book";
+  private url5 = "http://localhost:3000/petition";
+  private url6="http://localhost:3000/book";
 
-  constructor(private http:HttpClient) { }
+  
+  constructor(private http: HttpClient) { }
 
-  postUser(nuevoUser:Registro){
-    return this.http.post(this.url,nuevoUser)
+  postUser(nuevoUser: Registro) {
+    return this.http.post(this.url, nuevoUser)
   }
 
-  getFavorites(user:any){
-    return this.http.get(this.url2+"/"+user)
+  getFavorites(user: any) {
+    return this.http.get(this.url2 + "/" + user)
   }
 //Mis-Libros
   getBook(user_id:number){
@@ -28,16 +31,16 @@ export class ApisService {
   }
   
   postBook(nuevoLibro:Libro) {
-  return this.http.post(this.url5, nuevoLibro)
+  return this.http.post(this.url6, nuevoLibro)
   }
 
   getModifica(book_id:number){
-    return this.http.get(this.url5+"/"+book_id)
+    return this.http.get(this.url6+"/"+book_id)
   }
 
   putBook(libModificado:Libro)
   {
-    return this.http.put(this.url5,libModificado)
+    return this.http.put(this.url6,libModificado)
   }
 
   deleteBook(bookId:number)
@@ -50,8 +53,28 @@ export class ApisService {
   return this.http.delete(this.url5, options)
   }
 
+//Peticiones
+
+  getPetition(user_id: number) {
+    return this.http.get(this.url5 + "/" + user_id)
+  };
+
+  postPetition(peticion: Peticiones){
+    return this.http.post(this.url5, peticion)
+  };
+
+  deletePetition(id: number) {
+
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      body: { requested_id: id },
+    }
+
+    return this.http.delete(this.url5, options);
+  };
 
 }
-
 
 

@@ -45,7 +45,7 @@
           formControlName="email"
         /><br />
         <span *ngIf="registroForm.controls['email'].hasError('pattern')">
-          Email no valido
+          Email no válido
         </span>
       </div>
       <div class="place">
@@ -64,8 +64,8 @@
           [formGroup]="registroForm"
         /><br />
         <span *ngIf="registroForm.controls['pass'].hasError('pattern')">
-          La contraseña debe tener una longitud minima de 8 caracteres y
-          contener letras en mayusculas,minusculas y numeros
+          La contraseña debe tener una longitud mínima de 8 caracteres y
+          contener letras en mayúsculas,minúsculas y números
         </span>
       </div>
       <div class="pass2">
@@ -91,7 +91,7 @@
           SIGN UP
         </button>
         <p>
-          Ya estas registrado?
+          ¿Ya estás registrado?
           <a [routerLink]="['/home']">Entra</a>
         </p>
       </div>
