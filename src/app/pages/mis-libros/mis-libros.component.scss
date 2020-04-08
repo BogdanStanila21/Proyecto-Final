@@ -189,39 +189,42 @@ img{
 
 .botonVerde {
   height: 30px;
-  width: 260px;
+  width: 190px;
   cursor: pointer;
-  background-color: #38a9b8;
+  background-color:#38a9b883;
   border-radius: 5px;
   text-align: center;
   margin-bottom: 10px;
   padding-top: 2px;
-  color: white;
+  color: black;
   font-size: 15px;
-  border: 2px solid white;
+  border: 1px solid #38a9b8;
+  transition: 0.5s;
   &:hover{
-    background-color: white;
-    color:#38a9b8 ;
-    transition: 0.5s;
-    border: 2px solid #38a9b8;
+    width: 220px;
+    background-color: #38a9b8;
+    color:white ;
+    border: 1px solid white;
   }
 }
 .botonRojo {
   height: 30px;
-  width: 260px;
+  width: 190px;
   cursor: pointer;
-  background-color: rgba(241, 31, 31, 0.897);
+  background-color: rgba(241, 31, 31, 0.753);
   border-radius: 5px;
   text-align: center;
   margin-bottom: 10px;
   padding-top: 2px;
-  color: white;
+  color: black;
   font-size: 15px;
+  border: 1px solid #38a9b8;
+  transition: 0.5s;
   &:hover{
-    background-color: white;
-    color:rgba(241, 31, 31, 0.897) ;
-    transition: 0.5s;
-    border: 2px solid #38a9b8;
+    width: 220px;
+    background-color: rgba(241, 31, 31, 0.897);
+    color:white ;
+    border: 1px solid rgba(241, 31, 31, 0.897);
   }
 }
 .boton{
