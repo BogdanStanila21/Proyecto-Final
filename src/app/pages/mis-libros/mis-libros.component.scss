@@ -191,25 +191,41 @@ img{
   height: 30px;
   width: 260px;
   cursor: pointer;
-  background-color: mediumturquoise;
-  border-radius: 10px;
+  background-color: #38a9b8;
+  border-radius: 5px;
   text-align: center;
   margin-bottom: 10px;
   padding-top: 2px;
   color: white;
-  font-size: 18px;
+  font-size: 15px;
+  border: 2px solid white;
+  &:hover{
+    background-color: white;
+    color:#38a9b8 ;
+    transition: 0.5s;
+    border: 2px solid #38a9b8;
+  }
 }
 .botonRojo {
   height: 30px;
   width: 260px;
   cursor: pointer;
-  background-color: rgba(241, 31, 31, 0.897) !important;
-  border-radius: 10px;
+  background-color: rgba(241, 31, 31, 0.897);
+  border-radius: 5px;
   text-align: center;
   margin-bottom: 10px;
   padding-top: 2px;
   color: white;
-  font-size: 18px;
+  font-size: 15px;
+  &:hover{
+    background-color: white;
+    color:rgba(241, 31, 31, 0.897) ;
+    transition: 0.5s;
+    border: 2px solid #38a9b8;
+  }
+}
+.boton{
+  text-align: center;
 }
 /*
 //estilos para modal
@@ -326,10 +342,12 @@ textarea:hover {
 */
 
 input,
-textarea {
+textarea,
+select {
   margin: 2%;
   border-radius: 5px;
-  width: 260px;
+  width: 460px;
+  height: 30px;
 }
 .imagen {
   margin-top: 50px;
@@ -357,10 +375,9 @@ textarea {
 }
 
 .izq {
-  width: 270px;
+  width: 100%;
   padding: 20px;
-
-
+  text-align: center;
 }
 
 .dcha {

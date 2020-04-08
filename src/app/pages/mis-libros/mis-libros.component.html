@@ -5,7 +5,9 @@
   />
 </header>
 <div id="fondo"></div>
-<button class=" botonVerde" id="botSubirLibro" type="button" data-toggle="modal" data-target="#staticBackdrop2">Subir Libro</button>
+<div class="boton">
+  <button class=" botonVerde" id="botSubirLibro" type="button" data-toggle="modal" data-target="#staticBackdrop2">Subir Libro</button>
+</div>
 <div id="wrapper" *ngIf="getValor()" class="container">
   <!-- ------------------ *ngIf="misLibros!=null"------------------------- -->  
   <div class="row misLibros">
@@ -14,7 +16,7 @@
         <div class="foto">
           <img src= {{item.photo}} alt="">
         </div>
-        <p>{{item.description}}</p>
+        <p>{{item.title}}</p>
         <button class="botonVerde" type="button" data-target="#staticBackdrop3" data-toggle="modal" (click)="getLibro(item.book_id)">Editar</button>
         <button class="botonRojo" type="button" (click)="borrarLibro(item.book_id, i)">Eliminar</button>
       </div>   
@@ -54,17 +56,26 @@
                 <input type="text" placeholder="autor" #author>
                 <input type="text" placeholder="año de publicación" #year>
                 <input type="text" placeholder="editorial" #editorial>
-                <input type="text" placeholder="género"#type>
+                <select name="" id=""#type>
+                  <option>Misterio</option>
+                  <option>Fantasia</option>
+                  <option>Historico</option>
+                  <option>Biografias</option>
+                  <option>Literatura y lingüísticos</option>
+                  <option>Aventura y ciencia ficcion</option>
+                  <option>Novela policíaca</option>
+                  <option>Distopia</option>
+                  <option>Paranormal</option>
+                  <option>Comic</option>
+                </select>
+                <input type="text" placeholder="Foto"#photo>
                 <textarea cols="30" rows="7" placeholder="Descripción del libro... ¡sin spoilers!" #description></textarea>
-            </div>
-            <div class="dcha row">
-                <div class="imagen" id="div-img"></div>
             </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="cambiar" type="submit" data-dismiss="modal" (click)="(1)">Cambiar foto</button>
-        <button class="publicar" type="submit" data-dismiss="modal" (click)="insertarLibro(title.value, author.value, year.value, editorial.value, type.value, description.value)">Publicar libro</button>
+        <!-- <button class="cambiar" type="submit" data-dismiss="modal" (click)="(1)">Cambiar foto</button> -->
+        <button class="publicar" type="submit" data-dismiss="modal" (click)="insertarLibro(title.value, author.value, year.value, editorial.value, type.value, photo.value, description.value)">Publicar libro</button>
       </div>
     </div>
   </div>
@@ -84,7 +95,7 @@
     <div class="modal-content">
       
       <div class="modal-header">
-      <h3 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h3>
+      <h3 class="modal-title pull-left">¡MODIFICA UN LIBRO!</h3>
       <button
         type="button"
         class="close"
@@ -102,16 +113,17 @@
                 <input type="text" value="{{editarLibro.year}}" #year2>
                 <input type="text" value="{{editarLibro.editorial}}" #editorial2>
                 <input type="text" value="{{editarLibro.type}}"#type2>
+                <input type="text" value="{{editarLibro.photo}}"#photo2>
                 <textarea cols="30" rows="7" value="{{editarLibro.description}}" #description2></textarea>
             </div>
-            <div class="dcha row">
+            <!-- <div class="dcha row">
                 <div class="imagen" id="div-img"></div>
-            </div>
+            </div> -->
         </div>
       </div>
       <div class="modal-footer">
-        <button class="cambiar" type="submit" data-dismiss="modal" (click)="(1)">Cambiar foto</button>
-        <button class="publicar" type="submit" data-dismiss="modal" (click)="modificarLibro(title2.value, author2.value, year2.value, editorial2.value, type2.value, description2.value)">Modificar libro</button>
+        <!-- <button class="cambiar" type="submit" data-dismiss="modal" (click)="(1)">Cambiar foto</button> -->
+        <button class="publicar" type="submit" data-dismiss="modal" (click)="modificarLibro(title2.value, author2.value, year2.value, editorial2.value, type2.value, photo2.value, description2.value)">Modificar libro</button>
       </div>
     </div>
   </div>

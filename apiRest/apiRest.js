@@ -40,6 +40,7 @@ app.get("/user",(request,response)=>{
             console.log(err)
         }else{
             response.send(result)
+            console.log("GET de user");
         }
     })
 });
@@ -56,6 +57,7 @@ app.get("/user/:user_id",(request, response)=>{
             console.log(err)
         }else{
             response.send(result)
+            console.log("GET de user");
         }
     })
 });
@@ -79,6 +81,7 @@ app.post("/user",(request,response)=>{
             console.log(err);
         }else{
             response.send(result)
+            console.log("POST de user");
         }
     })
 });
@@ -102,6 +105,7 @@ app.put("/user",(request,response)=>{
             console.log(err);
         }else{
             response.send(result);
+            console.log("PUT de user");
         }
     })
 });
@@ -116,6 +120,7 @@ app.delete("/user",(request,response)=>{
         console.log(err);
         }else{
             response.send(result);
+            console.log("DELETE de user");
         }
     })
 });
@@ -129,6 +134,7 @@ app.post("/user/login",(request,respose)=>{
             console.log(err)
         }else{
             respose.send(result)
+            console.log("GET de user para login");
         }
     })
 })
@@ -200,31 +206,32 @@ app.get("/book", function(request, response) {
       if (err) console.log(err);
       else {
         response.send(result);
+        console.log("GET de libros(query)");
       }
     });
   });
- 
-app.get("/book/:type", function (request, response) {
-    let sql = "SELECT * FROM book WHERE type ='" + request.params.type + "'";
-    connection.query(sql, function (err, result) {
-      if (err) console.log(err);
-      else {
-        response.send(result);
-        console.log(result);
-      }
-    });
-  });
-
-  
   app.get("/book/:id", function(request, response) {
     let sql = "SELECT * FROM book WHERE book_id =" + request.params.id;
     connection.query(sql, function(err, result) {
       if (err) console.log(err);
       else {
         response.send(result);
+        console.log("GET de libros(params)");
       }
     });
   });
+ 
+app.get("/books/:type", function (request, response) {
+    let sql = "SELECT * FROM book WHERE type ='" + request.params.type + "'";
+    connection.query(sql, function (err, result) {
+      if (err) console.log(err);
+      else {
+        response.send(result);
+        console.log("GET de libros/type");
+      }
+    });
+  });
+
 
  //mostrar el libro del usuario logueado 
   app.get("/mybook/:id", function(request, response) {
@@ -233,10 +240,25 @@ app.get("/book/:type", function (request, response) {
       if (err) console.log(err);
       else {
         response.send(result);
+        console.log("GET de mis-libros");
       }
     });
   });
-  
+//Pedir libro
+
+  app.get("/userbook/:id",(request,response)=>{
+      let varible=[request.params.id]
+    let sql="SELECT user.user_id,user.nickname,user.place,user_book.book_id FROM user JOIN user_book ON(user_book.user_id=user.user_id) WHERE user_book.book_id=?";
+    connection.query(sql,varible,(err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            response.send(result)
+        }
+    })
+  })
+
+
   app.post("/book", function(request, response) {
     let sentencia = new Array(
       request.body.title,
@@ -246,10 +268,10 @@ app.get("/book/:type", function (request, response) {
       request.body.type,
       request.body.description,
       request.body.photo,
-      request.body.available,
+      //request.body.available,
     );
     let sql =
-      "INSERT INTO book (title,author,year,editorial,type,description,photo,available) VALUES (?,?,?,?,?,?,?,?)";
+      "INSERT INTO book (title,author,year,editorial,type,description,photo) VALUES (?,?,?,?,?,?,?)";
     console.log(sql);
     connection.query(sql, sentencia, function(err, result) {
       if (err) console.log(err);
@@ -260,7 +282,10 @@ app.get("/book/:type", function (request, response) {
         let sql2="INSERT INTO user_book (user_id, book_id) VALUES (?,?)"
         connection.query(sql2, variable2, function(err,result){
             if (err) console.log(err);
-            else{ console.log(result)}
+            else{
+                console.log(result)
+                console.log("POST de book con relacion a user_book");
+            }
         })
       }
     });
@@ -275,17 +300,18 @@ app.get("/book/:type", function (request, response) {
       request.body.editorial,
       request.body.type,
       request.body.description,
-      //request.body.photo,
+      request.body.photo,
       //request.body.available,
       request.body.book_id
     );
     let sql =
-      "UPDATE book SET title=?,author=?,year=?,editorial=?,type=?,description=? WHERE book_id=?";
+      "UPDATE book SET title=?,author=?,year=?,editorial=?,type=?,description=?,photo=? WHERE book_id=?";
     console.log(sql);
     connection.query(sql, cambio, function(err, result) {
       if (err) console.log(err);
       else {
         response.send(result);
+        console.log("PUT de libros");
       }
     });
   });
@@ -299,6 +325,7 @@ app.get("/book/:type", function (request, response) {
       if (err) console.log(err);
       else {
         response.send(result);
+        console.log("DELETE de libros");
       }
     });
   });
@@ -306,9 +333,9 @@ app.get("/book/:type", function (request, response) {
 
 //----------------------------------- API para solucitudes -----------------------------------//
 
-  app.get("/requested", function(req, res, next)
-    {
-        connection.query("SELECT requested_id, book.photo, user.nickname, user.place FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_id = user.user_id) WHERE requested.requested_id = " +  [req.query.id], function(err, result)
+app.get("/requested/:id", function(req, res, next)
+    {   let variable= [req.params.id]
+        connection.query("SELECT requested_id, book.photo, user.nickname, user.place FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_id = user.user_id) WHERE requested.user_idRequest = ?",variable, function(err, result)
             {
                 if(err){
                     console.log(err);
@@ -322,29 +349,29 @@ app.get("/book/:type", function (request, response) {
 );
 
 
-app.post("/requested", function(req, res, next)
-    {
-        let variable = "INSERT INTO requested (user_idRequest, book_id, user_id, status) VALUES (?,?,?,?)";
-        let variable2 = [req.body.user_idRequest, req.body.book_id, req.body.user_id, req.body.status];
+// app.post("/requested", function(req, res, next)
+//     {
+//         let variable = "INSERT INTO requested (user_idRequest, book_id, user_id, status) VALUES (?,?,?,?)";
+//         let variable2 = [req.body.user_idRequest, req.body.book_id, req.body.user_id, req.body.status];
 
-        connection.query(variable, variable2, function(err, result)
-            {
-                if(err){
-                    console.log(err);
-                }else{
-                    res.send(result);
-                    console.log("POST de solicitudes");
-                }
-            }
-        );
-    }
-);
+//         connection.query(variable, variable2, function(err, result)
+//             {
+//                 if(err){
+//                     console.log(err);
+//                 }else{
+//                     res.send(result);
+//                     console.log("POST de solicitudes");
+//                 }
+//             }
+//         );
+//     }
+// );
 
 
 app.put("/requested", function(req, res, next)
     {
-        let variable = "UPDATE requested SET status = ? WHERE requested_id = " + [req.query.id];
-        let variable2 = [req.body.status];
+        let variable = "UPDATE requested SET status = ? WHERE requested_id = ?" ;
+        let variable2 = [req.body.status,req.body.requested_id];
 
         connection.query(variable, variable2, function(err, result)
             {
@@ -362,9 +389,9 @@ app.put("/requested", function(req, res, next)
 
 app.delete("/requested", function(req, res, next)
     {
-        let variable = "DELETE FROM requested WHERE requested_id = " + [req.body.requested_id];
-
-        connection.query(variable, function(err, result)
+        let variable = "DELETE FROM requested WHERE requested_id = ?";
+        let variable2 = [req.body.requested_id];
+        connection.query(variable,variable2, function(err, result)
             {
                 if(err){
                     console.log(err);
@@ -392,7 +419,7 @@ app.get("/petition/:user_id", function(req, res, next)
                 console.log(err);
             }else{
                 res.send(result);
-                console.log("GET de solicitudes");
+                console.log("GET de peticiones");
             }
         }
     );
@@ -411,7 +438,7 @@ app.post("/petition", function(req, res, next)
                 console.log(err);
             }else{
                 res.send(result);
-                console.log("POST de solicitudes");
+                console.log("POST de peticiones");
             }
         }
     );
@@ -449,11 +476,12 @@ app.delete("/petition", function(req, res, next)
                 console.log(err);
             }else{
                 res.send(result);
-                console.log("DELETE de solicitudes");
+                console.log("DELETE de peticiones");
             }
         }
     );
 }
 );
+
 
 app.listen(3000);

@@ -53,6 +53,7 @@ img {
 }
 .contenedor {
   width: 266px;
+  height: 500px;
   margin: 0 auto;
   border-radius: 5px;
   background-color: rgba(36, 218, 163, 0.144);
@@ -94,4 +95,7 @@ img {
     border: 1px solid rgba(255, 0, 0, 0.404);
     width: 140px;
   }
+}
+p{
+  margin: 0;
 }

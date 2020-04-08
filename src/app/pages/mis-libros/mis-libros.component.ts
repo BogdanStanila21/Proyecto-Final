@@ -29,7 +29,7 @@ export class MisLibrosComponent implements OnInit {
     })
   };
 
-  insertarLibro(title:string,author:string,year:number,editorial:string,type:string,description:string){
+  insertarLibro(title:string,author:string,year:number,editorial:string,type:string,photo:string,description:string){
     let userLog=this.valor.getUser()[0].user_id
     let book=new Libro;
     book.title=title;
@@ -38,21 +38,23 @@ export class MisLibrosComponent implements OnInit {
     book.editorial=editorial;
     book.type=type; 
     book.description=description;
-    //book.photo=photo;
+    book.photo=photo;
     //book.available=available;
     book.user_id=userLog;
     return this.Api.postBook(book).subscribe((data)=>{
       console.log(data);
+      this.verLibro();
     })
   };
 
-  modificarLibro(title:string,author:string,year:number,editorial:string,type:string,description:string){
+  modificarLibro(title:string,author:string,year:number,editorial:string,type:string,photo:string,description:string){
     let modificado=new Libro;
     modificado.title=title;
     modificado.author=author;
     modificado.year=year;
     modificado.editorial=editorial;
     modificado.type=type;
+    modificado.photo=photo;
     modificado.description=description;
     modificado.book_id=this.editarLibro.book_id
     return this.Api.putBook(modificado).subscribe((data)=>{

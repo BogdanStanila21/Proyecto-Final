@@ -4,66 +4,17 @@
 
   <div class="row solicitudes">
     
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
+      <div class="col-lg-4 col-md-6 col-sm-12 solicitud" *ngFor="let item of request">
         <div class="contenedor">
           <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
+            <img src="{{item.photo}}" alt="">
           </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
+          <p>Nick:{{item.nickname}}</p>
+          <p>Ciudad:{{item.place}}</p>
+          <div class="boton" (click)="putSolicitud(item.requested_id)">Aceptar</div>
+          <div class="boton" (click)="putSolicitud2(item.requested_id)">Rechazar</div>
         </div>
       </div>    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>
   </div>
 </div>
   <!-- ------------------------------------------------------------------------------------------------------------- -->
