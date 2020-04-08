@@ -289,11 +289,13 @@ app.get("/book", function(request, response) {
   });
 
 
-//----------------------------------- API para solucitudes/peticiones -----------------------------------//
+//----------------------------------- API para solucitudes -----------------------------------//
 
-  app.get("/requested", function(req, res, next)
+  // ---------------------- Endpoint para mis solicitudes ---------------------- //
+  app.get("/requested/:user_idRequest", function(req, res, next)
     {
-        connection.query("SELECT requested_id, book.photo, user.nickname, user.place FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_id = user.user_id) WHERE requested.requested_id = " +  [req.query.id], function(err, result)
+        let idRequest = new Array(''+req.params.user_idRequest+'');
+        connection.query("SELECT requested_id, book.photo, user.nickname, user.place, book.description FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_id = user.user_id) WHERE requested.user_idRequest=?", idRequest, function(err, result)
             {
                 if(err){
                     console.log(err);
@@ -305,6 +307,7 @@ app.get("/book", function(request, response) {
         );
     }
 );
+
 
 
 app.post("/requested", function(req, res, next)

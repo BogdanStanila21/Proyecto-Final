@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './../../service/login.service';
+import { ApisService } from 'src/app/service/apis.service';
 
 @Component({
   selector: 'app-solicitudes',
@@ -8,14 +9,26 @@ import { LoginService } from './../../service/login.service';
 })
 export class SolicitudesComponent implements OnInit {
 
-  constructor(private valor:LoginService) { }
+  public requested: any;
 
+  constructor(private valor:LoginService,
+              private api: ApisService) { }
+  
   getValor(){
+    // console.log(this.valor.getUser())
     return this.valor.getUser();
+
   }
 
+  getRequest(){
+    let user_request = this.valor.getUser()[0].user_id;
+    return this.api.getRequest(user_request).subscribe((data) => {
+      this.requested = data;
+    });
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getRequest()
   }
 
 }

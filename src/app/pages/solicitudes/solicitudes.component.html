@@ -4,17 +4,17 @@
 
   <div class="row solicitudes">
     
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
+      <div class="col-lg-4 col-md-6 col-sm-12 solicitud" *ngFor="let item of requested">
         <div class="contenedor">
           <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
+            <img src="{{item.photo}}" alt="">
           </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>{{item.description}}</p>
           <div class="boton">Aceptar</div>
           <div class="boton">Rechazar</div>
         </div>
-      </div>    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
+      </div>
+      <!-- <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
         <div class="contenedor">
           <div class="foto">
             <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
@@ -63,7 +63,7 @@
           <div class="boton">Aceptar</div>
           <div class="boton">Rechazar</div>
         </div>
-      </div>
+      </div> -->
   </div>
 </div>
   <!-- ------------------------------------------------------------------------------------------------------------- -->
