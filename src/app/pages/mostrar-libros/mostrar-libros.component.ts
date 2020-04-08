@@ -66,8 +66,8 @@ export class MostrarLibrosComponent implements OnInit {
 
   addFavorito(bookId:number){
     let favorito=new Favorites;
-    favorito.user_id=this.valor.getUser()[0].user_id
-    favorito.book_id=bookId
+    favorito.user_id=this.valor.getUser()[0].user_id;
+    favorito.book_id=bookId;
     return this.api.postFavorites(favorito).subscribe((data)=>{
       console.log(data)
     })
