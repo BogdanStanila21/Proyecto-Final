@@ -14,7 +14,7 @@ export class ApisService {
   private url2="http://localhost:3000/favorites";
   private url3="http://localhost:3000/requested";
   private url4="http://localhost:3000/mybook";
-  private url5 = "http://localhost:3000/petition";
+  private url5="http://localhost:3000/petition";
   private url6="http://localhost:3000/book";
   private url7="http://localhost:3000/books";
   private url8="http://localhost:3000/userbook";

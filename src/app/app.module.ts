@@ -36,6 +36,7 @@ import { PeticionesComponent } from './pages/peticiones/peticiones.component';
     HomeComponent,
     NavComponent,
     PeticionesComponent,
+    
   ],
   imports: [
 
@@ -46,7 +47,7 @@ import { PeticionesComponent } from './pages/peticiones/peticiones.component';
     ModalModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule
-
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

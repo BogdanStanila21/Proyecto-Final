@@ -13,7 +13,7 @@ import { NavComponent } from "./pages/nav/nav.component";
 import { PeticionesComponent } from "./pages/peticiones/peticiones.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "perfil", component: PerfilComponent },
   { path: "mostrarLibro", component: MostrarLibrosComponent },
   { path: "favoritos", component: FavoritosComponent },
