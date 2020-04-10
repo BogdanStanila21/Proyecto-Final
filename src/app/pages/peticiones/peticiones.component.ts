@@ -21,6 +21,7 @@ export class PeticionesComponent implements OnInit {
     let variable = this.valor.getUser()[0].user_id;
     return this.api.getPetition(variable).subscribe((data) => {
         this.datosPeticion = data;
+        console.log(data)
       }
     );
   }
