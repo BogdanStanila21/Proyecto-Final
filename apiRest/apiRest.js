@@ -96,10 +96,10 @@ app.put("/user",(request,response)=>{
         request.body.email,
         request.body.password,
         request.body.aboutYou,
-        request.body.photo,
+        // request.body.photo, // Eliminado de la sentencia
         request.body.place,
         request.body.user_id);
-    sql="UPDATE user SET name=?, nickname=?, sex=?, email=?, password=?, aboutYou=?, photo=?, place=? WHERE user_id=?"
+    sql="UPDATE user SET name=?, nickname=?, sex=?, email=?, password=?, aboutYou=?, place=? WHERE user_id=?"
     connection.query(sql,myUser,(err,result)=>{
         if(err){
             console.log(err);
@@ -124,6 +124,7 @@ app.delete("/user",(request,response)=>{
         }
     })
 });
+
 //Api para el login
 app.post("/user/login",(request,respose)=>{
     let sql;
