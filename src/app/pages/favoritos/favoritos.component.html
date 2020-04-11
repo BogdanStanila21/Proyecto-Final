@@ -14,19 +14,16 @@
           <img src="{{item.photo}}" alt="">
         </div>
         <div *ngFor="let items of datosPeticion">
-          <div *ngIf="items.book_id==item.book_id"> 
+          <div *ngIf="items.book_id===item.book_id"> 
               <p>Peticion Creada</p>
-              <p>Nick: {{items.nickname}}</p>
               <p>Estado: {{items.status}}</p>
-          </div>
-          
+          </div>     
         </div>
         <button class="boton" (click)="getBookUser(item.book_id)" (click)="openModal(name)">Pedir libro</button>
         <button class="boton" type="button" (click)="delFav(item.favorites_id,i)">
           Eliminar favorito
         </button>
       </div>
-
     </div>
   </div>
   <!-- Modal pedir libro -->
@@ -39,15 +36,20 @@
         </button>
       </div>
       <div class="modal-body">
-        <br />
+        <div *ngIf="userbook[0];else esFalse">
+          <br />
         <h4>Selecciona el usuario del libro</h4>
-        <select name="libro" id="selectModal" #elegido>
-          <option *ngFor="let item of userbook">{{item.user_id}},{{item.nickname}},{{item.place}}</option>
+        <select name="libro" id="selectModal"#elegido>
+          <option *ngFor="let item of userbook" >{{item.user_id}},{{item.nickname}},{{item.place}}</option>
         </select>
+        <button  (click)="modalRef.hide()" (click)="postPeticion(elegido.value)" (click)="openModal(name2)">Aceptar</button>
+        </div>
+        <ng-template #esFalse>
+          <h4>Ya tienes este libro</h4>
+        </ng-template>
+        
       </div>
       <div class="modal-footer">
-        <button (click)="modalRef.hide()" (click)="postPeticion(elegido.value)"
-          (click)="openModal(name2)" (click)="getPeticion()">Aceptar</button>
         <button (click)="modalRef.hide()">Cancelar</button>
       </div>
     </div>

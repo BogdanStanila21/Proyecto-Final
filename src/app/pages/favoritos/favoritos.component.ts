@@ -16,7 +16,6 @@ export class FavoritosComponent implements OnInit {
   public userbook:any;
   public datosPeticion:any;
   public user:number;
-  public paraPedir:boolean;
   constructor(private valor:LoginService,private api:ApisService,private modalService: BsModalService) {
     
    }
@@ -46,22 +45,39 @@ export class FavoritosComponent implements OnInit {
 //Crear peticion
 
 getBookUser(id:number){
-  return this.api.getUserBook(id).subscribe((data)=>{
-    this.userbook=data;
-    console.log(data)
+  return this.api.getUserBook(id).subscribe((data:any)=>{
+    let datos=data
+    for (let i=0;i<datos.length;i++){
+      if(datos[i].user_id==this.valor.getUser()[0].user_id){
+        datos.splice(i,1)
+      }
+    }
+    this.userbook=datos;
+    console.log(datos)
   })
 }
 
-postPeticion(user_idRequest:number){
+postPeticion(user_idRequest:any){
   let variable = new Peticiones;
-  variable.user_idRequest = user_idRequest;
+  variable.user_idRequest = user_idRequest.substr(0,1);
   variable.book_id = this.userbook[0].book_id;
   variable.user_id = this.valor.getUser()[0].user_id;
   variable.status = "Pendiente";
-  return this.api.postPetition(variable).subscribe((data) => {
-      console.log(data);
-    }
-  )
+  let existe=false;
+  console.log(existe);
+  for(let i = 0;i<this.datosPeticion.length;i++){
+    if((this.datosPeticion[i].user_idRequest==user_idRequest.substr(0,1)) && (this.datosPeticion[i].book_id==this.userbook[0].book_id)){
+      existe=true;
+    }console.log(this.datosPeticion[i].user_idRequest)
+    console.log(user_idRequest.substr(0,1))
+  }
+  console.log(existe);
+  if(!existe){
+    return this.api.postPetition(variable).subscribe((data) => {
+      //console.log(data);
+    });
+  }
+  
 };
 
 getPeticion(){
@@ -77,5 +93,6 @@ getPeticion(){
     this.getFav();
     this.getPeticion();
   }
+
 
 }

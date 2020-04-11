@@ -268,7 +268,7 @@ app.get("/books/:type", function (request, response) {
       request.body.type,
       request.body.description,
       request.body.photo,
-      //request.body.available,
+      //request.body.available
     );
     let sql =
       "INSERT INTO book (title,author,year,editorial,type,description,photo) VALUES (?,?,?,?,?,?,?)";
