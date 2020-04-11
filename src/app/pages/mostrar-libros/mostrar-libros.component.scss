@@ -130,15 +130,15 @@ $springer: #eded80;
   overflow: hidden;
   background-image: linear-gradient(
     darken($brown, 32%),
-    darken($brown, 30%) 320px,
-    lighten($brown, 4%) 320px,
-    lighten($brown, 4%) 322px,
-    $brown 322px,
-    $brown 328px,
-    darken($brown, 4%) 328px,
-    darken($brown, 4%) 330px
+    darken($brown, 30%) 370px,
+    lighten($brown, 4%) 385px,
+    lighten($brown, 4%) 385px,
+    $brown 370px,
+    $brown 385px,
+    darken($brown, 4%) 385px,
+    darken($brown, 4%) 385px
   );
-  background-size: 10px 330px;
+  background-size: 10px 385px;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 15%;
@@ -146,8 +146,8 @@ $springer: #eded80;
 }
 
 .book {
-  height: 300px;
-  width: 200px;
+  width: 260px;
+  height: 355px;
   color: white;
   font-size: 0.9em;
   font-family: Verdana, sans-serif;
@@ -183,15 +183,16 @@ $springer: #eded80;
 }
 .nombreLibro {
   position: absolute;
-  top: -80px;
+  top: 60%;
   transition: 0.5s;
   text-align: center;
   color: white;
-  left: 10px;
+  margin: 0px 50px;
+  opacity: 0;
 }
 .book:hover .nombreLibro {
-  top: 70%;
   transition: 0.5s;
+  opacity: 1;
 }
 img {
   height: 100%;
@@ -272,7 +273,7 @@ ul.shelf {
   list-style: none;
   // border-bottom: 10px solid #82430c;
   height: 250px;
-  width: 800px;
+  width: 700px;
   margin: 80px auto 0;
   padding: 0;
   -webkit-perspective: 2250;
@@ -289,8 +290,8 @@ ul.shelf:hover {
 }
 
 ul.shelf li {
-  width: 80px;
-  height: 270px;
+  width: 60px;
+  height: 170px;
   float: left;
   margin: 0;
   padding: 0;
@@ -301,16 +302,26 @@ ul.shelf li {
   -webkit-transition-property: transform;
   -webkit-transition-duration: 100ms;
 }
-
+#soporte {
+  position: absolute;
+  height: 30px;
+  width: 700px;
+  background-color: #6b3b1c;
+  left: -20px;
+  top: -80px;
+  z-index: 200;
+}
 ul.shelf h2 {
   -webkit-transform-origin: 0 0 0;
-  -webkit-transform: rotateZ(90deg) translateY(-80px);
-  margin: 0;
+  -webkit-transform: rotateZ(-90deg) translateY(-80px);
   position: absolute;
   line-height: 80px;
   font-size: 20px;
   padding: 0 40px;
   box-sizing: border-box;
+  position: absolute;
+  bottom: -90px;
+  left: 70px;
 }
 
 ul.shelf li span {
@@ -321,31 +332,31 @@ ul.shelf li span {
 
 ul.shelf li span.label {
   opacity: 1;
-  width: 80px;
-  height: 270px;
+  width: 60px;
+  height: 170px;
   color: #fff;
   -webkit-transform: rotateX(0deg);
 }
 
 ul.shelf li span.top {
   opacity: 1;
-  width: 80px;
-  height: 300px;
-  -webkit-transform: translateY(-150px) translateZ(-150px) rotateX(90deg);
+  width: 60px;
+  height: 280px;
+  -webkit-transform: translateY(-140px) translateZ(-150px) rotateX(90deg);
 }
 
 ul.shelf li span.left {
   opacity: 1;
   width: 300px;
-  height: 250px;
+  height: 170px;
   -webkit-transform: translateX(-150px) translateZ(-150px) rotateY(90deg);
 }
 
 ul.shelf li span.right {
   opacity: 1;
   width: 300px;
-  height: 250px;
-  -webkit-transform: translateX(-70px) translateZ(-150px) rotateY(-90deg);
+  height: 170px;
+  -webkit-transform: translateX(-90px) translateZ(-150px) rotateY(-90deg);
 }
 
 ul.shelf li:hover {
@@ -402,7 +413,7 @@ ul.shelf li:nth-child(5) {
   }
 }
 ul.shelf li:nth-child(6) {
-  z-index: 5;
+  z-index: 6;
   span {
     background-color: darken($color6, 20%);
   }
@@ -411,7 +422,7 @@ ul.shelf li:nth-child(6) {
   }
 }
 ul.shelf li:nth-child(7) {
-  z-index: 4;
+  z-index: 7;
   span {
     background-color: darken($color7, 20%);
   }
@@ -444,6 +455,15 @@ ul.shelf li:nth-child(10) {
   }
   .label {
     background-color: $color10;
+  }
+}
+ul.shelf li:nth-child(11) {
+  z-index: 0;
+  span {
+    background-color: grey;
+  }
+  .label {
+    background-color: rgb(189, 180, 180);
   }
 }
 // ------------------------------------------------------------------------------------------

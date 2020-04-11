@@ -4,23 +4,29 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
   />
 </header>
-<div id="fondo"></div>
-<div id="wrapper" class="container" *ngIf="getValor()">
-  <!-- <div *ngIf="this.fav[0]==undefined" id="vacio">
+<div id="fondo">
+  <div id="wrapper" class="container" *ngIf="getValor()">
+    <!-- <div *ngIf="this.fav[0]==undefined" id="vacio">
     <h4>No tienes ningun favorito</h4>
     <a [routerLink]="['/mostrarLibro']">Agregar favorito</a>
   </div> -->
-  <div class="row misFavoritos" *ngIf="this.fav">
-    <div class="col-lg-4 col-md-6 col-sm-12 favorito" *ngFor="let item of fav; let i=index">
-      <div class="contenedor">
-        <div class="foto">
-        <img
-          src="{{item.photo}}"
-          alt="">
+    <div class="row misFavoritos" *ngIf="this.fav">
+      <div
+        class="col-lg-4 col-md-6 col-sm-12 favorito"
+        *ngFor="let item of fav; let i = index"
+      >
+        <div class="contenedor">
+          <div class="foto">
+            <img src="{{ item.photo }}" alt="" />
+          </div>
+          <button
+            class="boton"
+            type="button"
+            (click)="delFav(item.favorites_id, i)"
+          >
+            Eliminar artículo
+          </button>
         </div>
-        <button class="boton" type="button" (click)="delFav(item.favorites_id,i)">
-          Eliminar artículo
-        </button>
       </div>
     </div>
   </div>

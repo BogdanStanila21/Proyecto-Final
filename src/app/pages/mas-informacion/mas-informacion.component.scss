@@ -6,10 +6,7 @@
   height: 100%;
   width: 70%;
   margin: 0 auto;
-  background-image: url(../../../../logo.jpeg);
-  background-size: cover;
-  background-position: center;
-  opacity: 0.1;
+  background-color: rgba(81, 236, 236, 0.185);
 }
 
 .container {
@@ -42,6 +39,7 @@
   display: flex;
   margin: 0 auto;
   margin-top: 40px;
+  z-index: 200;
 }
 .fav {
   height: 40px;

@@ -53,7 +53,8 @@
           type="text"
           placeholder="Ciudad"
           #place
-          formControlName="place"/>
+          formControlName="place"
+        />
       </div>
       <div class="pass">
         <input
@@ -85,7 +86,16 @@
           [routerLink]="['/login']"
           type="submit"
           [disabled]="!registroForm.valid"
-          (click)="addUser(nick.value, name.value, sexo.value, email.value, place.value, pass.value)"
+          (click)="
+            addUser(
+              nick.value,
+              name.value,
+              sexo.value,
+              email.value,
+              place.value,
+              pass.value
+            )
+          "
         >
           SIGN UP
         </button>
@@ -97,5 +107,3 @@
     </form>
   </div>
 </div>
-
-
