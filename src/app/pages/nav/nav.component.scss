@@ -71,6 +71,10 @@ nav {
           padding-left: 4px;
           content: " ▾";
         }
+
+        a:focus{
+          background-color: black;
+        }
       }
 
       /* Lista del dropdown */
