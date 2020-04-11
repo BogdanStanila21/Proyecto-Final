@@ -7,6 +7,7 @@ import { MostrarLibros } from "src/app/models/mostrar-libros";
 import { MostrarLibrosService } from "src/app/service/mostrar-libros.service";
 import { Favorites } from './../../models/favorites';
 import { Data } from 'ngx-bootstrap/positioning/models';
+import { logging } from 'protractor';
 
 @Component({
   selector: "app-mostrar-libros",
@@ -52,7 +53,7 @@ export class MostrarLibrosComponent implements OnInit {
         }
       }
       this.userbook=datos;
-      console.log(data)
+      //console.log(data)
     })
   }
 
@@ -73,7 +74,7 @@ export class MostrarLibrosComponent implements OnInit {
     console.log(existe);
     if(!existe){
       return this.api.postPetition(variable).subscribe((data) => {
-        console.log(data);
+        //console.log(data);
       });
     }
     
@@ -82,7 +83,7 @@ export class MostrarLibrosComponent implements OnInit {
     let variable = this.valor.getUser()[0].user_id;
     return this.api.getPetition(variable).subscribe((data) => {
         this.datosPeticion = data;
-        console.log(data)
+        //console.log(data)
       }
     );
   }
@@ -93,15 +94,16 @@ export class MostrarLibrosComponent implements OnInit {
     let favorito=new Favorites;
     favorito.user_id=this.valor.getUser()[0].user_id
     favorito.book_id=bookId
-    let existe=false;
+    let existe2=false;
     for(let i=0;i<this.fav.length;i++){
       if(this.fav[i].book_id==bookId){
-        existe=true;
+        existe2=true;
       }
     }
-    if(!existe){
+    if(existe2==false){
       return this.api.postFavorites(favorito).subscribe((data)=>{
-        //console.log(data)
+        console.log(data)
+        this.getFav()
       })
     }
     
@@ -117,7 +119,7 @@ export class MostrarLibrosComponent implements OnInit {
 
   ngOnInit() {
     this.mostrarLibros();
-    this.getFav();
     this.getPeticion();
+    this.getFav();
   }
 }
