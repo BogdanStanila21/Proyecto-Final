@@ -37,14 +37,14 @@ body {
 .wrap {
   width: 30%;
   position: absolute;
-  top: 12%;
+  top: 8%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin-top: 20px;
 }
 
 #vacio {
-  height: 200px;
+  height: 100px;
   width: 100%;
 }
 
@@ -142,6 +142,7 @@ $springer: #eded80;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 15%;
+  z-index: 999;
 }
 
 .book {
@@ -152,15 +153,46 @@ $springer: #eded80;
   font-family: Verdana, sans-serif;
   transition: transform 0.4s ease;
   margin: 0 auto;
-  padding: 10px 10px 0px 10px;
+  // padding: 10px 10px 0px 10px;
+
   margin-top: 20px;
   margin-bottom: 10px;
-
+  cursor: pointer;
   position: relative;
   transition: 1s;
   contain: content;
 }
+.mas {
+  background-color: rgba(41, 151, 151, 0.554);
+  width: 70%;
+  height: 40px;
+  position: absolute;
+  left: 16%;
+  text-align: center;
+  bottom: -300px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  transition: 0.5s;
+}
+.book:hover .mas {
+  bottom: 50%;
+  transition: 0.5s;
+}
+.nombreLibro {
+  position: absolute;
+  top: -80px;
+  transition: 0.5s;
+  text-align: center;
+  color: white;
+  left: 10px;
+}
+.book:hover .nombreLibro {
+  top: 70%;
+  transition: 0.5s;
+}
 img {
   height: 100%;
   width: 100%;
@@ -208,7 +240,7 @@ img {
   cursor: pointer;
 }
 
-// ---------------------------------------------------------------------------------- Filtros laterales
+// ---------------------------------------------------------------------------------- Filtros
 $color1: #f19c24;
 $color2: #e77a1f;
 $color3: #de002b;
@@ -238,17 +270,18 @@ main {
 }
 ul.shelf {
   list-style: none;
-  border-bottom: 10px solid #82430c;
+  // border-bottom: 10px solid #82430c;
   height: 250px;
   width: 800px;
   margin: 80px auto 0;
   padding: 0;
-  -webkit-perspective: 2500;
+  -webkit-perspective: 2250;
   -webkit-transform-origin: center top 0;
-  -webkit-transform: translateY(250px);
-  top: 20px;
-  left: -740px;
+  -webkit-transform: translateY(280px);
+  // top: 200px;
+  // left: -740px;
   transition: 1s;
+  z-index: 0;
 }
 ul.shelf:hover {
   left: 0px;
@@ -257,7 +290,7 @@ ul.shelf:hover {
 
 ul.shelf li {
   width: 80px;
-  height: 500px;
+  height: 270px;
   float: left;
   margin: 0;
   padding: 0;
@@ -275,8 +308,7 @@ ul.shelf h2 {
   margin: 0;
   position: absolute;
   line-height: 80px;
-  width: 500px;
-  height: 80px;
+  font-size: 20px;
   padding: 0 40px;
   box-sizing: border-box;
 }
@@ -290,7 +322,7 @@ ul.shelf li span {
 ul.shelf li span.label {
   opacity: 1;
   width: 80px;
-  height: 500px;
+  height: 270px;
   color: #fff;
   -webkit-transform: rotateX(0deg);
 }
@@ -305,14 +337,14 @@ ul.shelf li span.top {
 ul.shelf li span.left {
   opacity: 1;
   width: 300px;
-  height: 500px;
+  height: 250px;
   -webkit-transform: translateX(-150px) translateZ(-150px) rotateY(90deg);
 }
 
 ul.shelf li span.right {
   opacity: 1;
   width: 300px;
-  height: 500px;
+  height: 250px;
   -webkit-transform: translateX(-70px) translateZ(-150px) rotateY(-90deg);
 }
 
@@ -414,3 +446,4 @@ ul.shelf li:nth-child(10) {
     background-color: $color10;
   }
 }
+// ------------------------------------------------------------------------------------------
