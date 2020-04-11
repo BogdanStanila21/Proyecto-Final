@@ -1,4 +1,3 @@
-
 <div id="wrapper" class="container" *ngIf="getValor()">
   <!-- ------------------------------------------- -->
 
@@ -7,7 +6,15 @@
       <div class="col-lg-4 col-md-6 col-sm-12 solicitud" *ngFor="let item of request; let i=index">
         <div class="contenedor">
           <div class="foto">
-            <img src="{{item.photo}}" alt="">
+            <img src="{{ item.photo }}" alt="" />
+          </div>
+          <p>Nick:{{ item.nickname }}</p>
+          <p>Ciudad:{{ item.place }}</p>
+          <div class="boton" (click)="putSolicitud(item.requested_id)">
+            Aceptar
+          </div>
+          <div class="boton" (click)="putSolicitud2(item.requested_id, i)">
+            Rechazar
           </div>
           <p>Nick:{{item.nickname}}</p>
           <p>Ciudad:{{item.place}}</p>
@@ -17,7 +24,8 @@
           </div>
           <ng-template #esFalse>Email de contacto:{{item.email}}</ng-template>
         </div>
-      </div>    
-  </div>
+      </div>
+    </div>
 </div>
-  <!-- ------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------------------------------------------------------- -->

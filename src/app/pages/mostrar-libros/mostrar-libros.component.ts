@@ -1,13 +1,11 @@
 import { Component, OnInit, TemplateRef } from "@angular/core";
 import { BsModalService, BsModalRef } from "ngx-bootstrap";
-import { LoginService } from './../../service/login.service';
-import { ApisService } from 'src/app/service/apis.service';
-import { Peticiones } from 'src/app/models/peticiones';
+import { LoginService } from "./../../service/login.service";
+import { ApisService } from "src/app/service/apis.service";
+import { Peticiones } from "src/app/models/peticiones";
 import { MostrarLibros } from "src/app/models/mostrar-libros";
 import { MostrarLibrosService } from "src/app/service/mostrar-libros.service";
-import { Favorites } from './../../models/favorites';
-import { Data } from 'ngx-bootstrap/positioning/models';
-import { logging } from 'protractor';
+import { Favorites } from "./../../models/favorites";
 
 @Component({
   selector: "app-mostrar-libros",
@@ -22,13 +20,13 @@ export class MostrarLibrosComponent implements OnInit {
   public datosPeticion:any;
   constructor(private modalService: BsModalService, private valor:LoginService, private api: ApisService) {}
 
-  getValor(){
+  getValor() {
     return this.valor.getUser();
   }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
-//Mostrar libros
+  //Mostrar libros
   mostrarLibros() {
     this.api.getLibros().subscribe((data: MostrarLibros[]) => {
       this.book = data;
@@ -41,8 +39,6 @@ export class MostrarLibrosComponent implements OnInit {
       //console.log(type);
     });
   }
-  
-//Crear peticion
 
   getBookUser(id:number){
     return this.api.getUserBook(id).subscribe((data:any)=>{
@@ -88,7 +84,7 @@ export class MostrarLibrosComponent implements OnInit {
     );
   }
 
-//Crear favorito
+  //Crear favorito
 
   addFavorito(bookId:number){
     let favorito=new Favorites;

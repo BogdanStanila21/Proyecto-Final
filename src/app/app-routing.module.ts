@@ -11,6 +11,7 @@ import { RegistroComponent } from "./pages/registro/registro.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { NavComponent } from "./pages/nav/nav.component";
 import { PeticionesComponent } from "./pages/peticiones/peticiones.component";
+import { MasInformacionComponent } from "./pages/mas-informacion/mas-informacion.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
@@ -24,11 +25,12 @@ const routes: Routes = [
   { path: "registro", component: RegistroComponent },
   { path: "home", component: HomeComponent },
   // { path: "nav", component: NavComponent },
-  { path: "peticiones", component: PeticionesComponent }
+  { path: "peticiones", component: PeticionesComponent },
+  { path: "mas", component: MasInformacionComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

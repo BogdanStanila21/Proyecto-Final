@@ -47,19 +47,16 @@
         ><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Literatura y lingüísticos')" class="filtro">
-        <span class="label"><h2>Literatura y lingüísticos</h2></span
-        ><span class="top"></span><span class="left"></span
-        ><span class="right"></span>
+        <span class="label"><h2>Literatura</h2></span><span class="top"></span
+        ><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Aventura y ciencia ficcion')" class="filtro">
-        <span class="label"><h2>Aventura y ciencia ficcion</h2></span
-        ><span class="top"></span><span class="left"></span
-        ><span class="right"></span>
+        <span class="label"><h2>Aventura</h2></span><span class="top"></span
+        ><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Novela policíaca')" class="filtro">
-        <span class="label"><h2>Novela policíaca</h2></span
-        ><span class="top"></span><span class="left"></span
-        ><span class="right"></span>
+        <span class="label"><h2>Novela</h2></span><span class="top"></span
+        ><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Distopia')" class="filtro">
         <span class="label"><h2>Distopia</h2></span><span class="top"></span
@@ -73,17 +70,29 @@
         <span class="label"><h2>Comic</h2></span><span class="top"></span
         ><span class="left"></span><span class="right"></span>
       </li>
+      <li (click)="mostrartype('Comic')" class="filtro ultimo">
+        <span class="label"><h2>Todos</h2></span><span class="top"></span
+        ><span class="left"></span><span class="right"></span>
+      </li>
+      <div id="soporte"></div>
     </ul>
 
     <div class="bookshelf">
       <div class="book" *ngFor="let i of book">
-        <p>{{ i.tittle }}</p>
+        <div class="oscuro"></div>
+        <div [routerLink]="['/mas']" class="mas">Mas informacion</div>
+
+        <p class="nombreLibro">{{ i.tittle }}</p>
         <img src="{{ i.photo }}" alt="" />
         <p>{{ i.tittle }}</p>
-        <div class="oscuro"></div>
-
-        <p id="pedir" (click)="getBookUser(i.book_id)" (click)="openModal(name)">Pedir libro</p>
-        <p id="favorito" (click)="addFavorito(i.book_id)" (click)="openModal(name2)">Añadir a favoritos</p>
+        <!-- <p
+          id="pedir"
+          (click)="getBookUser(i.book_id)"
+          (click)="openModal(name)"
+        >
+          Pedir libro
+        </p>
+        <p id="favorito" (click)="addFavorito(i.book_id)">Añadir a favoritos</p> -->
       </div>
     </div>
   </main>
@@ -106,8 +115,10 @@
         <div *ngIf="userbook[0];else esFalse">
           <br />
         <h4>Selecciona el usuario del libro</h4>
-        <select name="libro" id="selectModal"#elegido>
-          <option *ngFor="let item of userbook" >{{item.user_id}},{{item.nickname}},{{item.place}}</option>
+        <select name="libro" id="selectModal" #elegido>
+          <option *ngFor="let item of userbook"
+            >{{ item.user_id }},{{ item.nickname }},{{ item.place }}</option
+          >
         </select>
         <button  (click)="modalRef.hide()" (click)="postPeticion(elegido.value)" (click)="openModal(name3)">Aceptar</button>
         </div>
