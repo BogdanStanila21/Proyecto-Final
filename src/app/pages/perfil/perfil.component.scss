@@ -59,6 +59,7 @@
   border-radius: 50%;
   background-color: white;
   margin: 0 auto;
+  contain: content;
 }
 
 #imgPerfil {
@@ -69,6 +70,11 @@
   margin: 0 auto;
 }
 
+img {
+  height: 100%;
+  width: 100%;
+  size: cover;
+}
 .subirfoto {
   height: 50px;
   width: 200px;
@@ -82,6 +88,7 @@
   font-weight: bold;
   cursor: pointer;
   transition: 1s;
+  contain: content;
 }
 
 .subirfoto:hover {
@@ -108,6 +115,15 @@ input {
   border: white;
   color: black;
 }
+.input {
+  height: 36px;
+  width: 46%;
+  margin: 2% 2% 0.5% 2%;
+  background-color: #fffffff1;
+  border: white;
+  color: black;
+  text-align-last: center;
+}
 textarea {
   width: 100%;
   margin: 2%;
@@ -127,7 +143,7 @@ textarea {
   color: rgb(255, 255, 255);
   font-weight: bold;
   font-size: 30px;
-  padding-top: 24px;
+  // padding-top: 20px;
   text-align: center;
   cursor: pointer;
   transition: 1s;

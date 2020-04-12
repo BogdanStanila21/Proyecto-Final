@@ -12,12 +12,12 @@
     <div id="cajafoto">
       <div class="colum">
         <div class="cambiarfoto">
-          <img id="" />
+          <img src="{{ userData.photo }}" id="" />
         </div>
         <!-- <div class="subirfoto">Sube tu foto</div> -->
         <input id="foto" type="text" placeholder="URL de tu foto" />
       </div>
-      <div class="cambiarperfil">
+      <form [formGroup]="registroForm" class="cambiarperfil">
         <input
           type="text"
           placeholder="Nombre"
@@ -30,19 +30,22 @@
           value="{{ userData.nickname }}"
           #nickname
         />
-        <input
+        <select
+          class="input"
           type="select"
           placeholder="Género"
           value="{{ userData.sex }}"
           #sex
-        />
+        >
+          <option value="w">Mujer</option>
+          <option value="H">Hombre</option>
+        </select>
         <input
           type="text"
           placeholder="Ciudad"
           value="{{ userData.place }}"
           #place
         />
-        <input type="password" placeholder="Anterior contraseña" #password1 />
         <input type="password" placeholder="Nueva contraseña" #password2 />
         <input
           type="text"
@@ -61,6 +64,7 @@
           #aboutYou
         ></textarea>
         <button
+          [disabled]="!registroForm.valid"
           id="guardar"
           (click)="
             editUser(
@@ -76,7 +80,7 @@
         >
           Guardar
         </button>
-      </div>
+      </form>
     </div>
   </div>
 </div>
