@@ -7,6 +7,7 @@ export class Registro {
     public place:string;
     public photo:string;
     public aboutYou:string;
+    public user_id:number;
     constructor(){}
 }
 

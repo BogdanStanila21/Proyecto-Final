@@ -14,7 +14,7 @@ import { PeticionesComponent } from "./pages/peticiones/peticiones.component";
 import { MasInformacionComponent } from "./pages/mas-informacion/mas-informacion.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "perfil", component: PerfilComponent },
   { path: "mostrarLibro", component: MostrarLibrosComponent },
   { path: "favoritos", component: FavoritosComponent },

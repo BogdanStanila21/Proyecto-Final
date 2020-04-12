@@ -50,7 +50,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     ModalModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule
-
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

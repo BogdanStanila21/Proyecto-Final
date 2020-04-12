@@ -18,21 +18,64 @@
         <input id="foto" type="text" placeholder="URL de tu foto" />
       </div>
       <div class="cambiarperfil">
-        <input type="text" placeholder="Nombre" />
-        <input type="text" placeholder="Nickname" />
-        <input type="select" placeholder="Género" />
-        <input type="text" placeholder="Ciudad" />
-        <input type="password" placeholder="Anterior contraseña" />
-        <input type="password" placeholder="Nueva contraseña" />
-        <input type="text" placeholder="Correo" id="email" />
+        <input
+          type="text"
+          placeholder="Nombre"
+          value="{{ userData.name }}"
+          #name
+        />
+        <input
+          type="text"
+          placeholder="Nickname"
+          value="{{ userData.nickname }}"
+          #nickname
+        />
+        <input
+          type="select"
+          placeholder="Género"
+          value="{{ userData.sex }}"
+          #sex
+        />
+        <input
+          type="text"
+          placeholder="Ciudad"
+          value="{{ userData.place }}"
+          #place
+        />
+        <input type="password" placeholder="Anterior contraseña" #password1 />
+        <input type="password" placeholder="Nueva contraseña" #password2 />
+        <input
+          type="text"
+          placeholder="Correo"
+          id="email"
+          value="{{ userData.email }}"
+          #email
+        />
         <textarea
           name=""
           id=""
           cols="30"
           rows="10 "
           placeholder="Sobre ti"
+          value="{{ userData.aboutYou }}"
+          #aboutYou
         ></textarea>
-        <div id="guardar">Guardar</div>
+        <button
+          id="guardar"
+          (click)="
+            editUser(
+              name.value,
+              nickname.value,
+              sex.value,
+              place.value,
+              password2.value,
+              email.value,
+              aboutYou.value
+            )
+          "
+        >
+          Guardar
+        </button>
       </div>
     </div>
   </div>

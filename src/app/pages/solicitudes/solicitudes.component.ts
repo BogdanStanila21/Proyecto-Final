@@ -20,8 +20,8 @@ export class SolicitudesComponent implements OnInit {
   getSolicitud(){
     let id=this.valor.getUser()[0].user_id;
     return this.api.getRequest(id).subscribe((data)=>{
-      this.request=data
-      console.log(data)
+      this.request=data;
+      console.log(data);
     })
   }
   putSolicitud(id){
@@ -29,16 +29,18 @@ export class SolicitudesComponent implements OnInit {
     requestPut.status="Aceptada";
     requestPut.requested_id=id;
     return this.api.putRequest(requestPut).subscribe((data)=>{
-      console.log(data)
+      console.log(data);
+      this.getSolicitud();
     })
   }
 
-  putSolicitud2(id){
+  putSolicitud2(id,index){
     let requestPut=new RequestModel;
     requestPut.status="Rechazada";
     requestPut.requested_id=id;
     return this.api.putRequest(requestPut).subscribe((data)=>{
-      console.log(data)
+      console.log(data);
+      this.request.splice(index,1);
 
     })
   }
@@ -48,7 +50,6 @@ export class SolicitudesComponent implements OnInit {
       console.log(data)
     })
   }
-
 
   ngOnInit() {
     this.getSolicitud();

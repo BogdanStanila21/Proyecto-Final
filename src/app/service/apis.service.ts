@@ -8,22 +8,33 @@ import { Favorites } from './../models/favorites';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApisService {
 
   private url="http://localhost:3000/user";
   private url2="http://localhost:3000/favorites";
   private url3="http://localhost:3000/requested";
   private url4="http://localhost:3000/mybook";
-  private url5 = "http://localhost:3000/petition";
+  private url5="http://localhost:3000/petition";
   private url6="http://localhost:3000/book";
   private url7="http://localhost:3000/books";
-  private url8="http://localhost:3000/userbook";
+  private url8="http://localhost:3000/userbook"
   
   constructor(private http: HttpClient) { }
 //registro
   postUser(nuevoUser: Registro) {
     return this.http.post(this.url, nuevoUser)
   }
+
+// Editar perfil
+  getUser(userId: number) {
+    return this.http.get(this.url + "/" + userId)
+  }
+
+  putUser(editUser: Registro) {
+    return this.http.put(this.url, editUser)
+  }
+
 //favoritos
   getFavorites(user: any) {
     return this.http.get(this.url2 + "/" + user)
@@ -71,7 +82,6 @@ export class ApisService {
   }
 
 //Peticiones
-
   getPetition(user_id: number) {
     return this.http.get(this.url5 + "/" + user_id)
   };

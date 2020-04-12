@@ -96,10 +96,10 @@ app.put("/user",(request,response)=>{
         request.body.email,
         request.body.password,
         request.body.aboutYou,
-        request.body.photo,
+        // request.body.photo, // Eliminado de la sentencia
         request.body.place,
         request.body.user_id);
-    sql="UPDATE user SET name=?, nickname=?, sex=?, email=?, password=?, aboutYou=?, photo=?, place=? WHERE user_id=?"
+    sql="UPDATE user SET name=?, nickname=?, sex=?, email=?, password=?, aboutYou=?, place=? WHERE user_id=?"
     connection.query(sql,myUser,(err,result)=>{
         if(err){
             console.log(err);
@@ -124,6 +124,7 @@ app.delete("/user",(request,response)=>{
         }
     })
 });
+
 //Api para el login
 app.post("/user/login",(request,respose)=>{
     let sql;
@@ -145,7 +146,7 @@ app.post("/user/login",(request,respose)=>{
 
 app.get("/favorites/:user_id", function(req, res, next)
     { let fav=new Array(''+req.params.user_id+'')
-        connection.query("SELECT book.photo, user.nickname, user.place, favorites_id FROM favorites JOIN user ON (favorites.user_id = user.user_id) JOIN book ON (favorites.book_id = book.book_id) WHERE favorites.user_id=?",fav, function(err, result)
+        connection.query("SELECT book.book_id, book.photo, user.nickname, user.place, favorites_id FROM favorites JOIN user ON (favorites.user_id = user.user_id) JOIN book ON (favorites.book_id = book.book_id) WHERE favorites.user_id=?",fav, function(err, result)
             {
                 if(err){
                     console.log(err);
@@ -268,7 +269,7 @@ app.get("/books/:type", function (request, response) {
       request.body.type,
       request.body.description,
       request.body.photo,
-      //request.body.available,
+      //request.body.available
     );
     let sql =
       "INSERT INTO book (title,author,year,editorial,type,description,photo) VALUES (?,?,?,?,?,?,?)";
@@ -335,7 +336,7 @@ app.get("/books/:type", function (request, response) {
 
 app.get("/requested/:id", function(req, res, next)
     {   let variable= [req.params.id]
-        connection.query("SELECT requested_id, book.photo, user.nickname, user.place FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_id = user.user_id) WHERE requested.user_idRequest = ?",variable, function(err, result)
+        connection.query("SELECT requested_id,status, book.photo, user.nickname, user.place, user.email FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_id = user.user_id) WHERE requested.user_idRequest = ? && (requested.status='Aceptada' || requested.status='Pendiente')",variable, function(err, result)
             {
                 if(err){
                     console.log(err);
@@ -410,7 +411,7 @@ app.delete("/requested", function(req, res, next)
 
 app.get("/petition/:user_id", function(req, res, next)
 {
-    let variable = "SELECT requested_id, book.photo, book.title, user.nickname, user.place, status FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_idRequest = user.user_id) WHERE requested.user_id = ?";
+    let variable = "SELECT requested_id, book.photo, book.book_id, book.title,requested.user_id, requested.user_idRequest, user.nickname, user.place,user.email, status FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_idRequest = user.user_id) WHERE requested.user_id = ?";
     let variable2 = new Array ('' + req.params.user_id + '')
 
     connection.query(variable, variable2, function(err, result)
