@@ -67,9 +67,7 @@
   border-radius: 50%;
   background: #f2f2f2;
   margin: 0 auto;
-  
 }
-
 
 .subirfoto {
   height: 50px;
@@ -86,7 +84,6 @@
   transition: 1s;
 }
 
-
 .subirfoto:hover {
   background-color: #a70eac;
   transition: 1s;
@@ -99,8 +96,7 @@
   display: flex;
   flex-wrap: wrap;
 }
-#email
-{
+#email {
   width: 100%;
 }
 input {
@@ -110,7 +106,7 @@ input {
   text-align: center;
   background-color: #fffffff1;
   border: white;
-  color: white;
+  color: black;
 }
 textarea {
   width: 100%;
@@ -120,6 +116,7 @@ textarea {
   height: 150px;
   background-color: #fffffff1;
   border: white solid 0.5px;
+  color: black;
 }
 #guardar {
   height: 100px;
@@ -141,5 +138,13 @@ textarea {
 }
 #relativo {
   position: absolute;
+}
+
+#foto {
+  position: absolute;
+  width: 300px;
+  top: 27.8em;
+  left: -20px;
+  color: black;
 }
 // -------------------------------------------------------------------------------------------------------------

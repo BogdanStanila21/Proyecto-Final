@@ -12,11 +12,12 @@ body {
   border-radius: 5px 0 0 5px;
   outline: none;
   color: #9dbfaf;
+  margin: 0 auto;
 }
 
 .busqueda {
-  width: 100%;
-  position: relative;
+  width: 25%;
+  margin: 0 auto;
   display: flex;
 }
 
@@ -35,18 +36,15 @@ body {
   font-size: 20px;
 }
 .wrap {
-  width: 30%;
-  position: absolute;
-  top: 8%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin-top: 20px;
+  width: 100%;
+  // transform: translate(-50%, -50%);
+  margin-top: 5%;
 }
 
-#vacio {
-  height: 100px;
-  width: 100%;
-}
+// #vacio {
+//   height: 100px;
+//   width: 100%;
+// }
 
 .cien {
   width: 100%;
@@ -54,72 +52,16 @@ body {
 #categoria {
   margin-left: 15%;
 }
-// -----------------------------------------------------------------------------------Mostrar libros
 
-#filtro {
-  position: absolute;
-  right: 15%;
-}
-.valda {
-  width: 50%;
-  margin: 5rem auto;
-  text-align: center;
-  position: relative;
-}
-.relativa {
-  z-index: 2;
-  position: relative;
-  transform: translateY(-15px);
-}
+// -------------------------------------"Biblioteca"------------------------------------------------
 
-#librosmostrados {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-.item {
-  margin: 0 auto;
-  display: block;
-  width: 200px;
-  height: 300px;
-  contain: content;
-  position: relative;
-  box-shadow: 0px -5px 20px 2px rgba(black, 0.3);
-}
-
-.contenedor {
-  width: 80%;
-  height: 90vh;
-  background-color: black;
-  margin: 0 auto;
-  margin-top: 40px;
-  contain: content;
-}
-.conjunto {
-  height: 40%;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: blueviolet;
-}
-.libro {
-  height: 200px;
-  width: 16em;
-  background-color: rgb(255, 255, 255);
-  margin: 0 auto;
-}
-.estante {
-  height: 40px;
-  width: 100%;
-  background-color: brown;
-}
-
-// -------------------------------------------------------------------------------------------------------------------------------------
+// Variables que almacenan colores
 $brown: #a87328;
 $darkblue: #0c347d;
 $umber: #54290c;
 $springer: #eded80;
+
+// fondo de la biblioteca que se agranda. Esto funciona por que es un degradado hecho con porcentajes
 
 .bookshelf {
   width: 80%;

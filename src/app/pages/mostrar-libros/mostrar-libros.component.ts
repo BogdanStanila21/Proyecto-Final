@@ -21,7 +21,7 @@ export class MostrarLibrosComponent implements OnInit {
     private valor: LoginService,
     private api: ApisService
   ) {}
-
+  filterLibro = "";
   getValor() {
     return this.valor.getUser();
   }

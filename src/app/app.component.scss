@@ -68,7 +68,34 @@ footer {
 .divisor {
   width: 50px;
   height: 1px;
-  background-color: rgba(128, 128, 128, 0.425);
+  background-color: rgba(185, 185, 185, 0.425);
   margin: 0 auto;
   margin-bottom: 20px;
+}
+
+.elevar {
+  width: 100%;
+  height: 40px;
+  background-color: rgba(102, 231, 225, 0.26);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.fixed {
+  position: fixed;
+  bottom: -13vh;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.fixed:hover {
+  transition: 1s;
+
+  bottom: 0px;
 }
