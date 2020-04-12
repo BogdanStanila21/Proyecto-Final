@@ -18,7 +18,9 @@ export class ApisService {
   private url5="http://localhost:3000/petition";
   private url6="http://localhost:3000/book";
   private url7="http://localhost:3000/books";
-  private url8="http://localhost:3000/userbook"
+  private url8="http://localhost:3000/userbook";
+  private url9="http://localhost:3000/books/title";
+  private url10="http://localhost:3000/books/author";
   
   constructor(private http: HttpClient) { }
 //registro
@@ -117,6 +119,12 @@ export class ApisService {
   gettype(type) {
     console.log(this.http.get(this.url7 + "/" + type));
     return this.http.get(this.url7 + "/" + type);
+  }
+  getBookTitle(title:string){
+    return this.http.get(this.url9 +"/"+ title)
+  }
+  getBookAuthor(author:string){
+    return this.http.get(this.url10 +"/"+ author)
   }
 //Solicitudes
   getRequest(id:number){

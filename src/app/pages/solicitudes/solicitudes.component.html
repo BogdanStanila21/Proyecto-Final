@@ -7,15 +7,6 @@
         <div class="contenedor">
           <div class="foto">
             <img src="{{ item.photo }}" alt="" />
-          </div>
-          <p>Nick:{{ item.nickname }}</p>
-          <p>Ciudad:{{ item.place }}</p>
-          <div class="boton" (click)="putSolicitud(item.requested_id)">
-            Aceptar
-          </div>
-          <div class="boton" (click)="putSolicitud2(item.requested_id, i)">
-            Rechazar
-          </div>
           <p>Nick:{{item.nickname}}</p>
           <p>Ciudad:{{item.place}}</p>
           <div *ngIf="item.status=='Pendiente'; else esFalse">

@@ -233,6 +233,27 @@ app.get("/books/:type", function (request, response) {
     });
   });
 
+  app.get("/books/title/:title", function (request, response) {
+    let sql = "SELECT * FROM book WHERE title ='" + request.params.title + "'";
+    connection.query(sql, function (err, result) {
+      if (err) console.log(err);
+      else {
+        response.send(result);
+        console.log("GET de libros/title");
+      }
+    });
+  });
+
+  app.get("/books/author/:author", function (request, response) {
+    let sql = "SELECT * FROM book WHERE author ='" + request.params.author + "'";
+    connection.query(sql, function (err, result) {
+      if (err) console.log(err);
+      else {
+        response.send(result);
+        console.log("GET de libros/author");
+      }
+    });
+  });
 
  //mostrar el libro del usuario logueado 
   app.get("/mybook/:id", function(request, response) {
