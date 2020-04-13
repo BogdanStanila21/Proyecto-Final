@@ -97,7 +97,7 @@
     </div>
   </main>
 
-<!-- Modal para pedir libro -->
+  <!-- Modal para pedir libro -->
   <ng-template #name>
     <div class="modal-content">
       <div class="modal-header">
@@ -112,27 +112,32 @@
         </button>
       </div>
       <div class="modal-body">
-        <div *ngIf="userbook[0];else esFalse">
+        <div *ngIf="userbook[0]; else esFalse">
           <br />
-        <h4>Selecciona el usuario del libro</h4>
-        <select name="libro" id="selectModal" #elegido>
-          <option *ngFor="let item of userbook"
-            >{{ item.user_id }},{{ item.nickname }},{{ item.place }}</option
+          <h4>Selecciona el usuario del libro</h4>
+          <select name="libro" id="selectModal" #elegido>
+            <option *ngFor="let item of userbook"
+              >{{ item.user_id }},{{ item.nickname }},{{ item.place }}</option
+            >
+          </select>
+          <button
+            (click)="modalRef.hide()"
+            (click)="postPeticion(elegido.value)"
+            (click)="openModal(name3)"
           >
-        </select>
-        <button  (click)="modalRef.hide()" (click)="postPeticion(elegido.value)" (click)="openModal(name3)">Aceptar</button>
+            Aceptar
+          </button>
         </div>
         <ng-template #esFalse>
           <h4>Ya tienes este libro</h4>
         </ng-template>
-        
       </div>
       <div class="modal-footer">
         <button (click)="modalRef.hide()">Cerar</button>
       </div>
     </div>
   </ng-template>
-<!-- Modal aviso favoritos -->
+  <!-- Modal aviso favoritos -->
   <ng-template #name2>
     <div class="modal-content">
       <div class="modal-header">
@@ -232,4 +237,3 @@
     </div>
   </ng-template>
 </body>
-

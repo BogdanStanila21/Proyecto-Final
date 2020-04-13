@@ -1,7 +1,8 @@
 @import "../../app.component.scss";
-
+* {
+  font-family: "Baloo Paaji 2", cursive;
+}
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
   background-color: $color-grey;
 }
 
@@ -73,7 +74,7 @@ nav {
           content: " ▾";
         }
 
-        a:focus{
+        a:focus {
           background-color: black;
         }
       }

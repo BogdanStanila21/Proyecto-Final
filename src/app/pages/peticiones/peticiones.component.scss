@@ -1,51 +1,7 @@
 * {
-  font-family: "Oswald", sans-serif;
+  font-family: "Baloo Paaji 2", cursive;
 }
-// --------------------------------------------------------------------------------       Menu
-#wrapper {
-  background: rgba(255, 255, 255, 1);
-  background: -moz-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    right top,
-    color-stop(0%, rgba(255, 255, 255, 1)),
-    color-stop(0%, rgba(246, 246, 246, 1)),
-    color-stop(100%, rgba(230, 230, 230, 1))
-  );
-  background: -webkit-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -o-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=1 );
-}
-.container {
-  margin-top: 24px;
-}
+
 img {
   width: 100%;
   height: 100%;
@@ -53,11 +9,10 @@ img {
   border-radius: 5px;
 }
 .contenedor {
-  height: 492px;
+  height: 500px;
   width: 266px;
   margin: 0 auto;
   border-radius: 5px;
-  background-color: rgba(36, 218, 163, 0.144);
 }
 .solicitudes {
   background-color: #f2f2f2;
@@ -82,23 +37,32 @@ img {
 }
 
 .boton {
+  margin-top: 8px;
   height: 30px;
   border-radius: 5px;
-  border: 1px solid #31a6b3;
-  background-color: rgba(255, 255, 255, 0);
-  width: 110px;
+  border: 1px solid #e05e5e;
+  background-color: rgba(212, 94, 94, 0);
+  width: 150px;
   transition: 0.5s;
+  margin-top: 8px;
+
   &:hover {
-    background-color: #31a6b3;
+    background-color: #e05e5e;
     color: white;
-    border: 1px solid rgba(255, 0, 0, 0.404);
-    width: 140px;
+    border: 1px solid rgba(255, 252, 252, 0.404);
   }
 }
 
-.mensaje{
+.mensaje {
   text-align: center;
 }
-p{
+p {
   margin: 0;
+}
+
+.nombreTitular p span {
+  cursor: pointer;
+  color: blue;
+  font-size: 18px;
+  font-weight: 600;
 }
