@@ -93,18 +93,19 @@ app.put("/user",(request,response)=>{
         request.body.name,
         request.body.nickname,
         request.body.sex,
-        request.body.email,
-        request.body.password,
-        request.body.aboutYou,
-        // request.body.photo, // Eliminado de la sentencia
         request.body.place,
+        request.body.password,
+        request.body.email,
+        request.body.photo, 
+        request.body.aboutYou,        
         request.body.user_id);
-    sql="UPDATE user SET name=?, nickname=?, sex=?, email=?, password=?, aboutYou=?, place=? WHERE user_id=?"
+    sql="UPDATE user SET name=?, nickname=?, sex=?, place=?, password=?, email=?, photo=?, aboutYou=? WHERE user_id=?"
     connection.query(sql,myUser,(err,result)=>{
         if(err){
             console.log(err);
         }else{
             response.send(result);
+            console.log(myUser)
             console.log("PUT de user");
         }
     })

@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------       Menu
 #wrapper {
-  display: flex;
+  //display: flex;
   background: rgba(255, 255, 255, 1);
   background: -moz-linear-gradient(
     left,
@@ -85,7 +85,11 @@
   cursor: pointer;
   transition: 1s;
 }
-
+img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 
 .subirfoto:hover {
   background-color: #a70eac;
@@ -103,6 +107,10 @@
 {
   width: 100%;
 }
+#photo
+{
+  width: 100%;
+}
 input {
   height: 36px;
   width: 46%;
@@ -111,6 +119,16 @@ input {
   background-color: #fffffff1;
   border: white;
   color:black;
+}
+select {
+  height: 36px;
+  width: 46%;
+  margin: 2% 2% 0.5% 2%;
+  text-align: center;
+  background-color: #fffffff1;
+  border: white;
+  color:black;
+  text-align-last: center;
 }
 textarea {
   width: 100%;

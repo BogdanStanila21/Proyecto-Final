@@ -86,6 +86,7 @@ export class MostrarLibrosComponent implements OnInit {
     if(!existe){
       return this.api.postPetition(variable).subscribe((data) => {
         //console.log(data);
+        this.getPeticion();
       });
     }
     
