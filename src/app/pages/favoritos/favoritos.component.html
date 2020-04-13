@@ -6,23 +6,47 @@
 </header>
 <div id="fondo">
   <div id="wrapper" class="container" *ngIf="getValor()">
-    <div *ngIf="this.fav[0]==undefined" id="vacio">
-    <h4>No tienes ningun favorito</h4>
-    <a [routerLink]="['/mostrarLibro']">Agregar favorito</a>
-  </div>
+    <div *ngIf="this.fav[0] == undefined" id="vacio">
+      <div class="beta">
+        <nav class="shelf">
+          <a routerLink="/mostrarLibro" class="book home-page">Buscar libros</a>
+          <a class="book about-us">Quienes somos</a>
+          <a class="book contact">Contactanos</a>
+          <a class="book faq">F.A.Q.</a>
+          <span class="book not-found"></span>
+          <span class="door left"></span>
+          <span class="door right"></span>
+        </nav>
+        <h1>No se ha encontrado nada</h1>
+        <p>Añade algun libro a favoritos</p>
+      </div>
+    </div>
     <div class="row misFavoritos" *ngIf="this.fav">
-      <div class="col-lg-4 col-md-6 col-sm-12 favorito" *ngFor="let item of fav; let i=index">
+      <div
+        class="col-lg-4 col-md-6 col-sm-12 favorito"
+        *ngFor="let item of fav; let i = index"
+      >
         <div class="contenedor">
           <div class="foto">
-            <img src="{{item.photo}}" alt="">
+            <img src="{{ item.photo }}" alt="" />
           </div>
-          <div *ngIf="tienePeticion(item.book_id);else esFalse">
+          <div *ngIf="tienePeticion(item.book_id); else esFalse">
             <p>Peticion Creada</p>
           </div>
           <ng-template #esFalse>
-            <button class="boton" (click)="getBookUser(item.book_id)" (click)="openModal(name)">Pedir libro</button>
+            <button
+              class="boton"
+              (click)="getBookUser(item.book_id)"
+              (click)="openModal(name)"
+            >
+              Pedir libro
+            </button>
           </ng-template>
-          <button class="boton" type="button" (click)="delFav(item.favorites_id,i)">
+          <button
+            class="boton"
+            type="button"
+            (click)="delFav(item.favorites_id, i)"
+          >
             Eliminar favorito
           </button>
         </div>
@@ -33,19 +57,31 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title pull-left">¡Intercambio!</h3>
-          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <button
+            type="button"
+            class="close pull-right"
+            aria-label="Close"
+            (click)="modalRef.hide()"
+          >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <div *ngIf="userbook[0]!=undefined;else esFalse">
+          <div *ngIf="userbook[0] != undefined; else esFalse">
             <br />
             <h4>Selecciona el usuario del libro</h4>
             <select name="libro" id="selectModal" #elegido>
-              <option *ngFor="let item of userbook">{{item.user_id}},{{item.nickname}},{{item.place}}</option>
+              <option *ngFor="let item of userbook"
+                >{{ item.user_id }},{{ item.nickname }},{{ item.place }}</option
+              >
             </select>
-            <button (click)="modalRef.hide()" (click)="postPeticion(elegido.value)"
-              (click)="openModal(name2)">Aceptar</button>
+            <button
+              (click)="modalRef.hide()"
+              (click)="postPeticion(elegido.value)"
+              (click)="openModal(name2)"
+            >
+              Aceptar
+            </button>
           </div>
           <ng-template #esFalse>
             <h4>Ya tienes este libro</h4>
@@ -61,7 +97,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title pull-left">¡Peticion!</h3>
-          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <button
+            type="button"
+            class="close pull-right"
+            aria-label="Close"
+            (click)="modalRef.hide()"
+          >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>

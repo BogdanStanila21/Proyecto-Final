@@ -16,9 +16,10 @@
     Subir Libro
   </button>
 </div>
+
 <div id="wrapper" *ngIf="getValor()" class="container">
   <!-- ------------------ *ngIf="misLibros!=null"------------------------- -->
-  <div class="row misLibros">
+  <div class="row misLibros" *ngIf="misLibros[0]; else noHay">
     <div
       *ngFor="let item of misLibros; let i = index"
       class="col-lg-4 col-md-6 col-sm-12 libro"
@@ -198,3 +199,18 @@
     </div>
   </div>
 </div>
+
+<ng-template #noHay>
+  <div class="beta">
+    <nav class="shelf">
+      <a routerLink="/mostrarLibro" class="book home-page">Buscar libros</a>
+      <a class="book about-us">Quienes somos</a>
+      <a class="book contact">Contactanos</a>
+      <a class="book faq">F.A.Q.</a>
+      <span class="book not-found"></span>
+      <span class="door left"></span>
+      <span class="door right"></span>
+    </nav>
+    <h1>No tienes ninguna peticion</h1>
+  </div>
+</ng-template>

@@ -1,7 +1,7 @@
 <div id="wrapper" class="container" *ngIf="getValor()">
   <!-- ------------------------------------------- -->
 
-  <div class="row solicitudes">
+  <div class="row solicitudes" *ngIf="request[0]; else noHay">
     <div
       class="col-lg-4 col-md-6 col-sm-12 solicitud"
       *ngFor="let item of request; let i = index"
@@ -15,7 +15,7 @@
             Dueño: <span>{{ item.nickname }}</span>
           </p>
         </div>
-        
+
         <!-- <p>Nick:{{item.nickname}}</p> -->
         <!-- <p>Ciudad:{{item.place}}</p> -->
         <div *ngIf="item.status == 'Pendiente'; else esFalse">
@@ -31,5 +31,19 @@
     </div>
   </div>
 </div>
+<ng-template #noHay>
+  <div class="beta">
+    <nav class="shelf">
+      <a routerLink="/mostrarLibro" class="book home-page">Buscar libros</a>
+      <a class="book about-us">Quienes somos</a>
+      <a class="book contact">Contactanos</a>
+      <a class="book faq">F.A.Q.</a>
+      <span class="book not-found"></span>
+      <span class="door left"></span>
+      <span class="door right"></span>
+    </nav>
+    <h1>No tienes ninguna solicitud</h1>
+  </div>
+</ng-template>
 
 <!-- ------------------------------------------------------------------------------------------------------------- -->

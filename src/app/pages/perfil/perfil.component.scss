@@ -2,58 +2,30 @@
 * {
   font-family: "Baloo Paaji 2", cursive;
 }
-#wrapper {
-  //display: flex;
-  background: rgba(255, 255, 255, 1);
-  background: -moz-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    right top,
-    color-stop(0%, rgba(255, 255, 255, 1)),
-    color-stop(0%, rgba(246, 246, 246, 1)),
-    color-stop(100%, rgba(230, 230, 230, 1))
-  );
-  background: -webkit-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -o-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=1 );
-  height: 100vh;
-}
-// --------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------
+.input {
+  width: 50%;
+  position: relative;
+}
+#input2 {
+  width: 96%;
+  position: relative;
+  margin-top: 0px;
+}
+.input span {
+  position: absolute;
+  top: 53px;
+  left: 215px;
+  color: rgb(224, 91, 91);
+  font-weight: 700;
+}
 #cajafoto {
-  width: 100%;
-  // margin: 50px 0px 10px 100px;
+  width: 70%;
   padding: 45px;
   display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
-  margin-top: 5%;
 }
 
 .cambiarfoto {
@@ -61,7 +33,7 @@
   width: 250px;
   border-radius: 50%;
   background-color: white;
-  margin: 0 auto;
+  margin: 0px 40%;
   contain: content;
 }
 
@@ -93,7 +65,7 @@ img {
   transition: 1s;
   contain: content;
 }
-img{
+img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -114,14 +86,13 @@ img{
 #email {
   width: 100%;
 }
-#photo
-{
+#photo {
   width: 100%;
 }
 input {
   height: 36px;
-  width: 46%;
-  margin: 2% 2% 0.5% 2%;
+  width: 95%;
+  margin: 3% 2% 2% 2%;
   text-align: center;
   background-color: #fffffff1;
   border: white;
@@ -129,12 +100,12 @@ input {
 }
 select {
   height: 36px;
-  width: 46%;
+  width: 95%;
   margin: 2% 2% 0.5% 2%;
   text-align: center;
   background-color: #fffffff1;
   border: white;
-  color:black;
+  color: black;
   text-align-last: center;
 }
 textarea {
