@@ -1,29 +1,45 @@
 <header>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
 </header>
 <div id="fondo"></div>
 <div id="wrapper" class="container" *ngIf="getValor()">
-
   <!-- ------------------------------------------- -->
 
   <div class="row solicitudes" *ngIf="datosPeticion[0]; else noHay">
-    <div class="col-lg-4 col-md-6 col-sm-12 solicitud" *ngFor="let item of datosPeticion; let i = index">
+    <div
+      class="col-lg-4 col-md-6 col-sm-12 solicitud"
+      *ngFor="let item of datosPeticion; let i = index"
+    >
       <div class="contenedor">
         <div class="foto">
-          <img src="{{item.photo}}" title="{{item.title}}" alt="Ups! La portada de este libro no carga">
+          <img
+            src="{{ item.photo }}"
+            title="{{ item.title }}"
+            alt="Ups! La portada de este libro no carga"
+          />
         </div>
-        <p>Propietario: {{item.nickname}}, {{item.place}}</p>
-        <p>Estado: {{item.status}}</p>
-        <div *ngIf="item.status=='Aceptada';else esFalse">{{item.email}}</div>
+        <div class="nombreTitular">
+          <p>
+            Dueño: <span>{{ item.nickname }}</span>
+          </p>
+        </div>
+        <p>Estado: {{ item.status }}</p>
+        <div *ngIf="item.status == 'Aceptada'; else esFalse">
+          {{ item.email }}
+        </div>
         <ng-template #esFalse>
-          <button class="boton" (click)="deletePeticion(item.requested_id, i)">Cancelar</button>
+          <button class="boton" (click)="deletePeticion(item.requested_id, i)">
+            Cancelar
+          </button>
         </ng-template>
       </div>
     </div>
   </div>
-  
+
   <ng-template #noHay>
     <div class="mensaje">Oh, oh.. No has hecho peticiones todavía.</div>
   </ng-template>
-
 </div>

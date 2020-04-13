@@ -1,150 +1,26 @@
-// --------------------------------------------------------------------------------       Menu
-#wrapper {
-  /*display: flex;*/
-  background: rgba(255, 255, 255, 1);
-  background: -moz-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    right top,
-    color-stop(0%, rgba(255, 255, 255, 1)),
-    color-stop(0%, rgba(246, 246, 246, 1)),
-    color-stop(100%, rgba(230, 230, 230, 1))
-  );
-  background: -webkit-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -o-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=1 );
-}
-.menu {
-  height: 100vh;
-  width: 20vw;
-  background: #f2f2f200;
-  top: 0px;
-}
-
-#botSubirLibro
-{
-  margin-top: 25px;
-}
-
-.cuadrado {
-  background: #f2f2f210;
-  height: 330px;
-  padding-top: 30px;
-}
-.circulo {
-  height: 200px;
+#botSubirLibro {
+  height: 50px;
   width: 200px;
-  border-radius: 50%;
-  background: #f2f2f2;
+  background-color: #0e99ac;
+  border-radius: 5px;
   margin: 0 auto;
-  padding-top: 7px;
-}
-
-.avatar {
-  height: 185px;
-  width: 185px;
-  border: 3px solid #0e99ac;
-  border-radius: 50%;
-  background-color: rgb(255, 255, 255);
-  margin-top: 30px;
-  margin: 0 auto;
-}
-
-h2 {
+  margin-top: 20px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 30px;
+  // padding-top: 20px;
   text-align: center;
-  margin-top: 30px;
-}
-ul {
-  margin-top: 30px;
-  padding: 0px;
-}
-li {
-  display: block;
-  height: 80px;
   cursor: pointer;
-  text-align: center;
-  padding-top: 23px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  font-size: 22px;
-  transition: 1s;
-  color: black;
-}
-
-li:hover {
-  background-color: rgba(32, 175, 175, 0.658);
   transition: 0.5s;
-  color: white;
 }
-.lib {
-  height: 100px;
-  width: 100px;
-  margin: 0 auto;
-  border-radius: 50%;
-  transition: 2s;
-  cursor: pointer;
-  margin-top: 60px;
-}
-.lib:hover {
-  transform: rotate(360deg);
-  transition: 1s;
-}
-#libro {
-  background: #0e99ac;
-  height: 100px;
-  position: relative;
-  width: 20px;
-  margin: 0 auto;
-  transition: 1s;
-}
-#libro:after {
-  background: #0e99ac;
-  text-align: center;
-  content: "";
-  height: 20px;
-  left: -40px;
-  position: absolute;
-  top: 40px;
-  width: 100px;
-  transition: 1s;
-}
-.lib:hover #libro:after {
+#botSubirLibro:hover {
   background-color: #a70eac;
-  transition: 1s;
-}
-.lib:hover #libro {
-  background-color: #a70eac;
-  transition: 1s;
+  transition: 0.5s;
 }
 
-// --------------------------------------------------------------------------------
+* {
+  font-family: "Baloo Paaji 2", cursive;
+}
 
 // -------------------------------------------------------------------------------------------------------------
 .misLibros {
@@ -153,7 +29,6 @@ li:hover {
   flex-wrap: wrap;
   padding: 60px;
   margin: 0 auto;
-
 }
 .libro {
   height: 600px;
@@ -162,13 +37,11 @@ li:hover {
   text-align: center;
   margin: 0 auto;
   margin-bottom: 50px;
-
 }
-.contenedor{
+.contenedor {
   width: 266px;
   margin: 0 auto;
   border-radius: 5px;
-
 }
 
 .foto {
@@ -180,7 +53,7 @@ li:hover {
   border-radius: 5px;
 }
 
-img{
+img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -191,19 +64,17 @@ img{
   height: 30px;
   width: 190px;
   cursor: pointer;
-  background-color:#38a9b883;
   border-radius: 5px;
   text-align: center;
   margin-bottom: 10px;
   padding-top: 2px;
   color: black;
   font-size: 15px;
-  border: 1px solid #38a9b8;
+  border: 1px solid #e2a026;
   transition: 0.5s;
-  &:hover{
-    width: 220px;
-    background-color: #38a9b8;
-    color:white ;
+  &:hover {
+    background-color: #e2a026;
+    color: white;
     border: 1px solid white;
   }
 }
@@ -211,23 +82,22 @@ img{
   height: 30px;
   width: 190px;
   cursor: pointer;
-  background-color: rgba(241, 31, 31, 0.753);
+  background-color: rgba(255, 255, 255, 0);
   border-radius: 5px;
   text-align: center;
   margin-bottom: 10px;
   padding-top: 2px;
   color: black;
   font-size: 15px;
-  border: 1px solid #38a9b8;
+  border: 1px solid rgb(245, 98, 98);
   transition: 0.5s;
-  &:hover{
-    width: 220px;
-    background-color: rgba(241, 31, 31, 0.897);
-    color:white ;
-    border: 1px solid rgba(241, 31, 31, 0.897);
+  &:hover {
+    background-color: rgb(245, 98, 98);
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
   }
 }
-.boton{
+.boton {
   text-align: center;
 }
 
@@ -246,12 +116,10 @@ select {
   background-color: rgba(219, 219, 219, 0.842);
 }
 
-
 .flex {
   display: flex;
   width: 100%;
   margin: 0 auto;
-  
 }
 .modal-body {
   text-align: center;
@@ -268,8 +136,4 @@ select {
   width: 100%;
   padding: 20px;
   text-align: center;
-}
-
-.dcha {
-  padding: 40px;
 }
