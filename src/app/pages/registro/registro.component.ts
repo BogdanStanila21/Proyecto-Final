@@ -38,8 +38,8 @@ export class RegistroComponent implements OnInit {
           Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}"),
           Validators.required
         ]),
-        pass: new FormControl("", [
-          Validators.minLength(8),
+        pass: new FormControl(null, [
+          Validators.minLength(9),
           Validators.required
         ]),
         pass2: new FormControl("", [Validators.required]),
@@ -68,26 +68,21 @@ export class RegistroComponent implements OnInit {
     console.log(user)
     let check=false
     let check2=false
-    let check3=false
+    
     for(let i=0;i<this.users.length;i++){
       if(this.users[i].nickname==nick){
         check=true
-      }if(this.users[i].name==name){
-        check2=true
       }if(this.users[i].email==email){
-        check3=true
+        check2=true
       }
     }
     if (check===true){
       alert("Nickname no valido")
     }
     if (check2===true){
-      alert("Name no valido")
-    }
-    if (check3===true){
       alert("Email no valido")
     }
-    if((check==false)&&(check2==false)&&(check3==false)){
+    if((check==false)&&(check2==false)){
       return this.ApiUser.postUser(user).subscribe((data)=>{
         console.log(data);
         this.router.navigate(['/login'])
