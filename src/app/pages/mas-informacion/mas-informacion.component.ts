@@ -15,11 +15,14 @@ import { Favorites } from "./../../models/favorites";
 export class MasInformacionComponent implements OnInit {
   modalRef: BsModalRef;
   public book: MostrarLibros[];
-  public userbook: any;
+  public userbook:any;
+  public fav:any;
+  public datosPeticion:any;
+
   constructor(
     private modalService: BsModalService,
     private valor: LoginService,
-    private api: ApisService
+    private api: ApisService, 
   ) {}
 
   getValor() {
@@ -28,55 +31,82 @@ export class MasInformacionComponent implements OnInit {
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
-  //Mostrar libros
-  mostrarLibros() {
-    this.api.getLibros().subscribe((data: MostrarLibros[]) => {
-      this.book = data;
-      console.log(data);
-    });
-  }
-  mostrartype(type) {
-    this.api.gettype(type).subscribe((data: MostrarLibros[]) => {
-      this.book = data;
-      console.log(type);
-    });
-  }
 
   //Crear peticion
 
-  getBookUser(id: number) {
-    return this.api.getUserBook(id).subscribe((data) => {
-      this.userbook = data;
-      console.log(data);
-    });
+  getBookUser(id:number){
+    return this.api.getUserBook(id).subscribe((data:any)=>{
+      let datos=data
+      for (let i=0;i<datos.length;i++){
+        if(datos[i].user_id==this.valor.getUser()[0].user_id){
+          datos.splice(i,1)
+        }
+      }
+      this.userbook=datos;
+      //console.log(data)
+    })
   }
 
-  postPeticion(user_idRequest: number) {
-    let variable = new Peticiones();
-
-    variable.user_idRequest = user_idRequest;
+  postPeticion(user_idRequest:any){
+    let variable = new Peticiones;
+    variable.user_idRequest = user_idRequest.substr(0,1);
     variable.book_id = this.userbook[0].book_id;
     variable.user_id = this.valor.getUser()[0].user_id;
     variable.status = "Pendiente";
-    console.log(user_idRequest);
-
-    return this.api.postPetition(variable).subscribe((data) => {
-      console.log(data);
-    });
+    let existe=false;
+    console.log(existe);
+    for(let i = 0;i<this.datosPeticion.length;i++){
+      if((this.datosPeticion[i].user_idRequest==user_idRequest.substr(0,1)) && (this.datosPeticion[i].book_id==this.userbook[0].book_id)){
+        existe=true;
+      }console.log(this.datosPeticion[i].user_idRequest)
+      console.log(user_idRequest.substr(0,1))
+    }
+    console.log(existe);
+    if(!existe){
+      return this.api.postPetition(variable).subscribe((data) => {
+        //console.log(data);
+      });
+    }
+    
+  };
+  getPeticion(){
+    let variable = this.valor.getUser()[0].user_id;
+    return this.api.getPetition(variable).subscribe((data) => {
+        this.datosPeticion = data;
+        //console.log(data)
+      }
+    );
   }
 
   //Crear favorito
 
-  addFavorito(bookId: number) {
-    let favorito = new Favorites();
-    favorito.user_id = this.valor.getUser()[0].user_id;
-    favorito.book_id = bookId;
-    return this.api.postFavorites(favorito).subscribe((data) => {
-      console.log(data);
-    });
+  addFavorito(bookId:number){
+    let favorito=new Favorites;
+    favorito.user_id=this.valor.getUser()[0].user_id
+    favorito.book_id=bookId
+    let existe2=false;
+    for(let i=0;i<this.fav.length;i++){
+      if(this.fav[i].book_id==bookId){
+        existe2=true;
+      }
+    }
+    if(existe2==false){
+      return this.api.postFavorites(favorito).subscribe((data)=>{
+        console.log(data)
+        this.getFav()
+      })
+    }
+    
+    
+  }
+  getFav(){
+    let user_id=this.valor.getUser()[0].user_id 
+    return this.api.getFavorites(user_id).subscribe((data)=>{
+      this.fav=data;
+      //console.log(data)
+    }) 
   }
 
   ngOnInit() {
-    this.mostrarLibros();
   }
 }

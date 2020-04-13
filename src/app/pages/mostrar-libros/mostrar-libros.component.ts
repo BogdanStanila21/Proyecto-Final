@@ -6,6 +6,7 @@ import { Peticiones } from "src/app/models/peticiones";
 import { MostrarLibros } from "src/app/models/mostrar-libros";
 import { MostrarLibrosService } from "src/app/service/mostrar-libros.service";
 import { Favorites } from "./../../models/favorites";
+import { Data } from 'ngx-bootstrap/positioning/models';
 
 @Component({
   selector: "app-mostrar-libros",
@@ -15,14 +16,11 @@ import { Favorites } from "./../../models/favorites";
 export class MostrarLibrosComponent implements OnInit {
   modalRef: BsModalRef;
   public book: MostrarLibros[];
-  public userbook: any;
-  public fav: any;
-  public datosPeticion: any;
-  constructor(
-    private modalService: BsModalService,
-    private valor: LoginService,
-    private api: ApisService
-  ) {}
+  public userbook:any;
+  public fav:any;
+  public datosPeticion:any;
+  public bookId:number;
+  constructor(private modalService: BsModalService, private valor:LoginService, private api: ApisService) {}
 
   getValor() {
     return this.valor.getUser();
@@ -34,7 +32,7 @@ export class MostrarLibrosComponent implements OnInit {
   mostrarLibros() {
     this.api.getLibros().subscribe((data: MostrarLibros[]) => {
       this.book = data;
-      //console.log(data);
+      console.log(data);
     });
   }
   mostrartype(type) {
@@ -43,13 +41,26 @@ export class MostrarLibrosComponent implements OnInit {
       //console.log(type);
     });
   }
-
-  getBookUser(id: number) {
-    return this.api.getUserBook(id).subscribe((data: any) => {
-      let datos = data;
-      for (let i = 0; i < datos.length; i++) {
-        if (datos[i].user_id == this.valor.getUser()[0].user_id) {
-          datos.splice(i, 1);
+  mostrarTitleAuthor(title:string){
+    this.api.getBookTitle(title).subscribe((data:MostrarLibros[])=>{
+      // this.book=data
+      console.log(data)
+      this.api.getBookAuthor(title).subscribe((data2:MostrarLibros[])=>{
+        this.book=data.concat(data2);
+        console.log(data2)
+        console.log(this.book)
+        console.log(this.bookId)
+      })
+    })
+    
+  }
+//Crear peticion
+  getBookUser(id:number){
+    return this.api.getUserBook(id).subscribe((data:any)=>{
+      let datos=data
+      for (let i=0;i<datos.length;i++){
+        if(datos[i].user_id==this.valor.getUser()[0].user_id){
+          datos.splice(i,1)
         }
       }
       this.userbook = datos;
@@ -79,6 +90,7 @@ export class MostrarLibrosComponent implements OnInit {
     if (!existe) {
       return this.api.postPetition(variable).subscribe((data) => {
         //console.log(data);
+        this.getPeticion();
       });
     }
   }
@@ -115,6 +127,11 @@ export class MostrarLibrosComponent implements OnInit {
       this.fav = data;
       //console.log(data)
     });
+  }
+  getbookId(id){
+    this.bookId=id;
+    return this.bookId
+    console.log(this.bookId)
   }
 
   ngOnInit() {

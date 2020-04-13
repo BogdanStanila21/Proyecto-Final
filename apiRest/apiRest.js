@@ -93,18 +93,19 @@ app.put("/user",(request,response)=>{
         request.body.name,
         request.body.nickname,
         request.body.sex,
-        request.body.email,
-        request.body.password,
-        request.body.aboutYou,
-        // request.body.photo, // Eliminado de la sentencia
         request.body.place,
+        request.body.password,
+        request.body.email,
+        request.body.photo, 
+        request.body.aboutYou,        
         request.body.user_id);
-    sql="UPDATE user SET name=?, nickname=?, sex=?, email=?, password=?, aboutYou=?, place=? WHERE user_id=?"
+    sql="UPDATE user SET name=?, nickname=?, sex=?, place=?, password=?, email=?, photo=?, aboutYou=? WHERE user_id=?"
     connection.query(sql,myUser,(err,result)=>{
         if(err){
             console.log(err);
         }else{
             response.send(result);
+            console.log(myUser)
             console.log("PUT de user");
         }
     })
@@ -233,6 +234,27 @@ app.get("/books/:type", function (request, response) {
     });
   });
 
+  app.get("/books/title/:title", function (request, response) {
+    let sql = "SELECT * FROM book WHERE title ='" + request.params.title + "'";
+    connection.query(sql, function (err, result) {
+      if (err) console.log(err);
+      else {
+        response.send(result);
+        console.log("GET de libros/title");
+      }
+    });
+  });
+
+  app.get("/books/author/:author", function (request, response) {
+    let sql = "SELECT * FROM book WHERE author ='" + request.params.author + "'";
+    connection.query(sql, function (err, result) {
+      if (err) console.log(err);
+      else {
+        response.send(result);
+        console.log("GET de libros/author");
+      }
+    });
+  });
 
  //mostrar el libro del usuario logueado 
   app.get("/mybook/:id", function(request, response) {

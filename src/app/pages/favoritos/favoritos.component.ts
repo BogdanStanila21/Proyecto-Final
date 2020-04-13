@@ -12,12 +12,12 @@ import { Peticiones } from 'src/app/models/peticiones';
 export class FavoritosComponent implements OnInit {
 
   modalRef: BsModalRef;
-  public fav:any;
-  public userbook:any;
-  public datosPeticion:any;
+  public fav:any=[];
+  public userbook:any=[];
+  public datosPeticion:any=[];
   public user:number;
   constructor(private valor:LoginService,private api:ApisService,private modalService: BsModalService) {
-    
+    this.getPeticion();
    }
 
   getValor(){
@@ -75,6 +75,7 @@ postPeticion(user_idRequest:any){
   if(!existe){
     return this.api.postPetition(variable).subscribe((data) => {
       //console.log(data);
+      this.getPeticion();
     });
   }
   
@@ -89,9 +90,20 @@ getPeticion(){
   );
 }
 
+tienePeticion(idBook:number){
+  let i=0;
+  let existe=false
+  while(i<this.datosPeticion.length){
+    if(this.datosPeticion[i].book_id==idBook){
+      existe=true
+    }
+    i++
+  }
+  return existe;
+}
+
   ngOnInit():any {
     this.getFav();
-    this.getPeticion();
   }
 
 

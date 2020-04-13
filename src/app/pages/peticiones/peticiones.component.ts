@@ -9,7 +9,7 @@ import { ApisService } from 'src/app/service/apis.service';
 })
 export class PeticionesComponent implements OnInit {
 
-  public datosPeticion: any;
+  public datosPeticion: object[]=[];
 
   constructor(private valor:LoginService, private api:ApisService) { }
 
@@ -19,7 +19,7 @@ export class PeticionesComponent implements OnInit {
 
   getPeticion(){
     let variable = this.valor.getUser()[0].user_id;
-    return this.api.getPetition(variable).subscribe((data) => {
+    return this.api.getPetition(variable).subscribe((data:object[]) => {
         this.datosPeticion = data;
         console.log(data)
       }

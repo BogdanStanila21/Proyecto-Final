@@ -8,8 +8,8 @@
   <main>
     <div class="wrap">
       <div class="busqueda">
-        <input type="text" class="filtrobusqueda" placeholder="¿Que buscas?" />
-        <button type="submit" class="boton">
+        <input type="text" class="filtrobusqueda" placeholder="¿Que buscas?" #bookauthor />
+        <button type="submit" class="boton" (click)="mostrarTitleAuthor(bookauthor.value)">
           <i class="fa fa-search"></i>
         </button>
       </div>
@@ -70,7 +70,7 @@
         <span class="label"><h2>Comic</h2></span><span class="top"></span
         ><span class="left"></span><span class="right"></span>
       </li>
-      <li (click)="mostrartype('Comic')" class="filtro ultimo">
+      <li (click)="mostrarLibros()" class="filtro ultimo">
         <span class="label"><h2>Todos</h2></span><span class="top"></span
         ><span class="left"></span><span class="right"></span>
       </li>
@@ -80,12 +80,12 @@
     <div class="bookshelf">
       <div class="book" *ngFor="let i of book">
         <div class="oscuro"></div>
-        <div (click)="openModal(info)" class="mas">Mas informacion</div>
+        <div [routerLink]="['/mas']" class="mas" (click)="getbookId(i.book_id)">Mas informacion</div>
 
         <p class="nombreLibro">{{ i.title }}</p>
         <img src="{{ i.photo }}" alt="" />
         <p>{{ i.title }}</p>
-         <!-- <p
+        <!-- <p
           id="pedir"
           (click)="getBookUser(i.book_id)"
           (click)="openModal(info)"
