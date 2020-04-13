@@ -1,6 +1,8 @@
 <div class="wrapper">
   <div class="container">
-    <h1>SIGN IN</h1>
+    
+    <div id="LogoRegister"></div>
+    <h6>Inicia sesión en VITU:</h6>
     <hr />
     <form action="" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
       <div>
@@ -8,7 +10,7 @@
           type="text"
           placeholder="Nickname"
           formControlName="nickname"
-          #nick
+          #nick 
         /><br />
       </div>
       <div>
