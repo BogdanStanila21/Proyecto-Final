@@ -2,21 +2,34 @@
   <!-- ------------------------------------------- -->
 
   <div class="row solicitudes">
-    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud" *ngFor="let item of request; let i=index">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="{{ item.photo }}" alt="" />
-          <p>Nick:{{item.nickname}}</p>
-          <p>Ciudad:{{item.place}}</p>
-          <div *ngIf="item.status=='Pendiente'; else esFalse">
-            <div class="boton" (click)="putSolicitud(item.requested_id)">Aceptar</div>
-            <div class="boton" (click)="putSolicitud2(item.requested_id,i)">Rechazar</div>
-          </div>
-          <ng-template #esFalse>Email de contacto:{{item.email}}</ng-template>
+    <div
+      class="col-lg-4 col-md-6 col-sm-12 solicitud"
+      *ngFor="let item of request; let i = index"
+    >
+      <div class="contenedor">
+        <div class="foto">
+          <img src="{{ item.photo }}" alt="" />
         </div>
+        <div class="nombreTitular">
+          <p>
+            Dueño: <span>{{ item.nickname }}</span>
+          </p>
+        </div>
+        
+        <!-- <p>Nick:{{item.nickname}}</p> -->
+        <!-- <p>Ciudad:{{item.place}}</p> -->
+        <div *ngIf="item.status == 'Pendiente'; else esFalse">
+          <div class="boton" (click)="putSolicitud(item.requested_id)">
+            Aceptar
+          </div>
+          <div class="boton" (click)="putSolicitud2(item.requested_id, i)">
+            Rechazar
+          </div>
+        </div>
+        <ng-template #esFalse>Email de contacto:{{ item.email }}</ng-template>
       </div>
     </div>
+  </div>
 </div>
 
 <!-- ------------------------------------------------------------------------------------------------------------- -->

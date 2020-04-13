@@ -1,14 +1,13 @@
+* {
+  font-family: "Baloo Paaji 2", cursive;
+}
+
 .container {
   margin: 24px 0 0 0 auto;
   padding: 0;
   height: 100%;
 }
-#fondo {
-  height: 90vh;
-}
-.misFavoritos {
-  background-color: #f2f2f2;
-}
+
 .contenedor {
   width: 266px;
   margin: 0 auto;
@@ -16,7 +15,6 @@
 }
 .favorito {
   height: 500px;
-  background-color: #f2f2f2;
   padding: 20px;
   color: rgb(8, 8, 8);
   text-align: center;
@@ -27,7 +25,6 @@
   margin: 0 auto;
   width: 260px;
   height: 360px;
-  background-color: rgb(179, 172, 172);
   margin-bottom: 20px;
   border-radius: 5px;
 }
@@ -43,60 +40,35 @@ img {
   border-radius: 5px;
   border: 1px solid #31a6b3;
   background-color: rgba(255, 255, 255, 0);
+  margin: 4px;
   width: 150px;
   transition: 0.5s;
   &:hover {
     background-color: #31a6b3;
     color: white;
     border: 1px solid rgba(255, 0, 0, 0.404);
-    width: 180px;
   }
 }
-p{
+.boton2 {
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ffffff00;
+  margin: 4px;
+  width: 150px;
+  transition: 0.5s;
+  background-color: rgb(245, 98, 98);
+}
+.boton2:hover {
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgb(245, 98, 98);
+}
+.boton2:hover p {
+  opacity: 0;
+  transition: 3s;
+}
+p {
   margin: 0;
   padding: 0;
 }
 
 // --------------------------------------------------------------------------------       Menu
-#wrapper {
-  //display: flex;
-  background: rgba(255, 255, 255, 1);
-  background: -moz-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    right top,
-    color-stop(0%, rgba(255, 255, 255, 1)),
-    color-stop(0%, rgba(246, 246, 246, 1)),
-    color-stop(100%, rgba(230, 230, 230, 1))
-  );
-  background: -webkit-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -o-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=1 );
-}

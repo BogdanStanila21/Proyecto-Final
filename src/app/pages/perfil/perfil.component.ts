@@ -5,9 +5,9 @@ import { ApisService } from 'src/app/service/apis.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.scss']
+  selector: "app-perfil",
+  templateUrl: "./perfil.component.html",
+  styleUrls: ["./perfil.component.scss"],
 })
 export class PerfilComponent implements OnInit {
 
@@ -53,8 +53,8 @@ export class PerfilComponent implements OnInit {
     return this.valor.getUser();
   }
 
-  getUser(){
-    return this.Api.getUser(this.getValor()[0].user_id).subscribe((data) =>{
+  getUser() {
+    return this.Api.getUser(this.getValor()[0].user_id).subscribe((data) => {
       this.userData = data[0];
       console.log(this.userData)
     })
@@ -86,7 +86,6 @@ export class PerfilComponent implements OnInit {
     }
     
   }
-  ngOnInit() {
+  ngOnInit():void {
   }
-
 }
