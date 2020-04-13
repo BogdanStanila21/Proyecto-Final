@@ -88,10 +88,10 @@
     <div class="bookshelf">
       <div class="book" *ngFor="let i of book">
         <div class="oscuro"></div>
-        <div (click)="openModal(petition)" class="mas" (click)="getbookId(i.book_id)">Mas informacion</div>
+        <div (click)="openModal(info)" class="mas" (click)="getbookId(i.book_id)">Mas informacion</div>
 
         <p class="nombreLibro">{{ i.title }}</p>
-        <img src="{{ i.photo }}" alt="" />
+        <img src="{{ i.photo }}" alt=""/>
         <p>{{ i.title }}</p>
         <!-- <p
           id="pedir"
@@ -120,7 +120,7 @@
         <select name="libro" id="selectModal" #elegido>
           <option *ngFor="let item of userbook">{{ item.user_id }},{{ item.nickname }},{{ item.place }}</option>
         </select>
-        <button (click)="modalRef.hide()" (click)="postPeticion(elegido.value)" (click)="openModal(petition)">
+        <button (click)="modalRef.hide()" (click)="postPeticion(elegido.value)" (click)="openModal(promptPetition)">
           Aceptar
         </button>
       </div>
@@ -135,14 +135,8 @@
 
 
   <!----------------- Modal aviso favoritos ----------------->
-  <ng-template #fav>
-    <div class="modal-fav">
-      <!-- <div class="modal-header">
-      <h3 class="modal-title pull-left">Favorito!</h3>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div> -->
+  <ng-template #promptFav>
+    <div class="modal-prompt-fav">
       <div class="modal-body">
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">x</button>
         <div class="success-checkmark">
@@ -160,15 +154,9 @@
     </div>
   </ng-template>
 
-  <!-- Modal aviso peticiones -->
-  <ng-template #petition>
-    <div class="modal-petition">
-      <!-- <div class="modal-header">
-        <h3 class="modal-title pull-left">Favorito!</h3>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> -->
+  <!----------------- Modal aviso peticiones ----------------->
+  <ng-template #promptPetition>
+    <div class="modal-prompt-petition">
       <div class="modal-body">
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
           <span aria-hidden="true">&times;</span>
@@ -234,7 +222,7 @@
       </div>
       <div class="modal-footer modal-book-buttons">
         <button (click)="openModal(name)">Pedir Libro</button>
-        <button (click)="openModal(fav)">Añadir a favoritos</button>
+        <button (click)="openModal(promptFav)">Añadir a favoritos</button>
       </div>
     </div>
   </ng-template>
