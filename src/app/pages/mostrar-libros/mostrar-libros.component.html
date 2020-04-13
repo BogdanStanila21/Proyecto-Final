@@ -80,7 +80,7 @@
     <div class="bookshelf">
       <div class="book" *ngFor="let i of book">
         <div class="oscuro"></div>
-        <div [routerLink]="['/mas']" class="mas" (click)="getbookId(i.book_id)">Mas informacion</div>
+        <div (click)="openModal(info)" class="mas" (click)="getbookId(i.book_id)">Mas informacion</div>
 
         <p class="nombreLibro">{{ i.title }}</p>
         <img src="{{ i.photo }}" alt="" />

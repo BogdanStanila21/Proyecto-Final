@@ -21,7 +21,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavComponent } from './pages/nav/nav.component';
 import { PeticionesComponent } from './pages/peticiones/peticiones.component';
 import { MasInformacionComponent } from './pages/mas-informacion/mas-informacion.component';
-import { FilterPipe } from './pipes/filter.pipe';
+
 
 
 @NgModule({
@@ -38,8 +38,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     HomeComponent,
     NavComponent,
     PeticionesComponent,
-    MasInformacionComponent,
-    FilterPipe,
+    MasInformacionComponent
   ],
   imports: [
 
