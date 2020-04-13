@@ -1,3 +1,5 @@
+@import '../../app.component.scss';
+
 body {
   background: #f2f2f2;
   font-family: "Open Sans", sans-serif;
@@ -104,6 +106,8 @@ $springer: #eded80;
   transition: 1s;
   contain: content;
 }
+
+
 .mas {
   background-color: rgba(41, 151, 151, 0.554);
   width: 70%;
@@ -408,4 +412,56 @@ ul.shelf li:nth-child(11) {
     background-color: rgb(189, 180, 180);
   }
 }
-// ------------------------------------------------------------------------------------------
+// ------------------------------------------ Modal info libro ------------------------------------------------
+.modal-book {
+  .modal-header {
+    border-bottom: 0;
+    h3 {
+      border-bottom: 2px solid $color-primary;
+      padding: 0 .5em;
+    }
+  }
+  .modal-book-body {
+    .modal-book-top {
+      .modal-book-top, .modal-book-img {
+        padding: 0;
+      }
+      .modal-book-info {
+        div {
+          padding: .5em .5em;
+          border-bottom: 1px  solid $color-primary;
+          p {
+            margin-bottom:0;
+            &:first-child{
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      .modal-book-img {
+          max-width: 120px;
+          height: 168px;
+          margin: 0 auto;
+          border-radius: .3rem;
+          box-shadow: 4px 4px 3px 0px $color-grey-dark;
+
+        img{
+          width: 100%;
+          height: 100%;
+          border-radius: .3rem;
+        }
+      } 
+    }
+    .modal-book-desc {
+      margin-top: 2em;
+      p{
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .modal-footer{
+    justify-content: center;
+    border: none;
+  }
+}

@@ -80,19 +80,19 @@
     <div class="bookshelf">
       <div class="book" *ngFor="let i of book">
         <div class="oscuro"></div>
-        <div [routerLink]="['/mas']" class="mas">Mas informacion</div>
+        <div (click)="openModal(info)" class="mas">Mas informacion</div>
 
-        <p class="nombreLibro">{{ i.tittle }}</p>
+        <p class="nombreLibro">{{ i.title }}</p>
         <img src="{{ i.photo }}" alt="" />
-        <p>{{ i.tittle }}</p>
-        <!-- <p
+        <p>{{ i.title }}</p>
+         <!-- <p
           id="pedir"
           (click)="getBookUser(i.book_id)"
-          (click)="openModal(name)"
+          (click)="openModal(info)"
         >
           Pedir libro
-        </p>
-        <p id="favorito" (click)="addFavorito(i.book_id)">Añadir a favoritos</p> -->
+        </p> -->
+        <!-- <p id="favorito" (click)="addFavorito(i.book_id)">Añadir a favoritos</p> -->
       </div>
     </div>
   </main>
@@ -176,6 +176,58 @@
       </div>
       <div class="modal-footer">
         <button (click)="modalRef.hide()">Cerrar</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <!---------------------------------- Modal para mas informacion del libro ---------------------------------->
+  <ng-template  #info>
+    <div class="modal-book">
+      <div class="modal-header">
+        <h3 class="modal-title pull-left">En el camino</h3>
+        <button
+          type="button"
+          class="close pull-right"
+          aria-label="Close"
+          (click)="modalRef.hide()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal-book-body">
+        <div class="modal-book-top row">
+          <div class="modal-book-info col-8">
+            <div>
+              <p>Autor</p>
+              <p>Jack Kerouac</p>
+            </div>
+            <div>
+              <p>Año de publicacion</p>
+              <p>1992</p>
+            </div>
+            <div>
+              <p>Editorial</p>
+              <p>hola que tal</p>
+            </div>
+            <div>
+              <p>Género</p>
+              <p>Misterio</p>
+            </div>
+          </div>
+          <div class="modal-book-img col-4">
+            <img src="https://www.anagrama-ed.es/uploads/media/portadas/0001/14/xthumb_13135_portadas_big.jpeg.pagespeed.ic.79uQO4Hban.webp" alt="">
+          </div>
+        </div>
+        <div class="modal-book-bottom row">
+          <div class="modal-book-desc col-12">
+            <h4>Sinopsis:</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum necessitatibus in explicabo odit alias eos corrupti illo animi ea exercitationem consequatur iusto laudantium soluta perspiciatis impedit accusantium consectetur, provident fuga.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer modal-book-buttons">
+        <button (click)="openModal(name)">Pedir Libro</button>
+        <button (click)="openModal(name2)">Añadir a favoritos</button>
       </div>
     </div>
   </ng-template>
