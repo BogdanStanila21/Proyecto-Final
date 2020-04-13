@@ -29,6 +29,11 @@ export class ApisService {
   }
 
 // Editar perfil
+
+  getUsers(){
+    return this.http.get(this.url)
+  }
+
   getUser(userId: number) {
     return this.http.get(this.url + "/" + userId)
   }

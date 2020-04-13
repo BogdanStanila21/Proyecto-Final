@@ -1,4 +1,4 @@
-<body *ngIf="getValor()">
+<div *ngIf="getValor()">
   <header>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </header>
@@ -88,7 +88,7 @@
     <div class="bookshelf">
       <div class="book" *ngFor="let i of book">
         <div class="oscuro"></div>
-        <div (click)="openModal(name2)" class="mas" (click)="getbookId(i.book_id)">Mas informacion</div>
+        <div (click)="openModal(info)" class="mas" (click)="getOneBook(i.book_id)">Mas informacion</div>
 
         <p class="nombreLibro">{{ i.title }}</p>
         <img src="{{ i.photo }}" alt="" />
@@ -113,6 +113,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+
     <div class="modal-body">
       <div *ngIf="userbook[0]; else esFalse">
         <br />
@@ -132,7 +133,7 @@
       <button (click)="modalRef.hide()">Cerar</button>
     </div>
   </ng-template>
-  <!-- Modal aviso favoritos -->
+  <!------------------------------------- Modal aviso favoritos ------------------------------------->
   <ng-template #name2>
     <div class="modal-header">
       <h3 class="modal-title pull-left">Favorito!</h3>
@@ -149,7 +150,7 @@
     </div>
   </ng-template>
 
-  <!-- Modal aviso peticiones -->
+  <!------------------------------------- Modal aviso peticiones ------------------------------------->
   <ng-template #name3>
     <div class="modal-content">
       <div class="modal-header">
@@ -170,9 +171,9 @@
 
   <!---------------------------------- Modal para mas informacion del libro ---------------------------------->
   <ng-template #info>
-    <div class="modal-book">
+    <div class=" modal-book">
       <div class="modal-header">
-        <h3 class="modal-title pull-left">En el camino</h3>
+        <h3 class="modal-title pull-left">{{oneBook.title}}</h3>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -182,40 +183,36 @@
           <div class="modal-book-info col-8">
             <div>
               <p>Autor</p>
-              <p>Jack Kerouac</p>
+              <p>{{oneBook.author}}</p>
             </div>
             <div>
               <p>Año de publicacion</p>
-              <p>1992</p>
+              <p>{{oneBook.year}}</p>
             </div>
             <div>
               <p>Editorial</p>
-              <p>hola que tal</p>
+              <p>{{oneBook.editorial}}</p>
             </div>
             <div>
               <p>Género</p>
-              <p>Misterio</p>
+              <p>{{oneBook.type}}</p>
             </div>
           </div>
           <div class="modal-book-img col-4">
-            <img
-              src="https://www.anagrama-ed.es/uploads/media/portadas/0001/14/xthumb_13135_portadas_big.jpeg.pagespeed.ic.79uQO4Hban.webp"
-              alt="">
+            <img src="{{oneBook.photo}}" alt="">
           </div>
         </div>
         <div class="modal-book-bottom row">
           <div class="modal-book-desc col-12">
             <h4>Sinopsis:</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum necessitatibus in explicabo odit alias eos
-              corrupti illo animi ea exercitationem consequatur iusto laudantium soluta perspiciatis impedit accusantium
-              consectetur, provident fuga.</p>
+            <p>{{oneBook.description}}</p>
           </div>
         </div>
       </div>
       <div class="modal-footer modal-book-buttons">
-        <button (click)="openModal(name)">Pedir Libro</button>
-        <button (click)="openModal(name2)">Añadir a favoritos</button>
+        <button (click)="openModal(name)" (click)="getBookUser(oneBook.book_id)">Pedir Libro</button>
+        <button (click)="openModal(name2)" (click)="addFavorito(oneBook.book_id)">Añadir a favoritos</button>
       </div>
     </div>
   </ng-template>
-</body>
+</div>
