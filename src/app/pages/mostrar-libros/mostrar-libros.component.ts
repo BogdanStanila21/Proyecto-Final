@@ -16,10 +16,11 @@ import { Data } from 'ngx-bootstrap/positioning/models';
 export class MostrarLibrosComponent implements OnInit {
   modalRef: BsModalRef;
   public book: MostrarLibros[];
-  public userbook:any;
+  public userbook:any=[];
   public fav:any;
   public datosPeticion:any;
   public bookId:number;
+  public oneBook:any;
   constructor(private modalService: BsModalService, private valor:LoginService, private api: ApisService) {}
 
   getValor() {
@@ -53,6 +54,18 @@ export class MostrarLibrosComponent implements OnInit {
       })
     })
     
+  }
+  getbookId(id){
+    this.bookId=id;
+    return this.bookId
+    console.log(this.bookId)
+  }
+  getOneBook(id:number){
+    console.log(id)
+    this.api.getModifica(id).subscribe((data)=>{
+      console.log(this.oneBook)
+      this.oneBook=data[0];
+    })
   }
 //Crear peticion
   getBookUser(id:number){
@@ -128,11 +141,7 @@ export class MostrarLibrosComponent implements OnInit {
       //console.log(data)
     });
   }
-  getbookId(id){
-    this.bookId=id;
-    return this.bookId
-    console.log(this.bookId)
-  }
+  
 
   ngOnInit() {
     this.mostrarLibros();

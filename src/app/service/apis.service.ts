@@ -29,6 +29,11 @@ export class ApisService {
   }
 
 // Editar perfil
+
+  getUsers(){
+    return this.http.get(this.url)
+  }
+
   getUser(userId: number) {
     return this.http.get(this.url + "/" + userId)
   }
@@ -80,7 +85,7 @@ export class ApisService {
     }),
     body:{book_id:bookId},
     }
-  return this.http.delete(this.url5, options)
+  return this.http.delete(this.url6, options)
   }
 
 //Peticiones

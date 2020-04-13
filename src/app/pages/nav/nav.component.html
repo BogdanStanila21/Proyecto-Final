@@ -28,7 +28,7 @@
         </li>
 
         <li>
-          <a (click)="dropdownToggle()" class="drop-pointer">Usuario</a>
+          <a (click)="dropdownToggle()" class="drop-pointer">{{userName.nickname}}</a>
           <ul [class]="dropdown">
             <li>
               <a routerLink="perfil">Editar perfil</a>
