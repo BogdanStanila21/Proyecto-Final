@@ -240,7 +240,7 @@ img {
   &:hover {
     background-color: #31a6b3;
     color: white;
-    border: 1px solid rgba(255, 0, 0, 0.404);
+    border: 1px solid rgba(255, 255, 255, 0.404);
   }
 }
 .boton2 {
@@ -251,10 +251,12 @@ img {
   width: 150px;
   transition: 0.5s;
   background-color: rgb(245, 98, 98);
+  color: white;
 }
 .boton2:hover {
   background-color: rgba(255, 255, 255, 0);
   border: 1px solid rgb(245, 98, 98);
+  color: rgb(245, 98, 98);
 }
 .boton2:hover p {
   opacity: 0;

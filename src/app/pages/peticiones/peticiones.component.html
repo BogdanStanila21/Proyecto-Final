@@ -8,7 +8,7 @@
 <div id="wrapper" class="container" *ngIf="getValor()">
   <!-- ------------------------------------------- -->
 
-  <div class="row solicitudes" *ngIf="datosPeticion[0]; else noHay">
+  <div class="row" *ngIf="datosPeticion[0]; else noHay">
     <div
       class="col-lg-4 col-md-6 col-sm-12 solicitud"
       *ngFor="let item of datosPeticion; let i = index"
