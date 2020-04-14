@@ -83,10 +83,11 @@ export class MostrarLibrosComponent implements OnInit {
 
   postPeticion(user_idRequest: any) {
     let variable = new Peticiones();
-    variable.user_idRequest = user_idRequest.substr(0, 1);
+    variable.user_idRequest = user_idRequest;
     variable.book_id = this.userbook[0].book_id;
     variable.user_id = this.valor.getUser()[0].user_id;
     variable.status = "Pendiente";
+    console.log(user_idRequest);
     let existe = false;
     console.log(existe);
     for (let i = 0; i < this.datosPeticion.length; i++) {

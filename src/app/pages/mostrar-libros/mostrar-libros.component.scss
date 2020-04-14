@@ -4,6 +4,10 @@
   font-family: "Baloo Paaji 2", cursive;
 }
 
+#selectModal{
+  font-weight: 600;
+  width: 77%;
+}
 body {
   background: #f2f2f2;
   font-family: "Open Sans", sans-serif;
@@ -13,12 +17,12 @@ body {
 // -------------------------------Buscador
 .filtrobusqueda {
   width: 100%;
-  border: 1px solid #030303;
+  border: 1px solid #0d2122;
   padding: 5px;
   height: 36px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #9dbfaf;
+  color: #000000;
   margin: 0 auto;
 }
 

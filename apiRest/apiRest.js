@@ -314,6 +314,18 @@ app.get("/books/:type", function (request, response) {
     });
   });
   
+  app.post("/userbook",(request,response)=>{
+    let variable2 = [request.body.user_id, request.body.book_id];
+    let sql2="INSERT INTO user_book (user_id, book_id) VALUES (?,?)"
+    connection.query(sql2, variable2, function(err,result){
+        if (err) console.log(err);
+        else{
+            response.send(result)
+            console.log("POST de book con relacion a user_book");
+        }
+    })
+  })
+
   app.put("/book", function(request, response) {
     console.log(request.body);
     let cambio = new Array(

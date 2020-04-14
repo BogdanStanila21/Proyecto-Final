@@ -112,6 +112,9 @@ export class ApisService {
   getUserBook(id:number){
     return this.http.get(this.url8+"/"+id)
   }
+  postUserBook(userbook:Favorites){
+    return this.http.post(this.url8,userbook)
+  }
   //mostrar libro
 
   getLibro(id: Number) {

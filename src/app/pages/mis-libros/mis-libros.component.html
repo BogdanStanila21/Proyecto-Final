@@ -1,18 +1,9 @@
 <header>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </header>
 <div id="fondo"></div>
 <div class="boton">
-  <button
-    class="botonVerde"
-    id="botSubirLibro"
-    type="button"
-    data-toggle="modal"
-    data-target="#staticBackdrop2"
-  >
+  <button class="botonVerde" id="botSubirLibro" type="button" data-toggle="modal" data-target="#staticBackdrop2">
     Subir Libro
   </button>
 </div>
@@ -20,29 +11,17 @@
 <div id="wrapper" *ngIf="getValor()" class="container">
   <!-- ------------------ *ngIf="misLibros!=null"------------------------- -->
   <div class="row misLibros" *ngIf="misLibros[0]; else noHay">
-    <div
-      *ngFor="let item of misLibros; let i = index"
-      class="col-lg-4 col-md-6 col-sm-12 libro"
-    >
+    <div *ngFor="let item of misLibros; let i = index" class="col-lg-4 col-md-6 col-sm-12 libro">
       <div class="contenedor">
         <div class="foto">
           <img src="{{ item.photo }}" alt="" />
         </div>
         <p>{{ item.title }}</p>
-        <button
-          class="botonVerde"
-          type="button"
-          data-target="#staticBackdrop3"
-          data-toggle="modal"
-          (click)="getLibro(item.book_id)"
-        >
+        <button class="botonVerde" type="button" data-target="#staticBackdrop3" data-toggle="modal"
+          (click)="getLibro(item.book_id)">
           Editar
         </button>
-        <button
-          class="botonRojo"
-          type="button"
-          (click)="borrarLibro(item.book_id, i)"
-        >
+        <button class="botonRojo" type="button" (click)="borrarLibro(item.book_id, i)">
           Eliminar
         </button>
       </div>
@@ -53,25 +32,13 @@
 <!--cierra a la clase container-->
 
 <!---------------- Modal Subir Libro---------------->
-<div
-  class="modal fade"
-  id="staticBackdrop2"
-  data-backdrop="static"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="staticBackdrop2" data-backdrop="static" tabindex="-1" role="dialog"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h3>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -98,20 +65,11 @@
           </div>
           <div class="imagen"></div>
         </div>
-        <textarea
-          cols="30"
-          rows="7"
-          placeholder="Descripción del libro... ¡sin spoilers!"
-          #description
-        ></textarea>
+        <textarea cols="30" rows="7" placeholder="Descripción del libro... ¡sin spoilers!" #description></textarea>
       </div>
       <div class="modal-footer">
         <!-- <button class="cambiar" type="submit" data-dismiss="modal" (click)="(1)">Cambiar foto</button> -->
-        <button
-          class="v-btn"
-          type="submit"
-          data-dismiss="modal"
-          (click)="
+        <button class="v-btn" type="submit" data-dismiss="modal" (click)="
             insertarLibro(
               title.value,
               author.value,
@@ -121,8 +79,7 @@
               photo.value,
               description.value
             )
-          "
-        >
+          ">
           Publicar libro
         </button>
       </div>
@@ -131,25 +88,13 @@
 </div>
 
 <!---------------- Modal Modificar Libro ---------------->
-<div
-  class="modal fade"
-  id="staticBackdrop3"
-  data-backdrop="static"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="staticBackdrop3" data-backdrop="static" tabindex="-1" role="dialog"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title pull-left">¡MODIFICA UN LIBRO!</h3>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -159,29 +104,16 @@
             <input type="text" value="{{ editarLibro.title }}" #title2 />
             <input type="text" value="{{ editarLibro.author }}" #author2 />
             <input type="text" value="{{ editarLibro.year }}" #year2 />
-            <input
-              type="text"
-              value="{{ editarLibro.editorial }}"
-              #editorial2
-            />
+            <input type="text" value="{{ editarLibro.editorial }}" #editorial2 />
             <input type="text" value="{{ editarLibro.type }}" #type2 />
             <input type="text" value="{{ editarLibro.photo }}" #photo2 />
-            <textarea
-              cols="30"
-              rows="7"
-              value="{{ editarLibro.description }}"
-              #description2
-            ></textarea>
+            <textarea cols="30" rows="7" value="{{ editarLibro.description }}" #description2></textarea>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <!-- <button class="cambiar" type="submit" data-dismiss="modal" (click)="(1)">Cambiar foto</button> -->
-        <button
-          class="v-btn"
-          type="submit"
-          data-dismiss="modal"
-          (click)="
+        <button class="v-btn" type="submit" data-dismiss="modal" (click)="
             modificarLibro(
               title2.value,
               author2.value,
@@ -191,8 +123,7 @@
               photo2.value,
               description2.value
             )
-          "
-        >
+          ">
           Modificar libro
         </button>
       </div>

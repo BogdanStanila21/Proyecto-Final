@@ -119,7 +119,7 @@
         <br />
         <h4>Selecciona el usuario del libro</h4>
         <select name="libro" id="selectModal" #elegido>
-          <option *ngFor="let item of userbook">{{ item.user_id }},{{ item.nickname }},{{ item.place }}</option>
+          <option value="{{item.user_id }}" *ngFor="let item of userbook">Nickname: {{ item.nickname }};Ciudad: {{ item.place }}</option>
         </select>
         <button class="v-btn" (click)="modalRef.hide()" (click)="postPeticion(elegido.value)" (click)="openModal(promptPetition)">
           Aceptar
@@ -130,7 +130,6 @@
       </ng-template>
     </div>
   </ng-template>
-
 
   <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Modal aviso favoritos ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
   <ng-template #promptFav>
@@ -215,8 +214,8 @@
         </div>
       </div>
       <div class="modal-footer modal-book-buttons">
-        <button class="v-btn" (click)="openModal(name)" (click)="getBookUser(oneBook.book_id)">Pedir Libro</button>
-        <button class="v-btn" (click)="openModal(promptFav)" (click)="addFavorito(oneBook.book_id)">Añadir a favoritos</button>
+        <button class="v-btn" (click)="openModal(name)" (click)="getBookUser(oneBook.book_id)" >Pedir Libro</button>
+        <button class="v-btn" (click)="openModal(promptFav)" (click)="addFavorito(oneBook.book_id)"> Añadir a favoritos</button>
       </div>
     </div>
   </ng-template>
