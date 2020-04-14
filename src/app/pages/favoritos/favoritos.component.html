@@ -10,15 +10,15 @@
       <div class="beta">
         <nav class="shelf">
           <a routerLink="/mostrarLibro" class="book home-page">Buscar libros</a>
-          <a class="book about-us">Quienes somos</a>
-          <a class="book contact">Contactanos</a>
+          <a class="book about-us">Quiénes somos</a>
+          <a class="book contact">Contáctanos</a>
           <a class="book faq">F.A.Q.</a>
           <span class="book not-found"></span>
           <span class="door left"></span>
           <span class="door right"></span>
         </nav>
         <h1>No se ha encontrado nada</h1>
-        <p>Añade algun libro a favoritos</p>
+        <p>Añade algún libro a favoritos</p>
       </div>
     </div>
     <div class="row misFavoritos" *ngIf="this.fav">
@@ -31,7 +31,7 @@
             <img src="{{ item.photo }}" alt="" />
           </div>
           <div *ngIf="tienePeticion(item.book_id); else esFalse">
-            <p>Peticion Creada</p>
+            <p>Petición creada</p>
           </div>
           <ng-template #esFalse>
             <button
@@ -93,11 +93,11 @@
         </div>
       </div>
     </ng-template>
-    <!-- Modal aviso peticion -->
+    <!-- Modal aviso petición -->
     <ng-template #name2>
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title pull-left">¡Peticion!</h3>
+          <h3 class="modal-title pull-left">¡Petición!</h3>
           <button
             class="v-btn"
             type="button"
@@ -110,7 +110,7 @@
         </div>
         <div class="modal-body">
           <br />
-          <h4>Peticion en curso</h4>
+          <h4>Petición en curso</h4>
         </div>
         <div class="modal-footer">
           <button class="v-btn" (click)="modalRef.hide()">Cerrar</button>

@@ -34,17 +34,17 @@
       </li>
       <li (click)="mostrartype('Fantasia')" class="filtro">
         <span class="label">
-          <h2>Fantasia</h2>
+          <h2>Fantasía</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Historico')" class="filtro">
         <span class="label">
-          <h2>Historico</h2>
+          <h2>Histórico</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Biografias')" class="filtro">
         <span class="label">
-          <h2>Biografias</h2>
+          <h2>Biografías</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Literatura y lingüísticos')" class="filtro">
@@ -64,7 +64,7 @@
       </li>
       <li (click)="mostrartype('Distopia')" class="filtro">
         <span class="label">
-          <h2>Distopia</h2>
+          <h2>Distopía</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Paranormal')" class="filtro">
@@ -74,7 +74,7 @@
       </li>
       <li (click)="mostrartype('Comic')" class="filtro ultimo">
         <span class="label">
-          <h2>Comic</h2>
+          <h2>Cómics</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrarLibros()" class="filtro ultimo">
@@ -88,7 +88,7 @@
     <div class="bookshelf">
       <div class="book" *ngFor="let i of book">
         <div class="oscuro"></div>
-        <div (click)="openModal(info)" class="mas" (click)="getOneBook(i.book_id)">Mas informacion</div>
+        <div (click)="openModal(info)" class="mas" (click)="getOneBook(i.book_id)">Mas información</div>
 
         <p class="nombreLibro">{{ i.title }}</p>
         <img src="{{ i.photo }}" alt="" />

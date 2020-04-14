@@ -12,12 +12,12 @@
         </div>
         <div class="nombreTitular">
           <p>
-            Dueño: <span>{{ item.nickname }}</span>
+            Propietario: <span>{{ item.nickname }}</span>
           </p>
         </div>
 
-        <!-- <p>Nick:{{item.nickname}}</p> -->
-        <!-- <p>Ciudad:{{item.place}}</p> -->
+        <!-- <p>Nick: {{item.nickname}}</p> -->
+        <!-- <p>Ciudad: {{item.place}}</p> -->
         <div *ngIf="item.status == 'Pendiente'; else esFalse">
           <div class="boton" (click)="putSolicitud(item.requested_id)">
             Aceptar
@@ -26,7 +26,7 @@
             Rechazar
           </div>
         </div>
-        <ng-template #esFalse>Email de contacto:{{ item.email }}</ng-template>
+        <ng-template #esFalse>Email de contacto: {{ item.email }}</ng-template>
       </div>
     </div>
   </div>
@@ -35,8 +35,8 @@
   <div class="beta">
     <nav class="shelf">
       <a routerLink="/mostrarLibro" class="book home-page">Buscar libros</a>
-      <a class="book about-us">Quienes somos</a>
-      <a class="book contact">Contactanos</a>
+      <a class="book about-us">Quiénes somos</a>
+      <a class="book contact">Contáctanos</a>
       <a class="book faq">F.A.Q.</a>
       <span class="book not-found"></span>
       <span class="door left"></span>
