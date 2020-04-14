@@ -25,7 +25,8 @@
             <img src="{{ item.photo }}" alt="" />
           </div>
           <div *ngIf="tienePeticion(item.book_id); else esFalse">
-            <p>Petición creada</p>
+            <p>Peticion Creada</p>
+            <p>Estado: {{tienePeticion(item.book_id)}}</p>
           </div>
           <ng-template #esFalse>
             <button class="v-btn" (click)="getBookUser(item.book_id)" (click)="openModal(petition)" class="boton">

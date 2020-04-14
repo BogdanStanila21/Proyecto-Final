@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './../../service/login.service';
 import { ApisService } from 'src/app/service/apis.service';
 import { Libro } from 'src/app/models/registro';
+import { Favorites } from './../../models/favorites';
 
 @Component({
   selector: 'app-mis-libros',
@@ -18,6 +19,8 @@ export class MisLibrosComponent implements OnInit {
     return this.valor.getUser();
   }
 
+
+//-----------------------------------------------
   //Mis-Libros
   
   verLibro(){
@@ -39,12 +42,37 @@ export class MisLibrosComponent implements OnInit {
     book.type=type; 
     book.description=description;
     book.photo=photo;
-    //book.available=available;
     book.user_id=userLog;
-    return this.Api.postBook(book).subscribe((data)=>{
-      console.log(data);
-      this.verLibro();
+    let books;
+    let existe=false
+    let id;
+    this.Api.getLibros().subscribe((data)=>{
+      books=data
+      console.log(data)
+      for (let i=0;i<books.length;i++){
+        if((books[i].title==book.title)&&(books[i].author==book.author)&&(books[i].year==book.year)&&(books[i].editorial==book.editorial)){
+          existe=true;
+          id=books[i].book_id
+          console.log(existe)
+        }
+      }
+      if(existe){
+        let userBook=new Favorites;
+        userBook.user_id=userLog;
+        userBook.book_id=id;
+      return this.Api.postUserBook(userBook).subscribe((data)=>{
+        console.log(data);
+        this.verLibro();
+      })
+      }else{
+        return this.Api.postBook(book).subscribe((data)=>{
+          console.log(data);
+          this.verLibro();
+        })
+      }
     })
+    
+    
   };
 
   modificarLibro(title:string,author:string,year:number,editorial:string,type:string,photo:string,description:string){
