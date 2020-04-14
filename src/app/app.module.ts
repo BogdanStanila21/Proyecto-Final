@@ -7,7 +7,6 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { MostrarLibrosComponent } from "./pages/mostrar-libros/mostrar-libros.component";
 import { PerfilComponent } from "./pages/perfil/perfil.component";
@@ -18,6 +17,9 @@ import { LoginComponent } from "./pages/login/login.component";
 import { RegistroComponent } from "./pages/registro/registro.component";
 import { NavComponent } from "./pages/nav/nav.component";
 import { PeticionesComponent } from "./pages/peticiones/peticiones.component";
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { PeticionesComponent } from "./pages/peticiones/peticiones.component";
     ModalModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

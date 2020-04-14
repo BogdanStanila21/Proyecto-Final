@@ -32,6 +32,7 @@
           </div>
           <div *ngIf="tienePeticion(item.book_id); else esFalse">
             <p>Peticion Creada</p>
+            <p>Estado: {{tienePeticion(item.book_id)}}</p>
           </div>
           <ng-template #esFalse>
             <button
