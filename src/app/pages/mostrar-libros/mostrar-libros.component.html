@@ -106,7 +106,7 @@
   </main>
 
   <!----------------------------------- Modal para pedir libro ----------------------------------->
-  <ng-template #name>
+  <ng-template #petition>
     <div class="modal-header">
       <h3 class="modal-title pull-left">¡Peticion!</h3>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -214,8 +214,9 @@
         </div>
       </div>
       <div class="modal-footer modal-book-buttons">
-        <button class="v-btn" (click)="openModal(name)" (click)="getBookUser(oneBook.book_id)" >Pedir Libro</button>
-        <button class="v-btn" (click)="openModal(promptFav)" (click)="addFavorito(oneBook.book_id)"> Añadir a favoritos</button>
+        <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(petition)" (click)="getBookUser(oneBook.book_id)" >Pedir Libro</button>
+        <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(promptFav)" (click)="addFavorito(oneBook.book_id)">Añadir a
+          favoritos</button>
       </div>
     </div>
   </ng-template>
