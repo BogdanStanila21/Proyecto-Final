@@ -5,7 +5,7 @@
   <main>
     <div class="wrap">
       <div class="busqueda">
-        <input type="text" class="filtrobusqueda" placeholder="¿Que buscas?" #bookauthor />
+        <input type="text" class="filtrobusqueda" placeholder="¿Qué buscas?" #bookauthor />
         <button type="submit" class="boton" (click)="mostrarTitleAuthor(bookauthor.value)">
           <i class="fa fa-search"></i>
         </button>
@@ -34,17 +34,17 @@
       </li>
       <li (click)="mostrartype('Fantasia')" class="filtro">
         <span class="label">
-          <h2>Fantasia</h2>
+          <h2>Fantasía</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Historico')" class="filtro">
         <span class="label">
-          <h2>Historico</h2>
+          <h2>Histórico</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Biografias')" class="filtro">
         <span class="label">
-          <h2>Biografias</h2>
+          <h2>Biográfico</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Literatura y lingüísticos')" class="filtro">
@@ -64,7 +64,7 @@
       </li>
       <li (click)="mostrartype('Distopia')" class="filtro">
         <span class="label">
-          <h2>Distopia</h2>
+          <h2>Distopía</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Paranormal')" class="filtro">
@@ -74,7 +74,7 @@
       </li>
       <li (click)="mostrartype('Comic')" class="filtro ultimo">
         <span class="label">
-          <h2>Comic</h2>
+          <h2>Cómic</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrarLibros()" class="filtro ultimo">
@@ -88,7 +88,7 @@
     <div class="bookshelf">
       <div class="book" *ngFor="let i of book">
         <div class="oscuro"></div>
-        <div (click)="openModal(info)" class="mas" (click)="getOneBook(i.book_id)">Mas informacion</div>
+        <div (click)="openModal(info)" class="mas" (click)="getOneBook(i.book_id)">Más información</div>
 
         <p class="nombreLibro">{{ i.title }}</p>
         <img src="{{ i.photo }}" alt="" />
@@ -108,7 +108,7 @@
   <!----------------------------------- Modal para pedir libro ----------------------------------->
   <ng-template #name>
     <div class="modal-header">
-      <h3 class="modal-title pull-left">¡Peticion!</h3>
+      <h3 class="modal-title pull-left">¡Petición!</h3>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -191,7 +191,7 @@
               <p>{{oneBook.author}}</p>
             </div>
             <div>
-              <p>Año de publicacion</p>
+              <p>Año de publicación</p>
               <p>{{oneBook.year}}</p>
             </div>
             <div>
@@ -215,7 +215,7 @@
         </div>
       </div>
       <div class="modal-footer modal-book-buttons">
-        <button class="v-btn" (click)="openModal(name)" (click)="getBookUser(oneBook.book_id)">Pedir Libro</button>
+        <button class="v-btn" (click)="openModal(name)" (click)="getBookUser(oneBook.book_id)">Pedir libro</button>
         <button class="v-btn" (click)="openModal(promptFav)" (click)="addFavorito(oneBook.book_id)">Añadir a favoritos</button>
       </div>
     </div>
