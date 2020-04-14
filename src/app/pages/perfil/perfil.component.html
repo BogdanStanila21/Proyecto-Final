@@ -4,7 +4,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
   />
 </header>
-<div id="fondo"></div>
+
 <div id="wrapper">
   <!-- ------------------------------------------- -->
 
@@ -125,6 +125,15 @@
             formControlName="aboutYou"
             #aboutYou
           ></textarea>
+
+          <div *ngIf="alertIncorrect" class="alertIncorrect">
+            <span> ¡La contraseña no coincide! </span>
+          </div>
+          <div *ngIf="alertCorrect" class="alertCorrect">
+            <span> ¡Datos modificados exitosamente! </span>
+          </div>
+
+
           <button
             id="guardar"
             [disabled]="editForm.invalid"
@@ -149,3 +158,4 @@
     </div>
   </div>
 </div>
+

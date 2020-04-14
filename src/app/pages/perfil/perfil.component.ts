@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ElementRef, ViewChild } from '@angular/core';
 import { LoginService } from './../../service/login.service';
 import { Registro } from 'src/app/models/registro';
 import { ApisService } from 'src/app/service/apis.service';
@@ -13,10 +13,19 @@ export class PerfilComponent implements OnInit {
 
   editForm:FormGroup
   public userData: any;
+  modalRef: any;
+  modalService: any; 
+  public alertIncorrect: boolean =false
+  public alertCorrect:boolean=false
+  
   constructor(private valor:LoginService, private Api: ApisService, private fb:FormBuilder) {
-    this.buildForm();
-    
+    this.buildForm();  
   }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
   buildForm() {
     this.Api.getUser(this.getValor()[0].user_id).subscribe((data) =>{
       this.userData = data[0];
@@ -77,10 +86,11 @@ export class PerfilComponent implements OnInit {
     edit.user_id= this.getValor()[0].user_id;
     console.log(edit)
     if (password2!==this.userData.password){
-      alert("La contraseña no coincide")
+      this.alertIncorrect=true
     }else{
       return this.Api.putUser(edit).subscribe((data) =>{
-        alert("Modificado");
+        this.alertIncorrect=false
+        this.alertCorrect=true
         this.getUser();
       })
     }
