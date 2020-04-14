@@ -4,10 +4,11 @@
   font-family: "Baloo Paaji 2", cursive;
 }
 
-#selectModal{
+#selectModal {
   font-weight: 600;
   width: 77%;
 }
+
 body {
   background: #f2f2f2;
   font-family: "Open Sans", sans-serif;
@@ -466,7 +467,6 @@ ul.shelf li:nth-child(11) {
     background-color: rgb(189, 180, 180);
   }
 }
-
 // ------------------------------------------ Modal info libro ------------------------------------------------
 .modal-book {
   .modal-header {
@@ -528,6 +528,41 @@ ul.shelf li:nth-child(11) {
   .modal-footer {
     justify-content: center;
     border: none;
+  }
+}
+
+// ------------------------------------------ Modal para peticiones ------------------------------------------------
+.modal-petition {
+  .modal-header {
+    justify-content: center;
+    border: none;
+
+    h3 {
+      border-bottom: 2px solid $color-primary;
+      padding: 0 .5em;
+    }
+  }
+
+  .modal-body {
+    display: flex;
+    justify-content: center;
+
+    div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+
+      select {
+        border: 1px solid $color-grey-dark;
+        border-radius: 5px;
+        margin-bottom: 1em;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 

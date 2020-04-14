@@ -65,7 +65,7 @@ nav {
         color: $color-primary;
         text-decoration: none;
         &:hover {
-          background: $color-hover;
+          background: $color-primary;
           color: white;
           transition: 0.4s;
         }
@@ -87,6 +87,18 @@ nav {
           line-height: 20px;
         }
       }
+    }
+
+    li:last-child{
+      a,
+      a:visited{
+        color: $color-hover;
+        &:hover{
+          background-color: $color-hover;
+          color:white;
+        }
+      }
+
     }
   }
 }

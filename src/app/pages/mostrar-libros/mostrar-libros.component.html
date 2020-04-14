@@ -91,7 +91,7 @@
         <div (click)="openModal(info)" class="mas" (click)="getOneBook(i.book_id)">Mas información</div>
 
         <p class="nombreLibro">{{ i.title }}</p>
-        <img src="{{ i.photo }}" alt="" />
+        <img src="{{ i.photo }}" alt=""/>
         <p>{{ i.title }}</p>
         <!-- <p
           id="pedir"
@@ -107,31 +107,33 @@
 
   <!----------------------------------- Modal para pedir libro ----------------------------------->
   <ng-template #petition>
-    <div class="modal-header">
-      <h3 class="modal-title pull-left">¡Peticion!</h3>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-
-    <div class="modal-body">
-      <div *ngIf="userbook[0]; else esFalse">
-        <br />
-        <h4>Selecciona el usuario del libro</h4>
-        <select name="libro" id="selectModal" #elegido>
-          <option value="{{item.user_id }}" *ngFor="let item of userbook">Nickname: {{ item.nickname }};Ciudad: {{ item.place }}</option>
-        </select>
-        <button class="v-btn" (click)="modalRef.hide()" (click)="postPeticion(elegido.value)" (click)="openModal(promptPetition)">
-          Aceptar
+    <div class="modal-petition">
+      <div class="modal-header">
+        <h3 class="modal-title pull-left">Haz tu petición</h3>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <ng-template #esFalse>
-        <h4>Ya tienes este libro</h4>
-      </ng-template>
+
+      <div class="modal-body">
+        <div *ngIf="userbook[0]; else esFalse">
+          <h4>Selecciona el usuario del libro</h4>
+          <select name="libro" #elegido>
+            <option value="{{item.user_id}}" *ngFor="let item of userbook"><b>{{ item.nickname }}</b> ({{ item.place }})</option>
+          </select>
+          <button class="v-btn" (click)="modalRef.hide()" (click)="postPeticion(elegido.value)"
+            (click)="openModal(promptPetition)">
+            Aceptar
+          </button>
+        </div>
+        <ng-template #esFalse>
+          <h4>Ups! Ya tienes este libro</h4>
+        </ng-template>
+      </div>
     </div>
   </ng-template>
 
-  <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Modal aviso favoritos ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------- Modal para aviso favoritos ----------------------------------->
   <ng-template #promptFav>
     <div class="modal-prompt-fav">
       <div class="modal-body">
@@ -151,7 +153,7 @@
     </div>
   </ng-template>
 
-  <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Modal aviso peticiones ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------- Modal para aviso de peticiones ----------------------------------->
   <ng-template #promptPetition>
     <div class="modal-prompt-petition">
       <div class="modal-body">
@@ -173,7 +175,7 @@
     </div>
   </ng-template>
 
-  <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Modal para mas informacion del libro ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------- Modal para informasción del libro ----------------------------------->
   <ng-template #info>
     <div class=" modal-book">
       <div class="modal-header">
@@ -214,8 +216,10 @@
         </div>
       </div>
       <div class="modal-footer modal-book-buttons">
-        <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(petition)" (click)="getBookUser(oneBook.book_id)" >Pedir Libro</button>
-        <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(promptFav)" (click)="addFavorito(oneBook.book_id)">Añadir a
+        <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(petition)"
+          (click)="getBookUser(oneBook.book_id)">Pedir Libro</button>
+        <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(promptFav)"
+          (click)="addFavorito(oneBook.book_id)">Añadir a
           favoritos</button>
       </div>
     </div>

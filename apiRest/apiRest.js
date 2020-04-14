@@ -370,7 +370,7 @@ app.get("/books/:type", function (request, response) {
 
 app.get("/requested/:id", function(req, res, next)
     {   let variable= [req.params.id]
-        connection.query("SELECT requested_id,status, book.photo, user.nickname, user.place, user.email FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_id = user.user_id) WHERE requested.user_idRequest = ? && (requested.status='Aceptada' || requested.status='Pendiente')",variable, function(err, result)
+        connection.query("SELECT requested_id ,status, book.photo, requested.user_id, user.nickname, user.place, user.email FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_id = user.user_id) WHERE requested.user_idRequest = ? && (requested.status='Aceptada' || requested.status='Pendiente')",variable, function(err, result)
             {
                 if(err){
                     console.log(err);
