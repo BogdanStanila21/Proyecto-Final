@@ -1,69 +1,49 @@
-
 <div id="wrapper" class="container" *ngIf="getValor()">
   <!-- ------------------------------------------- -->
 
-  <div class="row solicitudes">
-    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
+  <div class="row solicitudes" *ngIf="request[0]; else noHay">
+    <div
+      class="col-lg-4 col-md-6 col-sm-12 solicitud"
+      *ngFor="let item of request; let i = index"
+    >
+      <div class="contenedor">
+        <div class="foto">
+          <img src="{{ item.photo }}" alt="" />
         </div>
-      </div>    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
+        <div class="nombreTitular">
+          <p>
+            Dueño: <span>{{ item.nickname }}</span>
+          </p>
         </div>
+
+        <!-- <p>Nick:{{item.nickname}}</p> -->
+        <!-- <p>Ciudad:{{item.place}}</p> -->
+        <div *ngIf="item.status == 'Pendiente'; else esFalse">
+          <div class="boton" (click)="putSolicitud(item.requested_id)">
+            Aceptar
+          </div>
+          <div class="boton" (click)="putSolicitud2(item.requested_id, i)">
+            Rechazar
+          </div>
+        </div>
+        <ng-template #esFalse>Email de contacto:{{ item.email }}</ng-template>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>
+    </div>
   </div>
 </div>
-  <!-- ------------------------------------------------------------------------------------------------------------- -->
+<ng-template #noHay>
+  <div class="beta">
+    <nav class="shelf">
+      <a routerLink="/mostrarLibro" class="book home-page">Buscar libros</a>
+      <a class="book about-us">Quienes somos</a>
+      <a class="book contact">Contactanos</a>
+      <a class="book faq">F.A.Q.</a>
+      <span class="book not-found"></span>
+      <span class="door left"></span>
+      <span class="door right"></span>
+    </nav>
+    <h1>No tienes ninguna solicitud</h1>
+  </div>
+</ng-template>
+
+<!-- ------------------------------------------------------------------------------------------------------------- -->

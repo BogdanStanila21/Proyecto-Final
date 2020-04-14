@@ -1,6 +1,7 @@
 <div class="wrapper">
   <div class="container">
-    <h1>REGISTER</h1>
+    <div id="LogoRegister"></div>
+    <h5>Crea tu cuenta VITU:</h5>
     <div id="raya"></div>
     <form action="" (ngSubmit)="onSubmit()" [formGroup]="registroForm">
       <div id="nick">
@@ -53,7 +54,8 @@
           type="text"
           placeholder="Ciudad"
           #place
-          formControlName="place"/>
+          formControlName="place"
+        />
       </div>
       <div class="pass">
         <input
@@ -63,9 +65,8 @@
           formControlName="pass"
           [formGroup]="registroForm"
         /><br />
-        <span *ngIf="registroForm.controls['pass'].hasError('pattern')">
-          La contraseña debe tener una longitud mínima de 8 caracteres y
-          contener letras en mayúsculas,minúsculas y números
+        <span *ngIf="registroForm.controls['pass'].hasError('minLength')">
+          La contraseña debe tener una longitud minima de 8 caracteres
         </span>
       </div>
       <div class="pass2">
@@ -83,20 +84,26 @@
       <div id="raya"></div>
       <div class="subir">
         <button
-          [routerLink]="['/login']"
           type="submit"
           [disabled]="!registroForm.valid"
-          (click)="addUser(nick.value, name.value, sexo.value, email.value, place.value, pass.value)"
+          (click)="
+            addUser(
+              nick.value,
+              name.value,
+              sexo.value,
+              email.value,
+              place.value,
+              pass.value
+            )
+          "
         >
           SIGN UP
         </button>
         <p>
           ¿Ya estás registrado?
-          <a [routerLink]="['/home']">Entra</a>
+          <a [routerLink]="['/login']">Entra</a>
         </p>
       </div>
     </form>
   </div>
 </div>
-
-

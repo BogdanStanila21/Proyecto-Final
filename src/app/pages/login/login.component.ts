@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       //console.log(this.auth.userId)
       if(this.auth.userId[0]===undefined){
         this.router.navigate(['/login'])
+        alert("Usuario o contraseña Invalidos")
       }else{
         this.auth.check=true
         this.auth.setUser(data)

@@ -6,3 +6,8 @@ export class Peticiones {
 
     constructor(){};
 }
+export class RequestModel{
+    public status:string;
+    public requested_id:number;
+    constructor(){};
+}

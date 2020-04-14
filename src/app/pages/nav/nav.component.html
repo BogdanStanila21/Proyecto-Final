@@ -1,6 +1,6 @@
 <section class="navigation">
   <div class="nav-container">
-    <div class="brand" [routerLink]="['/home']">
+    <div class="brand" [routerLink]="['/mostrarLibro']">
       <img src="https://i.ibb.co/DRR136C/Logo.png" alt="Logo" border="0" />
       <a routerLink="#!"> Vitu</a>
     </div>
@@ -11,24 +11,24 @@
         ></a>
       </div>
       <ul [class]="navList">
-        <li>
+        <li class="p1">
           <a routerLink="mostrarLibro">Buscar libros</a>
         </li>
-        <li>
+        <li class="p2">
           <a routerLink="favoritos">Favoritos</a>
         </li>
-        <li>
+        <li class="p3">
           <a routerLink="solicitudes">Solicitudes</a>
         </li>
-        <li>
+        <li class="p4">
           <a routerLink="peticiones">Peticiones</a>
         </li>
-        <li>
+        <li class="p5">
           <a routerLink="misLibros">Mis libros</a>
         </li>
 
         <li>
-          <a (click)="dropdownToggle()" class="drop-pointer">Usuario</a>
+          <a (click)="dropdownToggle()" class="drop-pointer">{{userName.nickname}}</a>
           <ul [class]="dropdown">
             <li>
               <a routerLink="perfil">Editar perfil</a>

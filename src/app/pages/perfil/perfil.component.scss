@@ -1,56 +1,31 @@
 // --------------------------------------------------------------------------------       Menu
-#wrapper {
-  display: flex;
-  background: rgba(255, 255, 255, 1);
-  background: -moz-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    right top,
-    color-stop(0%, rgba(255, 255, 255, 1)),
-    color-stop(0%, rgba(246, 246, 246, 1)),
-    color-stop(100%, rgba(230, 230, 230, 1))
-  );
-  background: -webkit-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -o-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 0%,
-    rgba(230, 230, 230, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=1 );
-  height: 100vh;
+* {
+  font-family: "Baloo Paaji 2", cursive;
 }
-// --------------------------------------------------------------------------------
 
+// --------------------------------------------------------------------------------
+.input {
+  width: 50%;
+  position: relative;
+}
+#input2 {
+  width: 96%;
+  position: relative;
+  margin-top: 0px;
+}
+.input span {
+  position: absolute;
+  top: 53px;
+  left: 215px;
+  color: rgb(224, 91, 91);
+  font-weight: 700;
+}
 #cajafoto {
-  width: 100%;
-  // margin: 50px 0px 10px 100px;
+  width: 70%;
   padding: 45px;
   display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
-  margin-top: 5%;
 }
 
 .cambiarfoto {
@@ -58,7 +33,8 @@
   width: 250px;
   border-radius: 50%;
   background-color: white;
-  margin: 0 auto;
+  margin: 0px 40%;
+  contain: content;
 }
 
 #imgPerfil {
@@ -67,10 +43,13 @@
   border-radius: 50%;
   background: #f2f2f2;
   margin: 0 auto;
-  
 }
 
-
+img {
+  height: 100%;
+  width: 100%;
+  size: cover;
+}
 .subirfoto {
   height: 50px;
   width: 200px;
@@ -84,8 +63,13 @@
   font-weight: bold;
   cursor: pointer;
   transition: 1s;
+  contain: content;
 }
-
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 
 .subirfoto:hover {
   background-color: #a70eac;
@@ -99,18 +83,30 @@
   display: flex;
   flex-wrap: wrap;
 }
-#email
-{
+#email {
+  width: 100%;
+}
+#photo {
   width: 100%;
 }
 input {
   height: 36px;
-  width: 46%;
+  width: 95%;
+  margin: 3% 2% 2% 2%;
+  text-align: center;
+  background-color: #fffffff1;
+  border: white;
+  color: black;
+}
+select {
+  height: 36px;
+  width: 95%;
   margin: 2% 2% 0.5% 2%;
   text-align: center;
   background-color: #fffffff1;
   border: white;
-  color: white;
+  color: black;
+  text-align-last: center;
 }
 textarea {
   width: 100%;
@@ -120,6 +116,7 @@ textarea {
   height: 150px;
   background-color: #fffffff1;
   border: white solid 0.5px;
+  color: black;
 }
 #guardar {
   height: 100px;
@@ -130,7 +127,7 @@ textarea {
   color: rgb(255, 255, 255);
   font-weight: bold;
   font-size: 30px;
-  padding-top: 24px;
+  // padding-top: 20px;
   text-align: center;
   cursor: pointer;
   transition: 1s;
@@ -141,5 +138,13 @@ textarea {
 }
 #relativo {
   position: absolute;
+}
+
+#foto {
+  position: absolute;
+  width: 300px;
+  top: 27.8em;
+  left: -20px;
+  color: black;
 }
 // -------------------------------------------------------------------------------------------------------------

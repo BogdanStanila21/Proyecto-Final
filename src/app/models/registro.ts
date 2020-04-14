@@ -7,6 +7,7 @@ export class Registro {
     public place:string;
     public photo:string;
     public aboutYou:string;
+    public user_id:number;
     constructor(){}
 }
 
@@ -19,4 +20,6 @@ export class Libro{
     public description:string;
     public photo:string;
     public available:string;
+    public user_id:number;
+    public book_id:number
 }

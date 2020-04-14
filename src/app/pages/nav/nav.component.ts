@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { LoginService } from './../../service/login.service';
 import { Router } from '@angular/router';
+import { ApisService } from './../../service/apis.service';
 
 @Component({
   selector: "app-nav",
@@ -13,8 +14,11 @@ export class NavComponent implements OnInit {
   public dropdown: string = "nav-dropdown-hidden";
   public navList: string = "nav-list-hidden"
   public hamburguer: string;
+  public userName:any;
 
-  constructor( private out:LoginService, private router:Router) {}
+  constructor( private out:LoginService, private router:Router, private api:ApisService,private valor:LoginService) {
+    this.getUser()
+  }
 
     dropdownToggle(){
       if (this.dropdown === "nav-dropdown-hidden"){
@@ -37,12 +41,24 @@ export class NavComponent implements OnInit {
         this.hamburguer = ""
       }
     }
+    getValor() {
+      return this.valor.getUser();
+    }
 
 
     cerrarSesion(){
       this.router.navigate(['/login'])
       return this.out.logOut()
     }
+
+    getUser(){
+      let userId=this.getValor()[0].user_id
+      return this.api.getUser(userId).subscribe((data)=>{
+        console.log(data)
+        this.userName=data[0]
+      })
+    }
+
 
   ngOnInit(): void {}
 }

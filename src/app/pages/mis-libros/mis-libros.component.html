@@ -5,92 +5,57 @@
   />
 </header>
 <div id="fondo"></div>
-<div id="wrapper" *ngIf="getValor()">
-  <!-- ------------------------------------------- -->
-  <div>
-    <button class="botonRojo col-lg-4 col-md-6 col-sm-12" id="BotonSubir" type="button" data-toggle="modal" data-target="#staticBackdrop">Subir Libro</button>
+<div class="boton">
+  <button
+    class="botonVerde"
+    id="botSubirLibro"
+    type="button"
+    data-toggle="modal"
+    data-target="#staticBackdrop2"
+  >
+    Subir Libro
+  </button>
+</div>
+
+<div id="wrapper" *ngIf="getValor()" class="container">
+  <!-- ------------------ *ngIf="misLibros!=null"------------------------- -->
+  <div class="row misLibros" *ngIf="misLibros[0]; else noHay">
+    <div
+      *ngFor="let item of misLibros; let i = index"
+      class="col-lg-4 col-md-6 col-sm-12 libro"
+    >
+      <div class="contenedor">
+        <div class="foto">
+          <img src="{{ item.photo }}" alt="" />
+        </div>
+        <p>{{ item.title }}</p>
+        <button
+          class="botonVerde"
+          type="button"
+          data-target="#staticBackdrop3"
+          data-toggle="modal"
+          (click)="getLibro(item.book_id)"
+        >
+          Editar
+        </button>
+        <button
+          class="botonRojo"
+          type="button"
+          (click)="borrarLibro(item.book_id, i)"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
   </div>
-  
+  <!--cierra a la clase mis libros-->
+</div>
+<!--cierra a la clase container-->
 
-  <div class="row misLibros">
-    <div class="col-lg-4 col-md-6 col-sm-12 libro">
-      <div class="contenedor">
-        <div class="foto">
-          <img src="https://imagessl2.casadellibro.com/a/l/t5/22/9788408176022.jpg" alt="">
-        </div>
-        <p>La mayor conspiración de los últimos 2000 años está a punto de ser desvelada.</p>
-        <button class="botonVerde" type="button" (click)="1">Editar</button>
-        <button class="botonRojo" type="button" (click)="1">Eliminar</button>
-      </div>   
-    </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-12 libro">
-      <div class="contenedor">
-        <div class="foto">
-          <img src="https://imagessl2.casadellibro.com/a/l/t5/22/9788408176022.jpg" alt="">
-        </div>
-        <p>La mayor conspiración de los últimos 2000 años está a punto de ser desvelada.</p>
-        <button class="botonVerde" type="button" (click)="1">Editar</button>
-        <button class="botonRojo" type="button" (click)="1">Eliminar</button>
-      </div>   
-    </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-12 libro">
-      <div class="contenedor">
-        <div class="foto">
-          <img src="https://imagessl2.casadellibro.com/a/l/t5/22/9788408176022.jpg" alt="">
-        </div>
-        <p>La mayor conspiración de los últimos 2000 años está a punto de ser desvelada.</p>
-        <button class="botonVerde" type="button" (click)="1">Editar</button>
-        <button class="botonRojo" type="button" (click)="1">Eliminar</button>
-      </div>   
-    </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-12 libro">
-      <div class="contenedor">
-        <div class="foto">
-          <img src="https://imagessl2.casadellibro.com/a/l/t5/22/9788408176022.jpg" alt="">
-        </div>
-        <p>La mayor conspiración de los últimos 2000 años está a punto de ser desvelada.</p>
-        <button class="botonVerde" type="button" (click)="1">Editar</button>
-        <button class="botonRojo" type="button" (click)="1">Eliminar</button>
-      </div>   
-    </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-12 libro">
-      <div class="contenedor">
-        <div class="foto">
-          <img src="https://imagessl2.casadellibro.com/a/l/t5/22/9788408176022.jpg" alt="">
-        </div>
-        <p>La mayor conspiración de los últimos 2000 años está a punto de ser desvelada.</p>
-        <button class="botonVerde" type="button" (click)="1">Editar</button>
-        <button class="botonRojo" type="button" (click)="1">Eliminar</button>
-      </div>   
-    </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-12 libro">
-      <div class="contenedor">
-        <div class="foto">
-          <img src="https://imagessl2.casadellibro.com/a/l/t5/22/9788408176022.jpg" alt="">
-        </div>
-        <p>La mayor conspiración de los últimos 2000 años está a punto de ser desvelada.</p>
-        <button class="botonVerde" type="button" (click)="1">Editar</button>
-        <button class="botonRojo" type="button" (click)="1">Eliminar</button>
-      </div>   
-    </div>
-
-
-
-  </div> <!--cierra a la clase mis libros-->
-
-
-</div>  <!--cierra a la clase container-->
-
-
-<!---------------- Modal ---------------->
+<!---------------- Modal Subir Libro---------------->
 <div
   class="modal fade"
-  id="staticBackdrop"
+  id="staticBackdrop2"
   data-backdrop="static"
   tabindex="-1"
   role="dialog"
@@ -99,87 +64,153 @@
 >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <!-- <div class="modal-header">
-      <h3 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h3>
-      <button
-        type="button"
-        class="close"
-        data-dismiss="modal"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div> -->
+      <div class="modal-header">
+        <h3 class="modal-title pull-left">¡PUBLICA UN NUEVO LIBRO!</h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
       <div class="modal-body">
-
-
-
-        <h1 class="lines-effect">¡PUBLICA UN NUEVO LIBRO!</h1>
-
         <div class="flex">
-            <div class="izq">
-                <input class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" type="text" placeholder="título">
-                <input class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" type="text" placeholder="autor">
-                <input class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" type="text" placeholder="año de publicación">
-                <input class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" type="text" placeholder="editorial">
-                <input class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" type="text" placeholder="género">
-                <textarea class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" cols="30" rows="7" placeholder="Descripción del libro... ¡sin spoilers!"></textarea>
-            </div>
-            <div class="dcha">
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 imagen" id="div-img"></div>
-                <button class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 cambiar" type="submit" data-dismiss="modal" (click)="(1)">Cambiar foto</button>
-                <button class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 publicar" type="submit" data-dismiss="modal" (click)="(1)">Publicar libro</button>
-            </div>
-        </div>
-
-
-
-        <!-- <div class="flex">
-          <div class="izq">
-            <input class="inpmodal" type="text" placeholder="título" #titulo />
-            <input class="inpmodal" type="text" placeholder="autor" #autor />
-            <input
-              class="inpmodal"
-              type="text"
-              placeholder="año de publicación"
-              #anyo
-            />
-            <input
-              class="inpmodal"
-              type="text"
-              placeholder="editorial"
-              #editorial
-            />
-            <input class="inpmodal" type="text" placeholder="género" #genero />
-            <textarea
-              class="inpmodal"
-              cols="20"
-              rows="5"
-              placeholder="Descripción del libro... ¡sin spoilers!"
-              #descripcion
-            ></textarea>
+          <div class="izq row">
+            <input type="text" placeholder="título" #title />
+            <input type="text" placeholder="autor" #author />
+            <input type="text" placeholder="año de publicación" #year />
+            <input type="text" placeholder="editorial" #editorial />
+            <select name="" id="" #type>
+              <option>Misterio</option>
+              <option>Fantasia</option>
+              <option>Historico</option>
+              <option>Biografias</option>
+              <option>Literatura y lingüísticos</option>
+              <option>Aventura y ciencia ficcion</option>
+              <option>Novela policíaca</option>
+              <option>Distopia</option>
+              <option>Paranormal</option>
+              <option>Comic</option>
+            </select>
+            <input type="text" placeholder="Foto" #photo />
           </div>
-          <div class="dcha">
-            <div class=" imagen" id="div-img"></div>
-            <button class=" cambiar" (click)="(1)">
-              Cambiar foto
-            </button>
-          </div>
+          <div class="imagen"></div>
         </div>
+        <textarea
+          cols="30"
+          rows="7"
+          placeholder="Descripción del libro... ¡sin spoilers!"
+          #description
+        ></textarea>
       </div>
       <div class="modal-footer">
+        <!-- <button class="cambiar" type="submit" data-dismiss="modal" (click)="(1)">Cambiar foto</button> -->
         <button
-          class="publicar"
+          class="v-btn"
           type="submit"
           data-dismiss="modal"
-          (click)="(1)"
+          (click)="
+            insertarLibro(
+              title.value,
+              author.value,
+              year.value,
+              editorial.value,
+              type.value,
+              photo.value,
+              description.value
+            )
+          "
         >
           Publicar libro
-        </button> -->
-        
-
-
+        </button>
       </div>
     </div>
   </div>
 </div>
+
+<!---------------- Modal Modificar Libro ---------------->
+<div
+  class="modal fade"
+  id="staticBackdrop3"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title pull-left">¡MODIFICA UN LIBRO!</h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="flex">
+          <div class="izq row">
+            <input type="text" value="{{ editarLibro.title }}" #title2 />
+            <input type="text" value="{{ editarLibro.author }}" #author2 />
+            <input type="text" value="{{ editarLibro.year }}" #year2 />
+            <input
+              type="text"
+              value="{{ editarLibro.editorial }}"
+              #editorial2
+            />
+            <input type="text" value="{{ editarLibro.type }}" #type2 />
+            <input type="text" value="{{ editarLibro.photo }}" #photo2 />
+            <textarea
+              cols="30"
+              rows="7"
+              value="{{ editarLibro.description }}"
+              #description2
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button class="cambiar" type="submit" data-dismiss="modal" (click)="(1)">Cambiar foto</button> -->
+        <button
+          class="v-btn"
+          type="submit"
+          data-dismiss="modal"
+          (click)="
+            modificarLibro(
+              title2.value,
+              author2.value,
+              year2.value,
+              editorial2.value,
+              type2.value,
+              photo2.value,
+              description2.value
+            )
+          "
+        >
+          Modificar libro
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noHay>
+  <div class="beta">
+    <nav class="shelf">
+      <a routerLink="/mostrarLibro" class="book home-page">Buscar libros</a>
+      <a class="book about-us">Quienes somos</a>
+      <a class="book contact">Contactanos</a>
+      <a class="book faq">F.A.Q.</a>
+      <span class="book not-found"></span>
+      <span class="door left"></span>
+      <span class="door right"></span>
+    </nav>
+    <h1>No tienes ninguna peticion</h1>
+  </div>
+</ng-template>

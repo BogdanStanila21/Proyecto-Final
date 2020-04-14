@@ -1,11 +1,10 @@
 /* Control de estilos */
 * {
-  padding: 0;
-  margin: 0;
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
   vertical-align: baseline;
+  font-family: "Baloo Paaji 2", cursive;
 }
 
 /* Mixin para control del media query */
@@ -51,14 +50,35 @@ $breakpoint: 768px;
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   background-color: $color-grey;
+  // position: relative;
 }
 
 // Navigation Variables
 $content-width: 1300px;
 $nav-background: white;
 
+/*-------------- Estilos para botones ---------------*/
+.v-btn{
+  color: white;
+  background-color: $color-primary;
+  padding: .25em 1.5em;
+  border: 1px solid $color-primary;
+  border-radius: 5px;
+  transition: .3s;
+
+  &:hover{
+    background-color: $color-hover;
+    border-color: $color-hover;
+  }
+
+  &:active{
+    transform: scale(0.9);
+  }
+}
+
 footer {
   height: 13vh;
+  width: 100%;
   background-color: rgb(248, 248, 248);
   text-align: center;
   padding: 40px;
@@ -66,7 +86,34 @@ footer {
 .divisor {
   width: 50px;
   height: 1px;
-  background-color: rgba(128, 128, 128, 0.425);
+  background-color: rgba(185, 185, 185, 0.425);
   margin: 0 auto;
   margin-bottom: 20px;
+}
+
+.elevar {
+  width: 100%;
+  height: 40px;
+  background-color: rgba(102, 231, 225, 0.26);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.fixed {
+  position: fixed;
+  bottom: -13vh;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.fixed:hover {
+  transition: 1s;
+
+  bottom: 0px;
 }
