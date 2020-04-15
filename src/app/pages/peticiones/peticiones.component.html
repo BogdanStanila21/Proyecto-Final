@@ -1,29 +1,19 @@
 <header>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </header>
 <div id="fondo"></div>
 <div id="wrapper" class="container" *ngIf="getValor()">
   <!-- ------------------------------------------- -->
 
   <div class="row solicitudes" *ngIf="datosPeticion[0]; else noHay">
-    <div
-      class="col-lg-4 col-md-6 col-sm-12 solicitud"
-      *ngFor="let item of datosPeticion; let i = index"
-    >
+    <div class="col-lg-4 col-md-6 col-sm-12 solicitud" *ngFor="let item of datosPeticion; let i = index">
       <div class="contenedor">
         <div class="foto">
-          <img
-            src="{{ item.photo }}"
-            title="{{ item.title }}"
-            alt="Ups! La portada de este libro no carga"
-          />
+          <img src="{{ item.photo }}" title="{{ item.title }}" alt="¡Ups! La portada de este libro no carga" />
         </div>
         <div class="nombreTitular">
           <p>
-            Dueño: <span>{{ item.nickname }}</span>
+            Propietario: <span (click)="openModal(infoUser)" (click)="getUser(item.user_idRequest)">{{ item.nickname }}</span>
           </p>
         </div>
         <p>Estado: {{ item.status }}</p>
@@ -43,14 +33,49 @@
     <div class="beta">
       <nav class="shelf">
         <a routerLink="/mostrarLibro" class="book home-page">Buscar libros</a>
-        <a class="book about-us">Quienes somos</a>
-        <a class="book contact">Contactanos</a>
+        <a class="book about-us">Quiénes somos</a>
+        <a class="book contact">Contáctanos</a>
         <a class="book faq">F.A.Q.</a>
         <span class="book not-found"></span>
         <span class="door left"></span>
         <span class="door right"></span>
       </nav>
-      <h1>No tienes ninguna peticion</h1>
+      <h1>No tienes ninguna petición</h1>
+    </div>
+  </ng-template>
+
+  <!----------------------------------- Modal para informasción del libro ----------------------------------->
+  <ng-template #infoUser>
+    <div class="modal-user">
+      <div class="modal-header">
+        <h3 class="modal-title pull-left">{{user.nickname}}</h3>
+        <button type="button" (click)="modalRef.hide()" class="close pull-right" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-user-top row">
+          <div class="modal-user-info col-8">
+            <div>
+              <p>Nombre</p>
+              <p>{{user.name}}</p>
+            </div>
+            <div>
+              <p>Residencia</p>
+              <p>{{user.place}}</p>
+            </div>
+          </div>
+          <div class="modal-book-img col-4">
+            <img src="{{user.photo}}" alt="">
+          </div>
+        </div>
+        <div class="modal-book-bottom row">
+          <div class="modal-book-desc col-12">
+            <h4>Acerca de mí:</h4>
+            <p>{{user.aboutYou}}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </ng-template>
 </div>

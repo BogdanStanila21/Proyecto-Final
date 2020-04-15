@@ -96,10 +96,12 @@ tienePeticion(idBook:number){
   while(i<this.datosPeticion.length){
     if(this.datosPeticion[i].book_id==idBook){
       existe=true
+      let status=this.datosPeticion[i].status
+      return status
     }
     i++
   }
-  return existe;
+  return existe; 
 }
 
   ngOnInit():any {

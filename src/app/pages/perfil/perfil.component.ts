@@ -3,6 +3,7 @@ import { LoginService } from './../../service/login.service';
 import { Registro } from 'src/app/models/registro';
 import { ApisService } from 'src/app/service/apis.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-perfil",
@@ -13,17 +14,17 @@ export class PerfilComponent implements OnInit {
 
   editForm:FormGroup
   public userData: any;
-  modalRef: any;
-  modalService: any; 
-  public alertIncorrect: boolean =false
-  public alertCorrect:boolean=false
-  
-  constructor(private valor:LoginService, private Api: ApisService, private fb:FormBuilder) {
-    this.buildForm();  
+
+  constructor(private valor:LoginService, private Api: ApisService, private fb:FormBuilder, private toastr: ToastrService) {
+    this.buildForm();
+
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  showSuccess() {
+    this.toastr.success('¡Datos modificados exitosamente!');
+  }
+  showWarning() {
+    this.toastr.error('¡La contraseña no coincide!');
   }
 
   buildForm() {
@@ -58,12 +59,17 @@ export class PerfilComponent implements OnInit {
     })
     
   }
+
+  
+
+
   getValor(){
     return this.valor.getUser();
   }
 
   getUser() {
     return this.Api.getUser(this.getValor()[0].user_id).subscribe((data) => {
+      
       this.userData = data[0];
       console.log(this.userData)
     })
@@ -86,11 +92,10 @@ export class PerfilComponent implements OnInit {
     edit.user_id= this.getValor()[0].user_id;
     console.log(edit)
     if (password2!==this.userData.password){
-      this.alertIncorrect=true
+      this.showWarning()
     }else{
       return this.Api.putUser(edit).subscribe((data) =>{
-        this.alertIncorrect=false
-        this.alertCorrect=true
+        this.showSuccess()
         this.getUser();
       })
     }

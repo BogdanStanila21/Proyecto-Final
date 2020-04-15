@@ -1,7 +1,12 @@
-@import '../../app.component.scss';
+@import "../../app.component.scss";
 
 * {
   font-family: "Baloo Paaji 2", cursive;
+}
+
+#selectModal {
+  font-weight: 600;
+  width: 77%;
 }
 
 body {
@@ -13,12 +18,12 @@ body {
 // -------------------------------Buscador
 .filtrobusqueda {
   width: 100%;
-  border: 1px solid #030303;
+  border: 1px solid #0d2122;
   padding: 5px;
   height: 36px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #9dbfaf;
+  color: #3b4d45;
   margin: 0 auto;
 }
 
@@ -80,14 +85,16 @@ $springer: #eded80;
   margin-top: 50px;
   border: 10px $brown solid;
   overflow: hidden;
-  background-image: linear-gradient(darken($brown, 32%),
-      darken($brown, 30%) 370px,
-      lighten($brown, 4%) 385px,
-      lighten($brown, 4%) 385px,
-      $brown 370px,
-      $brown 385px,
-      darken($brown, 4%) 385px,
-      darken($brown, 4%) 385px);
+  background-image: linear-gradient(
+    darken($brown, 32%),
+    darken($brown, 30%) 370px,
+    lighten($brown, 4%) 385px,
+    lighten($brown, 4%) 385px,
+    $brown 370px,
+    $brown 385px,
+    darken($brown, 4%) 385px,
+    darken($brown, 4%) 385px
+  );
   background-size: 10px 385px;
   display: flex;
   flex-wrap: wrap;
@@ -112,7 +119,6 @@ $springer: #eded80;
   transition: 1s;
   contain: content;
 }
-
 
 .mas {
   background-color: rgba(41, 151, 151, 0.554);
@@ -462,21 +468,24 @@ ul.shelf li:nth-child(11) {
     background-color: rgb(189, 180, 180);
   }
 }
-
 // ------------------------------------------ Modal info libro ------------------------------------------------
+ng-template {
+  position: absolute;
+  top: 600px;
+}
+
 .modal-book {
   .modal-header {
     border-bottom: 0;
 
     h3 {
       border-bottom: 2px solid $color-primary;
-      padding: 0 .5em;
+      padding: 0 0.5em;
     }
   }
 
   .modal-book-body {
     .modal-book-top {
-
       .modal-book-top,
       .modal-book-img {
         padding: 0;
@@ -484,7 +493,7 @@ ul.shelf li:nth-child(11) {
 
       .modal-book-info {
         div {
-          padding: .5em .5em;
+          padding: 0.5em 0.5em;
           border-bottom: 1px solid $color-primary;
 
           p {
@@ -501,13 +510,13 @@ ul.shelf li:nth-child(11) {
         max-width: 120px;
         height: 168px;
         margin: 0 auto;
-        border-radius: .3rem;
+        border-radius: 0.3rem;
         box-shadow: 4px 4px 3px 0px $color-grey-dark;
 
         img {
           width: 100%;
           height: 100%;
-          border-radius: .3rem;
+          border-radius: 0.3rem;
         }
       }
     }
@@ -527,6 +536,41 @@ ul.shelf li:nth-child(11) {
   }
 }
 
+// ------------------------------------------ Modal para peticiones ------------------------------------------------
+.modal-petition {
+  .modal-header {
+    justify-content: center;
+    border: none;
+
+    h3 {
+      border-bottom: 2px solid $color-primary;
+      padding: 0 .5em;
+    }
+  }
+
+  .modal-body {
+    display: flex;
+    justify-content: center;
+
+    div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+
+      select {
+        border: 1px solid $color-grey-dark;
+        border-radius: 5px;
+        margin-bottom: 1em;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
 // ------------------------------------------ Modal aviso favoritos/peticion realizada ------------------------------------------------
 
 .modal-prompt-fav,
@@ -537,7 +581,7 @@ ul.shelf li:nth-child(11) {
       right: 16px;
       top: 8px;
       z-index: 999;
-      transition: .2s;
+      transition: 0.2s;
 
       &:hover {
         transform: scale(1.2);
@@ -548,7 +592,6 @@ ul.shelf li:nth-child(11) {
       }
     }
   }
-
   .modal-footer {
     border: none;
     justify-content: center;
@@ -586,16 +629,16 @@ ul.shelf li:nth-child(11) {
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       height: 100px;
       position: absolute;
-      background: #FFFFFF;
+      background: #ffffff;
       transform: rotate(-45deg);
     }
 
     .icon-line {
       height: 5px;
-      background-color: #4CAF50;
+      background-color: #4caf50;
       display: block;
       border-radius: 2px;
       position: absolute;
@@ -627,7 +670,7 @@ ul.shelf li:nth-child(11) {
       border-radius: 50%;
       position: absolute;
       box-sizing: content-box;
-      border: 4px solid rgba(76, 175, 80, .5);
+      border: 4px solid rgba(76, 175, 80, 0.5);
     }
 
     .icon-fix {
@@ -638,7 +681,7 @@ ul.shelf li:nth-child(11) {
       height: 85px;
       position: absolute;
       transform: rotate(-45deg);
-      background-color: #FFFFFF;
+      background-color: #ffffff;
     }
   }
 }

@@ -4,6 +4,7 @@ import { passValidation } from "./custom-validator";
 import { Registro } from './../../models/registro';
 import { ApisService } from './../../service/apis.service';
 import {  Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-registro",
@@ -15,9 +16,19 @@ export class RegistroComponent implements OnInit {
   registroForm: FormGroup;
   public miRegistro: Registro;
   public users:Registro[];
-  constructor(private fb: FormBuilder, private ApiUser: ApisService, private api:ApisService, private router:Router) {
+  constructor(private fb: FormBuilder, private ApiUser: ApisService, private api:ApisService, private router:Router, private toastr: ToastrService) {
     this.buildForm();
     this.getUsers();
+  }
+
+  showSuccess() {
+    this.toastr.success('¡Usuario registrado exitosamente!');
+  }
+  showWarningNickname() {
+    this.toastr.error('¡Nickname ya existe!');
+  }
+  showWarningEmail() {
+    this.toastr.error('¡Email ya registrado!');
   }
   // Validadores front
   buildForm() {
@@ -39,7 +50,7 @@ export class RegistroComponent implements OnInit {
           Validators.required
         ]),
         pass: new FormControl(null, [
-          Validators.minLength(9),
+          Validators.minLength(8),
           Validators.required
         ]),
         pass2: new FormControl("", [Validators.required]),
@@ -77,16 +88,16 @@ export class RegistroComponent implements OnInit {
       }
     }
     if (check===true){
-      alert("Nickname no valido")
+      this.showWarningNickname();
     }
     if (check2===true){
-      alert("Email no valido")
+      this.showWarningEmail();
     }
     if((check==false)&&(check2==false)){
       return this.ApiUser.postUser(user).subscribe((data)=>{
         console.log(data);
         this.router.navigate(['/login'])
-        alert("Usuario registrado satisfactoriamente")
+        this.showSuccess();
       })
     }else{
       console.log("Error desconocido")

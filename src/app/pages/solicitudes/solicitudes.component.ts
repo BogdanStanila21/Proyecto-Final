@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { LoginService } from './../../service/login.service';
 import { ApisService } from 'src/app/service/apis.service';
 import { RequestModel } from 'src/app/models/peticiones';
+import { BsModalService, BsModalRef } from "ngx-bootstrap";
 
 @Component({
   selector: 'app-solicitudes',
@@ -9,9 +10,23 @@ import { RequestModel } from 'src/app/models/peticiones';
   styleUrls: ['./solicitudes.component.scss']
 })
 export class SolicitudesComponent implements OnInit {
-
+  modalRef: BsModalRef;
+  public user: any;
   public request:any
-  constructor(private valor:LoginService, private api:ApisService) { }
+  constructor(private modalService: BsModalService, private valor:LoginService, private api:ApisService) { }
+
+  // ---------------------------- Método para abrir modal
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  /* --------------------- Método para obtener los datos del usuario --------------------- */
+  getUser(user_id: number){
+    return this.api.getUser(user_id).subscribe((data) => {
+      this.user = data[0];
+      console.log(this.user)
+    })
+  }
 
   getValor(){
     return this.valor.getUser();
