@@ -1,12 +1,24 @@
 <div *ngIf="getValor()">
   <header>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </header>
   <main>
     <div class="wrap">
       <div class="busqueda">
-        <input type="text" class="filtrobusqueda" placeholder="¿Qué buscas?" #bookauthor />
-        <button type="submit" class="boton" (click)="mostrarTitleAuthor(bookauthor.value)">
+        <input
+          type="text"
+          class="filtrobusqueda"
+          placeholder="¿Que buscas?"
+          #bookauthor
+        />
+        <button
+          type="submit"
+          class="boton"
+          (click)="mostrarTitleAuthor(bookauthor.value)"
+        >
           <i class="fa fa-search"></i>
         </button>
       </div>
@@ -28,9 +40,8 @@
     <!-- ----------------------------------------------------------------------------------------------- -->
     <ul class="shelf">
       <li (click)="mostrartype('Misterio')" class="filtro">
-        <span class="label">
-          <h2>Misterio</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
+        <span class="label"> <h2>Misterio</h2> </span><span class="top"></span
+        ><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Fantasia')" class="filtro">
         <span class="label">
@@ -44,23 +55,20 @@
       </li>
       <li (click)="mostrartype('Biografias')" class="filtro">
         <span class="label">
-          <h2>Biográfico</h2>
+          <h2>Biografías</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Literatura y lingüísticos')" class="filtro">
-        <span class="label">
-          <h2>Literatura</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
+        <span class="label"> <h2>Literatura</h2> </span><span class="top"></span
+        ><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Aventura y ciencia ficcion')" class="filtro">
-        <span class="label">
-          <h2>Aventura</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
+        <span class="label"> <h2>Aventura</h2> </span><span class="top"></span
+        ><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Novela policíaca')" class="filtro">
-        <span class="label">
-          <h2>Novela</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
+        <span class="label"> <h2>Novela</h2> </span><span class="top"></span
+        ><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Distopia')" class="filtro">
         <span class="label">
@@ -68,19 +76,17 @@
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Paranormal')" class="filtro">
-        <span class="label">
-          <h2>Paranormal</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
+        <span class="label"> <h2>Paranormal</h2> </span><span class="top"></span
+        ><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrartype('Comic')" class="filtro ultimo">
         <span class="label">
-          <h2>Cómic</h2>
+          <h2>Cómics</h2>
         </span><span class="top"></span><span class="left"></span><span class="right"></span>
       </li>
       <li (click)="mostrarLibros()" class="filtro ultimo">
-        <span class="label">
-          <h2>Todos</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
+        <span class="label"> <h2>Todos</h2> </span><span class="top"></span
+        ><span class="left"></span><span class="right"></span>
       </li>
       <div id="soporte"></div>
     </ul>
@@ -88,10 +94,10 @@
     <div class="bookshelf">
       <div class="book" *ngFor="let i of book">
         <div class="oscuro"></div>
-        <div (click)="openModal(info)" class="mas" (click)="getOneBook(i.book_id)">Más información</div>
+        <div (click)="openModal(info)" class="mas" (click)="getOneBook(i.book_id)">Mas información</div>
 
         <p class="nombreLibro">{{ i.title }}</p>
-        <img src="{{ i.photo }}" alt="" />
+        <img src="{{ i.photo }}" alt=""/>
         <p>{{ i.title }}</p>
         <!-- <p
           id="pedir"
@@ -106,37 +112,45 @@
   </main>
 
   <!----------------------------------- Modal para pedir libro ----------------------------------->
-  <ng-template #name>
-    <div class="modal-header">
-      <h3 class="modal-title pull-left">¡Petición!</h3>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-
-    <div class="modal-body">
-      <div *ngIf="userbook[0]; else esFalse">
-        <br />
-        <h4>Selecciona el usuario del libro</h4>
-        <select name="libro" id="selectModal" #elegido>
-          <option *ngFor="let item of userbook">{{ item.user_id }},{{ item.nickname }},{{ item.place }}</option>
-        </select>
-        <button class="v-btn" (click)="modalRef.hide()" (click)="postPeticion(elegido.value)" (click)="openModal(promptPetition)">
-          Aceptar
+  <ng-template #petition>
+    <div class="modal-petition">
+      <div class="modal-header">
+        <h3 class="modal-title pull-left">Haz tu petición</h3>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <ng-template #esFalse>
-        <h4>Ya tienes este libro</h4>
-      </ng-template>
+
+      <div class="modal-body">
+        <div *ngIf="userbook[0]; else esFalse">
+          <h4>Selecciona el usuario del libro</h4>
+          <select name="libro" #elegido>
+            <option value="{{item.user_id}}" *ngFor="let item of userbook"><b>{{ item.nickname }}</b> ({{ item.place }})</option>
+          </select>
+          <button class="v-btn" (click)="modalRef.hide()" (click)="postPeticion(elegido.value)"
+            (click)="openModal(promptPetition)">
+            Aceptar
+          </button>
+        </div>
+        <ng-template #esFalse>
+          <h4>Ups! Ya tienes este libro</h4>
+        </ng-template>
+      </div>
     </div>
   </ng-template>
 
-
-  <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Modal aviso favoritos ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------- Modal para aviso favoritos ----------------------------------->
   <ng-template #promptFav>
     <div class="modal-prompt-fav">
       <div class="modal-body">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">x</button>
+        <button
+          type="button"
+          class="close pull-right"
+          aria-label="Close"
+          (click)="modalRef.hide()"
+        >
+          x
+        </button>
         <div class="success-checkmark">
           <div class="check-icon">
             <span class="icon-line line-tip"></span>
@@ -152,11 +166,16 @@
     </div>
   </ng-template>
 
-  <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Modal aviso peticiones ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------- Modal para aviso de peticiones ----------------------------------->
   <ng-template #promptPetition>
     <div class="modal-prompt-petition">
       <div class="modal-body">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <button
+          type="button"
+          class="close pull-right"
+          aria-label="Close"
+          (click)="modalRef.hide()"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
         <div class="success-checkmark">
@@ -174,12 +193,17 @@
     </div>
   </ng-template>
 
-  <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Modal para mas informacion del libro ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------- Modal para informasción del libro ----------------------------------->
   <ng-template #info>
-    <div class=" modal-book">
+    <div class="modal-book">
       <div class="modal-header">
-        <h3 class="modal-title pull-left">{{oneBook.title}}</h3>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <h3 class="modal-title pull-left">{{ oneBook.title }}</h3>
+        <button
+          type="button"
+          class="close pull-right"
+          aria-label="Close"
+          (click)="modalRef.hide()"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -188,35 +212,38 @@
           <div class="modal-book-info col-8">
             <div>
               <p>Autor</p>
-              <p>{{oneBook.author}}</p>
+              <p>{{ oneBook.author }}</p>
             </div>
             <div>
-              <p>Año de publicación</p>
-              <p>{{oneBook.year}}</p>
+              <p>Año de publicacion</p>
+              <p>{{ oneBook.year }}</p>
             </div>
             <div>
               <p>Editorial</p>
-              <p>{{oneBook.editorial}}</p>
+              <p>{{ oneBook.editorial }}</p>
             </div>
             <div>
               <p>Género</p>
-              <p>{{oneBook.type}}</p>
+              <p>{{ oneBook.type }}</p>
             </div>
           </div>
           <div class="modal-book-img col-4">
-            <img src="{{oneBook.photo}}" alt="">
+            <img src="{{ oneBook.photo }}" alt="" />
           </div>
         </div>
         <div class="modal-book-bottom row">
           <div class="modal-book-desc col-12">
             <h4>Sinopsis:</h4>
-            <p>{{oneBook.description}}</p>
+            <p>{{ oneBook.description }}</p>
           </div>
         </div>
       </div>
       <div class="modal-footer modal-book-buttons">
-        <button class="v-btn" (click)="openModal(name)" (click)="getBookUser(oneBook.book_id)">Pedir libro</button>
-        <button class="v-btn" (click)="openModal(promptFav)" (click)="addFavorito(oneBook.book_id)">Añadir a favoritos</button>
+        <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(petition)"
+          (click)="getBookUser(oneBook.book_id)">Pedir Libro</button>
+        <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(promptFav)"
+          (click)="addFavorito(oneBook.book_id)">Añadir a
+          favoritos</button>
       </div>
     </div>
   </ng-template>

@@ -314,6 +314,18 @@ app.get("/books/:type", function (request, response) {
     });
   });
   
+  app.post("/userbook",(request,response)=>{
+    let variable2 = [request.body.user_id, request.body.book_id];
+    let sql2="INSERT INTO user_book (user_id, book_id) VALUES (?,?)"
+    connection.query(sql2, variable2, function(err,result){
+        if (err) console.log(err);
+        else{
+            response.send(result)
+            console.log("POST de book con relacion a user_book");
+        }
+    })
+  })
+
   app.put("/book", function(request, response) {
     console.log(request.body);
     let cambio = new Array(
@@ -358,7 +370,7 @@ app.get("/books/:type", function (request, response) {
 
 app.get("/requested/:id", function(req, res, next)
     {   let variable= [req.params.id]
-        connection.query("SELECT requested_id,status, book.photo, user.nickname, user.place, user.email FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_id = user.user_id) WHERE requested.user_idRequest = ? && (requested.status='Aceptada' || requested.status='Pendiente')",variable, function(err, result)
+        connection.query("SELECT requested_id ,status, book.photo, requested.user_id, user.nickname, user.place, user.email FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_id = user.user_id) WHERE requested.user_idRequest = ? && (requested.status='Aceptada' || requested.status='Pendiente')",variable, function(err, result)
             {
                 if(err){
                     console.log(err);
