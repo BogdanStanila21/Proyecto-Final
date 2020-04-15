@@ -118,7 +118,7 @@ h1 + p {
       background-position: left center;
       text-transform: lowercase;
       font-size: 16px;
-      content: "Aqui estaba lo que estabas buscando :(";
+      // content: "Aqui estaba lo que estabas buscando :(";
       transform: rotate(90deg) translate(8rem, 0rem);
       opacity: 0.3;
       color: rgba(41, 125, 136, 0.733);
@@ -296,6 +296,7 @@ p {
         border: 1px solid $color-grey-dark;
         border-radius: 5px;
         margin-bottom: 1em;
+        width: 380px;
 
         &:hover {
           cursor: pointer;
