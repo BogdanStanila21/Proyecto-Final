@@ -47,11 +47,17 @@ export class FavoritosComponent implements OnInit {
 getBookUser(id:number){
   return this.api.getUserBook(id).subscribe((data:any)=>{
     let datos=data
-    for (let i=0;i<datos.length;i++){
-      if(datos[i].user_id==this.valor.getUser()[0].user_id){
+    let i=0
+      while((datos[i].user_id==this.valor.getUser()[0].user_id)&&(i<datos.length)){
         datos.splice(i,1)
+        i++
+        // i<datos.length
       }
-    }
+      for (let i=0;i<datos.length;i++){
+        if(datos[i].user_id==this.valor.getUser()[0].user_id){
+          datos.splice(i,1)
+        }
+      }
     this.userbook=datos;
     console.log(datos)
   })

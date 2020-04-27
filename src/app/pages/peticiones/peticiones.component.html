@@ -1,7 +1,4 @@
-<header>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-</header>
-<div id="fondo"></div>
+
 <div id="wrapper" class="container" *ngIf="getValor()">
   <!-- ------------------------------------------- -->
 
@@ -19,6 +16,9 @@
         <p>Estado: {{ item.status }}</p>
         <div *ngIf="item.status == 'Aceptada'; else esFalse">
           {{ item.email }}
+          <button class="boton" (click)="deletePeticion(item.requested_id, i)">
+            Cerrar
+          </button>
         </div>
         <ng-template #esFalse>
           <button class="boton" (click)="deletePeticion(item.requested_id, i)">
@@ -32,10 +32,10 @@
   <ng-template #noHay>
     <div class="beta">
       <nav class="shelf">
-        <a routerLink="/mostrarLibro" class="book home-page">Buscar libros</a>
-        <a class="book about-us">Quiénes somos</a>
-        <a class="book contact">Contáctanos</a>
-        <a class="book faq">F.A.Q.</a>
+        <a class="book home-page"></a>
+        <a class="book about-us"></a>
+        <a class="book contact"></a>
+        <a class="book faq"></a>
         <span class="book not-found"></span>
         <span class="door left"></span>
         <span class="door right"></span>

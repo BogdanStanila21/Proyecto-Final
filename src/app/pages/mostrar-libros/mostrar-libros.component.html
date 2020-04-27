@@ -125,7 +125,8 @@
         <div *ngIf="userbook[0]; else esFalse">
           <h4>Selecciona el usuario del libro</h4>
           <select name="libro" #elegido>
-            <option value="{{item.user_id}}" *ngFor="let item of userbook"><b>{{ item.nickname }}</b> ({{ item.place }})</option>
+            <option value="{{item.user_id}}" *ngFor="let item of userbook"><b>Nick: {{ item.nickname }} -</b>
+              Ubicación: {{ item.place }}</option>
           </select>
           <button class="v-btn" (click)="modalRef.hide()" (click)="postPeticion(elegido.value)"
             (click)="openModal(promptPetition)">
