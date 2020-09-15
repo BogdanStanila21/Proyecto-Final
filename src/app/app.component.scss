@@ -1,11 +1,10 @@
 /* Control de estilos */
 * {
-  padding: 0;
-  margin: 0;
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
   vertical-align: baseline;
+  font-family: "Baloo Paaji 2", cursive;
 }
 
 /* Mixin para control del media query */
@@ -51,22 +50,45 @@ $breakpoint: 768px;
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   background-color: $color-grey;
+  // position: relative;
 }
 
 // Navigation Variables
 $content-width: 1300px;
 $nav-background: white;
 
-footer {
-  height: 13vh;
-  background-color: rgb(248, 248, 248);
-  text-align: center;
-  padding: 40px;
+/*-------------- Estilos para botones ---------------*/
+.v-btn{
+  color: white;
+  background-color: $color-primary;
+  padding: .25em 1.5em;
+  border: 1px solid $color-primary;
+  border-radius: 5px;
+  transition: .3s;
+
+  &:hover{
+    background-color: $color-hover;
+    border-color: $color-hover;
+  }
+
+  &:active{
+    transform: scale(0.9);
+  }
 }
-.divisor {
-  width: 50px;
-  height: 1px;
-  background-color: rgba(128, 128, 128, 0.425);
-  margin: 0 auto;
-  margin-bottom: 20px;
+
+// ------------------------------------------ Modal estilos generales ------------------------------------------------
+.modal-header {
+  button {
+    transition: .3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
 }
+
+

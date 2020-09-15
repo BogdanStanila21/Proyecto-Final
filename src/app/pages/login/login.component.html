@@ -1,6 +1,8 @@
 <div class="wrapper">
   <div class="container">
-    <h1>SIGN IN</h1>
+    
+    <div id="LogoRegister"></div>
+    <h6>Inicia sesión en VITU:</h6>
     <hr />
     <form action="" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
       <div>
@@ -9,7 +11,7 @@
           placeholder="Nickname"
           formControlName="nickname"
           #nick
-        /><br />
+        /><br/>
       </div>
       <div>
         <input
@@ -29,8 +31,8 @@
         </button>
 
         <p>
-          Aun no te has registrado?
-          <a [routerLink]="['/registro']">Registrate</a>
+          ¿Aún no te has registrado?
+          <a [routerLink]="['/registro']">Regístrate</a>
         </p>
       </div>
     </form>

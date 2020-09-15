@@ -12,6 +12,7 @@ export class LoginService {
   public check:boolean=false;
   public userId:any;
   private url="http://localhost:3000/user/login"
+  
   constructor(private http:HttpClient) {
    }
 

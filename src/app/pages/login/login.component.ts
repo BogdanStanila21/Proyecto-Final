@@ -3,20 +3,26 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Login } from './../../models/login';
 import { LoginService } from './../../service/login.service';
 import {  Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  styles: ['input.ng-valid{border:2px solid white;}']
+  styles: ['input.ng-valid{border:2px solid #38a9b8;} input.ng-invalid.ng-touched{border:2px solid #ff0000c5;}']
 
 })
 export class LoginComponent implements OnInit {
 
   public user:any;
   loginForm: FormGroup
-  constructor(private fb: FormBuilder, public auth:LoginService,private router:Router) {
+  constructor(private fb: FormBuilder, public auth:LoginService,private router:Router, private toastr: ToastrService) {
     this.buildForm();
+  }
+
+  
+  showWarning() {
+    this.toastr.error('¡La contraseña o el nickname no coinciden!');
   }
 //Validaciones parte front
   buildForm() {
@@ -40,6 +46,7 @@ export class LoginComponent implements OnInit {
       //console.log(this.auth.userId)
       if(this.auth.userId[0]===undefined){
         this.router.navigate(['/login'])
+        this.showWarning()
       }else{
         this.auth.check=true
         this.auth.setUser(data)

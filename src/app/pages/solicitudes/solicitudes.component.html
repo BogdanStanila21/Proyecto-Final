@@ -1,69 +1,78 @@
-
 <div id="wrapper" class="container" *ngIf="getValor()">
   <!-- ------------------------------------------- -->
 
-  <div class="row solicitudes">
-    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud" *ngFor="let item of requested">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="{{item.photo}}" alt="">
-          </div>
-          <p>{{item.description}}</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
+  <div class="row solicitudes" *ngIf="request[0]; else noHay">
+    <div class="col-lg-4 col-md-6 col-sm-12 solicitud" *ngFor="let item of request; let i = index">
+      <div class="contenedor">
+        <div class="foto">
+          <img src="{{ item.photo }}" alt="" />
         </div>
+        <div class="nombreTitular">
+          <p>
+            Solicitante: <span (click)="openModal(infoUser)" (click)="getUser(item.user_id)">{{ item.nickname }}</span>
+          </p>
+        </div>
+
+        <!-- <p>Nick: {{item.nickname}}</p> -->
+        <!-- <p>Ciudad: {{item.place}}</p> -->
+        <div *ngIf="item.status == 'Pendiente'; else esFalse">
+          <div class="boton" (click)="putSolicitud(item.requested_id)">
+            Aceptar
+          </div>
+          <div class="boton" (click)="putSolicitud2(item.requested_id, i)">
+            Rechazar
+          </div>
+        </div>
+        <ng-template #esFalse>Email de contacto: {{ item.email }}</ng-template>
       </div>
-      <!-- <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>    
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 solicitud">
-        <div class="contenedor">
-          <div class="foto">
-            <img src="https://www.planetadelibros.com/usuaris/libros/fotos/70/m_libros/portada_el-senor-de-los-anillos-iii-el-retorno-del-rey_j-r-r-tolkien_201505211337.jpg" alt="">
-          </div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <div class="boton">Aceptar</div>
-          <div class="boton">Rechazar</div>
-        </div>
-      </div> -->
+    </div>
   </div>
+  <!----------------------------------- Modal para informasción del libro ----------------------------------->
+  <ng-template #infoUser>
+    <div class="modal-user">
+      <div class="modal-header">
+        <h3 class="modal-title pull-left">{{user.nickname}}</h3>
+        <button type="button" (click)="modalRef.hide()" class="close pull-right" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-user-top row">
+          <div class="modal-user-info col-8">
+            <div>
+              <p>Nombre</p>
+              <p>{{user.name}}</p>
+            </div>
+            <div>
+              <p>Residencia</p>
+              <p>{{user.place}}</p>
+            </div>
+          </div>
+          <div class="modal-book-img col-4">
+            <img src="{{user.photo}}" alt="">
+          </div>
+        </div>
+        <div class="modal-book-bottom row">
+          <div class="modal-book-desc col-12">
+            <h4>Acerca de mí:</h4>
+            <p>{{user.aboutYou}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </div>
-  <!-- ------------------------------------------------------------------------------------------------------------- -->
+<ng-template #noHay>
+  <div class="beta">
+    <nav class="shelf">
+      <a class="book home-page"></a>
+      <a class="book about-us"></a>
+      <a class="book contact"></a>
+      <a class="book faq"></a>
+      <span class="book not-found"></span>
+      <span class="door left"></span>
+      <span class="door right"></span>
+    </nav>
+    <h1>No tienes ninguna solicitud</h1>
+  </div>
+</ng-template>
