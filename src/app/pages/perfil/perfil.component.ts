@@ -20,6 +20,7 @@ export class PerfilComponent implements OnInit {
 
   }
 
+
   showSuccess() {
     this.toastr.success('¡Datos modificados exitosamente!');
   }

@@ -20,6 +20,7 @@ import { PeticionesComponent } from "./pages/peticiones/peticiones.component";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { ToastrModule } from 'ngx-toastr';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
     RegistroComponent,
     NavComponent,
     PeticionesComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -49,12 +49,13 @@ export class RegistroComponent implements OnInit {
           Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}"),
           Validators.required
         ]),
-        pass: new FormControl(null, [
-          Validators.minLength(8),
+        place: new FormControl("", Validators.required),
+        pass: new FormControl("", [
+          Validators.pattern("(?=\\D*\\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}"),
           Validators.required
         ]),
-        pass2: new FormControl("", [Validators.required]),
-        place: new FormControl("", Validators.required)
+        pass2: new FormControl("", [Validators.required])
+        
       },
       { validators: passValidation.matchPass }
     );

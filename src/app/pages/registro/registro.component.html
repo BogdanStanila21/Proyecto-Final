@@ -63,10 +63,9 @@
           placeholder="Contraseña"
           #pass
           formControlName="pass"
-          [formGroup]="registroForm"
         /><br />
-        <span *ngIf="registroForm.controls['pass'].hasError('minLength')">
-          La contraseña debe tener una longitud mínima de 8 caracteres
+        <span *ngIf="registroForm.controls['pass'].hasError('pattern')">
+          La contraseña debe tener una longitud minima de 8 caracteres, mayusculas, minusculas y numeros
         </span>
       </div>
       <div class="pass2">
@@ -75,7 +74,6 @@
           placeholder="Repetir contraseña"
           #pass2
           formControlName="pass2"
-          [formGroup]="registroForm"
         /><br />
         <span *ngIf="registroForm.controls.pass2.errors?.matchPass">
           Las contraseñas no coinciden

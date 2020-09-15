@@ -28,10 +28,10 @@
         </li>
 
         <li>
-          <a (click)="dropdownToggle()" class="drop-pointer">{{userName.nickname}}</a>
+          <a (click)="dropdownToggle()" class="drop-pointer">{{userName}}</a>
           <ul [class]="dropdown">
             <li>
-              <a routerLink="perfil">Editar perfil</a>
+              <a routerLink="perfil" (click)="dropdownToggle()">Editar perfil</a>
             </li>
             <div class="nav-divider"></div>
             <li>

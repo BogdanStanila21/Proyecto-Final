@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  styles: ['input.ng-valid{border:2px solid white;}']
+  styles: ['input.ng-valid{border:2px solid #38a9b8;} input.ng-invalid.ng-touched{border:2px solid #ff0000c5;}']
 
 })
 export class LoginComponent implements OnInit {

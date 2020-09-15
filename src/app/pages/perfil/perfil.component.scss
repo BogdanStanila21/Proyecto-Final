@@ -119,22 +119,29 @@ textarea {
   color: black;
 }
 #guardar {
-  height: 100px;
-  width: 300px;
-  background-color: #0e99ac;
+  height: 36px;
+  width: 250px;
+  background-color:rgba(255, 255, 255, 0.664);
   border-radius: 5px;
   margin: 0 auto;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  font-size: 30px;
-  // padding-top: 20px;
+  color: #38a9b8;
+  font-weight: 500;
+  font-size: 20px;
+  border: 1px solid #38a9b8;
   text-align: center;
   cursor: pointer;
-  transition: 1s;
-}
-#guardar:hover {
-  background-color: #a70eac;
-  transition: 1s;
+  transition: 0.5s;
+  &:enabled {
+    background-color: #38a9b8;
+    color: rgb(255, 255, 255);
+    border: 2px solid whitesmoke;
+  }
+  &:hover{
+    background-color: rgba(83, 182, 196, 0.767);
+    color:white;
+    transition: 0.5s;
+    width: 300px;
+  }
 }
 #relativo {
   position: absolute;

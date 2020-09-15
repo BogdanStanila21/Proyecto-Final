@@ -10,7 +10,8 @@ import { Favorites } from './../../models/favorites';
   styleUrls: ['./mis-libros.component.scss']
 })
 export class MisLibrosComponent implements OnInit {
-  public misLibros: Libro[]
+  
+  public misLibros: Libro[]=[]
   public editarLibro=new Libro  //para mostrar datos del libro en el modal de modificar
 
   constructor(private valor:LoginService, private Api: ApisService) { }

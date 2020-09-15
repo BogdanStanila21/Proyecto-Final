@@ -55,7 +55,7 @@ export class NavComponent implements OnInit {
       let userId=this.getValor()[0].user_id
       return this.api.getUser(userId).subscribe((data)=>{
         console.log(data)
-        this.userName=data[0]
+        this.userName=data[0].nickname
       })
     }
 

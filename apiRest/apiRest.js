@@ -212,6 +212,7 @@ app.get("/book", function(request, response) {
       }
     });
   });
+  
   app.get("/book/:id", function(request, response) {
     let sql = "SELECT * FROM book WHERE book_id =" + request.params.id;
     connection.query(sql, function(err, result) {
@@ -293,6 +294,7 @@ app.get("/books/:type", function (request, response) {
       request.body.photo,
       //request.body.available
     );
+
     let sql =
       "INSERT INTO book (title,author,year,editorial,type,description,photo) VALUES (?,?,?,?,?,?,?)";
     console.log(sql);
@@ -517,6 +519,5 @@ app.delete("/petition", function(req, res, next)
     );
 }
 );
-
 
 app.listen(3000);
