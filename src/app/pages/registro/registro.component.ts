@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ["./registro.component.scss"],
   styles: ["input.ng-valid{border:2px solid #38a9b8;}"]
 })
+
 export class RegistroComponent implements OnInit {
   registroForm: FormGroup;
   public miRegistro: Registro;
