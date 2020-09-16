@@ -68,14 +68,13 @@ app.post("/user",(request,response)=>{
     let myUser=new Array(
         request.body.nickname,
         request.body.name,
-        request.body.sex,
         request.body.email,
         request.body.password,
         // request.body.aboutYou,
         // request.body.photo,
         request.body.place);
     console.log(myUser)
-    sql="INSERT INTO user (nickname, name, sex, email, password, place) VALUES(?,?,?,?,?,?)";
+    sql="INSERT INTO user (nickname, name, email, password, place) VALUES(?,?,?,?,?)";
     connection.query(sql,myUser,(err,result)=>{
         if(err){
             console.log(err);
