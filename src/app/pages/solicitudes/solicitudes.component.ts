@@ -27,9 +27,11 @@ export class SolicitudesComponent implements OnInit {
       console.log(this.user)
     })
   }
-
+  
   getValor(){
+    // console.log(this.valor.getUser())
     return this.valor.getUser();
+
   }
 
   getSolicitud(){

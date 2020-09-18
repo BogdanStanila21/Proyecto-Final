@@ -29,12 +29,14 @@ export class LoginService {
     let user_local=localStorage.getItem("currentUser")
     if (!isNullOrUndefined(user_local)){
       let user = JSON.parse(user_local);
-      this.userId=user
+      this.userId=user;
       return user;
+      
     }else{
       return null;
     }
   }
+
   logOut(){
     localStorage.removeItem("currentUser")
   }

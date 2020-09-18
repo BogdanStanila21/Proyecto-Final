@@ -68,14 +68,13 @@ app.post("/user",(request,response)=>{
     let myUser=new Array(
         request.body.nickname,
         request.body.name,
-        request.body.sex,
         request.body.email,
         request.body.password,
         // request.body.aboutYou,
         // request.body.photo,
         request.body.place);
     console.log(myUser)
-    sql="INSERT INTO user (nickname, name, sex, email, password, place) VALUES(?,?,?,?,?,?)";
+    sql="INSERT INTO user (nickname, name, email, password, place) VALUES(?,?,?,?,?)";
     connection.query(sql,myUser,(err,result)=>{
         if(err){
             console.log(err);
@@ -147,7 +146,7 @@ app.post("/user/login",(request,respose)=>{
 
 app.get("/favorites/:user_id", function(req, res, next)
     { let fav=new Array(''+req.params.user_id+'')
-        connection.query("SELECT book.book_id, book.photo, book.description, book.author, book.title, book.type, user.nickname, user.place, favorites_id FROM favorites JOIN user ON (favorites.user_id = user.user_id) JOIN book ON (favorites.book_id = book.book_id) WHERE favorites.user_id=?",fav, function(err, result)
+        connection.query("SELECT book.book_id, book.photo, book.type, book.description, book.author, book.title, user.nickname, user.place, favorites_id FROM favorites JOIN user ON (favorites.user_id = user.user_id) JOIN book ON (favorites.book_id = book.book_id) WHERE favorites.user_id=?",fav, function(err, result)
             {
                 if(err){
                     console.log(err);
@@ -447,7 +446,7 @@ app.delete("/requested", function(req, res, next)
 
 app.get("/petition/:user_id", function(req, res, next)
 {
-    let variable = "SELECT requested_id, book.photo, book.book_id, book.title,requested.user_id, requested.user_idRequest, user.nickname, user.place,user.email, status FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_idRequest = user.user_id) WHERE requested.user_id = ?";
+    let variable = "SELECT requested_id, book.photo, book.book_id, book.title, book.type, book.description, book.author, requested.user_id, requested.user_idRequest, user.nickname, user.place,user.email, status FROM requested JOIN book ON (requested.book_id = book.book_id) JOIN user ON (requested.user_idRequest = user.user_id) WHERE requested.user_id = ?";
     let variable2 = new Array ('' + req.params.user_id + '')
 
     connection.query(variable, variable2, function(err, result)

@@ -1,3 +1,9 @@
+/* Importaciones SCSS */
+@import "./scss/mixins.scss";
+@import "./scss/variables.scss";
+@import "./scss/buttons.scss";
+@import "./scss/cards.scss";
+
 /* Control de estilos */
 * {
   text-decoration: none;
@@ -5,75 +11,6 @@
   box-sizing: border-box;
   vertical-align: baseline;
   font-family: "Baloo Paaji 2", cursive;
-}
-
-/* Mixin para control del media query */
-@mixin breakpoint($point) {
-  @if $point == desktop {
-    @media (max-width: 1440px) {
-      @content;
-    }
-  } @else if $point == laptop {
-    @media (max-width: 1200px) {
-      @content;
-    }
-  } @else if $point == tablet {
-    @media (max-width: 1024px) {
-      @content;
-    }
-  } @else if $point == mobile {
-    @media (max-width: 768px) {
-      @content;
-    }
-  } @else if $point == xsmobile {
-    @media (max-width: 375px) {
-      @content;
-    }
-  }
-}
-
-/* Variables para colores*/
-$color-primary: #38a9b8;
-$color-hover: #297d88;
-$color-grey: #c4c4c4;
-$color-grey-dark: #9b9b9b;
-$color-success: #569e29;
-$color-warning: #dcd20c;
-$color-danger: #e20029;
-
-/* Variable para tamaño de la barra de navegación */
-$nav-height: 58px;
-
-/* Variables para breakpoints */
-$breakpoint: 768px;
-
-body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: $color-grey;
-  // position: relative;
-}
-
-// Navigation Variables
-$content-width: 1300px;
-$nav-background: white;
-
-/*-------------- Estilos para botones ---------------*/
-.v-btn{
-  color: white;
-  background-color: $color-primary;
-  padding: .25em 1.5em;
-  border: 1px solid $color-primary;
-  border-radius: 5px;
-  transition: .3s;
-
-  &:hover{
-    background-color: $color-hover;
-    border-color: $color-hover;
-  }
-
-  &:active{
-    transform: scale(0.9);
-  }
 }
 
 // ------------------------------------------ Modal estilos generales ------------------------------------------------
