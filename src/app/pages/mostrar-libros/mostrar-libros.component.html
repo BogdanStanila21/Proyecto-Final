@@ -311,23 +311,25 @@
         </div>
       </div>
     </div>
+  </div>
 
+  
+</div>
 
-    <div class="row">
-      <div class="book-cards-main col-md-6" *ngFor="let item of book | filtro : buscar"
-        (click)="getOneBook(item.book_id)" (click)="openModal(info)">
-        <div class="book-card" [class]="background(item.type)">
-          <div class="content-wrapper">
-            <img src="{{item.photo}}" alt="" class="book-card-img-main">
-            <div class="card-content">
-              <div class="book-name">{{item.title}}</div>
-              <div class="book-by"><strong>by</strong> {{item.author}}</div>
-              <div class="book-sum card-sum">{{item.description}} </div>
-            </div>
+<div class="container">
+  <div class="row">
+    <div class="book-cards-main col-md-6" *ngFor="let item of book | filtro : buscar"
+      (click)="getOneBook(item.book_id)" (click)="openModal(info)">
+      <div class="book-card" [class]="background(item.type)">
+        <div class="content-wrapper">
+          <img src="{{item.photo}}" alt="" class="book-card-img-main">
+          <div class="card-content">
+            <div class="book-name">{{item.title}}</div>
+            <div class="book-by"><strong>by</strong> {{item.author}}</div>
+            <div class="book-sum card-sum">{{item.description}} </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
