@@ -195,91 +195,20 @@ h1 + p {
 * {
   font-family: "Baloo Paaji 2", cursive;
 }
-.container{
-  min-height: 700px;
-}
-img {
+
+/* ------------------------------ Estilos generales -------------------------- */
+.container {
+  margin: 0 auto;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 5px;
-}
-.contenedor {
-  width: 266px;
-  height: 500px;
-  margin: 0 auto;
-  border-radius: 5px;
-}
-.solicitudes {
-  background-color: #f2f2f2;
+  padding: 0px 32px 64px 32px;
+  min-height: 700px;
+  // background-image: url("https://www.infobae.com/new-resizer/GfksYxZmprfvFBxtEPDZ2OM7iGo=/768x432/filters:format(jpg):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/03/28202436/ronnie-coleman-1.jpg");
+  // background-size: contain;
+  // background-attachment: fixed;
+  box-shadow: 12px 0 15px -4px rgba(136, 136, 136, 0.8), -12px 0 8px -4px rgba(151, 151, 151, 0.8);
 }
 
-.solicitud {
-  height: 500px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  color: rgb(8, 8, 8);
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 30px;
-}
-.foto {
-  margin: 0 auto;
-  width: 260px;
-  height: 360px;
-  background-color: rgb(179, 172, 172);
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-
-.boton {
-  cursor: pointer;
-
-  height: 30px;
-  border-radius: 5px;
-  border: 1px solid #31a6b3;
-  background-color: rgba(255, 255, 255, 0);
-  margin: 0 auto;
-  width: 150px;
-  transition: 0.5s;
-  margin-bottom: 8px;
-  padding-top: 2px;
-
-  &:hover {
-    background-color: #31a6b3;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.404);
-  }
-}
-.boton2 {
-  cursor: pointer;
-  height: 30px;
-  border-radius: 5px;
-  border: 1px solid rgb(245, 98, 98);
-  width: 150px;
-  transition: 0.5s;
-  margin: 0 auto;
-  padding-top: 2px;
-}
-.boton2:hover {
-  color: white;
-  background-color: rgb(245, 98, 98);
-  border: 1px solid rgb(241, 241, 241);
-}
-.boton2:hover p {
-  opacity: 0;
-  transition: 3s;
-}
-p {
-  margin: 0;
-}
-
-.nombreTitular p span {
-  cursor: pointer;
-  color: blue;
-  font-size: 18px;
-  font-weight: 500;
-}
+@include colorRequest($color-pie-blue, $color-success, $color-warning, $color-danger);
 
 /* ------------------------------ Modal info del usuario -------------------------- */
 .modal-user {

@@ -192,19 +192,15 @@ h1 {
 * {
   font-family: "Baloo Paaji 2", cursive;
 }
-.main-container {
-  background-color: rgb(253, 253, 253);
-  max-width: 1280px;
-  margin: 0 auto;
-}
 
 .container {
-  margin: 24px 0 0 0 auto;
-  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0px 32px 64px 32px;
   min-height: 700px;
+  background-color: white;
+  box-shadow: 12px 0 15px -4px rgba(136, 136, 136, 0.8), -12px 0 8px -4px rgba(151, 151, 151, 0.8);
 }
-
-// --------------------------------------------------------------------------------       Menú
 
 // ------------------------------------------ Modal para peticiones ------------------------------------------------
 .modal-petition {
