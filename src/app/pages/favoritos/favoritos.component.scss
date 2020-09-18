@@ -3,21 +3,15 @@
 .beta {
   margin-top: 30px;
 }
-body {
-  margin: 0;
-  padding: 2rem;
-  background-color: #446072;
-  font-family: monospace;
-  color: white;
-  overflow: hidden;
-}
+
 h1 {
   margin-top: 2rem;
   text-align: center;
 }
-h1 + p {
-  text-align: center;
-}
+// h1 + p {
+//   text-align: center;
+// }
+
 .shelf {
   position: relative;
   width: 30rem;
@@ -62,6 +56,7 @@ h1 + p {
     transform-origin: 100% 0 0;
   }
 }
+
 .book {
   width: 160px;
   height: 40px;
@@ -197,73 +192,16 @@ h1 + p {
 * {
   font-family: "Baloo Paaji 2", cursive;
 }
+.main-container {
+  background-color: rgb(253, 253, 253);
+  max-width: 1280px;
+  margin: 0 auto;
+}
 
 .container {
   margin: 24px 0 0 0 auto;
   padding: 0;
   min-height: 700px;
-}
-
-.contenedor {
-  width: 266px;
-  margin: 0 auto;
-  border-radius: 5px;
-}
-.favorito {
-  height: 500px;
-  padding: 20px;
-  color: rgb(8, 8, 8);
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 20px;
-}
-.foto {
-  margin: 0 auto;
-  width: 260px;
-  height: 360px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.boton {
-  height: 30px;
-  border-radius: 5px;
-  border: 1px solid #31a6b3;
-  background-color: rgba(255, 255, 255, 0);
-  margin: 4px;
-  width: 150px;
-  transition: 0.5s;
-  &:hover {
-    background-color: #31a6b3;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.404);
-  }
-}
-.boton2 {
-  margin-top: 8px;
-  height: 30px;
-  border-radius: 5px;
-  border: 1px solid #e05e5e;
-  background-color: rgba(212, 94, 94, 0);
-  width: 150px;
-  transition: 0.5s;
-  margin-top: 8px;
-
-  &:hover {
-    background-color: #e05e5e;
-    color: white;
-    border: 1px solid rgba(255, 252, 252, 0.404);
-  }
-}
-p {
-  margin: 0;
-  padding: 0;
 }
 
 // --------------------------------------------------------------------------------       Menú
@@ -494,3 +432,4 @@ p {
     top: 38px;
   }
 }
+

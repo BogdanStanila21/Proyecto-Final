@@ -5,7 +5,7 @@ import { Login } from './../../models/login';
 import { LoginService } from './../../service/login.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { passValidation } from "../registro/custom-validator";
+import { passValidation } from "./custom-validator";
 import { Registro } from './../../models/registro';
 
 @Component({
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, public auth: LoginService, private router: Router, private toastr: ToastrService, private ApiUser: ApisService, private api: ApisService) {
     this.buildForm();
-    // this.getUsers();
+    this.getUsers();
   }
 
   signIn() {
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
     })
 
     this.registroForm = this.fb.group({
-      nickname: new FormControl(null, [
+      nickReg: new FormControl(null, [
         Validators.minLength(4),
         Validators.maxLength(12),
         Validators.required
@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
         Validators.required
       ]),
       place: new FormControl("", Validators.required),
-      pass: new FormControl("", [
+      passReg: new FormControl("", [
         Validators.pattern("(?=\\D*\\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}"),
         Validators.required
       ]),
@@ -92,12 +92,12 @@ export class LoginComponent implements OnInit {
   // }
 
   /* Trae los usuarios de la base de datos */
-  // getUsers() {
-  //   return this.api.getUsers().subscribe((data: Registro[]) => {
-  //     this.users = data;
-  //     console.log(data)
-  //   })
-  // }
+  getUsers() {
+    return this.api.getUsers().subscribe((data: Registro[]) => {
+      this.users = data;
+      console.log(data)
+    })
+  }
 
   //Para la autentificacion y redirigir a las paginas
   authLogin2(nick: string, pass: string) {
@@ -149,7 +149,7 @@ export class LoginComponent implements OnInit {
     if ((check == false) && (check2 == false)) {
       return this.ApiUser.postUser(user).subscribe((data) => {
         console.log(data);
-        this.router.navigate(['/login'])
+        this.signIn();
         this.showSuccess();
       })
     } else {

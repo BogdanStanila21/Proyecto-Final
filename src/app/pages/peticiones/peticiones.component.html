@@ -1,33 +1,5 @@
-
 <div id="wrapper" class="container" *ngIf="getValor()">
   <!-- ------------------------------------------- -->
-
-  <div class="row solicitudes" *ngIf="datosPeticion[0]; else noHay">
-    <div class="col-lg-4 col-md-6 col-sm-12 solicitud" *ngFor="let item of datosPeticion; let i = index">
-      <div class="contenedor">
-        <div class="foto">
-          <img src="{{ item.photo }}" title="{{ item.title }}" alt="¡Ups! La portada de este libro no carga" />
-        </div>
-        <div class="nombreTitular">
-          <p>
-            Propietario: <span (click)="openModal(infoUser)" (click)="getUser(item.user_idRequest)">{{ item.nickname }}</span>
-          </p>
-        </div>
-        <p>Estado: {{ item.status }}</p>
-        <div *ngIf="item.status == 'Aceptada'; else esFalse">
-          {{ item.email }}
-          <button class="boton" (click)="deletePeticion(item.requested_id, i)">
-            Cerrar
-          </button>
-        </div>
-        <ng-template #esFalse>
-          <button class="boton" (click)="deletePeticion(item.requested_id, i)">
-            Cancelar
-          </button>
-        </ng-template>
-      </div>
-    </div>
-  </div>
 
   <ng-template #noHay>
     <div class="beta">
@@ -43,6 +15,40 @@
       <h1>No tienes ninguna petición</h1>
     </div>
   </ng-template>
+
+  <div class="row" *ngIf="datosPeticion[0]; else noHay">
+    <div class="card-container col-lg-6 col-md-12 col-sm-12" *ngFor="let item of datosPeticion; let i = index">
+      <div class="book-card book-card-pet" [class]="colorPetition(item.status)">
+        <div class="content-wrapper">
+          <img src="{{ item.photo }}" alt="" class="book-card-img">
+          <div class="card-content">
+            <div class="book-name">{{ item.title }}
+              <div class="book-by">by<strong> {{ item.author }}</strong> </div>
+            </div>
+            <div class="nombreTitular">
+              La petición a 
+              <span class="owner" (click)="openModal(infoUser)"
+                (click)="getUser(item.user_idRequest)">{{ item.nickname }} </span>
+              está {{ item.status }}
+            </div>
+            <div *ngIf="item.status == 'Aceptada' || item.status == 'Rechazada'; else esFalse">
+              <div *ngIf="item.status == 'Aceptada'">
+                <div><strong>{{ item.email }}</strong></div>
+              </div>
+              <button class="v-btn-card cancel" (click)="deletePeticion(item.requested_id, i)">
+                Cerrar
+              </button>
+            </div>
+            <ng-template #esFalse>
+              <button class="v-btn-card cancel" (click)="deletePeticion(item.requested_id, i)">
+                Cancelar petición
+              </button>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!----------------------------------- Modal para informasción del libro ----------------------------------->
   <ng-template #infoUser>

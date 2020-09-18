@@ -1,0 +1,38 @@
+/* Variables para colores principales*/
+$color-primary: #38a9b8;
+$color-hover: #287A85;
+$color-blue: #3494CF;
+$color-dark: #394252;
+$color-secondary: #EB4A2F;
+$color-grey: #c4c4c4;
+$color-grey-dark: #2b2b2b;
+$color-success: #6ECC89;
+$color-warning:#D9C46A;
+$color-danger: #e05e5e;
+
+/* Variables para colores de categoría */
+$color-pie-blue: #84c1cc;
+$color-pie-sky: #A4C3D2;
+$color-pie-purple: #cbb5e2;
+$color-pie-orange: #fdca95;
+$color-pie-orange-dark: #e0bfb2;
+$color-pie-green: #94dbc1;
+$color-pie-lime: #B4D7A2;
+$color-pie-red: #FFB9B3;
+$color-pie-salmon: #FFB9C4;
+$color-pie-fucsia: #CAA7BD;
+$color-pie-pink: #edb9d6;
+
+/* Variable para tamaño de la barra de navegación */
+$nav-height: 58px;
+
+/* Variables para breakpoints */
+$breakpoint: 768px;
+
+
+// Navigation Variables
+$content-width: 1300px;
+$nav-background: white;
+
+/* Control para mixins */
+$backgrounds: true !default;

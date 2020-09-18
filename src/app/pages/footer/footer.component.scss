@@ -3,16 +3,18 @@
     background-color: #38a9b8;
     text-align: center;
     margin: 0;
+    margin-top: 48px;
     overflow: hidden;
     width: 100%;
     color: white;
 }
+
 .footer-icons{
     width: 100%;
     margin: 0 auto;
 
 }
-h5{
+footer h5{
     margin: 0;
     margin-top: 10px;
     font-weight: 600;
@@ -21,7 +23,7 @@ h5{
     display: inline-flex;   
 }
 
-i{
+footer i{
     padding: 5px;
     margin: 5px;
     border-radius: 4px;
@@ -50,7 +52,7 @@ background-color: white;}
     margin: 0;
     margin-bottom: 10px;
 }
-p{
+footer p{
     padding: 5px;
 }
 .texto{

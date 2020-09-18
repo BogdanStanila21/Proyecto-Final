@@ -2,12 +2,10 @@
 * {
   font-family: "Baloo Paaji 2", cursive;
 }
-body {
-  background-color: $color-grey;
-}
 
 // Outer navigation wrapper
 .navigation {
+  z-index: 999;
   height: $nav-height;
   background: $nav-background;
   box-shadow: 0 3px 12px #00000026;

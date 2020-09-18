@@ -56,20 +56,14 @@
           </span>
         </div>
         <div id="nick">
-          <input type="text" placeholder="Nickname" #nick formControlName="nickname" /><br />
-          <span *ngIf="registroForm.controls['nickname'].hasError('minlength')">
+          <input type="text" placeholder="Nickname" #nickReg formControlName="nickReg" /><br />
+          <span *ngIf="registroForm.controls['nickReg'].hasError('minlength')">
             Por favor, intoduce un nickname de al menos 4 caracteres
           </span>
-          <span *ngIf="registroForm.controls['nickname'].hasError('maxlength')">
+          <span *ngIf="registroForm.controls['nickReg'].hasError('maxlength')">
             No puedes exceder los 12 caracteres
           </span>
         </div>
-        <!-- <div class="sexo">
-          <select name="Sexo" #sexo formControlName="sexo" required>
-            <option selected>Mujer</option>
-            <option>Hombre</option>
-          </select><br />
-        </div> -->
         <div class="email">
           <input type="text" placeholder="Email" #email formControlName="email" /><br />
           <span *ngIf="registroForm.controls['email'].hasError('pattern')">
@@ -80,8 +74,8 @@
           <input type="address" placeholder="Ciudad" #place formControlName="place" />
         </div>
         <div class="pass">
-          <input type="password" placeholder="Contraseña" #pass formControlName="pass" /><br />
-          <span *ngIf="registroForm.controls['pass'].hasError('pattern')">
+          <input type="password" placeholder="Contraseña" #passReg formControlName="passReg" /><br />
+          <span *ngIf="registroForm.controls['passReg'].hasError('pattern')">
             La contraseña debe tener una longitud minima de 8 caracteres, mayusculas, minusculas y numeros
           </span>
         </div>
@@ -91,14 +85,8 @@
             Las contraseñas no coinciden
           </span>
         </div>
-        <!-- <input type="text" placeholder="Nombre" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Contraseña" />
-        <input type="password" placeholder="Contraseña" />
-        <input type="password" placeholder="Contraseña" />
-        <input type="password" placeholder="Contraseña" /> -->
         <button type="submit" class="v-btn-form" type="submit" [disabled]="!registroForm.valid"
-          (click)="addUser(nick.value, name.value, email.value, place.value, pass.value  )">
+          (click)="addUser(nickReg.value, name.value, email.value, place.value, passReg.value  )">
           Registrarse
         </button>
       </form>

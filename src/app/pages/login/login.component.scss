@@ -99,17 +99,23 @@
 
 
 div.main-container {
-  background: #f6f5f7;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: 'Montserrat', sans-serif;
   height: 100vh;
-  margin: 0px 0 50px;
   background-image: url("../../../img/pexels-anthony-132419.jpg");
   background-size: cover;
-  background-color: rgba(255, 255, 255, 0.589);
+
+  &::after {
+    content: "";
+    background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;  
+  }
 }
 
 h1 {
@@ -178,15 +184,13 @@ input {
   width: 100%;
 }
 
-.sign-up-container
-
 input.ng-valid {
-  border-bottom: 2px solid #3494CF;
+  border-bottom: 2px solid $color-success;
   background-color: white;
 }
 
 input.ng-invalid.ng-touched {
-  border-bottom: 2px solid #EB4A2F;
+  border-bottom: 2px solid $color-danger;
 }
 
 .container {
@@ -207,7 +211,6 @@ input.ng-invalid.ng-touched {
   height: 100%;
   transition: all 0.6s ease-in-out;
 }
-
 .sign-in-container {
   left: 0;
   width: 50%;
@@ -223,6 +226,8 @@ input.ng-invalid.ng-touched {
   width: 50%;
   opacity: 0;
   z-index: 1;
+
+  
 }
 
 .container.right-panel-active .sign-up-container {

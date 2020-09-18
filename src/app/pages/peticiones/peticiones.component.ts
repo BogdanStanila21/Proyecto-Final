@@ -10,37 +10,37 @@ import { BsModalService, BsModalRef } from "ngx-bootstrap";
 })
 export class PeticionesComponent implements OnInit {
   modalRef: BsModalRef;
-  public datosPeticion: object[]=[];
+  public datosPeticion: object[] = [];
   public user: any;
 
-  constructor(private modalService: BsModalService, private valor:LoginService, private api:ApisService) { }
+  constructor(private modalService: BsModalService, private valor: LoginService, private api: ApisService) { }
 
-  getValor(){
+  getValor() {
     return this.valor.getUser();
   }
 
   /* --------------------- Método para obtener los datos del usuario --------------------- */
-  getUser(user_id: number){
+  getUser(user_id: number) {
     return this.api.getUser(user_id).subscribe((data) => {
       this.user = data[0];
       console.log(this.user)
     })
   }
 
-  getPeticion(){
+  getPeticion() {
     let variable = this.valor.getUser()[0].user_id;
-    return this.api.getPetition(variable).subscribe((data:object[]) => {
-        this.datosPeticion = data;
-        console.log(data)
-      }
+    return this.api.getPetition(variable).subscribe((data: object[]) => {
+      this.datosPeticion = data;
+      console.log(data)
+    }
     );
   }
 
-  deletePeticion(variable, indice){
+  deletePeticion(variable, indice) {
     return this.api.deletePetition(variable).subscribe((data) => {
-        console.log(data);
-        this.datosPeticion.splice(indice, 1);
-      }
+      console.log(data);
+      this.datosPeticion.splice(indice, 1);
+    }
     );
   }
 
@@ -49,8 +49,22 @@ export class PeticionesComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
+  /* --------------------- Método para obtener los datos del usuario --------------------- */
+  colorPetition(petClass) {
+    let color: string;
 
-  ngOnInit(){
+    if (petClass == "Aceptada") {
+      color = "success";
+    }
+
+    else if(petClass == "Rechazada") {
+      color = "danger";
+    }
+
+    return color;
+  }
+
+  ngOnInit() {
     this.getPeticion();
   }
 }

@@ -192,9 +192,14 @@ h1 + p {
   }
 }
 
+
+/* --------------------------- Estilos card solucitudes ---------------------------- */
 * {
   font-family: "Baloo Paaji 2", cursive;
 }
+
+@include colorPetition($color-warning, $color-success, $color-danger);
+
 .container{
   min-height: 700px;
 }
@@ -254,13 +259,6 @@ img {
 
 p {
   margin: 0;
-}
-
-.nombreTitular p span {
-  cursor: pointer;
-  color: blue;
-  font-size: 18px;
-  font-weight: 600;
 }
 
 /* ------------------------------ Modal info del usuario -------------------------- */
