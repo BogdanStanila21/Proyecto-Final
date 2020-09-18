@@ -180,7 +180,7 @@ export class MostrarLibrosComponent implements OnInit {
       fondo = 'background7'
     }else if(type == 'Novela'){
       fondo = 'background9'
-    }else if(type == 'Novela Negra'){
+    }else if(type == 'Novela negra'){
       fondo = 'background10'
     }else if(type == 'Comic'){
       fondo = 'background11'
