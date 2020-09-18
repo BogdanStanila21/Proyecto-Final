@@ -16,11 +16,16 @@ import { Data } from 'ngx-bootstrap/positioning/models';
 export class MostrarLibrosComponent implements OnInit {
   modalRef: BsModalRef;
   public book: MostrarLibros[];
+  public bookCarousel : MostrarLibros[];
+  public bookCarousel1 :MostrarLibros[];
+  public bookCarousel2 :MostrarLibros[];
+  public bookCarousel3 :MostrarLibros[];
   public userbook:any=[];
   public fav:any;
   public datosPeticion:any;
   public bookId:number;
   public oneBook:any;
+  public buscar:string = '';
   constructor(private modalService: BsModalService, private valor:LoginService, private api: ApisService) {}
 
   getValor() {
@@ -33,7 +38,15 @@ export class MostrarLibrosComponent implements OnInit {
   mostrarLibros() {
     this.api.getLibros().subscribe((data: MostrarLibros[]) => {
       this.book = data;
-      console.log(data);
+      console.log(data)
+    });
+  }
+  mostrarLibrosCarousel() {
+    this.api.getLibros().subscribe((data: MostrarLibros[]) => {
+      this.bookCarousel=data
+      this.bookCarousel1=this.bookCarousel.splice(data.length-9);
+      this.bookCarousel2 = this.bookCarousel1.splice(2,6);
+      this.bookCarousel3 = this.bookCarousel2.splice(0,3);
     });
   }
   mostrartype(type) {
@@ -148,11 +161,41 @@ export class MostrarLibrosComponent implements OnInit {
       //console.log(data)
     });
   }
+
+  background(type){
+    let fondo;
+    if(type == 'Misterio'){
+      fondo = 'background1'
+    }else if(type == 'Fantasia'){
+      fondo = 'background2'
+    }else if(type == 'Ciencia Ficcion'){
+      fondo = 'background3'
+    }else if(type == 'Historico'){
+      fondo = 'background4'
+    }else if(type == 'Biografias'){
+      fondo = 'background5'
+    }else if(type == 'Filosofia'){
+      fondo = 'background6'
+    }else if(type == 'Aventura'){
+      fondo = 'background7'
+    }else if(type == 'Novela'){
+      fondo = 'background9'
+    }else if(type == 'Novela negra'){
+      fondo = 'background10'
+    }else if(type == 'Comic'){
+      fondo = 'background11'
+    }
+    
+    return fondo
+  }
+
   
 
   ngOnInit() {
     this.mostrarLibros();
+    this.mostrarLibrosCarousel();
     this.getPeticion();
     this.getFav();
+    
   }
 }
