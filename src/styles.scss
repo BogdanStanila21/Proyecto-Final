@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
-
+/* Quitar el scrollbar */
+// body {
+//   overflow-y: hidden;
+//   overflow-x: scroll;
+// }
 /* position */
 .toast-center-center {
     top: 50%;

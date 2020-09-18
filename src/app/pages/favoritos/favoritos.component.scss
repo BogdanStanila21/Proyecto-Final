@@ -195,7 +195,9 @@ h1 {
 .main-container {
   background-color: rgb(253, 253, 253);
   max-width: 1280px;
+  max-height: 1024px;
   margin: 0 auto;
+  overflow-y:scroll;
 }
 
 .container {
