@@ -5,6 +5,7 @@
 
 // Outer navigation wrapper
 .navigation {
+  position: relative;
   z-index: 999;
   height: $nav-height;
   background: $nav-background;

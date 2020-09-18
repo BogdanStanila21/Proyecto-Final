@@ -68,6 +68,15 @@ export class SolicitudesComponent implements OnInit {
     })
   }
 
+  colorRequest(reqClass) {
+    let color: string;
+
+    if (reqClass == "Aceptada") {
+      color = "success";
+    }
+    return color;
+  }
+
   ngOnInit() {
     this.getSolicitud();
   }
