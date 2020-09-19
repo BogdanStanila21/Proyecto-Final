@@ -23,6 +23,12 @@
 //     z-index: -1;
 //   }
 // }
+body {
+  background-image: url("./img/fondo2.jpg");
+  background-size: contain;
+  background-attachment: fixed;
+}
+
 /* position */
 .toast-center-center {
     top: 50%;

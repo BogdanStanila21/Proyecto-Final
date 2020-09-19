@@ -31,7 +31,7 @@
   }
 }
 
-/* Mixin para color de fondos en cards de peticiones */
+/* Mixin para colores en cards de peticiones */
 @mixin colorPetition($color1, $color2, $color3) {
   .book-card {
     background-color: $color1;
@@ -81,7 +81,6 @@
 
         &.cancel {
           color: $color3;
-
           &:hover {
             color: #AD4949;
           }
@@ -108,7 +107,7 @@
 }
 
 
-/* Mixin para color de fondos en cards de peticiones */
+/* Mixin para colores en cards de peticiones */
 @mixin colorPetition($color1, $color2, $color3) {
   .book-card {
     background-color: $color1;
@@ -158,7 +157,6 @@
 
         &.cancel {
           color: $color3;
-
           &:hover {
             color: #AD4949;
           }
@@ -185,7 +183,7 @@
 }
 
 
-/* Mixin para color de fondos en cards de solicitudes */
+/* Mixin para colores en cards de solicitudes */
 @mixin colorRequest($color1, $color2, $color3, $color4) {
   .book-card {
     background-color: $color3;
@@ -225,7 +223,7 @@
 
       .owner {
         color: #376644;
-  
+
         &:hover {
           text-decoration: underline;
           transition: .3s;
@@ -234,13 +232,131 @@
 
       .v-btn-card {
         color: $color4;
-        
+
         transition: .3s;
 
-          &:hover {
-            color: #AD4949;
-          }
+        &:hover {
+          color: #AD4949;
+        }
       }
     }
   }
 }
+
+/* Mixin para colores en cards de solicitudes */
+@mixin colorByCategory($color1, $color2, $color3, $color4, $color5, $color6, $color7, $color8, $color9, $color10, $color11) {
+
+  .book-card {
+    background-color: $color11;
+
+      &.misterio {
+        background-color: $color1;
+
+        .v-btn-card{
+          color: $color1;
+          // &:hover{
+            
+          // }
+        }
+      }
+
+      &.fantasia {
+        background-color: $color2;
+
+        .v-btn-card{
+          color: $color2;
+          // &:hover{
+            
+          // }
+        }
+      }
+
+      &.ciencia-ficcion {
+        background-color: $color3;
+
+        .v-btn-card{
+          color: $color3;
+          // &:hover{
+            
+          // }
+        }
+      }
+
+      &.historico {
+        background-color: $color4;
+
+        .v-btn-card{
+          color: $color4;
+          // &:hover{
+            
+          // }
+        }
+      }
+
+      &.biografico {
+        background-color: $color5;
+
+        .v-btn-card{
+          color: $color5;
+          // &:hover{
+            
+          // }
+        }
+      }
+
+      &.filosofia {
+        background-color: $color6;
+
+        .v-btn-card{
+          color: $color6;
+          // &:hover{
+            
+          // }
+        }
+      }
+
+      &.aventura {
+        background-color: $color7;
+
+        .v-btn-card{
+          color: $color7;
+          // &:hover{
+            
+          // }
+        }
+      }
+
+      &.novela {
+        background-color: $color8;
+
+        .v-btn-card{
+          color: $color8;
+          // &:hover{
+            
+          // }
+        }
+      }
+
+      &.novela-negra {
+        background-color: $color9;
+
+        .v-btn-card{
+          color: $color9;
+          // &:hover{
+            
+          // }
+        }
+      }
+
+      &.comics {
+        background-color: $color10;
+
+        .v-btn-card{
+          color: $color10;
+          // &:hover{
+            
+          // }
+        }
+      }
+    }
+  }

@@ -8,6 +8,7 @@ img {
 }
 
 .book-sum {
+  margin-top: 20px;
   font-size: 14px;
   overflow: hidden;
   display: -webkit-box;
@@ -57,7 +58,7 @@ img {
   padding: 30px;
   overflow: hidden;
   position: relative;
-  width:100%;
+  width: 100%;
 }
 
 .book-name {
@@ -121,33 +122,37 @@ img {
 
 /* Estilos para cards de peticiones */
 .book-card.book-card-pet {
-    .card-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-    button {
-        align-self: flex-end;
-        float: right;
-    }
+  button {
+    align-self: flex-end;
+    float: right;
+  }
 
 }
 
 /* Estilos para cards de solicitudes */
 .book-card.book-card-req {
   .card-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .btn-container {
-    display: flex;
-    justify-content: flex-start;
+    position: relative;
+    display: inline;
+
+    .v-btn-card {
+      display: inline;
+    }
 
     .v-btn-card:first-child {
-      margin-right: 24px;
+      margin-right: 16px;
     }
   }
 
@@ -170,6 +175,27 @@ img {
 
     &:active {
       transform: scale(.9)
+    }
+  }
+}
+
+/* Estilos para cards de mis libros */
+.book-card-mybooks {
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .v-btn-card:first-child{
+    margin-right: 16px;
+  }
+
+  .v-btn-card.cancel {
+    color: $color-danger;
+
+    &:hover {
+      color: #AD4949;
     }
   }
 }

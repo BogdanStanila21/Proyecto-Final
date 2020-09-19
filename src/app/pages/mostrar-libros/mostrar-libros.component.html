@@ -1,102 +1,144 @@
-<!-- <div *ngIf="getValor()">
-  <header>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </header>
-  <main>
-    <div class="wrap">
-      <div class="busqueda">
-        <input
-          type="text"
-          class="filtrobusqueda"
-          placeholder="¿Que buscas?"
-          #bookauthor
-        />
-        <button
-          type="submit"
-          class="boton"
-          (click)="mostrarTitleAuthor(bookauthor.value)"
-        >
-          <i class="fa fa-search"></i>
-        </button>
+<!----------------------------------- Carousel ----------------------------------->
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row card-slider">
+        <div class="col-4 card-sliders" *ngFor="let item of bookCarousel1">
+          <div class="book-cards">
+            <div class="book-card" [class]="colorByCategory(item.type)">
+              <div class="content-wrapper">
+                <img src="{{item.photo}}" alt="" class="book-card-img">
+                <div class="card-content">
+                  <div class="book-name">{{item.title}}</div>
+                  <div class="book-by">by <strong>{{item.author}}</strong></div>
+                  <div class="book-sum card-sum">{{item.description}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div id="vacio"></div>
-
-    <ul class="shelf">
-      <li (click)="mostrartype('Misterio')" class="filtro">
-        <span class="label"> <h2>Misterio</h2> </span><span class="top"></span
-        ><span class="left"></span><span class="right"></span>
-      </li>
-      <li (click)="mostrartype('Fantasia')" class="filtro">
-        <span class="label">
-          <h2>Fantasía</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
-      </li>
-      <li (click)="mostrartype('Historico')" class="filtro">
-        <span class="label">
-          <h2>Histórico</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
-      </li>
-      <li (click)="mostrartype('Biografias')" class="filtro">
-        <span class="label">
-          <h2>Biografías</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
-      </li>
-      <li (click)="mostrartype('Literatura y lingüísticos')" class="filtro">
-        <span class="label"> <h2>Literatura</h2> </span><span class="top"></span
-        ><span class="left"></span><span class="right"></span>
-      </li>
-      <li (click)="mostrartype('Aventura y ciencia ficcion')" class="filtro">
-        <span class="label"> <h2>Aventura</h2> </span><span class="top"></span
-        ><span class="left"></span><span class="right"></span>
-      </li>
-      <li (click)="mostrartype('Novela policíaca')" class="filtro">
-        <span class="label"> <h2>Novela</h2> </span><span class="top"></span
-        ><span class="left"></span><span class="right"></span>
-      </li>
-      <li (click)="mostrartype('Distopia')" class="filtro">
-        <span class="label">
-          <h2>Distopía</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
-      </li>
-      <li (click)="mostrartype('Paranormal')" class="filtro">
-        <span class="label"> <h2>Paranormal</h2> </span><span class="top"></span
-        ><span class="left"></span><span class="right"></span>
-      </li>
-      <li (click)="mostrartype('Comic')" class="filtro ultimo">
-        <span class="label">
-          <h2>Cómics</h2>
-        </span><span class="top"></span><span class="left"></span><span class="right"></span>
-      </li>
-      <li (click)="mostrarLibros()" class="filtro ultimo">
-        <span class="label"> <h2>Todos</h2> </span><span class="top"></span
-        ><span class="left"></span><span class="right"></span>
-      </li>
-      <div id="soporte"></div>
-    </ul> -->
-<!-- ------------------------------------------------------------------------------------- -->
-<!-- <div class="bookshelf">
-      <div class="book" *ngFor="let i of book">
-        <div class="oscuro"></div>
-        <div (click)="openModal(info)" class="mas" (click)="getOneBook(i.book_id)">Mas información</div>
-
-        <p class="nombreLibro">{{ i.title }}</p>
-        <img src="{{ i.photo }}" alt=""/>
-        <p>{{ i.title }}</p>
-        
+    <div class="carousel-item">
+      <div class="row card-slider">
+        <div class="col-4 card-sliders" *ngFor="let item of bookCarousel2">
+          <div class="book-cards">
+            <div class="book-card" [class]="colorByCategory(item.type)">
+              <div class="content-wrapper">
+                <img src="{{item.photo}}" alt="" class="book-card-img">
+                <div class="card-content">
+                  <div class="book-name">{{item.title}}</div>
+                  <div class="book-by">by <strong>{{item.author}}</strong></div>
+                  <div class="book-sum card-sum">{{item.description}} </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </main> -->
+    <div class="carousel-item">
+      <div class="row card-slider">
+        <div class="col-4 card-sliders" *ngFor="let item of bookCarousel3">
+          <div class="book-cards">
+            <div class="book-card" [class]="colorByCategory(item.type)">
+              <div class="content-wrapper">
+                <img src="{{item.photo}}" alt="" class="book-card-img">
+                <div class="card-content">
+                  <div class="book-name">{{item.title}}</div>
+                  <div class="book-by">by <strong>{{item.author}}</strong></div>
+                  <div class="book-sum card-sum">{{item.description}} </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!----------------------------------- Menú de filtros----------------------------------->
+<div class="book-store book-store-container">
+  <div class="main-wrapper">
+    <div class="main-menu">
+      <div class="genre">
+        <input type="search" placeholder="Buscar..." class="buscador" name="buscar" [(ngModel)]="buscar">
+      </div>
+      <div class="book-types">
+        <a (click)="mostrarLibros()" class="book-type active"> Todos los géneros</a>
+        <a (click)="mostrartype('Misterio')" class="book-type"> Misterio</a>
+        <a (click)="mostrartype('Fantasia')" class="book-type"> Fantasía</a>
+        <a (click)="mostrartype('Ciencia Ficcion')" class="book-type"> Ciencia Ficción</a>
+        <a (click)="mostrartype('Historico')" class="book-type"> Histórico</a>
+        <a (click)="mostrartype('Biografico')" class="book-type"> Biografico</a>
+        <a (click)="mostrartype('Filosofia')" class="book-type"> Filosofía</a>
+        <a (click)="mostrartype('Aventura')" class="book-type"> Aventura</a>
+        <a (click)="mostrartype('Novela')" class="book-type"> Novela</a>
+        <a (click)="mostrartype('Novela negra')" class="book-type"> Novela negra</a>
+        <a (click)="mostrartype('Comics')" class="book-type"> Comics</a>
+        <a (click)="mostrartype('Otros')" class="book-type"> Otros</a>
+      </div>
+    </div>
+  </div>
+  <!----------------------------------- Cards ----------------------------------->
+  <div class="row ">
+    <div class="book-cards-main col-md-6" *ngFor="let item of book | filtro : buscar">
+      <div class="book-card" [class]="colorByCategory(item.type)">
+        <div class="content-wrapper">
+          <img src="{{item.photo}}" alt="" class="book-card-img-main" (click)="getOneBook(item.book_id)"
+            (click)="openModal(info)">
+          <div class="card-content">
+            <div class="book-name">{{item.title}}</div>
+            <div class="book-by">by <strong>{{item.author}}</strong></div>
+            <div class="book-sum card-sum">{{item.description}} </div>
+            <div>
+              <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(petition)" (click)="getBookUser(oneBook.book_id)">
+                Pedir Libro
+              </button>
+              <button class="v-btn-card" (click)="modalRef.hide()" (click)="openModal(promptFav)" (click)="addFavorito(oneBook.book_id)">
+                Añadir a favoritos
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="card-container book-card-mybooks  col-lg-6 col-md-12 col-sm-12" *ngFor="let item of book | filtro : buscar">
+      <div class="book-card book-card-mybooks">
+        <div class="content-wrapper">
+          <img src="{{ item.photo }}" alt="" class="book-card-img">
+          <div class="card-content">
+            <div class="book-name">{{ item.title }}
+              <div class="book-by">by<strong> {{ item.author }}</strong></div>
+            </div>
+            <div class="book-sum card-sum">{{ item.description }}</div>
+            <div class="btn-container">
+              <button class="v-btn-card" type="button" data-target="#staticBackdrop3" data-toggle="modal">
+                Pedir
+              </button>
+              <button class="v-btn-card" type="button">
+                Añadir a favoritos
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+
 
 <!----------------------------------- Modal para pedir libro ----------------------------------->
-
-
 <div class="main">
-
-
   <ng-template #petition>
     <div class="modal-petition">
       <div class="modal-header">
@@ -105,7 +147,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
       <div class="modal-body">
         <div *ngIf="userbook[0]; else esFalse">
           <h4>Selecciona el usuario del libro</h4>
@@ -168,166 +209,54 @@
       </div>
     </div>
   </ng-template>
-
-<!----------------------------------- Modal para información del libro ----------------------------------->
-  <ng-template #info>
-    <div class="modal-book">
-      <div class="modal-header">
-        <h3 class="modal-title pull-left">{{ oneBook.title }}</h3>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body modal-book-body">
-        <div class="modal-book-top row">
-          <div class="modal-book-info col-8">
-            <div>
-              <p>Autor</p>
-              <p>{{ oneBook.author }}</p>
-            </div>
-            <div>
-              <p>Año de publicacion</p>
-              <p>{{ oneBook.year }}</p>
-            </div>
-            <div>
-              <p>Editorial</p>
-              <p>{{ oneBook.editorial }}</p>
-            </div>
-            <div>
-              <p>Género</p>
-              <p>{{ oneBook.type }}</p>
-            </div>
-          </div>
-          <div class="modal-book-img col-4">
-            <img src="{{ oneBook.photo }}" alt="" />
-          </div>
-        </div>
-        <div class="modal-book-bottom row">
-          <div class="modal-book-desc col-12">
-            <h4>Sinopsis:</h4>
-            <p>{{ oneBook.description }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer modal-book-buttons">
-        <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(petition)"
-          (click)="getBookUser(oneBook.book_id)">Pedir Libro</button>
-        <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(promptFav)"
-          (click)="addFavorito(oneBook.book_id)">Añadir a
-          favoritos</button>
-      </div>
-    </div>
-  </ng-template>
-  <!-- </div> -->
-
-  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="row card-slider">
-          <div class="col-4 card-sliders" *ngFor="let item of bookCarousel1">
-            <div class="book-cards">
-              <div class="book-card" [class]="background(item.type)">
-                <div class="content-wrapper">
-                  <img src="{{item.photo}}" alt="" class="book-card-img">
-                  <div class="card-content">
-                    <div class="book-name">{{item.title}}</div>
-                    <div class="book-by"><strong>by</strong> {{item.author}}</div>
-                    <div class="book-sum card-sum">{{item.description}}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row card-slider">
-          <div class="col-4 card-sliders" *ngFor="let item of bookCarousel2">
-            <div class="book-cards">
-              <div class="book-card" [class]="background(item.type)">
-                <div class="content-wrapper">
-                  <img src="{{item.photo}}" alt="" class="book-card-img">
-                  <div class="card-content">
-                    <div class="book-name">{{item.title}}</div>
-                    <div class="book-by"><strong>by</strong> {{item.author}}</div>
-                    <div class="book-sum card-sum">{{item.description}} </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row card-slider">
-          <div class="col-4 card-sliders" *ngFor="let item of bookCarousel3">
-            <div class="book-cards">
-              <div class="book-card" [class]="background(item.type)">
-                <div class="content-wrapper">
-                  <img src="{{item.photo}}" alt="" class="book-card-img">
-                  <div class="card-content">
-                    <div class="book-name">{{item.title}}</div>
-                    <div class="book-by"><strong>by</strong> {{item.author}}</div>
-                    <div class="book-sum card-sum">{{item.description}} </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-
-  <div class="book-store">
-    <div class="main-wrapper">
-      <div class="popular-books">
-        <div class="main-menu">
-          <div class="genre">
-            <input type="search" placeholder="Buscar..." class="buscador" name="buscar" [(ngModel)]="buscar">
-          </div>
-          <div class="book-types">
-            <a (click)="mostrarLibros()" class="book-type active"> Todos los géneros</a>
-            <a (click)="mostrartype('Misterio')" class="book-type"> Misterio</a>
-            <a (click)="mostrartype('Fantasia')" class="book-type"> Fantasía</a>
-            <a (click)="mostrartype('Ciencia Ficcion')" class="book-type"> Ciencia Ficción</a>
-            <a (click)="mostrartype('Historico')" class="book-type"> Histórico</a>
-            <a (click)="mostrartype('Biografias')" class="book-type"> Biografías</a>
-            <a (click)="mostrartype('Filosofia')" class="book-type"> Filosofía</a>
-            <a (click)="mostrartype('Aventura')" class="book-type"> Aventura</a>
-            <a (click)="mostrartype('Novela')" class="book-type"> Novela</a>
-            <a (click)="mostrartype('Novela Negra')" class="book-type"> Novela Negra</a>
-            <a (click)="mostrartype('Comic')" class="book-type"> Comics</a>
-            <a (click)="mostrartype('Otros')" class="book-type"> Otros</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="book-cards-main col-md-6" *ngFor="let item of book | filtro : buscar"
-        (click)="getOneBook(item.book_id)" (click)="openModal(info)">
-        <div class="book-card" [class]="background(item.type)">
-          <div class="content-wrapper">
-            <img src="{{item.photo}}" alt="" class="book-card-img-main">
-            <div class="card-content">
-              <div class="book-name">{{item.title}}</div>
-              <div class="book-by"><strong>by</strong> {{item.author}}</div>
-              <div class="book-sum card-sum">{{item.description}} </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
 </div>
+<!----------------------------------- Modal para información del libro ----------------------------------->
+<ng-template #info>
+  <div class="modal-book">
+    <div class="modal-header">
+      <h3 class="modal-title pull-left">{{ oneBook.title }}</h3>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body modal-book-body">
+      <div class="modal-book-top row">
+        <div class="modal-book-info col-8">
+          <div>
+            <p>Autor</p>
+            <p>{{ oneBook.author }}</p>
+          </div>
+          <div>
+            <p>Año de publicacion</p>
+            <p>{{ oneBook.year }}</p>
+          </div>
+          <div>
+            <p>Editorial</p>
+            <p>{{ oneBook.editorial }}</p>
+          </div>
+          <div>
+            <p>Género</p>
+            <p>{{ oneBook.type }}</p>
+          </div>
+        </div>
+        <div class="modal-book-img col-4">
+          <img src="{{ oneBook.photo }}" alt="" />
+        </div>
+      </div>
+      <div class="modal-book-bottom row">
+        <div class="modal-book-desc col-12">
+          <h4>Sinopsis:</h4>
+          <p>{{ oneBook.description }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer modal-book-buttons">
+      <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(petition)"
+        (click)="getBookUser(oneBook.book_id)">Pedir Libro</button>
+      <button class="v-btn" (click)="modalRef.hide()" (click)="openModal(promptFav)"
+        (click)="addFavorito(oneBook.book_id)">Añadir a
+        favoritos</button>
+    </div>
+  </div>
+</ng-template>
+<!-- </div> -->

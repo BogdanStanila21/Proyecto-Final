@@ -1,32 +1,38 @@
 <header>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </header>
-<div id="fondo"></div>
-<div class="boton">
-  <button id="botSubirLibro" type="button" data-toggle="modal" data-target="#staticBackdrop2">
-    Subir Libro
-  </button>
-</div>
 
 <div id="wrapper" *ngIf="getValor()" class="container">
-  <!-- ------------------ *ngIf="misLibros!=null"------------------------- -->
-  <div class="row misLibros" *ngIf="misLibros[0]; else noHay">
-    <div *ngFor="let item of misLibros; let i = index" class="col-lg-4 col-md-6 col-sm-12 libro">
-      <div class="contenedor">
-        <div class="foto">
-          <img src="{{ item.photo }}" alt=""/>
+  <div class="boton" *ngIf="misLibros[0];">
+    <button class="v-btn upload" type="button" data-toggle="modal" data-target="#staticBackdrop2">
+      ¡Publica un nuevo libro!
+    </button>
+  </div>
+  <div class="row" *ngIf="misLibros[0]; else noHay">
+    <div class="card-container book-card-mybooks  col-lg-6 col-md-12 col-sm-12" *ngFor="let item of misLibros; let i = index">
+      <div class="book-card book-card-mybooks">
+        <div class="content-wrapper">
+          <img src="{{ item.photo }}" alt="" class="book-card-img">
+          <div class="card-content">
+            <div class="book-name">{{ item.title }}
+              <div class="book-by">by<strong> {{ item.author }}</strong></div>
+            </div>
+            <div class="book-sum card-sum">{{ item.description }}</div>
+            <div class="btn-container">
+            <button class="v-btn-card" type="button" data-target="#staticBackdrop3" data-toggle="modal"
+              (click)="getLibro(item.book_id)">
+              Editar
+            </button>
+            <button class="v-btn-card cancel" type="button" (click)="borrarLibro(item.book_id, i)">
+              Eliminar
+            </button>
+          </div> 
+          </div>
         </div>
-        <p>{{ item.title }}</p>
-        <button class="botonVerde" type="button" data-target="#staticBackdrop3" data-toggle="modal"
-          (click)="getLibro(item.book_id)">
-          Editar
-        </button>
-        <button class="botonRojo" type="button" (click)="borrarLibro(item.book_id, i)">
-          Eliminar
-        </button>
       </div>
     </div>
   </div>
+
   <!--cierra a la clase mis libros-->
 </div>
 <!--cierra a la clase container-->
@@ -52,14 +58,15 @@
             <select name="" id="" #type>
               <option>Misterio</option>
               <option>Fantasía</option>
-              <option>Histórico</option>
-              <option>Biográfico</option>
-              <option>Literatura</option>
+              <option>Ciencia Ficcion</option>
+              <option>Historico</option>
+              <option>Biografico</option>
+              <option>Filosofia</option>
               <option>Aventura</option>
               <option>Novela</option>
-              <option>Distopía</option>
-              <option>Paranormal</option>
-              <option>Cómic</option>
+              <option>Novela negra</option>
+              <option>Comics</option>
+              <option>Otros</option>
             </select>
             <input type="text" placeholder="Foto" #photo />
           </div>
@@ -105,7 +112,19 @@
             <input type="text" value="{{ editarLibro.author }}" #author2 />
             <input type="text" value="{{ editarLibro.year }}" #year2 />
             <input type="text" value="{{ editarLibro.editorial }}" #editorial2 />
-            <input type="text" value="{{ editarLibro.type }}" #type2 />
+            <select name="" id="" #type2>
+              <option>Misterio</option>
+              <option>Fantasía</option>
+              <option>Ciencia Ficcion</option>
+              <option>Historico</option>
+              <option>Biografico</option>
+              <option>Filosofia</option>
+              <option>Aventura</option>
+              <option>Novela</option>
+              <option>Novela negra</option>
+              <option>Comics</option>
+              <option>Otros</option>
+            </select>
             <input type="text" value="{{ editarLibro.photo }}" #photo2 />
             <textarea cols="30" rows="7" value="{{ editarLibro.description }}" #description2></textarea>
           </div>
@@ -132,6 +151,7 @@
 </div>
 
 <ng-template #noHay>
+  
   <div class="beta">
     <nav class="shelf">
       <a class="book home-page"></a>
@@ -143,5 +163,10 @@
       <span class="door right"></span>
     </nav>
     <h1>No tienes ningun libro</h1>
+  </div>
+  <div class="boton">
+    <button  class="v-btn upload" type="button" data-toggle="modal" data-target="#staticBackdrop2">
+      ¡Publica un nuevo libro!
+    </button>
   </div>
 </ng-template>
