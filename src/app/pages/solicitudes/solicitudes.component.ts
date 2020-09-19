@@ -12,7 +12,8 @@ import { BsModalService, BsModalRef } from "ngx-bootstrap";
 export class SolicitudesComponent implements OnInit {
   modalRef: BsModalRef;
   public user: any;
-  public request:any
+  public request:any;
+  public bookUserRequest: any;
   constructor(private modalService: BsModalService, private valor:LoginService, private api:ApisService) { }
 
   // ---------------------------- Método para abrir modal
@@ -75,6 +76,12 @@ export class SolicitudesComponent implements OnInit {
       color = "success";
     }
     return color;
+  }
+// ---------------Funcion para traer los libros de la persona que te pide ------------------//
+  getBookUserRequest(id){
+    return this.api.getBook(id).subscribe((data)=>{
+      this.bookUserRequest = data;
+    })
   }
 
   ngOnInit() {

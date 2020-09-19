@@ -50,9 +50,13 @@ nav {
     padding: 0;
     li {
       float: left;
-      position: relative;
+      position: relative;      
+      min-width: 132px;
+      text-align: center;
       @include breakpoint(mobile) {
         float: initial;
+        text-align: start;
+        width: 100%;
       }
 
       a,
@@ -153,10 +157,10 @@ nav {
   nav {
     width: 100%;
     padding: $nav-height 0 15px;
-
     .nav-list-hidden {
       display: none;
       li {
+        width: 100%;
         float: none;
         a {
           padding: 15px;
@@ -225,4 +229,80 @@ nav {
       transform: translate3d(0, 0, 0);
     }
   }
+}
+
+
+//Dropdown para solicitudes//
+.dropdown {
+  position: relative;
+  display: inline-block;
+ 
+  &:hover{
+    .dropdown-content{
+      // Para ver el contenido
+      display: block;
+      justify-content: flex-end;
+    }
+    .dropbtn{
+      // Como se ve el boton 
+      background-color: $color-primary;
+      color: white;
+      
+    }
+  }
+  
+  .dropbtn{
+    cursor: pointer;
+    padding: 0 20px;
+    line-height: $nav-height;
+    background: $nav-background;
+    color: $color-primary;
+    text-decoration: none;
+    &:hover {
+      background: $color-primary;
+      color: white;
+      transition: 0.4s;
+    }
+    &:after {
+      padding-left: 4px;
+      content: " ▾";
+    }
+  }
+  //El dropdown no se ve por defecto
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;    
+    @include breakpoint(mobile){
+      width: 100%;
+    }
+    li{
+      cursor: pointer;
+      padding: 0 20px;
+      width: 100%;
+      text-align: center;
+      line-height: $nav-height;
+      background: $nav-background;
+      color: $color-primary;
+      text-decoration: none;
+      @include breakpoint(mobile){
+        text-align: start;
+      }  
+      &:hover {
+        background: $color-primary;
+        color: white;
+        transition: 0.4s;
+      }
+    }
+  }
+}
+
+//Estilos para el nav active
+
+.nav-active{
+  background-color: $color-primary !important;
+  color: white !important;
 }

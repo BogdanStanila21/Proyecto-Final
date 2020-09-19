@@ -224,7 +224,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="row card-slider">
-          <div class="col-4 card-sliders" *ngFor="let item of bookCarousel1">
+          <div class="col-4 card-sliders" *ngFor="let item of bookCarousel1" (click)="getOneBook(item.book_id)" (click)="openModal(info)">
             <div class="book-cards">
               <div class="book-card" [class]="background(item.type)">
                 <div class="content-wrapper">
@@ -242,7 +242,7 @@
       </div>
       <div class="carousel-item">
         <div class="row card-slider">
-          <div class="col-4 card-sliders" *ngFor="let item of bookCarousel2">
+          <div class="col-4 card-sliders" *ngFor="let item of bookCarousel2" (click)="getOneBook(item.book_id)" (click)="openModal(info)">
             <div class="book-cards">
               <div class="book-card" [class]="background(item.type)">
                 <div class="content-wrapper">
@@ -260,7 +260,7 @@
       </div>
       <div class="carousel-item">
         <div class="row card-slider">
-          <div class="col-4 card-sliders" *ngFor="let item of bookCarousel3">
+          <div class="col-4 card-sliders" *ngFor="let item of bookCarousel3" (click)="getOneBook(item.book_id)" (click)="openModal(info)">
             <div class="book-cards">
               <div class="book-card" [class]="background(item.type)">
                 <div class="content-wrapper">

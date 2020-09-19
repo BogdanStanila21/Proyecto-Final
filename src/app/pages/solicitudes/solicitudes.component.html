@@ -38,7 +38,7 @@
               <div class="nombreTitular" *ngIf="item.status == 'Pendiente'">
                 A
                 <span class="owner" (click)="openModal(infoUser)"
-                  (click)="getUser(item.user_id)">{{ item.nickname }}</span>
+                  (click)="getUser(item.user_id)" (click)="getBookUserRequest(item.user_id)">{{ item.nickname }}</span>
                 le gustaría leer este libro
               </div>
 
@@ -94,6 +94,9 @@
             <div class="modal-book-desc col-12">
               <h4>Acerca de mí:</h4>
               <p>{{user.aboutYou}}</p>
+            </div>
+            <div *ngFor="let book of bookUserRequest">
+              <img src="{{book.photo}}" alt="">
             </div>
           </div>
         </div>
