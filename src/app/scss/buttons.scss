@@ -30,7 +30,7 @@ button {
   padding: .25em 1.5em;
   border: 2px solid $color-primary;
   border-radius: 20px;
-  transition: .3s;
+  transition: .2s;
 
   &:hover {
     background-color: $color-hover;
@@ -40,18 +40,24 @@ button {
   &:active {
     transform: scale(0.9);
   }
+
+  &.upload {
+    padding: .5em 3em;
+    font-size: 20px;
+    border-radius: 32px;
+  }
 }
 
 /*--------------- Botón para las cards ---------------*/
 .v-btn-card {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: $color-primary;
   background-color: white;
   padding: .25em 1.5em;
   border: 2px solid white;
   border-radius: 20px;
-  transition: .3s;
+  transition: .2s;
 
   &:hover {
     color: $color-hover;

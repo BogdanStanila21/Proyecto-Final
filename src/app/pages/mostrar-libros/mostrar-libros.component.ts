@@ -162,31 +162,31 @@ export class MostrarLibrosComponent implements OnInit {
     });
   }
 
-  background(type){
-    let fondo;
+  colorByCategory(type){
+    let color;
     if(type == 'Misterio'){
-      fondo = 'background1'
+      color = 'misterio'
     }else if(type == 'Fantasia'){
-      fondo = 'background2'
+      color = 'fantasia'
     }else if(type == 'Ciencia Ficcion'){
-      fondo = 'background3'
+      color = 'ciencia-ficcion'
     }else if(type == 'Historico'){
-      fondo = 'background4'
-    }else if(type == 'Biografias'){
-      fondo = 'background5'
+      color = 'historico'
+    }else if(type == 'Biografico'){
+      color = 'biografico'
     }else if(type == 'Filosofia'){
-      fondo = 'background6'
+      color = 'filosofia'
     }else if(type == 'Aventura'){
-      fondo = 'background7'
+      color = 'aventura'
     }else if(type == 'Novela'){
-      fondo = 'background9'
+      color = 'novela'
     }else if(type == 'Novela negra'){
-      fondo = 'background10'
-    }else if(type == 'Comic'){
-      fondo = 'background11'
+      color = 'novela-negra'
+    }else if(type == 'Comics'){
+      color = 'comics'
     }
     
-    return fondo
+    return color
   }
 
   
