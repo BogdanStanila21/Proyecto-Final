@@ -5,14 +5,14 @@ $color-blue: #3494CF;
 $color-dark: #394252;
 $color-secondary: #EB4A2F;
 $color-grey: #c4c4c4;
-$color-grey-dark: #2b2b2b;
+$color-grey-dark: #484848;
 $color-success: #6ECC89;
 $color-warning:#D9C46A;
 $color-danger: #e05e5e;
 
 /* Variables para colores de categoría */
 $color-pie-blue: #84c1cc;
-$color-pie-sky: #A4C3D2;
+$color-pie-sky: #A4C3D2; 
 $color-pie-purple: #cbb5e2;
 $color-pie-orange: #fdca95;
 $color-pie-orange-dark: #e0bfb2;
@@ -32,7 +32,7 @@ $breakpoint: 768px;
 
 // Navigation Variables
 $content-width: 1300px;
-$nav-background: white;
+$nav-background: $color-primary;
 
 /* Control para mixins */
 $backgrounds: true !default;

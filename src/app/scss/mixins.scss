@@ -246,7 +246,7 @@
 /* Mixin para colores en cards de solicitudes */
 @mixin colorByCategory($color1, $color2, $color3, $color4, $color5, $color6, $color7, $color8, $color9, $color10, $color11) {
 
-  .book-card {
+  .book-card, .book-cards.book-carousel .book-card {
     background-color: $color11;
 
       &.misterio {

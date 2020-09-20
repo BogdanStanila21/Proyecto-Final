@@ -61,9 +61,6 @@ export class PerfilComponent implements OnInit {
     
   }
 
-  
-
-
   getValor(){
     return this.valor.getUser();
   }
@@ -76,7 +73,7 @@ export class PerfilComponent implements OnInit {
     })
   }
 
-  editUser(name: string, nickname: string, sex: string, place: string, password: string, email: string, photo:string, aboutYou: string, password2:string){
+  editUser(name: string, nickname: string, place: string, password: string, email: string, photo:string, aboutYou: string, password2:string){
     if(password==""){
       password=password2
     }
@@ -84,7 +81,6 @@ export class PerfilComponent implements OnInit {
     let edit= new Registro;
     edit.name=name;
     edit.nickname=nickname;
-    edit.sex=sex;
     edit.place=place;
     edit.password=password;
     edit.email=email;

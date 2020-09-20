@@ -1,157 +1,96 @@
-// --------------------------------------------------------------------------------       Menu
+@import "../../app.component.scss";
+
 * {
   font-family: "Baloo Paaji 2", cursive;
 }
 
 // --------------------------------------------------------------------------------
-.input {
-  width: 50%;
-  position: relative;
-}
-#input2 {
-  width: 96%;
-  position: relative;
-  margin-top: 0px;
-}
-.input span {
-  position: absolute;
-  top: 53px;
-  left: 215px;
-  color: rgb(224, 91, 91);
-  font-weight: 700;
-}
-#cajafoto {
-  width: 70%;
-  padding: 45px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-}
+.profile-container {
+  min-height: 728px;
+  padding: 64px 0 0;
 
-.cambiarfoto {
-  height: 250px;
-  width: 250px;
-  border-radius: 50%;
-  background-color: white;
-  margin: 0px 40%;
-  contain: content;
-}
-
-#imgPerfil {
-  height: 250px;
-  width: 250px;
-  border-radius: 50%;
-  background: #f2f2f2;
-  margin: 0 auto;
-}
-
-img {
-  height: 100%;
-  width: 100%;
-  size: cover;
-}
-.subirfoto {
-  height: 50px;
-  width: 200px;
-  background-color: #0e99ac;
-  padding: 15px;
-  text-align: center;
-  border-radius: 5px;
-  margin: 0 auto;
-  margin-top: -30%;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  cursor: pointer;
-  transition: 1s;
-  contain: content;
-}
-img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.subirfoto:hover {
-  background-color: #a70eac;
-  transition: 1s;
-}
-.colum {
-  display: flex;
-  flex-wrap: wrap;
-}
-.cambiarperfil {
-  display: flex;
-  flex-wrap: wrap;
-}
-#email {
-  width: 100%;
-}
-#photo {
-  width: 100%;
-}
-input {
-  height: 36px;
-  width: 95%;
-  margin: 3% 2% 2% 2%;
-  text-align: center;
-  background-color: #fffffff1;
-  border: white;
-  color: black;
-}
-select {
-  height: 36px;
-  width: 95%;
-  margin: 2% 2% 0.5% 2%;
-  text-align: center;
-  background-color: #fffffff1;
-  border: white;
-  color: black;
-  text-align-last: center;
-}
-textarea {
-  width: 100%;
-  margin: 2%;
-  text-align: center;
-  padding-top: 50px;
-  height: 150px;
-  background-color: #fffffff1;
-  border: white solid 0.5px;
-  color: black;
-}
-#guardar {
-  height: 36px;
-  width: 250px;
-  background-color:rgba(255, 255, 255, 0.664);
-  border-radius: 5px;
-  margin: 0 auto;
-  color: #38a9b8;
-  font-weight: 500;
-  font-size: 20px;
-  border: 1px solid #38a9b8;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.5s;
-  &:enabled {
-    background-color: #38a9b8;
-    color: rgb(255, 255, 255);
-    border: 2px solid whitesmoke;
+  form {
+    max-width: 928px;
+    min-height: 560px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+      0 6px 10px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
   }
-  &:hover{
-    background-color: rgba(83, 182, 196, 0.767);
-    color:white;
-    transition: 0.5s;
-    width: 300px;
-  }
-}
-#relativo {
-  position: absolute;
-}
 
-#foto {
-  position: absolute;
-  width: 300px;
-  top: 27.8em;
-  left: -20px;
-  color: black;
+  .top-container {
+    display: flex;
+    justify-content: center;
+
+    .left,
+    .right {}
+
+    div.photo {
+      
+      max-width: 120px;
+      max-height: 120px;
+      margin: 0 auto;
+      margin-top: 20px;
+      border-radius: 50%;
+      // border: 2px solid $color-primary;
+      
+      
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid $color-primary;
+        box-shadow: 0 0 5px 0px $color-grey;
+      }
+    }
+  }
+
+  input,
+  textarea,
+  button {
+    margin-top: 16px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: none;
+    padding: 16px;
+    border-bottom: 2px solid $color-primary;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      border-color: $color-hover;
+    }
+  }
+
+  button {
+    margin: 16px 0;
+    font-size: 16px;
+  }
+
+  div.input {
+    position: relative;
+    span {
+      font-size: 12px;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      color: $color-danger;
+    }
+  }
+  
+
+  textarea {
+    resize: none;
+  }
+
+  
 }
-// -------------------------------------------------------------------------------------------------------------

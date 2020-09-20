@@ -14,16 +14,20 @@
   font-family: "Baloo Paaji 2", cursive;
 }
 
-.container {
+.card-container {
   margin: 0 auto;
-  width: 100%;
+  max-width: 1280px;
   padding: 0px 32px 64px 32px;
   min-height: 768px;
   background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 8px 0 8px -4px rgba(136, 136, 136, 0.6), -8px 0 8px -4px rgba(151, 151, 151, 0.6)
+  box-shadow: 8px 0 8px -4px rgba(136, 136, 136, 0.6), -8px 0 8px -4px rgba(151, 151, 151, 0.6);
 }
 
 // ------------------------------------------ Modal estilos generales ------------------------------------------------
+.modal-dialog {
+  margin-top: 10% !important;
+}
+
 .modal-header {
   button {
     transition: .3s;

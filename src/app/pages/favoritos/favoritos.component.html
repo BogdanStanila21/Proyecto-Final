@@ -2,7 +2,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </header>
 
-<div id="wrapper" class="container" *ngIf="getValor()">
+<div id="wrapper" class="card-container" *ngIf="getValor()">
   <div *ngIf="this.fav[0] == undefined" id="vacio">
     <div class="beta">
       <nav class="shelf">
@@ -20,7 +20,7 @@
   </div>
   <!------------------------------------- Cards ---------------------------------------------->
   <div class="row misFavoritos" *ngIf="this.fav">
-    <div class="card-container col-lg-6 col-md-12 col-sm-12" *ngFor="let item of fav; let i = index">
+    <div class="col-lg-6 col-md-12 col-sm-12" *ngFor="let item of fav; let i = index">
       <div class="book-card book-card-fav">
         <div class="content-wrapper">
           <img src="{{ item.photo }}" alt="" class="book-card-img">

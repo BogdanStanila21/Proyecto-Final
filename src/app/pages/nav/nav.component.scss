@@ -1,4 +1,5 @@
 @import "../../app.component.scss";
+
 * {
   font-family: "Baloo Paaji 2", cursive;
 }
@@ -8,7 +9,7 @@
   position: relative;
   z-index: 999;
   height: $nav-height;
-  background: $nav-background;
+  background: $color-primary;
   box-shadow: 0 3px 12px #00000026;
 }
 
@@ -24,17 +25,19 @@
 
   a,
   a:visited {
-    color: $color-primary;
+    color: white;
     text-decoration: none;
   }
 }
+
 img {
   height: 110px;
   position: absolute;
   top: -40px;
-  left: -40px;
+  left: -48px;
   cursor: pointer;
 }
+
 /* Contenedor sin padding */
 .nav-container {
   max-width: $content-width;
@@ -44,15 +47,18 @@ img {
 /* Control principal de la barra de navegación */
 nav {
   float: right;
+
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
+
     li {
       float: left;
-      position: relative;      
+      position: relative;
       min-width: 132px;
       text-align: center;
+
       @include breakpoint(mobile) {
         float: initial;
         text-align: start;
@@ -61,17 +67,20 @@ nav {
 
       a,
       a:visited {
+        font-weight: bold;
         display: block;
         padding: 0 20px;
         line-height: $nav-height;
         background: $nav-background;
-        color: $color-primary;
+        color: white;
         text-decoration: none;
+
         &:hover {
-          background: $color-primary;
+          background: $color-hover;
           color: white;
           transition: 0.4s;
         }
+
         &:not(:only-child):after {
           padding-left: 4px;
           content: " ▾";
@@ -85,6 +94,7 @@ nav {
       /* Lista del dropdown */
       ul li {
         min-width: 190px;
+
         a {
           padding: 15px;
           line-height: 20px;
@@ -92,19 +102,22 @@ nav {
       }
     }
 
-    li:last-child{
+    li:last-child {
+
       a,
-      a:visited{
+      a:visited {
         color: $color-hover;
-        &:hover{
+
+        &:hover {
           background-color: $color-hover;
-          color:white;
+          color: white;
         }
       }
 
     }
   }
 }
+
 .p1:target,
 .p2:target,
 .p3:target,
@@ -112,6 +125,7 @@ nav {
 .p5:target {
   background-color: green;
 }
+
 /* Clases y control para el dropdown */
 .drop-pointer {
   cursor: pointer;
@@ -149,6 +163,7 @@ nav {
 }
 
 @media only screen and (max-width: 767px) {
+
   /* Hamburguesa de la navegación para ver sólo en móvil */
   .nav-mobile {
     display: block;
@@ -157,15 +172,19 @@ nav {
   nav {
     width: 100%;
     padding: $nav-height 0 15px;
+
     .nav-list-hidden {
       display: none;
+
       li {
         width: 100%;
         float: none;
+
         a {
           padding: 15px;
           line-height: 20px;
         }
+
         ul li a {
           padding-left: 30px;
         }
@@ -215,15 +234,18 @@ nav {
   }
 
   &.active span {
+
     // background-color: transparent;
     &:before,
     &:after {
       top: 0;
     }
+
     &:before {
       //   transform: rotate(45deg);
       transform: translate3d(0, 0, 0);
     }
+
     &:after {
       //   transform: rotate(-45deg);
       transform: translate3d(0, 0, 0);
@@ -236,61 +258,69 @@ nav {
 .dropdown {
   position: relative;
   display: inline-block;
- 
-  &:hover{
-    .dropdown-content{
+  font-weight: bold;
+
+  &:hover {
+    .dropdown-content {
       // Para ver el contenido
       display: block;
       justify-content: flex-end;
     }
-    .dropbtn{
+
+    .dropbtn {
       // Como se ve el boton 
       background-color: $color-primary;
       color: white;
-      
+
     }
   }
-  
-  .dropbtn{
+
+  .dropbtn {
     cursor: pointer;
     padding: 0 20px;
     line-height: $nav-height;
     background: $nav-background;
-    color: $color-primary;
+    color: white;
     text-decoration: none;
+
     &:hover {
-      background: $color-primary;
+      background: $color-hover;
       color: white;
       transition: 0.4s;
     }
+
     &:after {
       padding-left: 4px;
       content: " ▾";
     }
   }
+
   //El dropdown no se ve por defecto
   .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;    
-    @include breakpoint(mobile){
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
+    @include breakpoint(mobile) {
       width: 100%;
     }
-    li{
+
+    li {
       cursor: pointer;
       padding: 0 20px;
       width: 100%;
       text-align: center;
       line-height: $nav-height;
-      background: $nav-background;
       color: $color-primary;
       text-decoration: none;
-      @include breakpoint(mobile){
+
+      @include breakpoint(mobile) {
         text-align: start;
-      }  
+      }
+
       &:hover {
         background: $color-primary;
         color: white;
@@ -302,7 +332,7 @@ nav {
 
 //Estilos para el nav active
 
-.nav-active{
-  background-color: $color-primary !important;
+.nav-active {
+  background-color: $color-hover !important;
   color: white !important;
 }

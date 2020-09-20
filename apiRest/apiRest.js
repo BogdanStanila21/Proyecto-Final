@@ -91,14 +91,13 @@ app.put("/user",(request,response)=>{
     let myUser=new Array(
         request.body.name,
         request.body.nickname,
-        request.body.sex,
         request.body.place,
         request.body.password,
         request.body.email,
         request.body.photo, 
         request.body.aboutYou,        
         request.body.user_id);
-    sql="UPDATE user SET name=?, nickname=?, sex=?, place=?, password=?, email=?, photo=?, aboutYou=? WHERE user_id=?"
+    sql="UPDATE user SET name=?, nickname=?, place=?, password=?, email=?, photo=?, aboutYou=? WHERE user_id=?"
     connection.query(sql,myUser,(err,result)=>{
         if(err){
             console.log(err);
