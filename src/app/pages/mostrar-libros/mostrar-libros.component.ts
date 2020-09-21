@@ -182,8 +182,10 @@ export class MostrarLibrosComponent implements OnInit {
       color = 'novela'
     }else if(type == 'Novela negra'){
       color = 'novela-negra'
-    }else if(type == 'Comics'){
+    }else if(type == 'Comic'){
       color = 'comics'
+    }else if(type == 'Otros'){
+      color = 'otros'
     }
     
     return color

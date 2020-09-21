@@ -8,6 +8,7 @@ import { BsModalService, BsModalRef } from "ngx-bootstrap";
   templateUrl: './peticiones.component.html',
   styleUrls: ['./peticiones.component.scss']
 })
+
 export class PeticionesComponent implements OnInit {
   modalRef: BsModalRef;
   public datosPeticion: object[] = [];

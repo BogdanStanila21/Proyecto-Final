@@ -27,15 +27,26 @@
     display: flex;
     justify-content: center;
 
-    .left,
-    .right {}
+    .left, .right {
+      .input:first-child, .input:last-child{
+        width: 384px;
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      .input {
+        align-self: flex-end;
+        width: 100%;
+      }
+    }
 
     div.photo {
-      
       max-width: 120px;
       max-height: 120px;
       margin: 0 auto;
-      margin-top: 20px;
+      margin-top: 80px;
       border-radius: 50%;
       // border: 2px solid $color-primary;
       
@@ -81,8 +92,8 @@
     span {
       font-size: 12px;
       position: absolute;
-      top: 80px;
-      left: 0;
+      top: 36px;
+      left: 248px;
       color: $color-danger;
     }
   }

@@ -3,9 +3,7 @@
 
 
 /*------------------------------------- Mixin para colores de las cards -------------------------------------*/
-@include colorByCategory ($color-pie-pink, $color-pie-fucsia, $color-pie-salmon, $color-pie-red,
-  $color-pie-lime, $color-pie-green, $color-pie-orange-dark, $color-pie-orange,
-  $color-pie-purple, $color-pie-sky, $color-pie-blue);
+
 
 * {
   outline: none;
@@ -14,101 +12,33 @@
 
 /*------------------------------ Estilos para carousel ------------------------------ */
 .carousel-control-prev {
-  width: 80px;
+  width: 72px;
+  height: 232px;
 
 }
 
 .carousel-control-next {
-  width: 80px;
+  width: 72px;
+  height: 232px;
+}
+
+.carousel-inner{
+  margin-top: 16px;
+  padding: 0 16px 0 16px;
 }
 
 .card-sliders {
-  padding: 0px;
+  padding: 0px 8px 0 8px;
 }
 
 .card-slider {
-  padding: 0 20px;
+  padding: 0 8px;
 }
 
-/*------------------------------ Estilos para las cards del carousel ------------------------------ */
-.book-cards.book-carousel {
-  padding-bottom: 40px;
-  padding-top: 0;
-  position: relative;
 
-
-  .book-card {
-    margin-top: 0;
-    height: 240px;
-    width: 100%;
-    box-shadow: -1px 3px 8px -1px rgba(0, 0, 0, 0.1);
-    border-radius: 1px;
-    display: flex;
-    flex-direction: column;
-    padding: 0 0 10px 10px;
-    background-color: $color-pie-blue;
-    ;
-  }
-
-  .content-wrapper {
-    display: flex;
-    //border-bottom: 1px solid #ebedef;
-    position: relative;
-  }
-
-  .book-card-img {
-    width: 160px;
-    height: 250px;
-    margin-top: 25px;
-    border-radius: 5px;
-    box-shadow: 0px 1px 7px 2px #c7c9d3;
-    border-bottom: 1px solid #dcddde;
-    object-fit: cover;
-    margin-bottom: 20px;
-    transition: .3s ease;
-
-    &:hover {
-      transform: scale(1.04);
-    }
-  }
-
-  .card-content {
-    color: white;
-    padding: 30px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .book-name {
-    font-size: 22px;
-    font-weight: 500;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .book-sum {
-    margin-top: 20px;
-    font-size: 14px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-  }
-
-  .book-by {
-    font-size: 13px;
-    margin-top: 4px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-}
 
 /*----------------------- Contenedor de la book store -----------------------------*/
 /* Estilos para menú de filtros */
-
-
 .main-menu {
   display: flex;
   justify-content: space-between;
@@ -116,7 +46,7 @@
   font-size: 16px;
   min-width: 1280px;
   white-space: nowrap;
-  padding: 0 8px 16px;
+  padding: 0 40px 16px 16px;
   border-bottom: 1px solid $color-grey;
   position: sticky;
   top: 0;
@@ -152,79 +82,82 @@
       bottom: -20px;
       right: 0;
       color: $color-primary;
-      background-color: #67d4ea;
-      box-shadow: 0px -2px 5px 0px #67d4ea;
+      background-color: $color-primary;
+      box-shadow: 0px -2px 5px 0px $color-primary;
     }
   }
 
   &:nth-child(2):before {
     width: 49px;
-    background-color: #edb9d6;
-    box-shadow: 0px -3px 5px 0px #edb9d6;
+    background-color: $color-pie-sky;
+    box-shadow: 0px -3px 5px 0px $color-pie-sky;
   }
 
   &:nth-child(3):before {
     width: 50px;
-    background-color: #84c1cc;
-    box-shadow: 0px -2px 5px 0px #84c1cc;
+    background-color:  $color-pie-green;
+    box-shadow: 0px -2px 5px 0px  $color-pie-green;
   }
 
   &:nth-child(4):before {
     width: 89px;
-    background-color: #cbb5e2;
-    box-shadow: 0px -2px 5px 0px #cbb5e2;
+    background-color:  $color-pie-purple;
+    box-shadow: 0px -2px 5px 0px  $color-pie-purple;
   }
 
   &:nth-child(5):before {
     width: 54px;
-    background-color: #fdca95;
-    box-shadow: 0px -3px 5px 0px #fdca95;
+    background-color:  $color-pie-brown;
+    box-shadow: 0px -3px 5px 0px  $color-pie-brown;
   }
 
   &:nth-child(6):before {
-    width: 62px;;
-    background-color: #94dbc1;
-    box-shadow: 0px -3px 5px 0px #94dbc1;
+    width: 62px;
+    ;
+    background-color:  $color-pie-orange;
+    box-shadow: 0px -3px 5px 0px  $color-pie-orange;
   }
 
   &:nth-child(7):before {
     width: 51px;
-    background-color: #e0bfb2;
-    box-shadow: 0px -2px 5px 0px #e0bfb2;
+    background-color:  $color-pie-blue;
+    box-shadow: 0px -2px 5px 0px  $color-pie-blue;
   }
 
   &:nth-child(8):before {
     width: 54px;
-    background-color: #FFB9B3;
-    box-shadow: 0px -3px 5px 0px #FFB9B3;
+    background-color:  $color-pie-lime;
+    box-shadow: 0px -3px 5px 0px  $color-pie-lime;
   }
 
   &:nth-child(9):before {
     width: 41px;
-    background-color: #CAA7BD;
-    box-shadow: 0px -3px 5px 0px #CAA7BD;
+    background-color:  $color-pie-pink;
+    box-shadow: 0px -3px 5px 0px  $color-pie-pink;
   }
 
   &:nth-child(10):before {
-    width: 78px;;
-    background-color: #FFB9C4;
-    box-shadow: 0px -3px 5px 0px #FFB9C4;
+    width: 78px;
+    ;
+    background-color:  $color-pie-grey;
+    box-shadow: 0px -3px 5px 0px  $color-pie-grey;
   }
 
   &:nth-child(11):before {
     width: 43px;
-    background-color: #A4C3D2;
-    box-shadow: 0px -3px 5px 0px #A4C3D2;
+    background-color:  $color-pie-fucsia;
+    box-shadow: 0px -3px 5px 0px  $color-pie-fucsia;
   }
 
   &:nth-child(12):before {
-    width: 34px;;
-    background-color: #31e49f;
-    box-shadow: 0px -2px 5px 0px #31e49f;
+    width: 34px;
+    ;
+    background-color:  $color-pie-other;
+    box-shadow: 0px -2px 5px 0px  $color-pie-other;
 
     &:active {
-      background-color: #31e49f;
-      box-shadow: 0px -2px 5px 0px #31e49f;
+      background-color:  $color-pie-other;
+      box-shadow: 0px -2px 5px 0px  $color-pie-other;
     }
   }
 }
@@ -235,27 +168,53 @@
   max-width: 1280px;
   flex-direction: column;
   margin: 0 auto;
-  overflow: hidden;
+  margin-bottom: 158px;
+  position: sticky;
+  top: -24px;
+  z-index: 20;
   //  box-shadow: 0px 2px 50px 10px rgba(0, 0, 0, 0.21);
+}
+
+/* ------------------------ Estilos para barra de filtros -------------------------------*/
+.main-wrapper {
+  width: 100%;
+  max-height: 128px;
+  display: flex;
+  flex-grow: 1;
+  margin-top: 16px;
+  padding-top: 80px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 45%, rgba(255, 255, 255, 0) 100%);
+  overflow: hidden;
+  
+  // linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%)
 }
 
 .home-card-container {
   min-height: 400px;
   padding: 0px 32px 64px;
   background-color: rgba(255, 255, 255, 0.9);
+  overflow-y: scroll;
+  max-height: 800px;
+  min-height: 440px;
   // box-shadow: 8px 0 8px -4px rgba(136, 136, 136, 0.6), -8px 0 8px -4px rgba(151, 151, 151, 0.6);
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+  }
+  
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $color-primary;
+  }
 }
 
-.main-wrapper {
-  width: 100%;
-  max-height: 128px;
-  ;
-  display: flex;
-  flex-grow: 1;
-  padding-top: 80px;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
-  overflow: hidden;
-}
+
 
 .popular-books {
   flex-grow: 1;
@@ -269,22 +228,318 @@
 }
 
 .buscador {
+  font-size: 14px;
   border: none;
-
-
+  border-bottom: 2px solid $color-grey;
   padding: 8px 16px;
-  width: 176px;
-  transition: 0.2s;
+  width: 104px;
+  transition: 0.4s;
 
   &:hover {
-    border-bottom: 1px solid $color-grey;
+    border-color: $color-pie-blue;
   }
 
   &:focus {
-    border: 1px solid $color-grey;
-    border-radius: 30px;
+    border: 2px solid $color-pie-blue;
+    width: 256px;
+    border-radius: 50px;
   }
 }
+
+/* --------------------------------------------- Colores para cards de book-store ---------------------------*/
+.book-card,
+.book-cards.book-carousel .book-card {
+  background-color: $color-pie-blue;
+
+  .v-btn {
+    // background-color: $color-pie-blue-hover;
+    margin-right: 16px;
+
+    &:hover {
+      color: $color-primary;
+      background-color: white;
+      border-color: white;
+    }
+  }
+
+  .v-btn-card {
+    color: $color-primary;
+
+    &:hover {
+      color: white;
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+
+  &.misterio {
+    background-color: $color-pie-sky;
+
+    .v-btn {
+      background-color: $color-pie-sky-hover;
+      border-color: $color-pie-sky-hover;
+
+      &:hover {
+        color: $color-pie-sky-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-sky-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-sky-hover;
+        border-color: $color-pie-sky-hover;
+      }
+    }
+  }
+
+  &.fantasia {
+    background-color: $color-pie-green;
+
+    .v-btn {
+      background-color: $color-pie-green-hover;
+      border-color: $color-pie-green-hover;
+
+      &:hover {
+        color: $color-pie-green-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-green-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-green-hover;
+        border-color: $color-pie-green-hover;
+      }
+    }
+  }
+
+  &.ciencia-ficcion {
+    background-color: $color-pie-purple;
+    .v-btn {
+      background-color: $color-pie-purple-hover;
+      border-color: $color-pie-purple-hover;
+
+      &:hover {
+        color: $color-pie-purple-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-purple-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-purple-hover;
+        border-color: $color-pie-purple-hover;
+      }
+    }
+  }
+
+  &.historico {
+    background-color: $color-pie-brown;
+    .v-btn {
+      background-color: $color-pie-brown-hover;
+      border-color: $color-pie-brown-hover;
+
+      &:hover {
+        color: $color-pie-brown-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-brown-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-brown-hover;
+        border-color: $color-pie-brown-hover;
+      }
+    }
+  }
+
+  &.biografico {
+    background-color: $color-pie-orange;
+    .v-btn {
+      background-color: $color-pie-orange-hover;
+      border-color: $color-pie-orange-hover;
+
+      &:hover {
+        color: $color-pie-orange-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-orange-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-orange-hover;
+        border-color: $color-pie-orange-hover;
+      }
+    }
+  }
+
+  &.filosofia {
+    background-color: $color-pie-blue;
+    .v-btn {
+      background-color: $color-pie-blue-hover;
+      border-color: $color-pie-blue-hover;
+
+      &:hover {
+        color: $color-pie-blue-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-blue-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-blue-hover;
+        border-color: $color-pie-blue-hover;
+      }
+    }
+  }
+
+  &.aventura {
+    background-color: $color-pie-lime;
+    .v-btn {
+      background-color: $color-pie-lime-hover;
+      border-color: $color-pie-lime-hover;
+
+      &:hover {
+        color: $color-pie-lime-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-lime-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-lime-hover;
+        border-color: $color-pie-lime-hover;
+      }
+    }
+  }
+
+  &.novela {
+     background-color: $color-pie-pink;
+    .v-btn {
+      background-color: $color-pie-pink-hover;
+      border-color: $color-pie-pink-hover;
+
+      &:hover {
+        color: $color-pie-pink-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-pink-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-pink-hover;
+        border-color: $color-pie-pink-hover;
+      }
+    }
+  }
+
+  &.novela-negra {
+    background-color: $color-pie-grey;
+    .v-btn {
+      background-color: $color-pie-grey-hover;
+      border-color: $color-pie-grey-hover;
+
+      &:hover {
+        color: $color-pie-grey-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-grey-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-grey-hover;
+        border-color: $color-pie-grey-hover;
+      }
+    }
+  }
+
+  &.comics {
+    background-color: $color-pie-fucsia;
+    .v-btn {
+      background-color: $color-pie-fucsia-hover;
+      border-color: $color-pie-fucsia-hover;
+
+      &:hover {
+        color: $color-pie-fucsia-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-fucsia-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-fucsia-hover;
+        border-color: $color-pie-fucsia-hover;
+      }
+    }
+  }
+
+  &.otros {
+    background-color: $color-pie-other;
+    .v-btn {
+      background-color: $color-pie-other-hover;
+      border-color: $color-pie-other-hover;
+
+      &:hover {
+        color: $color-pie-other-hover;
+        background-color: white;
+        border-color: white;
+      }
+    }
+
+    .v-btn-card {
+      color: $color-pie-other-hover;
+  
+      &:hover {
+        color: white;
+        background-color: $color-pie-other-hover;
+        border-color: $color-pie-other-hover;
+      }
+    }
+  }
+}
+
+
 
 // // ------------------------------------------ Modal info libro ------------------------------------------------
 ng-template {

@@ -82,54 +82,18 @@ img {
   border-radius: 5px;
 }
 
-.botonVerde {
-  height: 30px;
-  width: 190px;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-  margin-bottom: 10px;
-  padding-top: 2px;
-  color: black;
-  font-size: 15px;
-  border: 1px solid #e2a026;
-  transition: 0.5s;
-  &:hover {
-    background-color: #e2a026;
-    color: white;
-    border: 1px solid white;
-  }
-}
-.botonRojo {
-  height: 30px;
-  width: 190px;
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0);
-  border-radius: 5px;
-  text-align: center;
-  margin-bottom: 10px;
-  padding-top: 2px;
-  color: black;
-  font-size: 15px;
-  border: 1px solid rgb(245, 98, 98);
-  transition: 0.5s;
-  &:hover {
-    background-color: rgb(245, 98, 98);
-    color: white;
-    border: 1px solid rgb(255, 255, 255);
-  }
-}
+
 .boton {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 32px;
 }
 
 input,
 select {
   margin: 2%;
-  border-radius: 5px;
+  border-radius: 4px;
   width: 100%;
-  height: 30px;
+  padding: 4px 8px;
 }
 
 .flex {

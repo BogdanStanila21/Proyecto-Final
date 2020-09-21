@@ -4,6 +4,12 @@
   font-family: "Baloo Paaji 2", cursive;
 }
 
+section {
+  position: sticky;
+    top: 0;
+    z-index: 30;
+}
+
 // Outer navigation wrapper
 .navigation {
   position: relative;

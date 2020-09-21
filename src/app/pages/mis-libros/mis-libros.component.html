@@ -51,10 +51,10 @@
       <div class="modal-body">
         <div class="flex">
           <div class="izq row">
-            <input type="text" placeholder="título" #title/>
-            <input type="text" placeholder="autor" #author/>
-            <input type="text" placeholder="año de publicación" #year />
-            <input type="text" placeholder="editorial" #editorial />
+            <input type="text" placeholder="Título..." #title/>
+            <input type="text" placeholder="Autor" #author/>
+            <input type="text" placeholder="Año de publicación" #year />
+            <input type="text" placeholder="Editorial" #editorial />
             <select name="" id="" #type>
               <option>Misterio</option>
               <option>Fantasia</option>
@@ -63,12 +63,12 @@
               <option>Biografico</option>
               <option>Filosofia</option>
               <option>Aventura</option>
-              <option>Novela</option>
+              <option>Romantico</option>
               <option>Novela negra</option>
-              <option>Comics</option>
+              <option>Comic</option>
               <option>Otros</option>
             </select>
-            <input type="text" placeholder="Foto" #photo/>
+            <input type="text" placeholder="Enlace de la foto" #photo/>
           </div>
           <div class="imagen"></div>
         </div>
@@ -111,9 +111,9 @@
               <option>Biografico</option>
               <option>Filosofia</option>
               <option>Aventura</option>
-              <option>Novela</option>
+              <option>Romantico</option>
               <option>Novela negra</option>
-              <option>Comics</option>
+              <option>Comic</option>
               <option>Otros</option>
             </select>
             <input type="text" value="{{ editarLibro.photo }}" #photo2 />
