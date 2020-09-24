@@ -31,9 +31,7 @@ export class MostrarLibrosComponent implements OnInit {
   getValor() {
     return this.valor.getUser();
   }
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
+  
   //Mostrar libros
   mostrarLibros() {
     this.api.getLibros().subscribe((data: MostrarLibros[]) => {
@@ -41,6 +39,7 @@ export class MostrarLibrosComponent implements OnInit {
       console.log(data)
     });
   }
+  
   mostrarLibrosCarousel() {
     this.api.getLibros().subscribe((data: MostrarLibros[]) => {
       this.bookCarousel=data
@@ -49,6 +48,7 @@ export class MostrarLibrosComponent implements OnInit {
       this.bookCarousel3 = this.bookCarousel2.splice(0,3);
     });
   }
+
   mostrartype(type) {
     this.api.gettype(type).subscribe((data: MostrarLibros[]) => {
       this.book = data;
@@ -162,6 +162,10 @@ export class MostrarLibrosComponent implements OnInit {
     });
   }
 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
   colorByCategory(type){
     let color;
     if(type == 'Misterio'){
@@ -178,8 +182,8 @@ export class MostrarLibrosComponent implements OnInit {
       color = 'filosofia'
     }else if(type == 'Aventura'){
       color = 'aventura'
-    }else if(type == 'Novela'){
-      color = 'novela'
+    }else if(type == 'Romantico'){
+      color = 'romantico'
     }else if(type == 'Novela negra'){
       color = 'novela-negra'
     }else if(type == 'Comic'){

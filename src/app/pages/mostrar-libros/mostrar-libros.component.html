@@ -7,7 +7,8 @@
           <div class="book-cards book-carousel">
             <div class="book-card book-card" [class]="colorByCategory(item.type)">
               <div class="content-wrapper">
-                <img src="{{item.photo}}" alt="" class="book-card-img">
+                <img src="{{item.photo}}" alt="" class="book-card-img" (click)="getOneBook(item.book_id)"
+              (click)="openModal(info)">
                 <div class="card-content">
                   <div class="book-name">{{item.title}}</div>
                   <div class="book-by">by <strong>{{item.author}}</strong></div>
@@ -25,7 +26,8 @@
           <div class="book-cards book-carousel">
             <div class="book-card" [class]="colorByCategory(item.type)">
               <div class="content-wrapper">
-                <img src="{{item.photo}}" alt="" class="book-card-img">
+                <img src="{{item.photo}}" alt="" class="book-card-img" (click)="getOneBook(item.book_id)"
+              (click)="openModal(info)">
                 <div class="card-content">
                   <div class="book-name">{{item.title}}</div>
                   <div class="book-by">by <strong>{{item.author}}</strong></div>
@@ -43,7 +45,8 @@
           <div class="book-cards book-carousel">
             <div class="book-card book-card" [class]="colorByCategory(item.type)">
               <div class="content-wrapper">
-                <img src="{{item.photo}}" alt="" class="book-card-img">
+                <img src="{{item.photo}}" alt="" class="book-card-img" (click)="getOneBook(item.book_id)"
+              (click)="openModal(info)">
                 <div class="card-content">
                   <div class="book-name">{{item.title}}</div>
                   <div class="book-by">by <strong>{{item.author}}</strong></div>
@@ -82,7 +85,7 @@
         <button (click)="mostrartype('Biografico')" class="book-type"> Biografico</button>
         <button (click)="mostrartype('Filosofia')" class="book-type"> Filosofía</button>
         <button (click)="mostrartype('Aventura')" class="book-type"> Aventura</button>
-        <button (click)="mostrartype('Romantico')" class="book-type"> Novela</button>
+        <button (click)="mostrartype('Romantico')" class="book-type"> Romantico</button>
         <button (click)="mostrartype('Novela negra')" class="book-type"> Novela negra</button>
         <button (click)="mostrartype('Comic')" class="book-type"> Comics</button>
         <button (click)="mostrartype('Otros')" class="book-type"> Otros</button>
@@ -95,7 +98,7 @@
       <div class="book-cards  col-lg-6 col-md-12 col-sm-12" *ngFor="let item of book | filtro : buscar">
         <div class="book-card book-card-store" [class]="colorByCategory(item.type)">
           <div class="content-wrapper">
-            <img src="{{ item.photo }}" alt="" class="book-card-img" (click)="getOneBook(item.book_id)"
+            <img src="{{ item.photo }}" alt="" class="book-card-img"  (click)="getOneBook(item.book_id)"
               (click)="openModal(info)">
             <div class="card-content">
               <div class="book-name">{{ item.title }}
@@ -103,8 +106,8 @@
               </div>
               <div class="book-sum card-sum">{{ item.description }}</div>
               <div>
-                <button class="v-btn" (click)="getOneBook(item.book_id)" (click)="openModal(petition)"
-                  (click)="getBookUser(oneBook.book_id)">Pedir Libro</button>
+                <button class="v-btn" (click)="getOneBook(item.book_id)" (click)="getBookUser(oneBook.book_id)" 
+                (click)="openModal(petition)">Pedir Libro</button>
                 <button class="v-btn-card" (click)="getOneBook(item.book_id)" (click)="openModal(promptFav)"
                   (click)="addFavorito(item.book_id)">
                   Añadir a favoritos
@@ -133,7 +136,7 @@
         <div *ngIf="userbook[0]; else esFalse">
           <h4>Selecciona el usuario del libro</h4>
           <select name="libro" #elegido>
-            <option value="{{item.user_id}}" *ngFor="let item of userbook"><b>Nick: {{ item.nickname }} -</b>
+            <option value="{{item.user_id}}" *ngFor="let item of userbook"><b>Nombre: {{ item.nickname }}  - </b>
               Ubicación: {{ item.place }}</option>
           </select>
           <button class="v-btn" (click)="modalRef.hide()" (click)="postPeticion(elegido.value)"

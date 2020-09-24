@@ -35,6 +35,9 @@
   padding: 0 8px;
 }
 
+.carousel-fade {
+  margin-bottom: 32px;
+}
 
 
 /*----------------------- Contenedor de la book store -----------------------------*/
@@ -79,7 +82,7 @@
       position: absolute;
       width: 107px;
       height: 2px;
-      bottom: -20px;
+      bottom: -24px;
       right: 0;
       color: $color-primary;
       background-color: $color-primary;
@@ -113,7 +116,6 @@
 
   &:nth-child(6):before {
     width: 62px;
-    ;
     background-color:  $color-pie-orange;
     box-shadow: 0px -3px 5px 0px  $color-pie-orange;
   }
@@ -131,7 +133,7 @@
   }
 
   &:nth-child(9):before {
-    width: 41px;
+    width: 64.81px;
     background-color:  $color-pie-pink;
     box-shadow: 0px -3px 5px 0px  $color-pie-pink;
   }
@@ -168,10 +170,6 @@
   max-width: 1280px;
   flex-direction: column;
   margin: 0 auto;
-  margin-bottom: 158px;
-  position: sticky;
-  top: -24px;
-  z-index: 20;
   //  box-shadow: 0px 2px 50px 10px rgba(0, 0, 0, 0.21);
 }
 
@@ -181,40 +179,26 @@
   max-height: 128px;
   display: flex;
   flex-grow: 1;
-  margin-top: 16px;
-  padding-top: 80px;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 45%, rgba(255, 255, 255, 0) 100%);
+  padding-top: 20px;
+  background: white;
   overflow: hidden;
+  border-top: 4px solid $color-grey;
+  position: sticky;
+  top: 58px;
+  z-index: 20;
   
   // linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%)
 }
 
 .home-card-container {
-  min-height: 400px;
   padding: 0px 32px 64px;
   background-color: rgba(255, 255, 255, 0.9);
-  overflow-y: scroll;
-  max-height: 800px;
-  min-height: 440px;
+  min-height: calc(100vh - 216px) !important;
+  // overflow-y: scroll;
+  // max-height: 744px;
+  // min-height: 744px;
   // box-shadow: 8px 0 8px -4px rgba(136, 136, 136, 0.6), -8px 0 8px -4px rgba(151, 151, 151, 0.6);
-
-  &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #F5F5F5;
-  }
-  
-  &::-webkit-scrollbar {
-    width: 10px;
-    background-color: #F5F5F5;
-  }
-  
-  &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: $color-primary;
-  }
 }
-
-
 
 .popular-books {
   flex-grow: 1;
@@ -442,7 +426,7 @@
     }
   }
 
-  &.novela {
+  &.romantico {
      background-color: $color-pie-pink;
     .v-btn {
       background-color: $color-pie-pink-hover;
