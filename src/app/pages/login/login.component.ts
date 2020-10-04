@@ -86,7 +86,6 @@ export class LoginComponent implements OnInit {
       { validators: passValidation.matchPass }
     );
   }
-
   // onSubmit() {
   //   console.log(this.loginForm.value)
   // }

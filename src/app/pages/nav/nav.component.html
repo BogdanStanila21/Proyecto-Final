@@ -30,7 +30,7 @@
         <li class="dropdown">
           <div class="dropbtn" [class]="navActivePerfil">{{userName}}</div>
           <div class="dropdown-content">
-            <li routerLink="perfil" (click)="desactiveNav()" (click)="activeNavPerfil()">Editar perfil</li>
+            <li routerLink="perfil" routerLinkActive="nav-active" (click)="desactiveNav()" (click)="activeNavPerfil()">Editar perfil</li>
             <li (click)="cerrarSesion()">Cerrar sesión</li>
           </div>
         </li>
