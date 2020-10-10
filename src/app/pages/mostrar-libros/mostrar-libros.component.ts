@@ -7,6 +7,9 @@ import { MostrarLibros } from "src/app/models/mostrar-libros";
 import { MostrarLibrosService } from "src/app/service/mostrar-libros.service";
 import { Favorites } from "./../../models/favorites";
 import { Data } from 'ngx-bootstrap/positioning/models';
+import { FunctionCall } from '@angular/compiler';
+
+declare let  webkitSpeechRecognition: any;
 
 @Component({
   selector: "app-mostrar-libros",
@@ -26,6 +29,9 @@ export class MostrarLibrosComponent implements OnInit {
   public bookId:number;
   public oneBook:any;
   public buscar:string = '';
+
+  speechRecognition =new webkitSpeechRecognition();
+
   constructor(private modalService: BsModalService, private valor:LoginService, private api: ApisService) {}
 
   getValor() {
@@ -193,6 +199,27 @@ export class MostrarLibrosComponent implements OnInit {
     }
     
     return color
+  }
+
+  escuchando(){
+    this.speechRecognition.lang = 'es-ES';
+
+    this.speechRecognition.start();
+    
+    this.speechRecognition.onstart = ()=>{
+      console.log("grabando")
+    }
+
+  
+    this.speechRecognition.onspeechend = ()=>{
+      console.log("deja de grabar")
+      this.speechRecognition.stop();
+    }
+  
+
+    this.speechRecognition.onresult = (event)=>{
+      console.log(event.results[0][0]);
+    }
   }
 
   
